@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ActionPrep from './action_prep'
+import StackedWorkerSpot from './stacked_worker_spot'
 import './preparations_board.css'
 
 export default class PreparationsBoard extends React.Component {
   static propTypes = {
-    G: PropTypes.any.isRequired,
+    preparations: PropTypes.any.isRequired,
   }
 
   render() {
@@ -20,36 +20,36 @@ export default class PreparationsBoard extends React.Component {
         <tbody>
           <tr>
             <td>
-              July
-              <ActionPrep state={this.props.G.preparations.july} />
+              <div>July</div>
+              <StackedWorkerSpot workers={this.props.preparations.july} />
             </td>
             <td>
-              August
-              <ActionPrep state={this.props.G.preparations.august} />
+              <div>August</div>
+              <StackedWorkerSpot workers={this.props.preparations.august} />
             </td>
             <td>
-              September
-              <ActionPrep state={this.props.G.preparations.september} />
+              <div>September</div>
+              <StackedWorkerSpot workers={this.props.preparations.september} />
             </td>
             <td>
-              October
-              <ActionPrep state={this.props.G.preparations.october} />
+              <div>October</div>
+              <StackedWorkerSpot workers={this.props.preparations.october} />
             </td>
             <td>
-              January
-              <ActionPrep state={this.props.G.preparations.january} />
+              <div>January</div>
+              <StackedWorkerSpot workers={this.props.preparations.january} />
             </td>
             <td>
-              February
-              <ActionPrep state={this.props.G.preparations.february} />
+              <div>February</div>
+              <StackedWorkerSpot workers={this.props.preparations.february} />
             </td>
             <td>
-              March
-              <ActionPrep state={this.props.G.preparations.march} />
+              <div>March</div>
+              <StackedWorkerSpot workers={this.props.preparations.march} />
             </td>
             <td>
-              April
-              <ActionPrep state={this.props.G.preparations.april} />
+              <div>April</div>
+              <StackedWorkerSpot workers={this.props.preparations.april} />
             </td>
           </tr>
         </tbody>

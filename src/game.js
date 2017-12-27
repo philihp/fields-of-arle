@@ -8,7 +8,7 @@ export default Game({
   G: {
     actions: {
       summer: {
-        fisherman: _,
+        fisherman: R,
         grocer: _,
         woolWeaver: _,
         colonist: _,
@@ -45,7 +45,7 @@ export default Game({
     round: 1, //odd are summer, even are winter, 1-9
     preparations: {
       july: {
-        hi: R,
+        hi: _,
         lo: Y
       },
       august: {

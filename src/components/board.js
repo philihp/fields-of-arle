@@ -16,8 +16,8 @@ export default class Board extends React.Component {
       <main>
         <h1>Fields of Arle</h1>
         <div>Round: {this.props.G.round}</div>
-        <ActionsBoard G={this.props.G} />
-        <PreparationsBoard G={this.props.G} />
+        <ActionsBoard actions={this.props.G.actions} />
+        <PreparationsBoard preparations={this.props.G.preparations} />
       </main>
     );
   }
