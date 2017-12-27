@@ -1,0 +1,11 @@
+/* $lightgreen: #b2df8a;
+$darkgreen: #33a02c; */
+
+.PreparationsBoard,
+.PreparationsBoard td,
+.PreparationsBoard th {
+  border-collapse: collapse;
+  border: 1px solid #33a02c;
+  margin: 0px;
+  padding: 3px;
+}

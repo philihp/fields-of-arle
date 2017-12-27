@@ -83,6 +83,7 @@ export default Game({
     placeWorker(G, ctx, id) {
       let newState = {...G};
       newState.round++;
+      debugger;
       return newState
     }
   },

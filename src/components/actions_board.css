@@ -1,0 +1,12 @@
+
+/* $lightblue: #a6cee3;
+$darkblue: #1f78b4; */
+
+.ActionsBoard,
+.ActionsBoard td,
+.ActionsBoard th {
+  border-collapse: collapse;
+  border: 1px solid #1f78b4;
+  margin: 0px;
+  padding: 3px;
+}

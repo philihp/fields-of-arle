@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ActionsBoard from './actions_board';
+import PreparationsBoard from './preparations_board';
 
 export default class Board extends React.Component {
   static propTypes = {
@@ -12,8 +14,10 @@ export default class Board extends React.Component {
   render() {
     return (
       <main>
-        <h3>Summer</h3>
-
+        <h1>Fields of Arle</h1>
+        <div>Round: {this.props.G.round}</div>
+        <ActionsBoard G={this.props.G} />
+        <PreparationsBoard G={this.props.G} />
       </main>
     );
   }
