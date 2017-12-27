@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WorkerSpot from './worker_spot'
 
 export default class StackedWorkerSpot extends React.Component {
   static propTypes = {

@@ -1,0 +1,15 @@
+/* $lightgreen: #b2df8a;
+$darkgreen: #33a02c; */
+
+.ToolTrack {
+  width: 100%;
+}
+
+.ToolTrack,
+.ToolTrack > tbody > tr > td,
+.ToolTrack > thead > tr > th {
+  border-collapse: collapse;
+  border: 1px solid #c2b8d1;
+  margin: 0px;
+  padding: 3px;
+}

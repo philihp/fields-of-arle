@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WorkerSpot from './worker_spot';
+import ToolTrack from './tool_track';
 import './actions_board.css'
 
 export default class ActionsBoard extends React.Component {
   static propTypes = {
     actions: PropTypes.any.isRequired,
+    tools: PropTypes.any.isRequired,
   }
 
   render() {
@@ -24,7 +26,10 @@ export default class ActionsBoard extends React.Component {
               <div>Fisherman</div>
               <WorkerSpot worker={this.props.actions.summer.fisherman} />
             </td>
-            <td colSpan="2">Fish Traps</td>
+            <td colSpan="2">
+              <div>Fish Traps</div>
+              <ToolTrack values={[2,3,4,5,6]} track={this.props.tools.fishTraps} />
+            </td>
             <td></td>
             <td>
               <div>Peat Boatman</div>
@@ -37,7 +42,10 @@ export default class ActionsBoard extends React.Component {
               <WorkerSpot worker={this.props.actions.summer.grocer} />
             </td>
             <td></td>
-            <td colSpan="2">Fleshing Beams</td>
+            <td colSpan="2">
+              <div>Fleshing Beams</div>
+              <ToolTrack values={[3,5,6]} track={this.props.tools.fleshingBeams} />
+            </td>
             <td>
               <div>Tanner</div>
               <WorkerSpot worker={this.props.actions.winter.tanner} />
@@ -48,7 +56,10 @@ export default class ActionsBoard extends React.Component {
               <div>Wool Weaver</div>
               <WorkerSpot worker={this.props.actions.summer.woolWeaver} />
             </td>
-            <td colSpan="3">Weaving Looms</td>
+            <td colSpan="3">
+              <div>Weaving Looms</div>
+              <ToolTrack values={[2,3,4,5]} track={this.props.tools.weavingLooms} />
+            </td>
             <td>
               <div>Linen Weaver</div>
               <WorkerSpot worker={this.props.actions.winter.linenWeaver} />
@@ -60,7 +71,10 @@ export default class ActionsBoard extends React.Component {
               <WorkerSpot worker={this.props.actions.summer.colonist} />
             </td>
             <td></td>
-            <td colSpan="2">Slaughtering Tables</td>
+            <td colSpan="2">
+              <div>Slaughtering Tables</div>
+              <ToolTrack values={[2,3,4]} track={this.props.tools.slaughteringTables} />
+            </td>
             <td>
               <div>Butcher</div>
               <WorkerSpot worker={this.props.actions.winter.butcher} />
@@ -71,7 +85,10 @@ export default class ActionsBoard extends React.Component {
               <div>Peat Cutter</div>
               <WorkerSpot worker={this.props.actions.summer.peatCutter} />
             </td>
-            <td colSpan="2">Spades</td>
+            <td colSpan="2">
+              <div>Spades</div>
+              <ToolTrack values={[3,5,7]} track={this.props.tools.spades} />
+            </td>
             <td></td>
             <td>
               <div>Cattle Trader</div>
@@ -83,7 +100,10 @@ export default class ActionsBoard extends React.Component {
               <div>Dike Builder</div>
               <WorkerSpot worker={this.props.actions.summer.dikeBuilder} />
             </td>
-            <td colSpan="2" rowSpan="2">Shovel Pairs</td>
+            <td colSpan="2" rowSpan="2">
+              <div>Shovel Pairs</div>
+              <ToolTrack values={[1,2,2,3]} secondaryValues={[3,4,5,6]} track={this.props.tools.shovelPairs} />
+            </td>
             <td></td>
             <td>
               <div>Grocer</div>
@@ -107,7 +127,10 @@ export default class ActionsBoard extends React.Component {
               <WorkerSpot worker={this.props.actions.summer.farmer} />
             </td>
             <td></td>
-            <td colSpan="2">Pottery Wheels</td>
+            <td colSpan="2">
+              <div>Pottery Wheels</div>
+              <ToolTrack values={[2,3,4]} track={this.props.tools.potteryWheels} />
+            </td>
             <td>
               <div>Potter</div>
               <WorkerSpot worker={this.props.actions.winter.potter} />
@@ -119,7 +142,10 @@ export default class ActionsBoard extends React.Component {
               <WorkerSpot worker={this.props.actions.summer.forester} />
             </td>
             <td></td>
-            <td colSpan="2">Ovens</td>
+            <td colSpan="2">
+              <div>Ovens</div>
+              <ToolTrack values={[1,2,3,4]} track={this.props.tools.ovens} />
+            </td>
             <td>
               <div>Baker</div>
               <WorkerSpot worker={this.props.actions.winter.baker} />
@@ -130,7 +156,10 @@ export default class ActionsBoard extends React.Component {
               <div>Woodcutter</div>
               <WorkerSpot worker={this.props.actions.summer.woodcutter} />
             </td>
-            <td colSpan="2">Axes</td>
+            <td colSpan="2">
+              <div>Axes</div>
+              <ToolTrack values={[3,4,5,6]} track={this.props.tools.axes} />
+            </td>
             <td></td>
             <td>
               <div>Wood Trader</div>
@@ -142,7 +171,10 @@ export default class ActionsBoard extends React.Component {
               <div>Master</div>
               <WorkerSpot worker={this.props.actions.summer.master} />
             </td>
-            <td colSpan="3">Workbenches</td>
+            <td colSpan="3">
+              <div>Workbenches</div>
+              <ToolTrack values={[2,3,4]} track={this.props.tools.workbenches} />
+            </td>
             <td>
               <div>Master</div>
               <WorkerSpot worker={this.props.actions.winter.master} />

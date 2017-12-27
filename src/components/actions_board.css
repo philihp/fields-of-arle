@@ -10,8 +10,8 @@ $darkblue: #1f78b4; */
   border-spacing: 0px;
 }
 
-.ActionsBoard td,
-.ActionsBoard th {
+.ActionsBoard > tbody > tr > td,
+.ActionsBoard > thead > tr > th {
   border: 1px solid #1f78b4;
   margin: 0px;
   padding: 3px;

@@ -42,6 +42,18 @@ export default Game({
         laborer: _,
       }
     },
+    tools: {
+      fishTraps: [ 0, 0 ],
+      fleshingBeams: [ 0, 0 ],
+      weavingLooms: [ 0, 0 ],
+      slaughteringTables: [ 0, 0 ],
+      spades: [ 0, 0 ],
+      shovelPairs: [ 0, 0 ],
+      potteryWheels: [ 0, 0 ],
+      ovens: [ 0, 0 ],
+      axes: [ 0, 0 ],
+      workbenches: [ 0, 0 ],
+    },
     round: 1, //odd are summer, even are winter, 1-9
     preparations: {
       july: {
