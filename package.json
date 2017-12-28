@@ -5,8 +5,10 @@
   "homepage": "https://philihp.github.io/fields-of-arle",
   "dependencies": {
     "boardgame.io": "^0.13.1",
+    "bootstrap": "^3.3.7",
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
