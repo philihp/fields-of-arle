@@ -15,7 +15,6 @@ export default class Board extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <h1>Fields of Arle</h1>
         <RoundBoard round={this.props.G.round} />
         <PreparationsBoard preparations={this.props.G.preparations} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />

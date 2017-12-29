@@ -3,6 +3,11 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+general:
+  branches:
+    ignore:
+      - gh-pages
+
 jobs:
   build:
     docker:
@@ -34,7 +39,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      #- run: yarn test
 
-
+      # deploy
+      - run: git config user.email "philihp@gmail.com"
+      - run: git config user.name "Circle CI"
+      - run: npm run deploy
+      #- run: npm run build
+      #- run: ./.circleci/deploy.sh build
 
