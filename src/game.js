@@ -5,7 +5,7 @@ const Y = 'Y'
 const _ = null
 
 export default Game({
-  G: {
+  setup: () => ({
     round: 1, //half-years; odd are summer, even are winter, 1-9
     month: 'jun',
     actions: {
@@ -90,7 +90,7 @@ export default Game({
         lo: _
       },
     },
-  },
+  }),
 
   moves: {
     placeWorker(G, ctx, id) {
