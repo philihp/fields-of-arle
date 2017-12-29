@@ -8,3 +8,8 @@ This is an implementation of Fields of Arle to play online. It takes the followi
 
     Red = 0
     Yellow = 1
+
+## Phase Progression
+
+    * Month is the real counter. Work phase is 4 months in summer, 4 months in year.
+    * Round is basically half-years

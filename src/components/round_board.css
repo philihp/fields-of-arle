@@ -2,17 +2,17 @@
 /* $lightblue: #a6cee3;
 $darkblue: #1f78b4; */
 
-.ActionsBoard > tbody > tr > td,
-.ActionsBoard > thead > tr > th {
-  border: 1px solid #b2cfe2;
+.RoundBoard > tbody > tr > td,
+.RoundBoard > thead > tr > th {
+  border: 1px solid #e2cfb2;
   margin: 0px;
   padding: 3px;
 }
 
-.ActionsBoard {
+.RoundBoard {
   table-layout: fixed;
   border-collapse: collapse;
-  border: 1px solid #b2cfe2;
+  border: 1px solid #e2cfb2;
   border-spacing: 0px;
   margin: 10px 0;
 }

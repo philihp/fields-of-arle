@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StackedWorkerSpot from './stacked_worker_spot'
-import './preparations_board.css'
+import PreparationMonth from './preparation_month';
+import './preparations_board.css';
 
 export default class PreparationsBoard extends React.Component {
   static propTypes = {
@@ -9,6 +9,16 @@ export default class PreparationsBoard extends React.Component {
   }
 
   render() {
+    let months = [
+      ['Jul','july'],
+      ['Aug','august'],
+      ['Sep','september'],
+      ['Oct','october'],
+      ['Jan','january'],
+      ['Feb','february'],
+      ['Mar','march'],
+      ['Apr','april'],
+    ]
     return (
       <table className="PreparationsBoard">
         <thead>
@@ -19,38 +29,13 @@ export default class PreparationsBoard extends React.Component {
         </thead>
         <tbody>
           <tr>
-            <td>
-              <div>July</div>
-              <StackedWorkerSpot workers={this.props.preparations.july} />
-            </td>
-            <td>
-              <div>August</div>
-              <StackedWorkerSpot workers={this.props.preparations.august} />
-            </td>
-            <td>
-              <div>September</div>
-              <StackedWorkerSpot workers={this.props.preparations.september} />
-            </td>
-            <td>
-              <div>October</div>
-              <StackedWorkerSpot workers={this.props.preparations.october} />
-            </td>
-            <td>
-              <div>January</div>
-              <StackedWorkerSpot workers={this.props.preparations.january} />
-            </td>
-            <td>
-              <div>February</div>
-              <StackedWorkerSpot workers={this.props.preparations.february} />
-            </td>
-            <td>
-              <div>March</div>
-              <StackedWorkerSpot workers={this.props.preparations.march} />
-            </td>
-            <td>
-              <div>April</div>
-              <StackedWorkerSpot workers={this.props.preparations.april} />
-            </td>
+            {
+              months.map((v,i) =>
+                <td key={i}>
+                  <PreparationMonth month={v[0]} workers={this.props.preparations[v[1]]} />
+                </td>
+              )
+            }
           </tr>
         </tbody>
         <tfoot>

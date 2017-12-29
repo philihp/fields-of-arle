@@ -6,9 +6,11 @@ const _ = null
 
 export default Game({
   G: {
+    round: 1, //half-years; odd are summer, even are winter, 1-9
+    month: 'jun',
     actions: {
       summer: {
-        fisherman: R,
+        fisherman: _,
         grocer: _,
         woolWeaver: _,
         colonist: _,
@@ -54,10 +56,9 @@ export default Game({
       axes: [ 0, 0 ],
       workbenches: [ 0, 0 ],
     },
-    round: 1, //odd are summer, even are winter, 1-9
     preparations: {
       july: {
-        hi: _,
+        hi: R,
         lo: Y
       },
       august: {

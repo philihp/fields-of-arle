@@ -1,12 +1,17 @@
 /* $lightgreen: #b2df8a;
 $darkgreen: #33a02c; */
 
+
 .PreparationsBoard,
 .PreparationsBoard > thead > tr > th,
 .PreparationsBoard > tbody > tr > td,
 .PreparationsBoard > tfoot > tr > th {
   border-collapse: collapse;
-  border: 1px solid #33a02c;
+  border: 1px solid #9ccf98;
   margin: 0px;
   padding: 3px;
+}
+
+.PreparationsBoard {
+  margin: 10px 0;
 }

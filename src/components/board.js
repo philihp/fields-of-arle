@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RoundBoard from './round_board';
 import ActionsBoard from './actions_board';
 import PreparationsBoard from './preparations_board';
 
@@ -13,12 +14,12 @@ export default class Board extends React.Component {
 
   render() {
     return (
-      <main>
+      <div className="container-fluid">
         <h1>Fields of Arle</h1>
-        <div>Round: {this.props.G.round}</div>
+        <RoundBoard round={this.props.G.round} />
         <PreparationsBoard preparations={this.props.G.preparations} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
-      </main>
+      </div>
     );
   }
 }
