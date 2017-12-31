@@ -95,8 +95,6 @@ export default Game({
   moves: {
     placeWorker(G, ctx, id) {
       let newState = {...G};
-      newState.round++;
-      debugger;
       return newState
     }
   },
