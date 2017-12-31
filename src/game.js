@@ -4,6 +4,62 @@ const R = 'R'
 const Y = 'Y'
 const _ = null
 
+let homeBoard = {
+  startingPlayer: false,
+  travelExperience: 0,
+  wood: 0,
+  timber: 0,
+  clay: 0,
+  brick: 0,
+  linen: 0,
+  wool: 0,
+  leather: 0,
+  land: [
+    [ null, null, null ],
+    [ null, null, null ],
+    [ null, null, null ],
+    [
+      null,
+      null,
+      { type: 'wheat', contents: [] },
+    ],
+    [
+      { type: 'stall', contents: [ 'horse' ] },
+      { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat' ] },
+      { type: 'flax', contents: [] },
+    ],
+    [
+      { type: 'north_moor', contents: [] },
+      { type: 'north_moor', contents: [] },
+      { type: 'north_moor', contents: [] },
+    ],
+    [
+      { type: 'south_moor', contents: [] },
+      { type: 'south_moor', contents: [] },
+      { type: 'south_moor', contents: [] },
+    ],
+  ],
+  dikes: [
+    [ null, null, null ],
+    [ null, null, null ],
+    [
+      { type: 'dike', with: [] },
+      { type: 'dike', with: [] },
+      null
+    ],
+    [
+      { type: 'dike', with: [] },
+      { type: 'dike', with: [] },
+      { type: 'dike', with: [] },
+    ],
+  ]
+}
+
+let redHomeBoard = JSON.parse(JSON.stringify(homeBoard));
+let yellowHomeBoard = JSON.parse(JSON.stringify(homeBoard));
+
+redHomeBoard.startingPlayer = true;
+
 export default Game({
   setup: () => ({
     round: 1, //half-years; odd are summer, even are winter, 1-9
@@ -90,6 +146,10 @@ export default Game({
         lo: _
       },
     },
+    homeBoards: [
+      redHomeBoard,
+      yellowHomeBoard,
+    ]
   }),
 
   moves: {

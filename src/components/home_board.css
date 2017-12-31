@@ -1,0 +1,18 @@
+
+/* $lightblue: #a6cee3;
+$darkblue: #1f78b4; */
+
+.HomeBoard > tbody > tr > td,
+.HomeBoard > thead > tr > th {
+  border: 1px solid #b2cfe2;
+  margin: 0px;
+  padding: 3px;
+}
+
+.HomeBoard {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #b2cfe2;
+  border-spacing: 0px;
+  margin: 10px 0;
+}
