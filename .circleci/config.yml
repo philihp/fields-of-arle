@@ -39,12 +39,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      #- run: yarn test
+      - run: yarn test
 
       # deploy
       - run: git config --global user.email "philihp@gmail.com"
       - run: git config --global user.name "Circle CI"
       - run: npm run deploy
-      #- run: npm run build
-      #- run: ./.circleci/deploy.sh build
 
