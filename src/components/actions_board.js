@@ -169,7 +169,7 @@ export default class ActionsBoard extends React.Component {
           <tr>
             <td>
               <div>Master</div>
-              <WorkerSpot worker={this.props.actions.summer.master} />
+              <WorkerSpot worker={this.props.actions.summer.master}/>
             </td>
             <td colSpan="3">
               <div>Workbenches</div>
