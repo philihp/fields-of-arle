@@ -58,7 +58,6 @@ const homeBoard = {
   ]
 }
 
-
 const initialState = {
   round: 1,
   month: 0, // really this is the index into the preparations array.
@@ -136,12 +135,27 @@ const initialState = {
 
 const actions = (state = initialState, action) => {
   switch(action.type) {
+    case 'endTurn':
+      console.log('end turn');
+      return { ...state,
+        availableMoves: [
+          'woodcutter',
+          'workshop',
+          'master',
+        ],
+      }
     case 'woodcutter':
-      return { ...state, wood: state.wood + 1 }
+      return { ...state,
+        availableMoves: [],
+      }
     case 'workshop':
-      return { ...state, workshop: state.workshop + 1 }
+      return { ...state,
+        availableMoves: [],
+      }
     case 'master':
-      return { ...state, master: state.master + 1 }
+      return { ...state,
+        availableMoves: [],
+      }
     default:
       return state
   }

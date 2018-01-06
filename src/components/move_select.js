@@ -12,14 +12,15 @@ export default class MoveSelect extends React.Component {
 
   constructor(props) {
     super(props);
-    this.explore = this.explore.bind(this);
+    this.action = this.action.bind(this);
   }
 
-  explore(move) {
-    this.props.moves.explore(move);
+  action(move) {
+    this.props.moves.action(move);
   }
 
   endTurn() {
+    this.props.moves.commit();
     this.props.endTurn();
   }
 
@@ -28,7 +29,7 @@ export default class MoveSelect extends React.Component {
       <ButtonToolbar className="MoveSelect">
         <ButtonGroup>
           {this.props.availableMoves.map((move) =>
-            <Button onClick={() => this.explore(move)} key={move}>{move}</Button>
+            <Button onClick={() => this.action(move)} key={move}>{move}</Button>
           )}
         </ButtonGroup>
         <ButtonGroup>
