@@ -5,6 +5,7 @@ import './preparations_board.css';
 
 export default class PreparationsBoard extends React.Component {
   static propTypes = {
+    month: PropTypes.number.isRequired,
     preparations: PropTypes.any.isRequired,
   }
 
@@ -21,11 +22,14 @@ export default class PreparationsBoard extends React.Component {
         <tbody>
           <tr>
             {
-              months.map((v,i) =>
-                <td key={i}>
-                  <PreparationMonth month={v} workers={this.props.preparations[i]} />
-                </td>
-              )
+              months.map((v,i) => {
+                let style = (i === this.props.month) ? {backgroundColor: '#edd'} : {}
+                return (
+                  <td key={i} style={style}>
+                    <PreparationMonth month={v} workers={this.props.preparations[i]} />
+                  </td>
+                )
+              })
             }
           </tr>
         </tbody>

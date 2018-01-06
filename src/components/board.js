@@ -22,7 +22,7 @@ export default class Board extends React.Component {
       <div className="container-fluid">
         <MoveSelect availableMoves={this.props.G.availableMoves} endTurn={this.props.endTurn} moves={this.props.moves} />
         <RoundBoard round={this.props.G.round} />
-        <PreparationsBoard preparations={this.props.G.preparations} />
+        <PreparationsBoard preparations={this.props.G.preparations} month={this.props.G.month} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
 
         {/* <MoveOptionModal G={this.props.G} />

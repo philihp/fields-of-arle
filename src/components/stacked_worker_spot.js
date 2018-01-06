@@ -23,9 +23,21 @@ export default class StackedWorkerSpot extends React.Component {
   }
 
   render() {
-    let hi = this.props.workers[0];
-    let lo = this.props.workers[1];
-
+    var hi, lo;
+    switch(this.props.workers.length) {
+      case 2:
+        hi = this.props.workers[0];
+        lo = this.props.workers[1];
+        break;
+      case 1:
+        hi = null;
+        lo = this.props.workers[0];
+        break;
+      default:
+        hi = null;
+        lo = null;
+        break;
+    }
     return (
       <svg width="40" height="35" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
         { lo !== null && (

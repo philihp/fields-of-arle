@@ -1,3 +1,5 @@
+import { popWorker, bumpMonth } from '../common/'
+
 const homeBoard = {
   travelExperience: 0,
 
@@ -69,10 +71,10 @@ const initialState = {
     [ 0, 1 ],
     [ 0, 1 ],
     [ 0, 1 ],
-    [ null, null ],
-    [ null, null ],
-    [ null, null ],
-    [ null, null ],
+    [ ],
+    [ ],
+    [ ],
+    [ ],
   ],
   actions: {
     summer: {
@@ -136,8 +138,8 @@ const initialState = {
 const actions = (state = initialState, action) => {
   switch(action.type) {
     case 'endTurn':
-      console.log('end turn');
       return { ...state,
+        month: bumpMonth(state),
         availableMoves: [
           'woodcutter',
           'workshop',
@@ -145,16 +147,11 @@ const actions = (state = initialState, action) => {
         ],
       }
     case 'woodcutter':
-      return { ...state,
-        availableMoves: [],
-      }
     case 'workshop':
-      return { ...state,
-        availableMoves: [],
-      }
     case 'master':
       return { ...state,
         availableMoves: [],
+        preparations: popWorker(state)
       }
     default:
       return state
