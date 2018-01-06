@@ -150,6 +150,7 @@ export default function State() {
       yellowHomeBoard,
     ],
     availableMoves: [
+      "woodcutter",
       "workshop",
       "master"
     ]

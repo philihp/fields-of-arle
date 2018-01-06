@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MoveSelect from './move_select';
-import MoveOptionModal from './move_option_modal';
+// import MoveOptionModal from './move_option_modal';
 import RoundBoard from './round_board';
 import ActionsBoard from './actions_board';
 import HomeBoard from './home_board';
@@ -21,11 +21,12 @@ export default class Board extends React.Component {
     return (
       <div className="container-fluid">
         <MoveSelect availableMoves={this.props.G.availableMoves} endTurn={this.props.endTurn} moves={this.props.moves} />
-        <MoveOptionModal G={this.props.G} />
         <RoundBoard round={this.props.G.round} />
         <PreparationsBoard preparations={this.props.G.preparations} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
-        <hr />
+
+        {/* <MoveOptionModal G={this.props.G} />
+        <hr /> */}
         Red Player
         <HomeBoard contents={this.props.G.homeBoards[0]} />
         Yellow Player

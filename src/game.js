@@ -1,14 +1,14 @@
 import Game from 'boardgame.io/game';
-import State from './game/state'
+import store from './game/store'
+import actionCreator from './game/actions/'
 
 export default Game({
-  setup: () => (new State()),
+  setup: () => (store.getState()),
 
   moves: {
     explore(G, ctx, move) {
-      let newState = {...G};
-      console.log('Explored: ', move)
-      return newState
+      store.dispatch(actionCreator(move)());
+      return store.getState()
     }
   },
 

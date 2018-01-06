@@ -9,16 +9,7 @@ export default class PreparationsBoard extends React.Component {
   }
 
   render() {
-    let months = [
-      ['Jul','july'],
-      ['Aug','august'],
-      ['Sep','september'],
-      ['Oct','october'],
-      ['Jan','january'],
-      ['Feb','february'],
-      ['Mar','march'],
-      ['Apr','april'],
-    ]
+    let months = ['Jul','Aug','Sep','Oct','Jan','Feb','Mar','Apr']
     return (
       <table className="PreparationsBoard">
         <thead>
@@ -32,7 +23,7 @@ export default class PreparationsBoard extends React.Component {
             {
               months.map((v,i) =>
                 <td key={i}>
-                  <PreparationMonth month={v[0]} workers={this.props.preparations[v[1]]} />
+                  <PreparationMonth month={v} workers={this.props.preparations[i]} />
                 </td>
               )
             }

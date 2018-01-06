@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from  'react-bootstrap';
+import { Button, ButtonGroup, ButtonToolbar } from  'react-bootstrap';
+import './move_select.css'
 
 export default class MoveSelect extends React.Component {
   static propTypes = {
@@ -11,29 +12,29 @@ export default class MoveSelect extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { selectedMove: '' };
-    this.handleChange = this.handleChange.bind(this);
+    this.explore = this.explore.bind(this);
   }
 
-  explore() {
-    this.props.moves.explore(this.state.selectedMove);
+  explore(move) {
+    this.props.moves.explore(move);
+  }
+
+  endTurn() {
     this.props.endTurn();
-  }
-
-  handleChange(e) {
-    this.setState({ selectedMove: e.target.value });
   }
 
   render() {
     return (
-      <div>
-        <select value={this.state.selectedMove} onChange={this.handleChange}>
-          {this.props.availableMoves.map((v) =>
-            <option key={v}>{v}</option>
+      <ButtonToolbar className="MoveSelect">
+        <ButtonGroup>
+          {this.props.availableMoves.map((move) =>
+            <Button onClick={() => this.explore(move)} key={move}>{move}</Button>
           )}
-        </select>
-        <Button onClick={() => this.explore()}>Explore</Button>
-      </div>
+        </ButtonGroup>
+        <ButtonGroup>
+          <Button bsStyle="primary" onClick={() => this.endTurn()}>End Work Phase</Button>
+        </ButtonGroup>
+      </ButtonToolbar>
     )
   }
 }
