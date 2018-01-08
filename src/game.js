@@ -17,6 +17,14 @@ const game = Game({
     return null
   }
 
+  // flow: {
+  //   endGameIf: (G, ctx) => false,
+  // },
+
+  // phases: [
+
+  // ]
+
 });
 
 export default game;

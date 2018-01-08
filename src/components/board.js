@@ -6,6 +6,7 @@ import MoveSelect from './move_select';
 import ActionsBoard from './actions_board';
 // import HomeBoard from './home_board';
 import PreparationsBoard from './preparations_board';
+import './board.css';
 
 export default class Board extends React.Component {
   static propTypes = {
@@ -19,7 +20,7 @@ export default class Board extends React.Component {
 
   render() {
     return (
-      <div className="container" style={{display: 'inline-block'}}>
+      <div className="container Board">
         {/* <RoundBoard round={this.props.G.round} /> */}
         <PreparationsBoard preparations={this.props.G.preparations} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
