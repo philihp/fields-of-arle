@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MoveSelect from './move_select';
 // import MoveOptionModal from './move_option_modal';
-// import RoundBoard from './round_board';
+import RoundBoard from './round_board';
 import ActionsBoard from './actions_board';
 // import HomeBoard from './home_board';
 import PreparationsBoard from './preparations_board';
@@ -21,7 +21,7 @@ export default class Board extends React.Component {
   render() {
     return (
       <div className="container Board">
-        {/* <RoundBoard round={this.props.G.round} /> */}
+        <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard preparations={this.props.G.preparations} phase={this.props.ctx.phase} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
 

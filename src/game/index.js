@@ -65,6 +65,7 @@
 // }
 
 const initialState = {
+  halfYear: 1,
   preparations: [
     [ 0, 1 ],
     [ 0, 1 ],

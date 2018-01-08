@@ -1,7 +1,5 @@
 import { Game, TurnOrder } from 'boardgame.io/core';
 import initialState from './game/'
-// import actionCreator from './game/actions/'
-// import { endTurn } from './game/actions/end_turn'
 
 const game = Game({
   setup: () => (initialState),
@@ -15,8 +13,8 @@ const game = Game({
   flow: {
     turnOrder: TurnOrder.DEFAULT,
     endGameIf: (G, ctx) => {
-      if(ctx.turn == 9*6 /* 9 half-years, with 6 months each */) {
-        return true;
+      if(G.halfYear === 9 && ctx.phase === 'November') {
+        return 'ended due to rounds';
       }
     },
     phases: [
@@ -53,7 +51,7 @@ const game = Game({
         allowedMoves: ['commit'],
         endPhaseIf: G => true,
         onPhaseBegin: (G, ctx) => G,
-        onPhaseEnd: (G, ctx) => G,
+        onPhaseEnd: (G, ctx) => ({...G, halfYear: G.halfYear+1}),
       },
       {
         name: 'June',
