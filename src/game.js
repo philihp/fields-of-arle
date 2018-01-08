@@ -1,19 +1,15 @@
-import Game from 'boardgame.io/game';
-import store from './game/store'
-import actionCreator from './game/actions/'
-import { endTurn } from './game/actions/end_turn'
+import { Game } from 'boardgame.io/core';
+import initialState from './game/'
+// import actionCreator from './game/actions/'
+// import { endTurn } from './game/actions/end_turn'
 
-export default Game({
-  setup: () => (store.getState()),
+const game = Game({
+  setup: () => (initialState),
 
   moves: {
     commit(G, ctx) {
-      store.dispatch(endTurn());
-      return store.getState();
-    },
-    action(G, ctx, move) {
-      store.dispatch(actionCreator(move)());
-      return store.getState();
+      // store.dispatch(endTurn());
+      return G;
     }
   },
 
@@ -22,3 +18,5 @@ export default Game({
   }
 
 });
+
+export default game;

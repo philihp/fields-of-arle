@@ -21,7 +21,7 @@ export default class ActionsBoard extends React.Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {/* <tr>
             <td>
               <div>Fisherman</div>
               <WorkerSpot worker={this.props.actions.summer.fisherman} />
@@ -150,7 +150,7 @@ export default class ActionsBoard extends React.Component {
               <div>Baker</div>
               <WorkerSpot worker={this.props.actions.winter.baker} />
             </td>
-          </tr>
+          </tr> */}
           <tr>
             <td>
               <div>Woodcutter</div>
