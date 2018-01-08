@@ -22,7 +22,7 @@ export default class Board extends React.Component {
     return (
       <div className="container Board">
         {/* <RoundBoard round={this.props.G.round} /> */}
-        <PreparationsBoard preparations={this.props.G.preparations} />
+        <PreparationsBoard preparations={this.props.G.preparations} phase={this.props.ctx.phase} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
 
         {/* <MoveOptionModal G={this.props.G} />
@@ -31,7 +31,7 @@ export default class Board extends React.Component {
         <HomeBoard contents={this.props.G.homeBoards[0]} />
         Yellow Player
         <HomeBoard contents={this.props.G.homeBoards[0]} /> */}
-        <MoveSelect endTurn={this.props.game.endTurn} moves={this.props.moves} />
+        <MoveSelect game={this.props.game} moves={this.props.moves} />
       </div>
     );
   }

@@ -5,18 +5,20 @@ import './move_select.css'
 
 export default class MoveSelect extends React.Component {
   static propTypes = {
-    endTurn: PropTypes.func.isRequired
+    game: PropTypes.object.isRequired,
+    moves: PropTypes.object.isRequired,
   }
 
-  endTurn() {
-    this.props.endTurn();
+  commit() {
+    this.props.moves.commit();
+    this.props.game.endTurn();
   }
 
   render() {
     return (
       <ButtonToolbar className="MoveSelect">
         <ButtonGroup>
-          <Button bsStyle="primary" onClick={() => this.endTurn()}>End Work Phase</Button>
+          <Button bsStyle="primary" onClick={() => this.commit()}>End Work Phase</Button>
         </ButtonGroup>
       </ButtonToolbar>
     )

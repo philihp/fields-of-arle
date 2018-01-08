@@ -15,3 +15,7 @@ $darkgreen: #33a02c; */
 .PreparationsBoard {
   margin: 10px 0;
 }
+
+.PreparationsBoard .glow {
+  box-shadow: 0px 0 8px #088 inset;
+}
