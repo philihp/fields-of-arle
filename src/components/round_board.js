@@ -7,6 +7,10 @@ export default class RoundBoard extends React.Component {
     round: PropTypes.number.isRequired,
   }
 
+  selectedClass(value) {
+    return (this.props.round === value) ? 'glow' : ''
+  }
+
   render() {
     let rounds = Array.from({length: (9)}, (v, k) => k + 1) // 1..9
     return (
@@ -15,12 +19,7 @@ export default class RoundBoard extends React.Component {
           <tr>
             {rounds.map((v) =>
               (
-                <td key={v}>
-                  {v}<br />
-                  {this.props.round === v && (
-                    <b>X</b>
-                  )}
-                </td>
+                <td key={v} className={this.selectedClass(v)}>{v}</td>
               )
             )}
           </tr>

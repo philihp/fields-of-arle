@@ -20,7 +20,7 @@ export default class Board extends React.Component {
 
   render() {
     return (
-      <div className="container Board">
+      <div className="container Board" style={{marginTop: '0px'}}>
         <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard preparations={this.props.G.preparations} phase={this.props.ctx.phase} />
         <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
