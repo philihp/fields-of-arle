@@ -22,8 +22,8 @@ export default class Board extends React.Component {
     return (
       <div className="container Board" style={{marginTop: '0px'}}>
         <RoundBoard round={this.props.G.halfYear} />
-        <PreparationsBoard preparations={this.props.G.preparations} phase={this.props.ctx.phase} />
-        <ActionsBoard actions={this.props.G.actions} tools={this.props.G.tools} />
+        <PreparationsBoard workerSpaces={this.props.G.workerSpaces} phase={this.props.ctx.phase} />
+        <ActionsBoard workerSpaces={this.props.G.workerSpaces} toolSpaces={this.props.G.toolSpaces} moves={this.props.moves} game={this.props.game} />
 
         {/* <MoveOptionModal G={this.props.G} />
         <hr /> */}

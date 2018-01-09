@@ -5,21 +5,21 @@ import './preparations_board.css';
 
 export default class PreparationsBoard extends React.Component {
   static propTypes = {
-    preparations: PropTypes.any.isRequired,
+    workerSpaces: PropTypes.any.isRequired,
     phase: PropTypes.string,
   }
 
   constructor() {
     super()
     this.monthHash = {
-      July: 'Jul',
-      August: 'Aug',
-      September: 'Sep',
-      October: 'Oct',
-      January: 'Jan',
-      February: 'Feb',
-      March: 'Mar',
-      April: 'Apr'
+      july: 'Jul',
+      august: 'Aug',
+      september: 'Sep',
+      october: 'Oct',
+      january: 'Jan',
+      february: 'Feb',
+      march: 'Mar',
+      april: 'Apr'
     }
   }
 
@@ -32,13 +32,13 @@ export default class PreparationsBoard extends React.Component {
   }
 
   render() {
-    let months = Object.keys(this.monthHash);
+    let months = Object.keys(this.monthHash)
     return (
       <table className="PreparationsBoard">
         <thead>
           <tr>
-            <th colSpan="4" className={this.monthStyle('June')}>June Preparations</th>
-            <th colSpan="4" className={this.monthStyle('December')}>December Preparations</th>
+            <th colSpan="4" className={this.monthStyle('june')}>June Preparations</th>
+            <th colSpan="4" className={this.monthStyle('december')}>December Preparations</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@ export default class PreparationsBoard extends React.Component {
               months.map((v,i) => {
                 return (
                   <td key={i} className={this.monthStyle(v)}>
-                    <PreparationMonth month={this.monthAbbrev(v)} workers={this.props.preparations[i]} />
+                    <PreparationMonth month={this.monthAbbrev(v)} workers={this.props.workerSpaces[v]} />
                   </td>
                 )
               })
@@ -56,8 +56,8 @@ export default class PreparationsBoard extends React.Component {
         </tbody>
         <tfoot>
           <tr>
-            <th colSpan="4" className={this.monthStyle('November')}>November Inventorying</th>
-            <th colSpan="4" className={this.monthStyle('May')}>May Inventorying</th>
+            <th colSpan="4" className={this.monthStyle('november')}>November Inventorying</th>
+            <th colSpan="4" className={this.monthStyle('may')}>May Inventorying</th>
           </tr>
         </tfoot>
       </table>
