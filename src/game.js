@@ -3,8 +3,8 @@ import { Game, TurnOrder } from 'boardgame.io/core'
 // import { pickWorker } from './game/common/'
 import initialState from './game/'
 
-const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
-const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
+// const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
+// const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
 
 const game = Game({
   setup: () => (initialState),
@@ -44,84 +44,84 @@ const game = Game({
       {
         name: 'july',
         allowedMoves: ['commit', 'summerAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'august',
         allowedMoves: ['commit', 'summerAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'september',
         allowedMoves: ['commit', 'summerAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'october',
         allowedMoves: ['commit', 'summerAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'november',
         allowedMoves: ['commit'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => ({...G, halfYear: G.halfYear+1}),
       },
       {
         name: 'december',
         allowedMoves: ['commit'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'january',
         allowedMoves: ['commit', 'winterAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'february',
         allowedMoves: ['commit', 'winterAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'march',
         allowedMoves: ['commit', 'winterAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'april',
         allowedMoves: ['commit', 'winterAction'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },
       {
         name: 'may',
         allowedMoves: ['commit'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => ({...G, halfYear: G.halfYear+1}),
       },
       {
         name: 'june',
         allowedMoves: ['commit'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length == 0,
+        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
       },

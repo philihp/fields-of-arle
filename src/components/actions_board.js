@@ -10,10 +10,13 @@ export default class ActionsBoard extends React.Component {
     toolSpaces: PropTypes.any.isRequired,
     moves: PropTypes.any.isRequired,
     game: PropTypes.any.isRequired,
+    currentPlayer: PropTypes.any.isRequired,
+    phase: PropTypes.string.isRequired,
   }
 
   summerAction(job) {
-    if(this.props.workerSpaces[job] !== null) { return }
+    if(this.props.workerSpaces[job] !== null) return
+    if(this.props.workerSpaces[this.props.phase][0] != this.props.currentPlayer) return
     this.props.moves.summerAction(job);
   }
 
