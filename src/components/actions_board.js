@@ -164,8 +164,7 @@ export default class ActionsBoard extends React.Component {
           <tr>
             <td>
               <div>Woodcutter</div>
-              <WorkerSpot worker={this.props.workerSpaces.woodcutter} />
-              <button onClick={() => this.summerAction('woodcutter')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="woodcutter" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="2">
               <div>Axes</div>
@@ -174,14 +173,13 @@ export default class ActionsBoard extends React.Component {
             <td></td>
             <td>
               <div>Wood Trader</div>
-              <WorkerSpot worker={this.props.workerSpaces.woodTrader} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="woodTrader" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
               <div>Master</div>
-              <WorkerSpot worker={this.props.workerSpaces.summerMaster}/>
-              <button onClick={() => this.summerAction('summerMaster')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="summerMaster" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="3">
               <div>Workbenches</div>
@@ -189,52 +187,48 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td>
               <div>Master</div>
-              <WorkerSpot worker={this.props.workerSpaces.winterMaster} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="winterMaster" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td rowSpan="2">
               <div>Carpenter</div>
-              <WorkerSpot worker={this.props.workerSpaces.summerCarpenter} />
-              <button onClick={() => this.summerAction('summerCarpenter')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="summerCarpenter" workerSpaces={this.props.workerSpaces} />
             </td>
             <td>
               <div>Builder</div>
-              <WorkerSpot worker={this.props.workerSpaces.builder} />
-              <button onClick={() => this.summerAction('builder')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="builder" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td>
               <div>Wainwright</div>
-              <WorkerSpot worker={this.props.workerSpaces.wainwright} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="wainwright" workerSpaces={this.props.workerSpaces} />
             </td>
             <td rowSpan="2">
               <div>Carpenter</div>
-              <WorkerSpot worker={this.props.workerSpaces.winterCarpenter} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="winterCarpenter" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
               <div>Warden</div>
-              <WorkerSpot worker={this.props.workerSpaces.warden} />
-              <button onClick={() => this.summerAction('warden')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="warden" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td>
               <div>Dike Warden</div>
-              <WorkerSpot worker={this.props.workerSpaces.dikeWarden} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="dikeWarden" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td colSpan="2">
               <div>Laborer</div>
-              <WorkerSpot worker={this.props.workerSpaces.summerLaborer} />
-              <button onClick={() => this.summerAction('summerLaborer')}>Use</button>
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="summerLaborer" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td colSpan="2">
               <div>Laborer</div>
-              <WorkerSpot worker={this.props.workerSpaces.winterLaborer} />
+              <WorkerSpot onClick={(job) => this.summerAction(job)} job="winterLaborer" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
         </tbody>
