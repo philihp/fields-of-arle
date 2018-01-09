@@ -16,7 +16,7 @@ export default class ActionsBoard extends React.Component {
 
   summerAction(job) {
     if(this.props.workerSpaces[job] !== null) return
-    if(this.props.workerSpaces[this.props.phase][0] != this.props.currentPlayer) return
+    if(this.props.workerSpaces[this.props.phase][0] !== parseInt(this.props.currentPlayer)) return
     this.props.moves.summerAction(job);
   }
 
