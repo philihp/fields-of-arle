@@ -13,5 +13,5 @@ This is an implementation of Fields of Arle to play online. It takes the followi
 
 ## Phase Progression
 
-    * Month is the real counter. Work phase is 4 months in summer, 4 months in year.
-    * Round is basically half-years
+    Months are Phases in this game.
+      - Don't allow month to go forward if the player still has a worker on the spot
