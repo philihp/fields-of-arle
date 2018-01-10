@@ -10,16 +10,11 @@ export default class MoveSelect extends React.Component {
     disabled: PropTypes.bool.isRequired,
   }
 
-  commit() {
-    this.props.moves.commit();
-    this.props.game.endTurn();
-  }
-
   render() {
     return (
       <ButtonToolbar className="MoveSelect">
         <ButtonGroup>
-          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.commit()}>Next Month</Button>
+          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.props.game.endTurn()}>Next Month</Button>
         </ButtonGroup>
       </ButtonToolbar>
     )
