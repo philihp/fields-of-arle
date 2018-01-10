@@ -1,3 +1,5 @@
+import { summerActionsReset } from './worker_spaces'
+
 // import { createStore } from 'redux'
 // import reducer from './reducers'
 
@@ -66,46 +68,7 @@
 
 const initialState = {
   halfYear: 1,
-  workerSpaces: {
-    july: [ 0, 1 ],
-    august: [ 0, 1 ],
-    september: [ 0, 1 ],
-    october: [ 0, 1 ],
-    january: [ ],
-    february: [ ],
-    march: [ ],
-    april: [ ],
-    // fisherman: null,
-    // grocer: null,
-    // woolWeaver: null,
-    // colonist: null,
-    // peatCutter: null,
-    // dikeBuilder: null,
-    // clayWorker: null,
-    // farmer: null,
-    // forester: null,
-    woodcutter: null,
-    summerMaster: null,
-    summerCarpenter: null,
-    builder: null,
-    warden: null,
-    summerLaborer: null,
-    // peatBoatman: null,
-    // tanner: null,
-    // linenWeaver: null,
-    // butcher: null,
-    // cattleTrader: null,
-    // grocer: null,
-    // buildersMerchant: null,
-    // potter: null,
-    // baker: null,
-    woodTrader: null,
-    winterMaster: null,
-    wainwright: null,
-    dikeWarden: null,
-    winterCarpenter: null,
-    winterLaborer: null,
-  },
+  workerSpaces: summerActionsReset,
   toolSpaces: {
     fishTraps: [ 0, 0 ],
     fleshingBeams: [ 0, 0 ],

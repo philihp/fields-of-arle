@@ -5,6 +5,7 @@ import MoveSelect from './move_select';
 import RoundBoard from './round_board';
 import ActionsBoard from './actions_board';
 // import HomeBoard from './home_board';
+import CurrentPlayer from './current_player';
 import PreparationsBoard from './preparations_board';
 import './board.css';
 
@@ -18,9 +19,21 @@ export default class Board extends React.Component {
     isActive:   PropTypes.bool,
   }
 
+  hasPlacedWorker() {
+    // need to || [], because the November/December/May/June spots are undefined
+    let workersPrepSpot = this.props.G.workerSpaces[this.props.ctx.phase] || []
+    let nextWorkerToPlace = workersPrepSpot[0]
+    let currentPlayer = parseInt(this.props.ctx.currentPlayer, 10);
+    return nextWorkerToPlace !== currentPlayer
+  }
+
   render() {
     return (
       <div className="container Board" style={{marginTop: '0px'}}>
+        <div style={{float: 'left', padding: '14px 10px'}}>
+          <CurrentPlayer currentPlayer={parseInt(this.props.ctx.currentPlayer,10)} />
+        </div>
+
         <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard workerSpaces={this.props.G.workerSpaces} phase={this.props.ctx.phase} />
         <ActionsBoard workerSpaces={this.props.G.workerSpaces} toolSpaces={this.props.G.toolSpaces} moves={this.props.moves} game={this.props.game} currentPlayer={this.props.ctx.currentPlayer} phase={this.props.ctx.phase} />
@@ -31,7 +44,7 @@ export default class Board extends React.Component {
         <HomeBoard contents={this.props.G.homeBoards[0]} />
         Yellow Player
         <HomeBoard contents={this.props.G.homeBoards[0]} /> */}
-        <MoveSelect game={this.props.game} moves={this.props.moves} />
+        <MoveSelect game={this.props.game} moves={this.props.moves} disabled={!this.hasPlacedWorker()} />
       </div>
     );
   }

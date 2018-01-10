@@ -7,6 +7,7 @@ export default class WorkerSpot extends React.Component {
     workerSpaces: PropTypes.any.isRequired,
     job: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
   }
 
   worker() {
@@ -44,7 +45,7 @@ export default class WorkerSpot extends React.Component {
     }
     else {
 			return (
-        <Button bsSize="xsmall" onClick={() => this.props.onClick(this.props.job)}>
+        <Button bsSize="xsmall" disabled={this.props.disabled} onClick={() => this.props.onClick(this.props.job)}>
           Use
         </Button>
       )

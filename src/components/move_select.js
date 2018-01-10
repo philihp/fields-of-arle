@@ -7,6 +7,7 @@ export default class MoveSelect extends React.Component {
   static propTypes = {
     game: PropTypes.object.isRequired,
     moves: PropTypes.object.isRequired,
+    disabled: PropTypes.bool.isRequired,
   }
 
   commit() {
@@ -18,7 +19,7 @@ export default class MoveSelect extends React.Component {
     return (
       <ButtonToolbar className="MoveSelect">
         <ButtonGroup>
-          <Button bsStyle="primary" onClick={() => this.commit()}>End Work Phase</Button>
+          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.commit()}>End Work Phase</Button>
         </ButtonGroup>
       </ButtonToolbar>
     )
