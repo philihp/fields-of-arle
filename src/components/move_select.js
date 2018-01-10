@@ -19,7 +19,7 @@ export default class MoveSelect extends React.Component {
     return (
       <ButtonToolbar className="MoveSelect">
         <ButtonGroup>
-          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.commit()}>End Work Phase</Button>
+          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.commit()}>Next Month</Button>
         </ButtonGroup>
       </ButtonToolbar>
     )
