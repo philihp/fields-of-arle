@@ -38,7 +38,7 @@ const game = Game({
   flow: {
     turnOrder: TurnOrder.DEFAULT,
     endGameIf: (G, ctx) => {
-      if(G.halfYear === 9 && ctx.phase === 'November') {
+      if(G.halfYear === 9 && ctx.phase === 'november') {
         return 'ended due to rounds';
       }
     },
