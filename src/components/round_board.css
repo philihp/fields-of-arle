@@ -17,6 +17,7 @@ $darkblue: #1f78b4; */
   border: 1px solid #e2cfb2;
   border-spacing: 0px;
   margin: 10px 0;
+  width: auto;
 }
 
 .RoundBoard .glow {

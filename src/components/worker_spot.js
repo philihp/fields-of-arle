@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from  'react-bootstrap';
+import { Button } from 'react-materialize'
 
 export default class WorkerSpot extends React.Component {
   static propTypes = {
@@ -45,9 +45,13 @@ export default class WorkerSpot extends React.Component {
     }
     else {
 			return (
-        <Button bsSize="xsmall" disabled={this.props.disabled} onClick={() => this.props.onClick(this.props.job)}>
-          Use
-        </Button>
+        <Button
+          floating
+          waves='light'
+          disabled={this.props.disabled}
+          tooltip="Use worker"
+          onClick={() => this.props.onClick(this.props.job)}
+          />
       )
     }
   }

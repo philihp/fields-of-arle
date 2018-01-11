@@ -29,11 +29,8 @@ export default class Board extends React.Component {
 
   render() {
     return (
-      <div className="container Board" style={{marginTop: '0px'}}>
-        <div style={{float: 'left', padding: '14px 10px'}}>
-          <CurrentPlayer currentPlayer={parseInt(this.props.ctx.currentPlayer,10)} />
-        </div>
-
+      <div className="Board" style={{marginTop: '0px'}}>
+        <CurrentPlayer currentPlayer={parseInt(this.props.ctx.currentPlayer,10)} />
         <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard workerSpaces={this.props.G.workerSpaces} phase={this.props.ctx.phase} />
         <ActionsBoard workerSpaces={this.props.G.workerSpaces} toolSpaces={this.props.G.toolSpaces} moves={this.props.moves} game={this.props.game} currentPlayer={this.props.ctx.currentPlayer} phase={this.props.ctx.phase} />

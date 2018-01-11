@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, ButtonGroup, ButtonToolbar } from  'react-bootstrap';
 import './move_select.css'
+import { Button } from 'react-materialize'
 
 export default class MoveSelect extends React.Component {
   static propTypes = {
@@ -12,11 +12,7 @@ export default class MoveSelect extends React.Component {
 
   render() {
     return (
-      <ButtonToolbar className="MoveSelect">
-        <ButtonGroup>
-          <Button bsStyle="primary" disabled={this.props.disabled} onClick={() => this.props.game.endTurn()}>Next Month</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
+      <Button disabled={this.props.disabled} onClick={() => this.props.game.endTurn()}>Next Month</Button>
     )
   }
 }

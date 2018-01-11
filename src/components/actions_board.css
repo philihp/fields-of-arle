@@ -10,6 +10,7 @@ $darkblue: #1f78b4; */
 }
 
 .ActionsBoard {
+  width: auto;
   table-layout: fixed;
   border-collapse: collapse;
   border: 1px solid #b2cfe2;
