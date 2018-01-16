@@ -9,7 +9,6 @@ export default class ActionsBoard extends React.Component {
     workerSpaces: PropTypes.any.isRequired,
     toolSpaces: PropTypes.any.isRequired,
     moves: PropTypes.any.isRequired,
-    game: PropTypes.any.isRequired,
     currentPlayer: PropTypes.any.isRequired,
     phase: PropTypes.string.isRequired,
     lighthouseUsed: PropTypes.bool.isRequired,

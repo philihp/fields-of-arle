@@ -5,7 +5,7 @@ import { Button } from 'react-materialize'
 
 export default class MoveSelect extends React.Component {
   static propTypes = {
-    game: PropTypes.object.isRequired,
+    events: PropTypes.object.isRequired,
     disabled: PropTypes.bool.isRequired,
   }
 
@@ -15,8 +15,7 @@ export default class MoveSelect extends React.Component {
   }
 
   onClick() {
-    debugger;
-    this.props.game.endTurn()
+    this.props.events.endTurn()
   }
 
   render() {

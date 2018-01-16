@@ -13,7 +13,7 @@ export default class Board extends React.Component {
   static propTypes = {
     G:         PropTypes.any.isRequired,
     ctx:       PropTypes.any.isRequired,
-    game:      PropTypes.any.isRequired,
+    events:    PropTypes.any.isRequired,
     moves:     PropTypes.any.isRequired,
     playerID:  PropTypes.string,
     isActive:   PropTypes.bool,
@@ -49,7 +49,7 @@ export default class Board extends React.Component {
         <HomeBoard contents={this.props.G.homeBoards[0]} />
         Yellow Player
         <HomeBoard contents={this.props.G.homeBoards[0]} /> */}
-        <MoveSelect game={this.props.game} disabled={!this.hasPlacedWorker()} />
+        <MoveSelect events={this.props.events} disabled={!this.hasPlacedWorker()} />
       </div>
     );
   }
