@@ -16,9 +16,9 @@ export default class CurrentPlayer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{display: 'inline-block'}}>
         Current Player&nbsp;
-        <span style={{fontWeight: 'bold', color: this.color(this.props.currentPlayer)}}>{this.props.currentPlayer}</span>
+        <span style={{fontWeight: 'bold', color: this.color(this.props.currentPlayer)}}>{this.props.currentPlayer}</span>&nbsp;
       </div>
     )
   }

@@ -69,6 +69,10 @@ import { summerActionsReset } from './worker_spaces'
 const initialState = {
   halfYear: 1,
   workerSpaces: summerActionsReset,
+  lighthouse: {
+    owner: 0,
+    used: false
+  },
   toolSpaces: {
     fishTraps: [ 0, 0 ],
     fleshingBeams: [ 0, 0 ],
