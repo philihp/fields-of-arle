@@ -49,7 +49,7 @@ export default class Board extends React.Component {
         <HomeBoard contents={this.props.G.homeBoards[0]} />
         Yellow Player
         <HomeBoard contents={this.props.G.homeBoards[0]} /> */}
-        <MoveSelect game={this.props.game} moves={this.props.moves} disabled={!this.hasPlacedWorker()} />
+        <MoveSelect game={this.props.game} disabled={!this.hasPlacedWorker()} />
       </div>
     );
   }
