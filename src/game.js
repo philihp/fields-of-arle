@@ -17,6 +17,12 @@ const recalibrateTurnOrder = {
   first: (G) => G.lighthouse.owner
 }
 
+const lighthouseReset = (lighthouse) => ({
+  used: false,
+  // if lighthouse was not used, swap the owner
+  owner: (lighthouse.used) ? lighthouse.owner : -(lighthouse.owner-1),
+})
+
 const game = Game({
   setup: () => (initialState),
 
@@ -82,16 +88,21 @@ const game = Game({
         allowedMoves: [],
         endPhaseIf: (G, ctx) => true,
         onPhaseBegin: (G, ctx) => G,
-        onPhaseEnd: (G, ctx) => ({...G, halfYear: G.halfYear+1}),
+        onPhaseEnd: (G, ctx) => ({...G,
+          halfYear: G.halfYear+1,
+          lighthouse: lighthouseReset(G.lighthouse),
+        }),
+        turnOrder: recalibrateTurnOrder
       },
       {
         name: 'december',
         allowedMoves: [],
         endPhaseIf: (G, ctx) => true,
         onPhaseBegin: (G, ctx) => ({...G,
-          workerSpaces: winterActionsReset(+ctx.currentPlayer)
+          workerSpaces: winterActionsReset(+G.lighthouse.owner),
         }),
         onPhaseEnd: (G, ctx) => G,
+        turnOrder: recalibrateTurnOrder
       },
       {
         name: 'january',
@@ -130,16 +141,21 @@ const game = Game({
         allowedMoves: [],
         endPhaseIf: (G, ctx) => true,
         onPhaseBegin: (G, ctx) => G,
-        onPhaseEnd: (G, ctx) => ({...G, halfYear: G.halfYear+1}),
+        onPhaseEnd: (G, ctx) => ({...G,
+          halfYear: G.halfYear+1,
+          lighthouse: lighthouseReset(G.lighthouse),
+        }),
+        turnOrder: recalibrateTurnOrder
       },
       {
         name: 'june',
         allowedMoves: [],
         endPhaseIf: (G, ctx) => true,
         onPhaseBegin: (G, ctx) => ({...G,
-          workerSpaces: summerActionsReset(+ctx.currentPlayer)
+          workerSpaces: summerActionsReset(+G.lighthouse.owner),
         }),
         onPhaseEnd: (G, ctx) => G,
+        turnOrder: recalibrateTurnOrder
       },
     ]
   },
