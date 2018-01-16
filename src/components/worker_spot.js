@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-materialize'
+import './worker_spot.css'
 
 export default class WorkerSpot extends React.Component {
   static propTypes = {
     workerSpaces: PropTypes.any.isRequired,
+    label: PropTypes.string,
     job: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
@@ -31,27 +33,34 @@ export default class WorkerSpot extends React.Component {
   }
 
   render() {
+    const label = this.props.label || this.props.job
     if(this.worker() !== null) {
       return (
-        <svg width="40" height="25" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
-          <path d=" M 3 25 V 45 A 47 20 0 0 0 50 65 A 47 20 0 0 0 97 45 V 25"
-            stroke={this.strokeColor()} strokeWidth="3" fill={this.fillColor()}
-            />
-          <ellipse cx="50" cy="25" rx="47" ry="20"
-            stroke={this.strokeColor()} strokeWidth="3" fill={this.fillColor()}
-            />
-        </svg>
+        <div className="WorkerSpot">
+          <svg width="40" height="25" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+            <path d=" M 3 25 V 45 A 47 20 0 0 0 50 65 A 47 20 0 0 0 97 45 V 25"
+              stroke={this.strokeColor()} strokeWidth="3" fill={this.fillColor()}
+              />
+            <ellipse cx="50" cy="25" rx="47" ry="20"
+              stroke={this.strokeColor()} strokeWidth="3" fill={this.fillColor()}
+              />
+          </svg>
+          <div style={{display: 'inline-block'}}>{label}</div>
+        </div>
       )
     }
     else {
 			return (
-        <Button
-          floating
-          waves='light'
-          disabled={this.props.disabled}
-          tooltip="Use worker"
-          onClick={() => this.props.onClick(this.props.job)}
-          />
+        <div className="WorkerSpot">
+          <Button
+            floating
+            waves='light'
+            disabled={this.props.disabled}
+            tooltip="Use worker"
+            onClick={() => this.props.onClick(this.props.job)}
+            />
+          <div style={{display: 'inline-block'}}>{label}</div>
+        </div>
       )
     }
   }
