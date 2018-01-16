@@ -13,12 +13,10 @@ const inventoryingTurnOrder = {
 }
 
 const preparationsTurnOrder = {
-  first: (G) => {
-    return -(+G.lighthouse.owner - 1) // seems weird that we do this, but next is gonna be called
-  },
-  next: (G, ctx) => {
-    return -(+ctx.currentPlayer - 1)
-  },
+  // this feels weird. it feels like it should just be the lighthouse owner...
+  // but something is calling next, which flips the turn back.
+  first: (G) => -(+G.lighthouse.owner - 1),
+  next: (G, ctx) => -(+ctx.currentPlayer - 1),
 }
 
 const actionTurnOrder = {
@@ -33,6 +31,11 @@ const resetPassed = (G, ctx) => ({ ...G,
     0: false,
     1: false,
   }
+})
+
+const endHalfYear = (G, ctx) => ({...G,
+  halfYear: G.halfYear+1,
+  lighthouse: lighthouseReset(G.lighthouse),
 })
 
 const lighthouseReset = (lighthouse) => ({
@@ -117,10 +120,7 @@ const game = Game({
         allowedMoves: ['pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => ({...G,
-          halfYear: G.halfYear+1,
-          lighthouse: lighthouseReset(G.lighthouse),
-        }),
+        onPhaseEnd: endHalfYear,
         turnOrder: inventoryingTurnOrder
       },
       {
@@ -174,10 +174,7 @@ const game = Game({
         allowedMoves: ['pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => ({...G,
-          halfYear: G.halfYear+1,
-          lighthouse: lighthouseReset(G.lighthouse),
-        }),
+        onPhaseEnd: endHalfYear,
         turnOrder: inventoryingTurnOrder,
       },
       {
