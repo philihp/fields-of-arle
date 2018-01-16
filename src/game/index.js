@@ -73,7 +73,7 @@ const initialState = {
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
     owner: defaultLighthouseOwner,
-    used: false
+    used: false,
   },
   toolSpaces: {
     fishTraps: [ 0, 0 ],

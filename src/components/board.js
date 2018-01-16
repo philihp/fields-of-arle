@@ -33,7 +33,15 @@ export default class Board extends React.Component {
         <GlobalStatus currentPlayer={parseInt(this.props.ctx.currentPlayer,10)} lighthouse={this.props.G.lighthouse} />
         <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard workerSpaces={this.props.G.workerSpaces} phase={this.props.ctx.phase} />
-        <ActionsBoard workerSpaces={this.props.G.workerSpaces} toolSpaces={this.props.G.toolSpaces} moves={this.props.moves} game={this.props.game} currentPlayer={this.props.ctx.currentPlayer} phase={this.props.ctx.phase} />
+        <ActionsBoard
+          workerSpaces={this.props.G.workerSpaces}
+          toolSpaces={this.props.G.toolSpaces}
+          moves={this.props.moves}
+          game={this.props.game}
+          currentPlayer={this.props.ctx.currentPlayer}
+          phase={this.props.ctx.phase}
+          lighthouseUsed={this.props.G.lighthouse.used}
+        />
 
         {/* <MoveOptionModal G={this.props.G} />
         <hr /> */}

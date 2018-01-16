@@ -16,9 +16,13 @@ const game = Game({
   setup: () => (initialState),
 
   moves: {
-    summerAction(G, ctx, job) {
+    action(G, ctx, job, offSeason) {
       if(G.workerSpaces[job] == null) {
         return {...G,
+          lighthouse: {
+            owner: (offSeason ? -(+ctx.currentPlayer-1) : G.lighthouse.owner),
+            used: G.lighthouse.used || offSeason,
+          },
           workerSpaces: {
             ...G.workerSpaces,
             [ctx.phase]: G.workerSpaces[ctx.phase].slice(1),
@@ -27,17 +31,6 @@ const game = Game({
         }
       }
     },
-    winterAction(G, ctx, job) {
-      if(G.workerSpaces[job] == null) {
-        return {...G,
-          workerSpaces: {
-            ...G.workerSpaces,
-            [ctx.phase]: G.workerSpaces[ctx.phase].slice(1),
-            [job]: G.workerSpaces[ctx.phase][0]
-          }
-        }
-      }
-    }
   },
 
   flow: {
@@ -49,7 +42,7 @@ const game = Game({
     phases: [
       {
         name: 'july',
-        allowedMoves: ['summerAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -57,7 +50,7 @@ const game = Game({
       },
       {
         name: 'august',
-        allowedMoves: ['summerAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -65,7 +58,7 @@ const game = Game({
       },
       {
         name: 'september',
-        allowedMoves: ['summerAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -73,7 +66,7 @@ const game = Game({
       },
       {
         name: 'october',
-        allowedMoves: ['summerAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -97,7 +90,7 @@ const game = Game({
       },
       {
         name: 'january',
-        allowedMoves: ['winterAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -105,7 +98,7 @@ const game = Game({
       },
       {
         name: 'february',
-        allowedMoves: ['winterAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -113,7 +106,7 @@ const game = Game({
       },
       {
         name: 'march',
-        allowedMoves: ['winterAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
@@ -121,7 +114,7 @@ const game = Game({
       },
       {
         name: 'april',
-        allowedMoves: ['winterAction'],
+        allowedMoves: ['action'],
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,

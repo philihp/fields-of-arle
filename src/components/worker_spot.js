@@ -12,6 +12,11 @@ export default class WorkerSpot extends React.Component {
     disabled: PropTypes.bool,
   }
 
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+
   worker() {
     return this.props.workerSpaces[this.props.job]
   }
@@ -30,6 +35,10 @@ export default class WorkerSpot extends React.Component {
       case 1: return '#c7a200';
       default: return '#d7d7d7'
     }
+  }
+
+  onClick() {
+    this.props.onClick(this.props.job)
   }
 
   render() {
@@ -57,7 +66,7 @@ export default class WorkerSpot extends React.Component {
             waves='light'
             disabled={this.props.disabled}
             tooltip="Use worker"
-            onClick={() => this.props.onClick(this.props.job)}
+            onClick={this.onClick}
             />
           <div style={{display: 'inline-block'}}>{label}</div>
         </div>
