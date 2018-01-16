@@ -7,9 +7,14 @@ import { winterActionsReset, summerActionsReset } from './game/worker_spaces';
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
 
-const lighthouseTurnOrder = {
-  first: (G, ctx) => G.lighthouse.owner,
-  next: (G, ctx) => -(G.lighthouse.owner - 1),
+const keepExistingTurnOrder = {
+  first: (G, ctx) => G.workerSpaces[ctx.phase][0],
+  next: (G, ctx) => -(+ctx.currentPlayer - 1),
+}
+
+const recalibrateTurnOrder = {
+  ...keepExistingTurnOrder,
+  first: (G) => G.lighthouse.owner
 }
 
 const game = Game({
@@ -46,7 +51,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: recalibrateTurnOrder
       },
       {
         name: 'august',
@@ -54,7 +59,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'september',
@@ -62,7 +67,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'october',
@@ -70,7 +75,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'november',
@@ -94,7 +99,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: recalibrateTurnOrder,
       },
       {
         name: 'february',
@@ -102,7 +107,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'march',
@@ -110,7 +115,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'april',
@@ -118,7 +123,7 @@ const game = Game({
         endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
         onPhaseBegin: (G, ctx) => G,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: lighthouseTurnOrder,
+        turnOrder: keepExistingTurnOrder,
       },
       {
         name: 'may',
