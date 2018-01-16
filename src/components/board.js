@@ -13,8 +13,8 @@ export default class Board extends React.Component {
   static propTypes = {
     G:         PropTypes.any.isRequired,
     ctx:       PropTypes.any.isRequired,
-    events:    PropTypes.any.isRequired,
-    moves:     PropTypes.any.isRequired,
+    events:    PropTypes.any,
+    moves:     PropTypes.any,
     playerID:  PropTypes.string,
     isActive:   PropTypes.bool,
   }
