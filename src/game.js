@@ -7,15 +7,33 @@ import { winterActionsReset, summerActionsReset } from './game/worker_spaces';
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
 
-const keepExistingTurnOrder = {
-  first: (G, ctx) => G.workerSpaces[ctx.phase][0],
+const inventoryingTurnOrder = {
+  first: (G, ctx) => +ctx.currentPlayer,
   next: (G, ctx) => -(+ctx.currentPlayer - 1),
 }
 
-const recalibrateTurnOrder = {
-  ...keepExistingTurnOrder,
-  first: (G) => G.lighthouse.owner
+const preparationsTurnOrder = {
+  first: (G) => {
+    return -(+G.lighthouse.owner - 1) // seems weird that we do this, but next is gonna be called
+  },
+  next: (G, ctx) => {
+    return -(+ctx.currentPlayer - 1)
+  },
 }
+
+const actionTurnOrder = {
+  first: (G, ctx) => G.workerSpaces[ctx.phase][0],
+  next: (G, ctx) => G.workerSpaces[ctx.phase][0],
+}
+
+const allPlayersPassed = (G, ctx) => Object.values(G.passed).every(b => b)
+
+const resetPassed = (G, ctx) => ({ ...G,
+  passed: {
+    0: false,
+    1: false,
+  }
+})
 
 const lighthouseReset = (lighthouse) => ({
   used: false,
@@ -42,6 +60,17 @@ const game = Game({
         }
       }
     },
+    pass(G, ctx) {
+      const monthSpace = G.workerSpaces[ctx.phase]
+      if(monthSpace === undefined || monthSpace[0] !== +ctx.currentPlayer) {
+        return {...G,
+          passed: {
+            ...G.passed,
+            [ctx.currentPlayer]: true,
+          }
+        }
+      }
+    }
   },
 
   flow: {
@@ -53,109 +82,117 @@ const game = Game({
     phases: [
       {
         name: 'july',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: recalibrateTurnOrder
+        turnOrder: actionTurnOrder
       },
       {
         name: 'august',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'september',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'october',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'november',
-        allowedMoves: [],
-        endPhaseIf: (G, ctx) => true,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => ({...G,
           halfYear: G.halfYear+1,
           lighthouse: lighthouseReset(G.lighthouse),
         }),
-        turnOrder: recalibrateTurnOrder
+        turnOrder: inventoryingTurnOrder
       },
       {
         name: 'december',
-        allowedMoves: [],
-        endPhaseIf: (G, ctx) => true,
+        allowedMoves: ['pass'],
+        endPhaseIf: allPlayersPassed,
         onPhaseBegin: (G, ctx) => ({...G,
           workerSpaces: winterActionsReset(+G.lighthouse.owner),
+          passed: {
+            0: false,
+            1: false,
+          },
         }),
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: recalibrateTurnOrder
+        turnOrder: preparationsTurnOrder,
       },
       {
         name: 'january',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: recalibrateTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'february',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'march',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'april',
-        allowedMoves: ['action'],
-        endPhaseIf: (G, ctx) => G.workerSpaces[ctx.phase].length === 0,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['action', 'pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: keepExistingTurnOrder,
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'may',
-        allowedMoves: [],
-        endPhaseIf: (G, ctx) => true,
-        onPhaseBegin: (G, ctx) => G,
+        allowedMoves: ['pass'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => ({...G,
           halfYear: G.halfYear+1,
           lighthouse: lighthouseReset(G.lighthouse),
         }),
-        turnOrder: recalibrateTurnOrder
+        turnOrder: inventoryingTurnOrder,
       },
       {
         name: 'june',
-        allowedMoves: [],
-        endPhaseIf: (G, ctx) => true,
+        allowedMoves: ['pass'],
+        endPhaseIf: allPlayersPassed,
         onPhaseBegin: (G, ctx) => ({...G,
           workerSpaces: summerActionsReset(+G.lighthouse.owner),
+          passed: {
+            0: false,
+            1: false,
+          },
         }),
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: recalibrateTurnOrder
+        turnOrder: preparationsTurnOrder
       },
     ]
   },

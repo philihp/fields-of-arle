@@ -69,6 +69,10 @@ import { summerActionsReset } from './worker_spaces'
 const defaultLighthouseOwner = 0
 
 const initialState = {
+  passed: {
+    0: false,
+    1: false,
+  },
   halfYear: 1,
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
