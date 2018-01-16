@@ -10,9 +10,18 @@ export default class MoveSelect extends React.Component {
     disabled: PropTypes.bool.isRequired,
   }
 
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick() {
+    this.props.game.endTurn()
+  }
+
   render() {
     return (
-      <Button disabled={this.props.disabled} onClick={() => this.props.game.endTurn()}>Next Month</Button>
+      <Button disabled={this.props.disabled} onClick={this.onClick}>Next Month</Button>
     )
   }
 }
