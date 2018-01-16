@@ -32,37 +32,39 @@ const actionSpaces = {
   winterLaborer: null,
 }
 
-const summerPrepSpaces = {
-  july: [ 0, 1 ],
-  august: [ 0, 1 ],
-  september: [ 0, 1 ],
-  october: [ 0, 1 ],
+const otherPlayer = startPlayer => -1*(startPlayer-1)
+
+const summerPrepSpaces = startPlayer => ({
+  july: [ startPlayer, otherPlayer(startPlayer) ],
+  august: [ startPlayer, otherPlayer(startPlayer) ],
+  september: [ startPlayer, otherPlayer(startPlayer) ],
+  october: [ startPlayer, otherPlayer(startPlayer) ],
   january: [],
   february: [],
   march: [],
   april: []
-}
+})
 
-const winterPrepSpaces = {
+const winterPrepSpaces = startPlayer => ({
   july: [],
   august: [],
   september: [],
   october: [],
-  january: [ 0, 1 ],
-  february: [ 0, 1 ],
-  march: [ 0, 1 ],
-  april: [ 0, 1 ],
-}
+  january: [ startPlayer, otherPlayer(startPlayer) ],
+  february: [ startPlayer, otherPlayer(startPlayer) ],
+  march: [ startPlayer, otherPlayer(startPlayer) ],
+  april: [ startPlayer, otherPlayer(startPlayer) ],
+})
 
-const summerActionsReset = {
+const summerActionsReset = startPlayer => ({
   ...actionSpaces,
-  ...summerPrepSpaces,
-}
+  ...summerPrepSpaces(startPlayer),
+})
 
-const winterActionsReset = {
+const winterActionsReset = startPlayer => ({
   ...actionSpaces,
-  ...winterPrepSpaces,
-}
+  ...winterPrepSpaces(startPlayer),
+})
 
 export {
   summerActionsReset,

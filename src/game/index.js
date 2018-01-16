@@ -66,11 +66,13 @@ import { summerActionsReset } from './worker_spaces'
 //   ]
 // }
 
+const defaultLighthouseOwner = 0
+
 const initialState = {
   halfYear: 1,
-  workerSpaces: summerActionsReset,
+  workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
-    owner: 0,
+    owner: defaultLighthouseOwner,
     used: false
   },
   toolSpaces: {
