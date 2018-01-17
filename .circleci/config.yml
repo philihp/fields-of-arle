@@ -39,10 +39,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      #- run: yarn test
 
       # deploy
-      - run: git config --global user.email "philihp@gmail.com"
-      - run: git config --global user.name "Circle CI"
-      - run: npm run deploy
-
+      #- run: git config --global user.email "philihp@gmail.com"
+      #- run: git config --global user.name "Circle CI"
+      #- run: npm run deploy
+      - run:
+          name: Compile javascript into javascript
+          command: npm run build
+      - run:
+          name: Deploy Master to Firebase
+          command: ./node_modules/.bin/firebase deploy --debug --token=$FIREBASE_DEPLOY_TOKEN
+               
