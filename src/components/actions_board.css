@@ -6,7 +6,7 @@ $darkblue: #1f78b4; */
 .ActionsBoard > thead > tr > th {
   border: 1px solid #b2cfe2;
   margin: 0px;
-  padding: 3px;
+  padding: 0px;
 }
 
 .ActionsBoard {
@@ -15,5 +15,5 @@ $darkblue: #1f78b4; */
   border-collapse: collapse;
   border: 1px solid #b2cfe2;
   border-spacing: 0px;
-  margin: 10px 0;
+  margin: 0;
 }

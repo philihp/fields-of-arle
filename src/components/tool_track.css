@@ -9,7 +9,8 @@ $darkgreen: #33a02c; */
 .ToolTrack > tbody > tr > td,
 .ToolTrack > thead > tr > th {
   border-collapse: collapse;
-  border: 1px solid #c2b8d1;
+  border: 0;
   margin: 0px;
-  padding: 3px;
+  padding: 0px;
+  text-align: center;
 }

@@ -9,11 +9,11 @@ $darkgreen: #33a02c; */
   border-collapse: collapse;
   border: 1px solid #9ccf98;
   margin: 0px;
-  padding: 3px;
+  padding: 0px;
 }
 
 .PreparationsBoard {
-  margin: 10px 0;
+  margin: 3px 0;
   width: auto;
 }
 

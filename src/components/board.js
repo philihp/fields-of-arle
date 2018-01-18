@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import MoveSelect from './move_select';
 // import MoveOptionModal from './move_option_modal';
 import RoundBoard from './round_board';
@@ -19,6 +20,13 @@ export default class Board extends React.Component {
     isActive:   PropTypes.bool,
   }
 
+  color(worker) {
+    switch(worker) {
+      case 0: return 'activeRed';
+      case 1: return 'activeYellow';
+    }
+  }
+
   hasPlacedWorker() {
     // need to || [], because the November/December/May/June spots are undefined
     let workersPrepSpot = this.props.G.workerSpaces[this.props.ctx.phase] || []
@@ -29,7 +37,7 @@ export default class Board extends React.Component {
 
   render() {
     return (
-      <div className="Board" style={{marginTop: '0px'}}>
+      <div className={classNames('Board', this.color(this.props.ctx.currentPlayer))} style={{marginTop: '0px'}}>
         <GlobalStatus currentPlayer={parseInt(this.props.ctx.currentPlayer,10)} lighthouse={this.props.G.lighthouse} />
         <RoundBoard round={this.props.G.halfYear} />
         <PreparationsBoard workerSpaces={this.props.G.workerSpaces} phase={this.props.ctx.phase} />

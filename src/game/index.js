@@ -6,7 +6,7 @@ import { summerActionsReset } from './worker_spaces'
 // const store = createStore(reducer)
 
 
-// const homeBoard = {
+const homeBoard = {
 //   travelExperience: 0,
 
 //   goods: {
@@ -25,31 +25,31 @@ import { summerActionsReset } from './worker_spaces'
 //     // 'peat'
 //     // 'horse'
 //   ],
-//   land: [
-//     [ null, null, null ],
-//     [ null, null, null ],
-//     [ null, null, null ],
-//     [
-//       null,
-//       null,
-//       { type: 'wheat', contents: [] },
-//     ],
-//     [
-//       { type: 'stall', contents: [ 'horse' ] },
-//       { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat' ] },
-//       { type: 'flax', contents: [] },
-//     ],
-//     [
-//       { type: 'north_moor', contents: [] },
-//       { type: 'north_moor', contents: [] },
-//       { type: 'north_moor', contents: [] },
-//     ],
-//     [
-//       { type: 'south_moor', contents: [] },
-//       { type: 'south_moor', contents: [] },
-//       { type: 'south_moor', contents: [] },
-//     ],
-//   ],
+  land: [
+    [ null, null, null ],
+    [ null, null, null ],
+    [ null, null, null ],
+    [
+      null,
+      null,
+      { type: 'wheat', contents: [] },
+    ],
+    [
+      { type: 'stall', contents: [ 'horse' ] },
+      { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat' ] },
+      { type: 'flax', contents: [] },
+    ],
+    [
+      { type: 'moor_north', contents: [] },
+      { type: 'moor_north', contents: [] },
+      { type: 'moor_north', contents: [] },
+    ],
+    [
+      { type: 'moor_south', contents: [] },
+      { type: 'moor_south', contents: [] },
+      { type: 'moor_south', contents: [] },
+    ],
+  ],
 //   dikes: [
 //     [ null, null, null ],
 //     [ null, null, null ],
@@ -64,11 +64,15 @@ import { summerActionsReset } from './worker_spaces'
 //       { type: 'dike', with: [] },
 //     ],
 //   ]
-// }
+}
 
 const defaultLighthouseOwner = 0
 
 const initialState = {
+  players: {
+    0: homeBoard,
+    1: homeBoard,
+  },
   passed: {
     0: false,
     1: false,
