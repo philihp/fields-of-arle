@@ -17,7 +17,7 @@ export default class HomeBoard extends React.Component {
                 {row.map((cell,i) =>
                   (
                     <td key={i}>
-                      {JSON.stringify(cell)}
+                      {cell && cell.type}
                     </td>
                   )
                 )}

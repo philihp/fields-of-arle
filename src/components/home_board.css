@@ -10,7 +10,7 @@ $darkblue: #1f78b4; */
 }
 
 .HomeBoard {
-  table-layout: fixed;
+  display: 'inline-block';
   border-collapse: collapse;
   border: 1px solid #b2cfe2;
   border-spacing: 0px;

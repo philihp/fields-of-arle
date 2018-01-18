@@ -10,3 +10,18 @@
 .activeYellow {
   background-color: #fefff7;
 }
+
+.Board .mainColumn {
+  float: left;
+  display: 'inline-block';
+}
+
+.col1 {
+  margin-left: 10px;
+}
+.col2 {
+  margin: 0 10px;
+}
+.col3 {
+  margin-right: 10px;
+}
