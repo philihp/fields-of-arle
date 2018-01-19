@@ -40,8 +40,8 @@ export default class Board extends React.Component {
     return (
       <div className={classNames('Board', this.color(this.props.ctx.currentPlayer))} style={{marginTop: '0px'}}>
         <div className='mainColumn col1'>
-          Red Player
-          <HomeBoard contents={this.props.G.players[0]} />
+          <h4>Red Player</h4>
+          <HomeBoard player={this.props.G.players[0]} />
         </div>
 
         <div className='mainColumn col2'>
@@ -65,8 +65,8 @@ export default class Board extends React.Component {
         </div>
 
         <div className='mainColumn col3'>
-          Yellow Player
-          <HomeBoard contents={this.props.G.players[1]} />
+          <h4>Yellow Player</h4>
+          <HomeBoard player={this.props.G.players[1]} />
         </div>
 
         {/* <MoveOptionModal G={this.props.G} />

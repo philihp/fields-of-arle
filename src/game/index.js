@@ -7,6 +7,9 @@ import { summerActionsReset } from './worker_spaces'
 
 
 const homeBoard = {
+  peat: 3,
+  wood: 4,
+  clay: 4,
 //   travelExperience: 0,
 
 //   goods: {
@@ -78,6 +81,7 @@ const initialState = {
     1: false,
   },
   halfYear: 1,
+  action: null,
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
     owner: defaultLighthouseOwner,

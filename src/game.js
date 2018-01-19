@@ -51,6 +51,7 @@ const game = Game({
     action(G, ctx, job, offSeason) {
       if(G.workerSpaces[job] == null) {
         return {...G,
+          action: job,
           lighthouse: {
             owner: (offSeason ? -(+ctx.currentPlayer-1) : G.lighthouse.owner),
             used: G.lighthouse.used || offSeason,
@@ -67,6 +68,7 @@ const game = Game({
       const monthSpace = G.workerSpaces[ctx.phase]
       if(monthSpace === undefined || monthSpace[0] !== +ctx.currentPlayer) {
         return {...G,
+          action: null,
           passed: {
             ...G.passed,
             [ctx.currentPlayer]: true,
