@@ -63,9 +63,9 @@ export default class ActionsBoard extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {/* <tr>
+          <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="fisherman" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="fisherman" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="2">
               <div>Fish Traps</div>
@@ -73,12 +73,12 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td></td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="peatBoatman" label="Peat Boatman" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="peatBoatman" label="Peat Boatman" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="grocer" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="summerGrocer" label="Winter Grocer" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td colSpan="2">
@@ -86,24 +86,24 @@ export default class ActionsBoard extends React.Component {
               <ToolTrack values={[3,5,6]} track={this.props.toolSpaces.fleshingBeams} />
             </td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="tanner" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="tanner" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="woolWeaver" label="Wool Weaver" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="woolWeaver" label="Wool Weaver" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="3">
               <div>Weaving Looms</div>
               <ToolTrack values={[2,3,4,5]} track={this.props.toolSpaces.weavingLooms} />
             </td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="linenWeaver" label="Linen Weaver" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="linenWeaver" label="Linen Weaver" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="colonist" worker={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="colonist" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td colSpan="2">
@@ -111,12 +111,12 @@ export default class ActionsBoard extends React.Component {
               <ToolTrack values={[2,3,4]} track={this.props.toolSpaces.slaughteringTables} />
             </td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="butcher" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="butcher" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="peatCutter" label="Peat Cutter" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="peatCutter" label="Peat Cutter" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="2">
               <div>Spades</div>
@@ -124,12 +124,12 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td></td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="cattleTrader" label="Cattle Trader" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="cattleTrader" label="Cattle Trader" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="dikeBuilder" label="Dike Builder" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="dikeBuilder" label="Dike Builder" workerSpaces={this.props.workerSpaces} />
             </td>
             <td colSpan="2" rowSpan="2">
               <div>Shovel Pairs</div>
@@ -137,19 +137,19 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td></td>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="grocer" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="winterGrocer" label="Grocer" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>
           <tr>
             <td>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="clayWorker" label="Clay Worker" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="clayWorker" label="Clay Worker" workerSpaces={this.props.workerSpaces} />
             </td>
             <td></td>
             <td>
               <div>Builders' Merchant</div>
-              <WorkerSpot disabled={!this.canPlaceInSummer()} job="buildersMerchant" label="Builders' Merchant" workerSpaces={this.props.workerSpaces} />
+              <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="buildersMerchant" label="Builders' Merchant" workerSpaces={this.props.workerSpaces} />
             </td>
-          </tr> */}
+          </tr>
           <tr>
             <td>
               <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.summerAction} job="farmer" workerSpaces={this.props.workerSpaces} />
