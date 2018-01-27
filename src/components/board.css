@@ -1,14 +1,22 @@
 .Board {
   display: 'inline-block';
   font-size: small;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 .activeRed {
   background-color: #fff7f7;
+  background-color: #e2caca;
 }
 
 .activeYellow {
   background-color: #fefff7;
+  background-color: #d9ddbd;
 }
 
 .Board .mainColumn {

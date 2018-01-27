@@ -1,0 +1,6 @@
+.MoveOptionModal {
+  position: fixed;
+  height: 50vh;
+  margin: 30px;
+  border: 3px dashed green;
+}

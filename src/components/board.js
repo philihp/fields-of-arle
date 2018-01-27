@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MoveSelect from './move_select';
-// import MoveOptionModal from './move_option_modal';
+import MoveOptionModal from './move_option_modal';
 import RoundBoard from './round_board';
 import ActionsBoard from './actions_board';
 import HomeBoard from './home_board';
@@ -69,8 +69,7 @@ export default class Board extends React.Component {
           <HomeBoard player={this.props.G.players[1]} />
         </div>
 
-        {/* <MoveOptionModal G={this.props.G} />
-        <hr /> */}
+        <MoveOptionModal G={this.props.G} />
 
       </div>
     );
