@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-materialize'
 import './worker_spot.css'
 
 export default class WorkerSpot extends React.Component {
@@ -61,13 +60,9 @@ export default class WorkerSpot extends React.Component {
     else {
 			return (
         <div className="WorkerSpot">
-          <Button
-            floating
-            waves='light'
+          <button
             disabled={this.props.disabled}
-            tooltip="Use worker"
-            onClick={this.onClick}
-            />
+            onClick={this.onClick}>Use</button>
           <div style={{display: 'inline-block'}}>{label}</div>
         </div>
       )

@@ -1,8 +1,6 @@
 .Board {
   display: 'inline-block';
   font-size: small;
-  height: 100%;
-  position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -22,12 +20,12 @@
   display: 'inline-block';
 }
 
-.col1 {
+.Board .col1 {
   margin-left: 10px;
 }
-.col2 {
+.Board .col2 {
   margin: 0 10px;
 }
-.col3 {
+.Board .col3 {
   margin-right: 10px;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './move_select.css'
-import { Button } from 'react-materialize'
 
 export default class MoveSelect extends React.Component {
   static propTypes = {
@@ -22,7 +21,7 @@ export default class MoveSelect extends React.Component {
 
   render() {
     return (
-      <Button disabled={this.props.disabled} onClick={this.onClick}>Next Month</Button>
+      <button disabled={this.props.disabled} onClick={this.onClick}>Next Month</button>
     )
   }
 }
