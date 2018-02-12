@@ -7,6 +7,7 @@
     "boardgame.io": "^0.17.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
+    "firebase": "^4.9.1",
     "gh-pages": "^1.1.0",
     "materialize-css": "^0.100.2",
     "react": "^16.2.0",
