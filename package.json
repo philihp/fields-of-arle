@@ -21,5 +21,10 @@
     "predeploy": "npm run build",
     "firedeploy": "firebase deploy",
     "deploy": "gh-pages --dist build --message \"Automatic Updates [ci skip]\""
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "1.10.2"
   }
 }
