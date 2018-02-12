@@ -3,18 +3,16 @@ import LighthouseStatus from './lighthouse_status'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class GlobalStatus extends React.Component {
-  static propTypes = {
-    currentPlayer: PropTypes.number.isRequired,
-    lighthouse: PropTypes.any.isRequired,
-  }
+const GlobalStatus = props => (
+  <div>
+    <CurrentPlayer currentPlayer={props.currentPlayer} />
+    <LighthouseStatus lighthouse={props.lighthouse} />
+  </div>
+)
 
-  render() {
-    return (
-      <div>
-        <CurrentPlayer currentPlayer={this.props.currentPlayer} />
-        <LighthouseStatus lighthouse={this.props.lighthouse} />
-      </div>
-    )
-  }
+GlobalStatus.propTypes = {
+  currentPlayer: PropTypes.number.isRequired,
+  lighthouse: PropTypes.any.isRequired,
 }
+
+export default GlobalStatus
