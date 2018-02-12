@@ -100,7 +100,7 @@ export default class ActionsBoard extends React.Component {
             <td />
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="peatBoatman"
                 label="Peat Boatman"
@@ -128,7 +128,7 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="tanner"
                 workerSpaces={this.props.workerSpaces}
@@ -154,7 +154,7 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="linenWeaver"
                 label="Linen Weaver"
@@ -181,7 +181,7 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="butcher"
                 workerSpaces={this.props.workerSpaces}
@@ -208,7 +208,7 @@ export default class ActionsBoard extends React.Component {
             <td />
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="cattleTrader"
                 label="Cattle Trader"
@@ -237,7 +237,7 @@ export default class ActionsBoard extends React.Component {
             <td />
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="winterGrocer"
                 label="Grocer"
@@ -258,7 +258,7 @@ export default class ActionsBoard extends React.Component {
             <td />
             <td>
               <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
+                disabled={!this.canPlaceInWinter()}
                 onClick={this.winterAction}
                 job="buildersMerchant"
                 label="Builders' Merchant"

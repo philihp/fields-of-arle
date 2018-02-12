@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import WorkerToken from './worker_token'
 import './worker_spot.css'
 
-
-
 const fillColor = worker => {
   switch (worker) {
     case 0:
@@ -44,18 +42,10 @@ const WorkerSpot = props => {
         </div>
       </div>
     )
-  } else if (props.disabled) {
-    return (
-      <div className="WorkerSpot" style={{ display: 'inline-block' }}>
-        {label}
-      </div>
-    )
   } else {
     return (
-      <div className="WorkerSpot">
-        <div style={{ display: 'inline-block' }}>
-          <a href="#" onClick={onClick}>{label}</a>
-        </div>
+      <div className="WorkerSpot" style={{ display: 'inline-block' }}>
+        <button disabled={props.disabled} onClick={onClick}/>{label}
       </div>
     )
   }

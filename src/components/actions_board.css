@@ -17,3 +17,14 @@ $darkblue: #1f78b4; */
   border-spacing: 0px;
   margin: 0;
 }
+
+.ActionsBoard button {
+  cursor: pointer;
+  background-color: #7F7FFF;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.ActionsBoard button[disabled] {
+  background-color: #EEE;
+}
