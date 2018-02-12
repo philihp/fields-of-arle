@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
-    "boardgame.io": "^0.16.7",
+    "boardgame.io": "^0.17.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "gh-pages": "^1.1.0",
@@ -22,8 +22,5 @@
     "predeploy": "npm run build",
     "firedeploy": "firebase deploy",
     "deploy": "gh-pages --dist build --message \"Automatic Updates [ci skip]\""
-  },
-  "devDependencies": {
-    "firebase-tools": "^3.16.0"
   }
 }
