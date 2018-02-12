@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import './move_select.css'
 
 export default class MoveSelect extends React.Component {
@@ -21,7 +21,9 @@ export default class MoveSelect extends React.Component {
 
   render() {
     return (
-      <button disabled={this.props.disabled} onClick={this.onClick}>Next Month</button>
+      <button disabled={this.props.disabled} onClick={this.onClick}>
+        Next Month
+      </button>
     )
   }
 }

@@ -2,7 +2,7 @@ import { Game } from 'boardgame.io/core'
 
 // import { pickWorker } from './game/common/'
 import initialState from './game/'
-import { winterActionsReset, summerActionsReset } from './game/worker_spaces';
+import { winterActionsReset, summerActionsReset } from './game/worker_spaces'
 
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
@@ -15,7 +15,7 @@ const inventoryingTurnOrder = {
 const preparationsTurnOrder = {
   // this feels weird. it feels like it should just be the lighthouse owner...
   // but something is calling next, which flips the turn back.
-  first: (G) => -(+G.lighthouse.owner - 1),
+  first: G => -(+G.lighthouse.owner - 1),
   next: (G, ctx) => -(+ctx.currentPlayer - 1),
 }
 
@@ -26,62 +26,66 @@ const actionTurnOrder = {
 
 const allPlayersPassed = (G, ctx) => Object.values(G.passed).every(b => b)
 
-const resetPassed = (G, ctx) => ({ ...G,
+const resetPassed = (G, ctx) => ({
+  ...G,
   passed: {
     0: false,
     1: false,
-  }
+  },
 })
 
-const endHalfYear = (G, ctx) => ({...G,
-  halfYear: G.halfYear+1,
+const endHalfYear = (G, ctx) => ({
+  ...G,
+  halfYear: G.halfYear + 1,
   lighthouse: lighthouseReset(G.lighthouse),
 })
 
-const lighthouseReset = (lighthouse) => ({
+const lighthouseReset = lighthouse => ({
   used: false,
   // if lighthouse was not used, swap the owner
-  owner: (lighthouse.used) ? lighthouse.owner : -(lighthouse.owner-1),
+  owner: lighthouse.used ? lighthouse.owner : -(lighthouse.owner - 1),
 })
 
 const game = Game({
-  setup: () => (initialState),
+  setup: () => initialState,
 
   moves: {
     action(G, ctx, job, offSeason) {
-      if(G.workerSpaces[job] == null) {
-        return {...G,
+      if (G.workerSpaces[job] == null) {
+        return {
+          ...G,
           action: job,
           lighthouse: {
-            owner: (offSeason ? -(+ctx.currentPlayer-1) : G.lighthouse.owner),
+            owner: offSeason ? -(+ctx.currentPlayer - 1) : G.lighthouse.owner,
             used: G.lighthouse.used || offSeason,
           },
           workerSpaces: {
             ...G.workerSpaces,
             [ctx.phase]: G.workerSpaces[ctx.phase].slice(1),
-            [job]: G.workerSpaces[ctx.phase][0]
-          }
+            [job]: G.workerSpaces[ctx.phase][0],
+          },
         }
       }
     },
     pass(G, ctx) {
       const monthSpace = G.workerSpaces[ctx.phase]
-      if(monthSpace === undefined || monthSpace[0] !== +ctx.currentPlayer) {
-        return {...G,
+      if (monthSpace === undefined || monthSpace[0] !== +ctx.currentPlayer) {
+        return {
+          ...G,
           action: null,
           passed: {
             ...G.passed,
             [ctx.currentPlayer]: true,
-          }
+          },
         }
       }
-    }
+    },
   },
 
   flow: {
     endGameIf: (G, ctx) => {
-      if(G.halfYear === 9 && ctx.phase === 'november') {
-        return 'ended due to rounds';
+      if (G.halfYear === 9 && ctx.phase === 'november') {
+        return 'ended due to rounds'
       }
     },
     phases: [
@@ -91,7 +95,7 @@ const game = Game({
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: actionTurnOrder
+        turnOrder: actionTurnOrder,
       },
       {
         name: 'august',
@@ -123,13 +127,14 @@ const game = Game({
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: endHalfYear,
-        turnOrder: inventoryingTurnOrder
+        turnOrder: inventoryingTurnOrder,
       },
       {
         name: 'december',
         allowedMoves: ['pass'],
         endPhaseIf: allPlayersPassed,
-        onPhaseBegin: (G, ctx) => ({...G,
+        onPhaseBegin: (G, ctx) => ({
+          ...G,
           workerSpaces: winterActionsReset(+G.lighthouse.owner),
           passed: {
             0: false,
@@ -183,7 +188,8 @@ const game = Game({
         name: 'june',
         allowedMoves: ['pass'],
         endPhaseIf: allPlayersPassed,
-        onPhaseBegin: (G, ctx) => ({...G,
+        onPhaseBegin: (G, ctx) => ({
+          ...G,
           workerSpaces: summerActionsReset(+G.lighthouse.owner),
           passed: {
             0: false,
@@ -191,12 +197,10 @@ const game = Game({
           },
         }),
         onPhaseEnd: (G, ctx) => G,
-        turnOrder: preparationsTurnOrder
+        turnOrder: preparationsTurnOrder,
       },
-    ]
+    ],
   },
+})
 
-
-});
-
-export default game;
+export default game

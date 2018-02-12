@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import './round_board.css'
 
 export default class RoundBoard extends React.Component {
@@ -8,20 +8,20 @@ export default class RoundBoard extends React.Component {
   }
 
   selectedClass(value) {
-    return (this.props.round === value) ? 'glow' : ''
+    return this.props.round === value ? 'glow' : ''
   }
 
   render() {
-    let rounds = Array.from({length: (9)}, (v, k) => k + 1) // 1..9
+    let rounds = Array.from({ length: 9 }, (v, k) => k + 1) // 1..9
     return (
       <table className="RoundBoard">
         <tbody>
           <tr>
-            {rounds.map((v) =>
-              (
-                <td key={v} className={this.selectedClass(v)}>{v}</td>
-              )
-            )}
+            {rounds.map(v => (
+              <td key={v} className={this.selectedClass(v)}>
+                {v}
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>

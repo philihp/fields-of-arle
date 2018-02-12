@@ -5,41 +5,36 @@ import { summerActionsReset } from './worker_spaces'
 
 // const store = createStore(reducer)
 
-
 const homeBoard = {
   peat: 3,
   wood: 4,
   clay: 4,
-//   travelExperience: 0,
+  //   travelExperience: 0,
 
-//   goods: {
-//     food1: 5,
-//     wool: 4,
-//     flax: 3,
-//     hides: 2,
-//     grain: 1,
-//     food2: 0,
-//   },
-//   tokens: [
-//     // { type: 'wood' },
-//     // { type: 'clay' },
-//     // { type: 'timber' },
-//     // { type: 'bricks' },
-//     // 'peat'
-//     // 'horse'
-//   ],
+  //   goods: {
+  //     food1: 5,
+  //     wool: 4,
+  //     flax: 3,
+  //     hides: 2,
+  //     grain: 1,
+  //     food2: 0,
+  //   },
+  //   tokens: [
+  //     // { type: 'wood' },
+  //     // { type: 'clay' },
+  //     // { type: 'timber' },
+  //     // { type: 'bricks' },
+  //     // 'peat'
+  //     // 'horse'
+  //   ],
   land: [
-    [ null, null, null ],
-    [ null, null, null ],
-    [ null, null, null ],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+    [null, null, { type: 'wheat', contents: [] }],
     [
-      null,
-      null,
-      { type: 'wheat', contents: [] },
-    ],
-    [
-      { type: 'stall', contents: [ 'horse' ] },
-      { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat' ] },
+      { type: 'stall', contents: ['horse'] },
+      { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat'] },
       { type: 'flax', contents: [] },
     ],
     [
@@ -53,20 +48,20 @@ const homeBoard = {
       { type: 'moor_south', contents: [] },
     ],
   ],
-//   dikes: [
-//     [ null, null, null ],
-//     [ null, null, null ],
-//     [
-//       { type: 'dike', with: [] },
-//       { type: 'dike', with: [] },
-//       null
-//     ],
-//     [
-//       { type: 'dike', with: [] },
-//       { type: 'dike', with: [] },
-//       { type: 'dike', with: [] },
-//     ],
-//   ]
+  //   dikes: [
+  //     [ null, null, null ],
+  //     [ null, null, null ],
+  //     [
+  //       { type: 'dike', with: [] },
+  //       { type: 'dike', with: [] },
+  //       null
+  //     ],
+  //     [
+  //       { type: 'dike', with: [] },
+  //       { type: 'dike', with: [] },
+  //       { type: 'dike', with: [] },
+  //     ],
+  //   ]
 }
 
 const defaultLighthouseOwner = 0
@@ -88,16 +83,16 @@ const initialState = {
     used: false,
   },
   toolSpaces: {
-    fishTraps: [ 0, 0 ],
-    fleshingBeams: [ 0, 0 ],
-    weavingLooms: [ 0, 0 ],
-    slaughteringTables: [ 0, 0 ],
-    spades: [ 0, 0 ],
-    shovelPairs: [ 0, 0 ],
-    potteryWheels: [ 0, 0 ],
-    ovens: [ 0, 0 ],
-    axes: [ 0, 0 ],
-    workbenches: [ 0, 0 ],
+    fishTraps: [0, 0],
+    fleshingBeams: [0, 0],
+    weavingLooms: [0, 0],
+    slaughteringTables: [0, 0],
+    spades: [0, 0],
+    shovelPairs: [0, 0],
+    potteryWheels: [0, 0],
+    ovens: [0, 0],
+    axes: [0, 0],
+    workbenches: [0, 0],
   },
   // homeBoards: [
   //   { ...homeBoard, startingPlayer: true },
@@ -105,8 +100,6 @@ const initialState = {
   // ],
 }
 
-export {
-  initialState
-};
+export { initialState }
 
-export default initialState;
+export default initialState

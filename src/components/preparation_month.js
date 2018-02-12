@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import StackedWorkerSpot from './stacked_worker_spot'
 
 export default class PreparationMonth extends React.Component {

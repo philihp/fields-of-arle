@@ -1,7 +1,7 @@
-import CurrentPlayer from './current_player';
-import LighthouseStatus from './lighthouse_status';
-import React from 'react';
-import PropTypes from 'prop-types';
+import CurrentPlayer from './current_player'
+import LighthouseStatus from './lighthouse_status'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class GlobalStatus extends React.Component {
   static propTypes = {
@@ -17,5 +17,4 @@ export default class GlobalStatus extends React.Component {
       </div>
     )
   }
-
 }

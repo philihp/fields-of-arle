@@ -1,4 +1,3 @@
-
 const actionSpaces = {
   fisherman: null,
   summerGrocer: null,
@@ -32,17 +31,17 @@ const actionSpaces = {
   winterLaborer: null,
 }
 
-const otherPlayer = startPlayer => -1*(startPlayer-1)
+const otherPlayer = startPlayer => -1 * (startPlayer - 1)
 
 const summerPrepSpaces = startPlayer => ({
-  july: [ startPlayer, otherPlayer(startPlayer) ],
-  august: [ startPlayer, otherPlayer(startPlayer) ],
-  september: [ startPlayer, otherPlayer(startPlayer) ],
-  october: [ startPlayer, otherPlayer(startPlayer) ],
+  july: [startPlayer, otherPlayer(startPlayer)],
+  august: [startPlayer, otherPlayer(startPlayer)],
+  september: [startPlayer, otherPlayer(startPlayer)],
+  october: [startPlayer, otherPlayer(startPlayer)],
   january: [],
   february: [],
   march: [],
-  april: []
+  april: [],
 })
 
 const winterPrepSpaces = startPlayer => ({
@@ -50,10 +49,10 @@ const winterPrepSpaces = startPlayer => ({
   august: [],
   september: [],
   october: [],
-  january: [ startPlayer, otherPlayer(startPlayer) ],
-  february: [ startPlayer, otherPlayer(startPlayer) ],
-  march: [ startPlayer, otherPlayer(startPlayer) ],
-  april: [ startPlayer, otherPlayer(startPlayer) ],
+  january: [startPlayer, otherPlayer(startPlayer)],
+  february: [startPlayer, otherPlayer(startPlayer)],
+  march: [startPlayer, otherPlayer(startPlayer)],
+  april: [startPlayer, otherPlayer(startPlayer)],
 })
 
 const summerActionsReset = startPlayer => ({
@@ -66,7 +65,4 @@ const winterActionsReset = startPlayer => ({
   ...winterPrepSpaces(startPlayer),
 })
 
-export {
-  summerActionsReset,
-  winterActionsReset,
-};
+export { summerActionsReset, winterActionsReset }
