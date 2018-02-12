@@ -146,7 +146,6 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td></td>
             <td>
-              <div>Builders' Merchant</div>
               <WorkerSpot disabled={!this.canPlaceInSummer()} onClick={this.winterAction} job="buildersMerchant" label="Builders' Merchant" workerSpaces={this.props.workerSpaces} />
             </td>
           </tr>

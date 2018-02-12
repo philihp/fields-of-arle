@@ -10,13 +10,11 @@
 }
 
 .activeRed {
-  background-color: #fff7f7;
-  background-color: #e2caca;
+  box-shadow: 0px 0 16px rgb(165, 0, 0) inset;
 }
 
 .activeYellow {
-  background-color: #fefff7;
-  background-color: #d9ddbd;
+  box-shadow: 0px 0 16px rgb(170, 167, 0) inset;
 }
 
 .Board .mainColumn {
