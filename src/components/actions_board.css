@@ -2,7 +2,7 @@
 /* $lightblue: #a6cee3;
 $darkblue: #1f78b4; */
 
-/* .ActionsBoard > tbody > tr > td,
+.ActionsBoard > tbody > tr > td,
 .ActionsBoard > thead > tr > th {
   border: 1px solid #b2cfe2;
   margin: 0px;
@@ -16,4 +16,4 @@ $darkblue: #1f78b4; */
   border: 1px solid #b2cfe2;
   border-spacing: 0px;
   margin: 0;
-} */
+}
