@@ -36,12 +36,12 @@ const Board = props => (
     )}
     style={{ marginTop: '0px' }}
   >
-    <div className="mainColumn col1">
+    <div className="col col1">
       <h4>Red Player</h4>
       <HomeBoard player={props.G.players[0]} />
     </div>
 
-    <div className="mainColumn col2">
+    <div className="col col2">
       <GlobalStatus
         currentPlayer={parseInt(props.ctx.currentPlayer, 10)}
         lighthouse={props.G.lighthouse}
@@ -67,7 +67,7 @@ const Board = props => (
       />
     </div>
 
-    <div className="mainColumn col3">
+    <div className="col col3">
       <h4>Yellow Player</h4>
       <HomeBoard player={props.G.players[1]} />
     </div>
