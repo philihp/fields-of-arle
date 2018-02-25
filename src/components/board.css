@@ -1,11 +1,8 @@
 .Board {
-  display: 'inline-block';
+  display: grid;
   font-size: small;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 10px;
+  grid-gap: 20px;
+  padding: 20px;
 }
 
 .activeRed {
@@ -16,18 +13,18 @@
   box-shadow: 0px 0 16px rgb(170, 167, 0) inset;
 }
 
-.Board {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
 .Board .col1 {
-  display: table-cell;
+  display: grid-item;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 .Board .col2 {
-  display: table-cell;
+  display: grid-item;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 .Board .col3 {
-  display: table-cell;
+  display: grid-item;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
