@@ -72,385 +72,339 @@ export default class ActionsBoard extends React.Component {
 
   render() {
     return (
-      <table className="ActionsBoard">
-        <thead>
-          <tr>
-            <th>Summer</th>
-            <th colSpan="3">Tools</th>
-            <th>Winter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="fisherman"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="2">
-              <ToolTrack
-                name="Fish Traps"
-                values={[2, 3, 4, 5, 6]}
-                track={this.props.toolSpaces.fishTraps}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="peatBoatman"
-                label="Peat Boatman"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="summerGrocer"
-                label="Winter Grocer"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td colSpan="2">
-              <ToolTrack
-                name="Fleshing Beams"
-                values={[3, 5, 6]}
-                track={this.props.toolSpaces.fleshingBeams}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="tanner"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="woolWeaver"
-                label="Wool Weaver"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="3">
-              <ToolTrack
-                name="Weaving Looms"
-                values={[2, 3, 4, 5]}
-                track={this.props.toolSpaces.weavingLooms}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="linenWeaver"
-                label="Linen Weaver"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="colonist"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td colSpan="2">
-              <ToolTrack
-                name="Slaughtering Tables"
-                values={[2, 3, 4]}
-                track={this.props.toolSpaces.slaughteringTables}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="butcher"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="peatCutter"
-                label="Peat Cutter"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="2">
-              <ToolTrack
-                name="Spades"
-                values={[3, 5, 7]}
-                track={this.props.toolSpaces.spades}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="cattleTrader"
-                label="Cattle Trader"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="dikeBuilder"
-                label="Dike Builder"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="2" rowSpan="2">
-              <ToolTrack
-                name="Shovels (Pairs)"
-                values={[1, 2, 2, 3]}
-                secondaryValues={[3, 4, 5, 6]}
-                track={this.props.toolSpaces.shovelPairs}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="winterGrocer"
-                label="Grocer"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="clayWorker"
-                label="Clay Worker"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="buildersMerchant"
-                label="Builders' Merchant"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="farmer"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td colSpan="2">
-              <ToolTrack
-                name="Pottery Wheels"
-                values={[2, 3, 4]}
-                track={this.props.toolSpaces.potteryWheels}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="potter"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="forester"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td colSpan="2">
-              <ToolTrack
-                name="Ovens"
-                values={[1, 2, 3, 4]}
-                track={this.props.toolSpaces.ovens}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="baker"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="woodcutter"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="2">
-              <ToolTrack
-                name="Axes"
-                values={[3, 4, 5, 6]}
-                track={this.props.toolSpaces.axes}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="woodTrader"
-                label="Wood Trader"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="summerMaster"
-                label="Master"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td colSpan="3">
-              <ToolTrack
-                values={[2, 3, 4]}
-                track={this.props.toolSpaces.workbenches}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="winterMaster"
-                label="Master"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td rowSpan="2">
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="summerCarpenter"
-                label="Carpenter"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="builder"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="wainwright"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td rowSpan="2">
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="winterCarpenter"
-                label="Carpenter"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="warden"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td>
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="dikeWarden"
-                label="Dike Warden"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td colSpan="2">
-              <WorkerSpot
-                disabled={!this.canPlaceInSummer()}
-                onClick={this.summerAction}
-                job="summerLaborer"
-                label="Laborer"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-            <td />
-            <td colSpan="2">
-              <WorkerSpot
-                disabled={!this.canPlaceInWinter()}
-                onClick={this.winterAction}
-                job="winterLaborer"
-                label="Laborer"
-                workerSpaces={this.props.workerSpaces}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="ActionsBoard">
+        <header>Summer</header>
+        <header className="tools">Tools</header>
+        <header>Winter</header>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="fisherman"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-summer">
+          <ToolTrack
+            name="Fish Traps"
+            values={[2, 3, 4, 5, 6]}
+            track={this.props.toolSpaces.fishTraps}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="peatBoatman"
+            label="Peat Boatman"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="summerGrocer"
+            label="Grocer"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-winter">
+          <ToolTrack
+            name="Fleshing Beams"
+            values={[3, 5, 6]}
+            track={this.props.toolSpaces.fleshingBeams}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="tanner"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="woolWeaver"
+            label="Wool Weaver"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-both">
+          <ToolTrack
+            name="Weaving Looms"
+            values={[2, 3, 4, 5]}
+            track={this.props.toolSpaces.weavingLooms}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="linenWeaver"
+            label="Linen Weaver"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="colonist"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-winter">
+          <ToolTrack
+            name="Slaughtering Tables"
+            values={[2, 3, 4]}
+            track={this.props.toolSpaces.slaughteringTables}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="butcher"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="peatCutter"
+            label="Peat Cutter"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-summer">
+          <ToolTrack
+            name="Spades"
+            values={[3, 5, 7]}
+            track={this.props.toolSpaces.spades}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="cattleTrader"
+            label="Cattle Trader"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="dikeBuilder"
+            label="Dike Builder"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-summer double-row">
+          <ToolTrack
+            name="Shovels (Pairs)"
+            values={[1, 2, 2, 3]}
+            secondaryValues={[3, 4, 5, 6]}
+            track={this.props.toolSpaces.shovelPairs}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="winterGrocer"
+            label="Grocer"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="clayWorker"
+            label="Clay Worker"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="buildersMerchant"
+            label="Builders' Merchant"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="farmer"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-winter">
+          <ToolTrack
+            name="Pottery Wheels"
+            values={[2, 3, 4]}
+            track={this.props.toolSpaces.potteryWheels}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="potter"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="forester"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-winter">
+          <ToolTrack
+            name="Ovens"
+            values={[1, 2, 3, 4]}
+            track={this.props.toolSpaces.ovens}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="baker"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="woodcutter"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-summer">
+          <ToolTrack
+            name="Axes"
+            values={[3, 4, 5, 6]}
+            track={this.props.toolSpaces.axes}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="woodTrader"
+            label="Wood Trader"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="summerMaster"
+            label="Master"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="tool-both">
+          <ToolTrack
+            values={[2, 3, 4]}
+            track={this.props.toolSpaces.workbenches}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="winterMaster"
+            label="Master"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="summerCarpenter"
+            label="Carpenter"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="winterCarpenter"
+            label="Carpenter"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="builder"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="wainwright"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="warden"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="dikeWarden"
+            label="Dike Warden"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-summer">
+          <WorkerSpot
+            disabled={!this.canPlaceInSummer()}
+            onClick={this.summerAction}
+            job="summerLaborer"
+            label="Laborer"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+        <section className="action-winter">
+          <WorkerSpot
+            disabled={!this.canPlaceInWinter()}
+            onClick={this.winterAction}
+            job="winterLaborer"
+            label="Laborer"
+            workerSpaces={this.props.workerSpaces}
+          />
+        </section>
+      </div>
     )
   }
 }
