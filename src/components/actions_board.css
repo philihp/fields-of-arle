@@ -20,17 +20,16 @@ $darkblue: #1f78b4; */
 }
 
 .ActionsBoard header {
+  font-weight: bold;
 }
+
 .ActionsBoard header.tools {
   grid-column: 2/5;
 }
-
 .ActionsBoard section.action-summer {
-  background-color: green;
   grid-column: 1/2;
 }
 .ActionsBoard section.action-winter {
-  background-color: red;
   grid-column: 5/6;
 }
 
@@ -45,7 +44,6 @@ $darkblue: #1f78b4; */
 }
 .ActionsBoard section.double-row {
   grid-row-end: span 2;
-  background-color: pink;
 }
 
 .ActionsBoard button {

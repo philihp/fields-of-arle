@@ -3,3 +3,7 @@
   height: 100%;
   text-transform: capitalize;
 }
+
+.WorkerSpot.disabled {
+  color: #ddd;
+}
