@@ -4,13 +4,14 @@ import './tool_track.css'
 
 const ToolTrack = props =>
   <table className="ToolTrack">
-    <thead>
-      <tr>{props.values.map((v, i) => <th key={i}>{v}</th>)}</tr>
-    </thead>
     <tbody>
       <tr>
         {props.values.map((v, i) => (
           <td key={i}>
+            { props.secondaryValues &&
+              props.secondaryValues[i] + '/'
+            }
+            {v}
             <svg
               width="25"
               height="25"
@@ -50,7 +51,7 @@ const ToolTrack = props =>
                     rx="47"
                     ry="20"
                     stroke="#c7a200"
-                    strokeWidth="3"
+                     strokeWidth="3"
                     fill="#ffd92f"
                   />
                 </g>
@@ -60,19 +61,13 @@ const ToolTrack = props =>
         ))}
       </tr>
     </tbody>
-    {props.secondaryValues && (
-      <thead>
-        <tr>
-          {props.secondaryValues.map((v, i) => <th key={i}>{v}</th>)}
-        </tr>
-      </thead>
-    )}
   </table>
 
 ToolTrack.propTypes = {
   values: PropTypes.array.isRequired,
   secondaryValues: PropTypes.array,
   track: PropTypes.any,
+  name: PropTypes.string,
 }
 
 export default ToolTrack

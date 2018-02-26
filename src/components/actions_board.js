@@ -91,8 +91,8 @@ export default class ActionsBoard extends React.Component {
               />
             </td>
             <td colSpan="2">
-              <div>Fish Traps</div>
               <ToolTrack
+                name="Fish Traps"
                 values={[2, 3, 4, 5, 6]}
                 track={this.props.toolSpaces.fishTraps}
               />
@@ -120,8 +120,8 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td />
             <td colSpan="2">
-              <div>Fleshing Beams</div>
               <ToolTrack
+                name="Fleshing Beams"
                 values={[3, 5, 6]}
                 track={this.props.toolSpaces.fleshingBeams}
               />
@@ -146,8 +146,8 @@ export default class ActionsBoard extends React.Component {
               />
             </td>
             <td colSpan="3">
-              <div>Weaving Looms</div>
               <ToolTrack
+                name="Weaving Looms"
                 values={[2, 3, 4, 5]}
                 track={this.props.toolSpaces.weavingLooms}
               />
@@ -173,8 +173,8 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td />
             <td colSpan="2">
-              <div>Slaughtering Tables</div>
               <ToolTrack
+                name="Slaughtering Tables"
                 values={[2, 3, 4]}
                 track={this.props.toolSpaces.slaughteringTables}
               />
@@ -199,8 +199,8 @@ export default class ActionsBoard extends React.Component {
               />
             </td>
             <td colSpan="2">
-              <div>Spades</div>
               <ToolTrack
+                name="Spades"
                 values={[3, 5, 7]}
                 track={this.props.toolSpaces.spades}
               />
@@ -227,8 +227,8 @@ export default class ActionsBoard extends React.Component {
               />
             </td>
             <td colSpan="2" rowSpan="2">
-              <div>Shovel Pairs</div>
               <ToolTrack
+                name="Shovels (Pairs)"
                 values={[1, 2, 2, 3]}
                 secondaryValues={[3, 4, 5, 6]}
                 track={this.props.toolSpaces.shovelPairs}
@@ -277,8 +277,8 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td />
             <td colSpan="2">
-              <div>Pottery Wheels</div>
               <ToolTrack
+                name="Pottery Wheels"
                 values={[2, 3, 4]}
                 track={this.props.toolSpaces.potteryWheels}
               />
@@ -303,8 +303,8 @@ export default class ActionsBoard extends React.Component {
             </td>
             <td />
             <td colSpan="2">
-              <div>Ovens</div>
               <ToolTrack
+                name="Ovens"
                 values={[1, 2, 3, 4]}
                 track={this.props.toolSpaces.ovens}
               />
@@ -328,8 +328,8 @@ export default class ActionsBoard extends React.Component {
               />
             </td>
             <td colSpan="2">
-              <div>Axes</div>
               <ToolTrack
+                name="Axes"
                 values={[3, 4, 5, 6]}
                 track={this.props.toolSpaces.axes}
               />
