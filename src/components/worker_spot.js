@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import WorkerToken from './worker_token'
+import classNames from 'classnames'
 import './worker_spot.css'
 
 const fillColor = worker => {
@@ -28,6 +29,9 @@ const strokeColor = worker => {
 const WorkerSpot = props => {
   const worker = props.workerSpaces[props.job]
   const onClick = e => {
+    if (props.disabled) {
+      return
+    }
     e.preventDefault()
     props.onClick(props.job)
   }
@@ -37,15 +41,19 @@ const WorkerSpot = props => {
     return (
       <div className="WorkerSpot">
         <div style={{ display: 'inline-block' }}>
-          <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)}/>
+          <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)} />
           {label}
         </div>
       </div>
     )
   } else {
     return (
-      <div className="WorkerSpot" style={{ display: 'inline-block' }}>
-        <button disabled={props.disabled} onClick={onClick}/>{label}
+      <div
+        onClick={onClick}
+        className={classNames({ WorkerSpot: true, disabled: props.disabled })}
+        style={{ display: 'inline-block' }}
+      >
+        {label}
       </div>
     )
   }
