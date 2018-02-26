@@ -26,34 +26,35 @@ const strokeColor = worker => {
   }
 }
 
-const WorkerSpot = props => {
-  const worker = props.workerSpaces[props.job]
-  const onClick = e => {
-    if (props.disabled) {
+const WorkerSpot = ({ workerSpaces, job, disabled, onClick, label }) => {
+  const worker = workerSpaces[job]
+  const handleClick = e => {
+    if (disabled) {
       return
     }
     e.preventDefault()
-    props.onClick(props.job)
+    onClick(job)
   }
 
-  const label = props.label || props.job
+  const displayedLabel = label || job
   if (worker !== null) {
     return (
       <div className="WorkerSpot">
-        <div style={{ display: 'inline-block' }}>
-          <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)} />
-          {label}
-        </div>
+        <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)} />
+        {displayedLabel}
       </div>
     )
   } else {
     return (
       <div
-        onClick={onClick}
-        className={classNames({ WorkerSpot: true, disabled: props.disabled })}
-        style={{ display: 'inline-block' }}
+        onClick={handleClick}
+        className={classNames({
+          WorkerSpot: true,
+          disabled: disabled,
+          clickable: !disabled,
+        })}
       >
-        {label}
+        {displayedLabel}
       </div>
     )
   }

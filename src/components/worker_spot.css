@@ -5,5 +5,12 @@
 }
 
 .WorkerSpot.disabled {
+  text-decoration: none;
   color: #ddd;
+}
+
+.WorkerSpot.clickable {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
