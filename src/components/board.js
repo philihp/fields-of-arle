@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import MoveSelect from './move_select'
 import RoundBoard from './round_board'
 import ActionsBoard from './actions_board'
-import HomeBoard from './home_board'
+import Tableau from './tableau'
 import GlobalStatus from './global_status'
 import PreparationsBoard from './preparations_board'
 import './board.css'
@@ -30,15 +30,12 @@ const hasPlacedWorker = props => {
 
 const Board = props => (
   <div
-    className={classNames(
-      'Board',
-      color(props.ctx.currentPlayer)
-    )}
+    className={classNames('Board', color(props.ctx.currentPlayer))}
     style={{ marginTop: '0px' }}
   >
     <div className="col col1">
       <h4>Red Player</h4>
-      <HomeBoard player={props.G.players[0]} />
+      <Tableau player={props.G.players[0]} />
     </div>
 
     <div className="col col2">
@@ -69,7 +66,7 @@ const Board = props => (
 
     <div className="col col3">
       <h4>Yellow Player</h4>
-      <HomeBoard player={props.G.players[1]} />
+      <Tableau player={props.G.players[1]} />
     </div>
   </div>
 )
@@ -83,4 +80,4 @@ Board.propTypes = {
   isActive: PropTypes.bool,
 }
 
-export default Board;
+export default Board

@@ -1,0 +1,10 @@
+.TableauLand {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #b2cfe2;
+}
+
+.TableauLand > div {
+  min-height: 30px;
+  border: 1px solid #b2cfe2;
+}

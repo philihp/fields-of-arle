@@ -1,0 +1,10 @@
+/* $lightblue: #a6cee3;
+$darkblue: #1f78b4; */
+
+.Tableau {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.Tableau div {
+}
