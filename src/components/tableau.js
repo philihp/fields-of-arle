@@ -3,16 +3,25 @@ import PropTypes from 'prop-types'
 import TableauLand from './tableau_land'
 import './tableau.css'
 
-const Tableau = props => (
+const Tableau = ({ player }) => (
   <div className="Tableau">
-    <div className="Inventory">
-      Peat: {props.player.peat}
-      <br />
-      Wood: {props.player.wood}
-      <br />
-      Clay: {props.player.clay}
+    <div className="Tokens">
+      <div>Floating: {player.tokens.join(', ')}</div>
+      <div>Peat: {player.peat}</div>
+      <div>Wood: {player.wood}</div>
+      <div>Clay: {player.clay}</div>
     </div>
-    <TableauLand land={props.player.land} />
+    <div className="FloatingInventory" />
+    <TableauLand land={player.land} />
+    <div className="Goods">
+      <div>
+        Food: {player.goods.food1}+{player.goods.food2}
+      </div>
+      <div>Wool: {player.goods.wool}</div>
+      <div>Flax: {player.goods.flax}</div>
+      <div>Hides: {player.goods.hides}</div>
+      <div>Grain: {player.goods.grain}</div>
+    </div>
     <div className="Destinations" />
   </div>
 )

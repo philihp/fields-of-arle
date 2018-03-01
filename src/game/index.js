@@ -6,19 +6,20 @@ import { summerActionsReset } from './worker_spaces'
 // const store = createStore(reducer)
 
 const homeBoard = {
+  tokens: [],
   peat: 3,
   wood: 4,
   clay: 4,
-  //   travelExperience: 0,
 
-  //   goods: {
-  //     food1: 5,
-  //     wool: 4,
-  //     flax: 3,
-  //     hides: 2,
-  //     grain: 1,
-  //     food2: 0,
-  //   },
+  //   travelExperience: 0,
+  goods: {
+    food1: 5,
+    wool: 4,
+    flax: 3,
+    hides: 2,
+    grain: 1,
+    food2: 0,
+  },
   //   tokens: [
   //     // { type: 'wood' },
   //     // { type: 'clay' },
@@ -94,10 +95,6 @@ const initialState = {
     axes: [0, 0],
     workbenches: [0, 0],
   },
-  // homeBoards: [
-  //   { ...homeBoard, startingPlayer: true },
-  //   { ...homeBoard, startingPlayer: false },
-  // ],
 }
 
 export { initialState }
