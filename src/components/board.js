@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import MoveSelect from './move_select'
 import RoundBoard from './round_board'
 import ActionsBoard from './actions_board'
+import ActionsOption from './actions_option'
 import Tableau from './tableau'
 import GlobalStatus from './global_status'
 import PreparationsBoard from './preparations_board'
@@ -33,6 +34,8 @@ const Board = props => (
     className={classNames('Board', color(props.ctx.currentPlayer))}
     style={{ marginTop: '0px' }}
   >
+    <ActionsOption G={props.G} />
+
     <div className="col col1">
       <h4>Red Player</h4>
       <Tableau player={props.G.players[0]} />

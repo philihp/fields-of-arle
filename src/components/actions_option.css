@@ -1,0 +1,12 @@
+.ActionsOption {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: pink;
+  padding: 100px;
+}
+
+.hidden {
+  display: none;
+}
