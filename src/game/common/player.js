@@ -1,34 +1,44 @@
-export const addToken = ({ G, ctx }, newToken) => {
-  return {
-    G: {
-      ...G,
-      players: {
-        ...G.players,
-        [ctx.currentPlayer]: {
-          ...G.players[ctx.currentPlayer],
-          tokens: [...G.players[ctx.currentPlayer].tokens, newToken],
-        },
+export const addToken = ({ G, ctx }, newToken) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: {
+        ...G.players[ctx.currentPlayer],
+        tokens: [...G.players[ctx.currentPlayer].tokens, newToken],
       },
     },
-    ctx,
-  }
-}
-export const addTokenSheep = ({ G, ctx }) => addToken({ G, ctx }, 'sheep')
+  },
+  ctx,
+})
 
-export const bumpTool = ({ G, ctx }, tool) => {
-  return {
-    G: {
-      ...G,
-      toolSpaces: {
-        ...G.toolSpaces,
-        [tool]: {
-          ...G.toolSpaces[tool],
-          [ctx.currentPlayer]: G.toolSpaces[tool][ctx.currentPlayer] + 1,
+export const bumpTool = ({ G, ctx }, tool) => ({
+  G: {
+    ...G,
+    toolSpaces: {
+      ...G.toolSpaces,
+      [tool]: {
+        ...G.toolSpaces[tool],
+        [ctx.currentPlayer]: G.toolSpaces[tool][ctx.currentPlayer] + 1,
+      },
+    },
+  },
+  ctx,
+})
+
+export const addGoods = ({ G, ctx }, good, amount) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: {
+        ...G.players[ctx.currentPlayer],
+        goods: {
+          ...G.players[ctx.currentPlayer].goods,
+          [good]: G.players[ctx.currentPlayer].goods[good] + amount,
         },
       },
     },
-    ctx,
-  }
-}
-export const bumpToolFishTraps = ({ G, ctx }) =>
-  bumpTool({ G, ctx }, 'fishTraps')
+  },
+  ctx,
+})

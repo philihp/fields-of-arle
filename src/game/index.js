@@ -13,12 +13,11 @@ const homeBoard = {
 
   //   travelExperience: 0,
   goods: {
-    food1: 5,
+    food: 5,
     wool: 4,
     flax: 3,
     hides: 2,
     grain: 1,
-    food2: 0,
   },
   //   tokens: [
   //     // { type: 'wood' },

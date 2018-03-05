@@ -14,9 +14,7 @@ const Tableau = ({ player }) => (
     <div className="FloatingInventory" />
     <TableauLand land={player.land} />
     <div className="Goods">
-      <div>
-        Food: {player.goods.food1}+{player.goods.food2}
-      </div>
+      <div> Food: {player.goods.food}</div>
       <div>Wool: {player.goods.wool}</div>
       <div>Flax: {player.goods.flax}</div>
       <div>Hides: {player.goods.hides}</div>
