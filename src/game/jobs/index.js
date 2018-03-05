@@ -1,5 +1,4 @@
 import fisherman from './fisherman'
-const Jobs = {
+export default {
   fisherman,
 }
-export default Jobs
