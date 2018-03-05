@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WorkerSpot from './worker_spot'
 import ToolTrack from './tool_track'
+import ToolIncrements from '../game/tool_increments'
 import './actions_board.css'
 
 export default class ActionsBoard extends React.Component {
@@ -87,7 +88,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Fish Traps"
-            values={[2, 3, 4, 5, 6]}
+            values={ToolIncrements.fishTraps}
             track={this.props.toolSpaces.fishTraps}
           />
         </section>
@@ -112,7 +113,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Fleshing Beams"
-            values={[3, 5, 6]}
+            values={ToolIncrements.fleshingBeams}
             track={this.props.toolSpaces.fleshingBeams}
           />
         </section>
@@ -136,7 +137,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-both">
           <ToolTrack
             name="Weaving Looms"
-            values={[2, 3, 4, 5]}
+            values={ToolIncrements.weavingLooms}
             track={this.props.toolSpaces.weavingLooms}
           />
         </section>
@@ -160,7 +161,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Slaughtering Tables"
-            values={[2, 3, 4]}
+            values={ToolIncrements.slaughteringTables}
             track={this.props.toolSpaces.slaughteringTables}
           />
         </section>
@@ -184,7 +185,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Spades"
-            values={[3, 5, 7]}
+            values={ToolIncrements.spades}
             track={this.props.toolSpaces.spades}
           />
         </section>
@@ -209,8 +210,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer double-row">
           <ToolTrack
             name="Shovels (Pairs)"
-            values={[1, 2, 2, 3]}
-            secondaryValues={[3, 4, 5, 6]}
+            values={ToolIncrements.shovelPairs}
+            secondaryValues={ToolIncrements.shovels}
             track={this.props.toolSpaces.shovelPairs}
           />
         </section>
@@ -252,7 +253,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Pottery Wheels"
-            values={[2, 3, 4]}
+            values={ToolIncrements.potteryWheels}
             track={this.props.toolSpaces.potteryWheels}
           />
         </section>
@@ -275,7 +276,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Ovens"
-            values={[1, 2, 3, 4]}
+            values={ToolIncrements.ovens}
             track={this.props.toolSpaces.ovens}
           />
         </section>
@@ -298,7 +299,7 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Axes"
-            values={[3, 4, 5, 6]}
+            values={ToolIncrements.axes}
             track={this.props.toolSpaces.axes}
           />
         </section>
@@ -322,7 +323,7 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="tool-both">
           <ToolTrack
-            values={[2, 3, 4]}
+            values={ToolIncrements.workbenches}
             track={this.props.toolSpaces.workbenches}
           />
         </section>

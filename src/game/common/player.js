@@ -1,3 +1,8 @@
+/*
+Uncomposed utility functions, which you probably want to call with just
+the single param {G, ctx}.
+*/
+
 export const addToken = ({ G, ctx }, newToken) => ({
   G: {
     ...G,
