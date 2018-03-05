@@ -6,11 +6,13 @@ const TableauLand = ({ land }) => (
   <div className="TableauLand">
     {land.map((row, y) =>
       row.map((cell, x) => (
-        <div>
+        <div key={[x, y].join('+')}>
           {cell && (
             <div>
               <b>{cell.type}</b>
-              <div>{cell.contents.map(item => <span>{item}</span>)}</div>
+              <div>
+                {cell.contents.map((item, i) => <span key={i}>{item}</span>)}
+              </div>
             </div>
           )}
         </div>

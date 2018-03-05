@@ -1,4 +1,5 @@
 import { Game } from 'boardgame.io/core'
+import Jobs from './game/jobs'
 
 // import { pickWorker } from './game/common/'
 import initialState from './game/'
@@ -52,7 +53,7 @@ const game = Game({
   moves: {
     action(G, ctx, job, offSeason) {
       if (G.workerSpaces[job] == null) {
-        return {
+        const G2 = {
           ...G,
           action: job,
           lighthouse: {
@@ -65,6 +66,8 @@ const game = Game({
             [job]: G.workerSpaces[ctx.phase][0],
           },
         }
+        const G3 = Jobs[job](G2, ctx)
+        return G3
       }
     },
     pass(G, ctx) {
