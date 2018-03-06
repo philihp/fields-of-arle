@@ -9,11 +9,11 @@ const isVisible = G => {
 }
 
 const ActionsOption = ({ G, ctx }) => {
-  const ActionOptionsForJob = actionOptions[G.action]
+  // necessary because JSX tags need an uppercase letter constant
+  const Options = actionOptions[G.action]
   return (
     <div className={classNames('ActionsOption', { visible: isVisible(G) })}>
-      action options...<br />
-      {G.action && <ActionOptionsForJob />}
+      {isVisible(G) && <Options />}
     </div>
   )
 }

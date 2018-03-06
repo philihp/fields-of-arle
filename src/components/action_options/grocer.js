@@ -2,24 +2,9 @@ import React from 'react'
 
 const Grocer = props => (
   <div>
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
-    grocer<br />
+    timber, brick, sheep, cattle, or horse?<br />
+    <br />
+    (also you get a grain and a leather)
   </div>
 )
 
