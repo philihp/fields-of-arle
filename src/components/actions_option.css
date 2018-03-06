@@ -5,8 +5,9 @@
   transform: translate(-50%, -50%);
   background-color: pink;
   padding: 100px;
+  display: none;
 }
 
-.hidden {
-  display: none;
+.visible {
+  display: block;
 }
