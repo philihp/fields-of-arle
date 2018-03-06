@@ -11,7 +11,7 @@ export const setAction = ({ G, ctx, ...args }) => ({
   ctx,
 })
 
-export const addToken = ({ G, ctx }, newToken) => ({
+export const addToken = ({ G, ctx, ...args }, newToken) => ({
   G: {
     ...G,
     players: {
@@ -23,9 +23,10 @@ export const addToken = ({ G, ctx }, newToken) => ({
     },
   },
   ctx,
+  ...args,
 })
 
-export const addInventory = ({ G, ctx }, newInventory) => ({
+export const addInventory = ({ G, ctx, ...args }, newInventory) => ({
   G: {
     ...G,
     players: {
@@ -37,9 +38,10 @@ export const addInventory = ({ G, ctx }, newInventory) => ({
     },
   },
   ctx,
+  ...args,
 })
 
-export const bumpTool = ({ G, ctx }, tool) => ({
+export const bumpTool = ({ G, ctx, ...args }, tool) => ({
   G: {
     ...G,
     toolSpaces: {
@@ -51,9 +53,10 @@ export const bumpTool = ({ G, ctx }, tool) => ({
     },
   },
   ctx,
+  ...args,
 })
 
-export const addGoods = ({ G, ctx }, good, amount) => ({
+export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
   G: {
     ...G,
     players: {
@@ -68,4 +71,5 @@ export const addGoods = ({ G, ctx }, good, amount) => ({
     },
   },
   ctx,
+  ...args,
 })
