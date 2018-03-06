@@ -1,6 +1,4 @@
 import { compose } from 'redux'
-// import { addToken, addGoods, bumpTool } from '../common/player'
+import { setAction } from '../common/player'
 
-const identity = i => i
-
-export default (G, ctx) => compose(identity)({ G, ctx }).G
+export default (G, ctx, ...args) => compose(setAction)({ G, ctx, ...args }).G
