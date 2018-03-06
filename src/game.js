@@ -1,5 +1,6 @@
 import { Game } from 'boardgame.io/core'
-import Jobs from './game/jobs'
+import jobs from './game/jobs'
+import actionOptions from './game/action_options'
 
 // import { pickWorker } from './game/common/'
 import initialState from './game/'
@@ -66,8 +67,15 @@ const game = Game({
             [job]: G.workerSpaces[ctx.phase][0],
           },
         }
-        const G3 = Jobs[job](G2, ctx)
+        const G3 = jobs[job](G2, ctx)
         return G3
+      }
+    },
+    option(G, ctx, args) {
+      if (Object.keys(actionOptions).includes(G.action)) {
+        return actionOptions[G.action]({ G, ctx, args })
+      } else {
+        return G
       }
     },
     pass(G, ctx) {
@@ -94,7 +102,7 @@ const game = Game({
     phases: [
       {
         name: 'july',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -102,7 +110,7 @@ const game = Game({
       },
       {
         name: 'august',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -110,7 +118,7 @@ const game = Game({
       },
       {
         name: 'september',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -118,7 +126,7 @@ const game = Game({
       },
       {
         name: 'october',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -149,7 +157,7 @@ const game = Game({
       },
       {
         name: 'january',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -157,7 +165,7 @@ const game = Game({
       },
       {
         name: 'february',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -165,7 +173,7 @@ const game = Game({
       },
       {
         name: 'march',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -173,7 +181,7 @@ const game = Game({
       },
       {
         name: 'april',
-        allowedMoves: ['action', 'pass'],
+        allowedMoves: ['action', 'option', 'pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
