@@ -63,7 +63,7 @@ const Board = props => (
       <MoveSelect
         events={props.events}
         moves={props.moves}
-        disabled={!hasPlacedWorker(props)}
+        disabled={!hasPlacedWorker(props) || props.G.action != null}
       />
     </div>
 

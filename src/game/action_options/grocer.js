@@ -1,4 +1,8 @@
-export default ({ G, args }) => {
-  console.log('grocer', G, args)
-  return G
+import { addToken } from '../common/player'
+
+export default ({ G, ctx, args }) => {
+  return {
+    ...addToken({ G, ctx }, args).G,
+    action: null,
+  }
 }

@@ -56,7 +56,6 @@ const game = Game({
       if (G.workerSpaces[job] == null) {
         const G2 = {
           ...G,
-          action: job,
           lighthouse: {
             owner: offSeason ? -(+ctx.currentPlayer - 1) : G.lighthouse.owner,
             used: G.lighthouse.used || offSeason,
@@ -67,7 +66,7 @@ const game = Game({
             [job]: G.workerSpaces[ctx.phase][0],
           },
         }
-        const G3 = jobs[job](G2, ctx)
+        const G3 = jobs[job](G2, ctx, job, offSeason)
         return G3
       }
     },
