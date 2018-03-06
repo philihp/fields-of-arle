@@ -6,11 +6,8 @@ import { summerActionsReset } from './worker_spaces'
 // const store = createStore(reducer)
 
 const homeBoard = {
-  tokens: [],
-  peat: 3,
-  wood: 4,
-  clay: 4,
-
+  tokens: [], // Floating tokens
+  inventory: [], // Permanent tokens
   //   travelExperience: 0,
   goods: {
     food: 5,

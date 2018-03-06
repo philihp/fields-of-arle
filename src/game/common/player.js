@@ -17,6 +17,20 @@ export const addToken = ({ G, ctx }, newToken) => ({
   ctx,
 })
 
+export const addInventory = ({ G, ctx }, newInventory) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: {
+        ...G.players[ctx.currentPlayer],
+        inventory: [...G.players[ctx.currentPlayer].inventory, newInventory],
+      },
+    },
+  },
+  ctx,
+})
+
 export const bumpTool = ({ G, ctx }, tool) => ({
   G: {
     ...G,
