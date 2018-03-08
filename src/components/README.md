@@ -1,15 +1,16 @@
 Board
   ActionOptions - usually hidden
-    some component from ./action_options
-  Tableau red
+    ./action_options/*
+  Tableau
     TableauLand
   GlobalStatus
     CurrentPlayer
     LighthouseStatus
   RoundBoard
   PreparationsBoard
+    PreparationMonth
+      StackedWorkerSpot
   ActionsBoard
-    WorkerSpot...
-    ToolTrack...
+    WorkerSpot
+    ToolTrack
   MoveSelect
-  Tableau yellow
