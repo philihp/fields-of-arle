@@ -8,5 +8,5 @@ export default {
   summerGrocer: grocer,
   winterGrocer: grocer,
   woolWeaver,
-  // colonist,
+  colonist,
 }

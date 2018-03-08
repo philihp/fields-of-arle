@@ -13,7 +13,7 @@ const ActionsOption = ({ G, ctx, moves }) => {
   const Options = actionOptions[G.action]
   return (
     <div className={classNames('ActionsOption', { visible: isVisible(G) })}>
-      {isVisible(G) && <Options moves={moves} />}
+      {isVisible(G) && <Options G={G} ctx={ctx} moves={moves} />}
     </div>
   )
 }

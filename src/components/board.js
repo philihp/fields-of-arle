@@ -34,7 +34,7 @@ const Board = props => (
     className={classNames('Board', color(props.ctx.currentPlayer))}
     style={{ marginTop: '0px' }}
   >
-    <ActionsOption G={props.G} moves={props.moves} />
+    <ActionsOption G={props.G} ctx={props.ctx} moves={props.moves} />
 
     <div className="col col1">
       <h4>Red Player</h4>
