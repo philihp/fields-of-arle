@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './move_select.css'
 
-
-const MoveSelect = props => {
+const MoveSelect = ({ moves, events, disabled }) => {
   const onClick = () => {
-    props.moves.pass()
-    props.events.endTurn()
+    moves.pass()
+    events.endTurn()
   }
   return (
-    <button disabled={props.disabled} onClick={onClick}>
+    <button disabled={disabled} onClick={onClick}>
       Next Month
     </button>
   )

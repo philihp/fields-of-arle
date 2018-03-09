@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WorkerToken = props => (
+const WorkerToken = ({ stroke, fill }) => (
   <svg
     width="16"
     height="10"
@@ -9,18 +9,18 @@ const WorkerToken = props => (
   >
     <path
       d=" M 3 25 V 45 A 47 20 0 0 0 50 65 A 47 20 0 0 0 97 45 V 25"
-      stroke={props.stroke}
+      stroke={stroke}
       strokeWidth="3"
-      fill={props.fill}
+      fill={fill}
     />
     <ellipse
       cx="50"
       cy="25"
       rx="47"
       ry="20"
-      stroke={props.stroke}
+      stroke={stroke}
       strokeWidth="3"
-      fill={props.fill}
+      fill={fill}
     />
   </svg>
 )

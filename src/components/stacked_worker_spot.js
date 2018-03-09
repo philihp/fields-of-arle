@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
 const fillColor = worker => {
   switch (worker) {
     case 0:
@@ -24,17 +23,16 @@ const strokeColor = worker => {
   }
 }
 
-
-const StackedWorkerSpot = props => {
+const StackedWorkerSpot = ({ workers }) => {
   var hi, lo
-  switch (props.workers.length) {
+  switch (workers.length) {
     case 2:
-      hi = props.workers[0]
-      lo = props.workers[1]
+      hi = workers[0]
+      lo = workers[1]
       break
     case 1:
       hi = null
-      lo = props.workers[0]
+      lo = workers[0]
       break
     default:
       hi = null
@@ -90,7 +88,6 @@ const StackedWorkerSpot = props => {
     </svg>
   )
 }
-
 
 StackedWorkerSpot.propTypes = {
   workers: PropTypes.any.isRequired,

@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './round_board.css'
 
-const RoundBoard = props => {
+const RoundBoard = ({ round }) => {
   let rounds = Array.from({ length: 9 }, (v, k) => k + 1) // 1..9
   return (
     <table className="RoundBoard">
       <tbody>
         <tr>
           {rounds.map(v => {
-            const selectedClass = props.round === v ? 'glow' : ''
+            const selectedClass = round === v ? 'glow' : ''
             return (
               <td key={v} className={selectedClass}>
                 {v}

@@ -17,7 +17,7 @@ class WoolWeaver extends React.Component {
     const maxTimes = Math.min(wool, looms)
     this.state = {
       maxTimes,
-      defaultChecked: maxTimes,
+      checked: maxTimes,
     }
   }
 
@@ -33,7 +33,7 @@ class WoolWeaver extends React.Component {
                 type="radio"
                 name="woolWeaverConvert"
                 id={i}
-                checked={this.state.defaultChecked}
+                checked={this.state.checked}
               />
               <label htmlFor={i}>Convert {i} wool</label>
             </div>

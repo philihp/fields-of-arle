@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import StackedWorkerSpot from './stacked_worker_spot'
 
-const PreparationMonth = props =>
+const PreparationMonth = ({ month, workers }) => (
   <div>
-    <div>{props.month}</div>
-    <StackedWorkerSpot workers={props.workers} />
+    <div>{month}</div>
+    <StackedWorkerSpot workers={workers} />
   </div>
+)
 
 PreparationMonth.propTypes = {
   workers: PropTypes.any.isRequired,

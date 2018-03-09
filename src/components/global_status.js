@@ -3,10 +3,10 @@ import LighthouseStatus from './lighthouse_status'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const GlobalStatus = props => (
+const GlobalStatus = ({ currentPlayer, lighthouse }) => (
   <div>
-    <CurrentPlayer currentPlayer={props.currentPlayer} />
-    <LighthouseStatus lighthouse={props.lighthouse} />
+    <CurrentPlayer currentPlayer={currentPlayer} />
+    <LighthouseStatus lighthouse={lighthouse} />
   </div>
 )
 
