@@ -22,8 +22,17 @@ class WoolWeaver extends React.Component {
   }
 
   render() {
+    const handleClick = e => {
+      this.setState({ checked: parseInt(e.target.value, 10) })
+    }
+
+    const handleSubmit = e => {
+      e.preventDefault()
+      this.props.moves.option(this.state.checked)
+    }
+
     return (
-      <div>
+      <form onSubmit={handleSubmit}>
         Convert a wool to woolen, per loom<br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => {
@@ -33,13 +42,16 @@ class WoolWeaver extends React.Component {
                 type="radio"
                 name="woolWeaverConvert"
                 id={i}
-                checked={this.state.checked}
+                value={i}
+                onClick={handleClick}
+                defaultChecked={this.state.checked}
               />
               <label htmlFor={i}>Convert {i} wool</label>
             </div>
           )
         })}
-      </div>
+        <input type="submit" value="Convert" />
+      </form>
     )
   }
 }
