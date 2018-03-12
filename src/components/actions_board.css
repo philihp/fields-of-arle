@@ -56,3 +56,8 @@ $darkblue: #1f78b4; */
 .ActionsBoard button[disabled] {
   background-color: #eee;
 }
+
+.ActionsBoard section.not-implemented {
+  font-style: italic;
+  opacity: 0.2;
+}

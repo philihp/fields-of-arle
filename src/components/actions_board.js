@@ -92,7 +92,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.fishTraps}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -141,7 +141,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.weavingLooms}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -165,7 +165,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.slaughteringTables}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -173,7 +173,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -189,7 +189,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.spades}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -198,7 +198,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -215,7 +215,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.shovelPairs}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -224,7 +224,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -233,7 +233,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -242,7 +242,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -257,7 +257,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.potteryWheels}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -265,7 +265,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -280,7 +280,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.ovens}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -288,7 +288,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -303,7 +303,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.axes}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -312,7 +312,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -327,7 +327,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.workbenches}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -336,7 +336,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -345,7 +345,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -354,7 +354,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -362,7 +362,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -370,7 +370,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -378,7 +378,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
@@ -387,7 +387,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer">
+        <section className="action-summer not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -396,7 +396,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-winter">
+        <section className="action-winter not-implemented">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
