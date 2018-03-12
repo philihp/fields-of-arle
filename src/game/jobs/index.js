@@ -4,6 +4,7 @@ import generic from './generic'
 import colonist from './colonist'
 import buildersMerchant from './buildersMerchant'
 import clayWorker from './clayWorker'
+import woodcutter from './woodcutter'
 
 export default {
   fisherman,
@@ -16,7 +17,7 @@ export default {
   clayWorker,
   farmer: generic, // TODO
   forester: generic, // TODO
-  woodcutter: generic, // TODO
+  woodcutter,
   summerMaster: generic, // TODO
   winterMaster: generic, // TODO
   summerCarpenter: generic, // TODO
