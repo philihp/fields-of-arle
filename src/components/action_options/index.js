@@ -3,6 +3,7 @@ import woolWeaver from './wool_weaver'
 import colonist from './colonist'
 import tanner from './tanner'
 import potter from './potter'
+import buildersMerchant from './buildersMerchant'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -13,4 +14,5 @@ export default {
   colonist,
   tanner,
   potter,
+  buildersMerchant,
 }

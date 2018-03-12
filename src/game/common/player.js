@@ -26,14 +26,17 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
   ...args,
 })
 
-export const addInventory = ({ G, ctx, ...args }, newInventory) => ({
+export const addInventory = ({ G, ctx, ...args }, newInventoryList) => ({
   G: {
     ...G,
     players: {
       ...G.players,
       [ctx.currentPlayer]: {
         ...G.players[ctx.currentPlayer],
-        inventory: [...G.players[ctx.currentPlayer].inventory, newInventory],
+        inventory: [
+          ...G.players[ctx.currentPlayer].inventory,
+          ...newInventoryList,
+        ],
       },
     },
   },

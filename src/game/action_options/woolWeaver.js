@@ -1,6 +1,5 @@
-// import { addToken, addInventory } from "../common/player";
-
 export default ({ G, ctx: { currentPlayer }, args }) => {
+  const [count] = args
   return {
     ...G,
     action: null,
@@ -10,11 +9,11 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
         ...G.players[currentPlayer],
         inventory: [
           ...G.players[currentPlayer].inventory,
-          ...Array(args).fill('woolen'),
+          ...Array(count).fill('woolen'),
         ],
         goods: {
           ...G.players[currentPlayer].goods,
-          wool: Math.min(G.players[currentPlayer].goods.wool - args, 15),
+          wool: Math.min(G.players[currentPlayer].goods.wool - count, 15),
         },
       },
     },

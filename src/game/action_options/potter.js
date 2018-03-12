@@ -3,11 +3,12 @@ import { removeFirstItems } from '../common'
 const removeClay = removeFirstItems('clay')
 
 export default ({ G, ctx: { currentPlayer }, args }) => {
+  const [count] = args
   const inventorySansClay = G.players[currentPlayer].inventory.reduce(
     removeClay,
     {
       list: [],
-      count: args,
+      count: count,
     }
   ).list
   return {
@@ -17,10 +18,10 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
       ...G.players,
       [currentPlayer]: {
         ...G.players[currentPlayer],
-        inventory: [...inventorySansClay, ...Array(args).fill('peat')],
+        inventory: [...inventorySansClay, ...Array(count).fill('peat')],
         goods: {
           ...G.players[currentPlayer].goods,
-          food: Math.min(G.players[currentPlayer].goods.food + args * 3, 30),
+          food: Math.min(G.players[currentPlayer].goods.food + count * 3, 30),
         },
       },
     },

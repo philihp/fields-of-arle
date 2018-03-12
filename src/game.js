@@ -70,7 +70,7 @@ const game = Game({
         return G3
       }
     },
-    option(G, ctx, args) {
+    option(G, ctx, ...args) {
       if (Object.keys(actionOptions).includes(G.action)) {
         return actionOptions[G.action]({ G, ctx, args })
       } else {

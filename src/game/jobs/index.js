@@ -2,6 +2,7 @@ import fisherman from './fisherman'
 import grocer from './grocer'
 import generic from './generic'
 import colonist from './colonist'
+import buildersMerchant from './buildersMerchant'
 
 export default {
   fisherman,
@@ -28,7 +29,7 @@ export default {
   linenWeaver: generic, // TODO
   butcher: generic, // TODO
   cattleTrader: generic, // TODO
-  buildersMerchant: generic, // TODO
+  buildersMerchant,
   potter: generic,
   baker: generic, // TODO
   woodTrader: generic, // TODO

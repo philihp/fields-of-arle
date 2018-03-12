@@ -7,7 +7,7 @@ const addGrain = ({ G, ctx, ...args }) => ({
 })
 
 const addLeather = ({ G, ctx, ...args }) => ({
-  ...addInventory({ G, ctx }, 'leather'),
+  ...addInventory({ G, ctx }, ['leather']),
   ...args,
 })
 
