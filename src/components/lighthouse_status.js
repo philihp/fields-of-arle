@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const color = (worker) => {
+const color = worker => {
   switch (worker) {
     case 0:
       return '#e64505'

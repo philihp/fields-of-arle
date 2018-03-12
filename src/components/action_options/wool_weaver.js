@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { toolValue } from '../../game/tool_increments'
 
-//toolValue('weavingLooms', G.tools)
-
 class WoolWeaver extends React.Component {
   constructor(props) {
     super(props)

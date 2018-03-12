@@ -38,7 +38,11 @@ const Board = props => (
 
     <div className="col col1">
       <h4>Red Player</h4>
-      <Tableau player={props.G.players[0]} />
+      <Tableau
+        player={props.G.players[0]}
+        action={props.G.action}
+        moves={props.moves}
+      />
     </div>
 
     <div className="col col2">
@@ -69,7 +73,11 @@ const Board = props => (
 
     <div className="col col3">
       <h4>Yellow Player</h4>
-      <Tableau player={props.G.players[1]} />
+      <Tableau
+        player={props.G.players[1]}
+        action={props.G.action}
+        moves={props.moves}
+      />
     </div>
   </div>
 )

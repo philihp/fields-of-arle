@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const color = (worker) => {
+const color = worker => {
   switch (worker) {
     case 0:
       return '#e64505'
@@ -12,11 +12,12 @@ const color = (worker) => {
   }
 }
 
-
 const CurrentPlayer = props => (
   <div style={{ display: 'inline-block' }}>
     Current Player&nbsp;
-    <span style={{fontWeight: 'bold', color: color(props.currentPlayer)}}>{props.currentPlayer}</span>&nbsp;
+    <span style={{ fontWeight: 'bold', color: color(props.currentPlayer) }}>
+      {props.currentPlayer}
+    </span>&nbsp;
   </div>
 )
 

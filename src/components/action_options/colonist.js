@@ -2,10 +2,22 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-// TODO need a form and action for this
-const Colonist = ({ moves }) => (
-  <div>Get a horse, then flip a moor tile and put 4 peat on it</div>
-)
+const Name = ['Left', 'Middle', 'Right']
+
+const Colonist = ({ G, ctx: { currentPlayer }, moves }) => {
+  const land = G.players[currentPlayer].land
+  const cols = land[5].map(cell => cell.type === 'moor_north')
+  return (
+    <div>
+      Get a horse, also flip moor and add 4 peat...<br />
+      {cols.map((available, i) => (
+        <button key={i} onClick={() => moves.option(i)}>
+          Column {Name[i]}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 Colonist.propTypes = {
   moves: PropTypes.any.isRequired,
