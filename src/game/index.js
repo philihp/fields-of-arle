@@ -7,7 +7,19 @@ import { summerActionsReset } from './worker_spaces'
 
 const homeBoard = {
   tokens: [], // Floating tokens
-  inventory: [], // Permanent tokens
+  inventory: [
+    'wood',
+    'wood',
+    'wood',
+    'wood',
+    'clay',
+    'clay',
+    'clay',
+    'clay',
+    'peat',
+    'peat',
+    'peat',
+  ], // Permanent tokens
   //   travelExperience: 0,
   goods: {
     food: 5,

@@ -14,7 +14,7 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
         ],
         goods: {
           ...G.players[currentPlayer].goods,
-          wool: G.players[currentPlayer].goods.wool - args,
+          wool: Math.min(G.players[currentPlayer].goods.wool - args, 15),
         },
       },
     },
