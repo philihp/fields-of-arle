@@ -1,4 +1,4 @@
-import { addToken, addInventory } from '../common/player'
+import { addInventory } from '../common/player'
 
 export default ({ G, ctx, args }) => {
   return {

@@ -1,5 +1,3 @@
-import { compose } from 'redux'
-import { addToken, addGoods, bumpTool } from '../common/player'
 import { toolValue } from '../tool_increments'
 
 export default (G, { currentPlayer }) => ({
