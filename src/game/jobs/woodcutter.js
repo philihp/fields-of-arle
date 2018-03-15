@@ -1,4 +1,4 @@
-import { toolValue } from '../tool_increments'
+import { toolValue } from '../constants'
 
 export default (G, { currentPlayer }) => ({
   ...G,

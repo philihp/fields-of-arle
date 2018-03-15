@@ -1,6 +1,6 @@
 import { compose } from 'redux'
 import { addToken, addGoods, bumpTool } from '../common/player'
-import { toolValue } from '../tool_increments'
+import { toolValue } from '../constants'
 
 const addTokenSheep = ({ G, ctx }) => addToken({ G, ctx }, 'sheep')
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { toolValue } from '../../game/tool_increments'
+import { toolValue } from '../../game/constants'
 
 class Tanner extends React.Component {
   constructor(props) {

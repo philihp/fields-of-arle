@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WorkerSpot from './worker_spot'
 import ToolTrack from './tool_track'
-import ToolIncrements from '../game/tool_increments'
+import { ToolIncrements } from '../game/constants'
 import './actions_board.css'
 
 export default class ActionsBoard extends React.Component {
@@ -173,7 +173,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer not-implemented">
+        <section className="action-summer">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}

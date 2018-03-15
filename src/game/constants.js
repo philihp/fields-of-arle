@@ -1,4 +1,4 @@
-const ToolIncrements = {
+export const ToolIncrements = {
   fishTraps: [2, 3, 4, 5, 6],
   fleshingBeams: [3, 5, 6],
   weavingLooms: [2, 3, 4, 5],
@@ -14,4 +14,4 @@ const ToolIncrements = {
 
 export const toolValue = (name, index) => ToolIncrements[name][index]
 
-export default ToolIncrements
+export const possiblePeatLocations = [[4, 1], [5, 0], [5, 1], [5, 2]]

@@ -4,6 +4,7 @@ import colonist from './colonist'
 import tanner from './tanner'
 import potter from './potter'
 import buildersMerchant from './buildersMerchant'
+import peatCutter from './peatCutter'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -18,4 +19,5 @@ export default {
   tanner,
   potter,
   buildersMerchant,
+  peatCutter,
 }

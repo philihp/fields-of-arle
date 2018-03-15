@@ -5,6 +5,8 @@ import { summerActionsReset } from './worker_spaces'
 
 // const store = createStore(reducer)
 
+export const emptyLandCell = { type: 'empty', contents: [] }
+
 const homeBoard = {
   tokens: [], // Floating tokens
   inventory: [
@@ -28,19 +30,11 @@ const homeBoard = {
     hides: 2,
     grain: 1,
   },
-  //   tokens: [
-  //     // { type: 'wood' },
-  //     // { type: 'clay' },
-  //     // { type: 'timber' },
-  //     // { type: 'bricks' },
-  //     // 'peat'
-  //     // 'horse'
-  //   ],
   land: [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-    [null, null, { type: 'wheat', contents: [] }],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
+    [emptyLandCell, emptyLandCell, { type: 'wheat', contents: [] }],
     [
       { type: 'stall', contents: ['horse'] },
       { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat'] },
