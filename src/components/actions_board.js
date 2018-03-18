@@ -90,6 +90,7 @@ export default class ActionsBoard extends React.Component {
             name="Fish Traps"
             values={ToolIncrements.fishTraps}
             track={this.props.toolSpaces.fishTraps}
+            cost={['wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -115,6 +116,7 @@ export default class ActionsBoard extends React.Component {
             name="Fleshing Beams"
             values={ToolIncrements.fleshingBeams}
             track={this.props.toolSpaces.fleshingBeams}
+            cost={['wood']}
           />
         </section>
         <section className="action-winter">
@@ -139,6 +141,7 @@ export default class ActionsBoard extends React.Component {
             name="Weaving Looms"
             values={ToolIncrements.weavingLooms}
             track={this.props.toolSpaces.weavingLooms}
+            cost={['wood', 'wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -163,6 +166,7 @@ export default class ActionsBoard extends React.Component {
             name="Slaughtering Tables"
             values={ToolIncrements.slaughteringTables}
             track={this.props.toolSpaces.slaughteringTables}
+            cost={['clay']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -187,6 +191,7 @@ export default class ActionsBoard extends React.Component {
             name="Spades"
             values={ToolIncrements.spades}
             track={this.props.toolSpaces.spades}
+            cost={['wood']}
           />
         </section>
         <section className="action-winter">
@@ -213,6 +218,7 @@ export default class ActionsBoard extends React.Component {
             values={ToolIncrements.shovelPairs}
             secondaryValues={ToolIncrements.shovels}
             track={this.props.toolSpaces.shovelPairs}
+            cost={['wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -255,6 +261,7 @@ export default class ActionsBoard extends React.Component {
             name="Pottery Wheels"
             values={ToolIncrements.potteryWheels}
             track={this.props.toolSpaces.potteryWheels}
+            cost={['clay']}
           />
         </section>
         <section className="action-winter">
@@ -278,6 +285,7 @@ export default class ActionsBoard extends React.Component {
             name="Ovens"
             values={ToolIncrements.ovens}
             track={this.props.toolSpaces.ovens}
+            cost={['brick']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -301,6 +309,7 @@ export default class ActionsBoard extends React.Component {
             name="Axes"
             values={ToolIncrements.axes}
             track={this.props.toolSpaces.axes}
+            cost={['wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -325,6 +334,7 @@ export default class ActionsBoard extends React.Component {
           <ToolTrack
             values={ToolIncrements.workbenches}
             track={this.props.toolSpaces.workbenches}
+            cost={['clay', 'clay']}
           />
         </section>
         <section className="action-winter not-implemented">
