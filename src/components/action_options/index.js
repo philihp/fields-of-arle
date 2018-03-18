@@ -5,6 +5,7 @@ import tanner from './tanner'
 import potter from './potter'
 import buildersMerchant from './buildersMerchant'
 import peatCutter from './peatCutter'
+import cattleTrader from './cattleTrader'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -17,4 +18,5 @@ export default {
   potter,
   buildersMerchant,
   peatCutter,
+  cattleTrader,
 }

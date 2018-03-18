@@ -5,6 +5,7 @@ import colonist from './colonist'
 import buildersMerchant from './buildersMerchant'
 import clayWorker from './clayWorker'
 import woodcutter from './woodcutter'
+import cattleTrader from './cattleTrader'
 
 export default {
   fisherman,
@@ -30,7 +31,7 @@ export default {
   tanner: generic,
   linenWeaver: generic, // TODO
   butcher: generic, // TODO
-  cattleTrader: generic, // TODO
+  cattleTrader,
   buildersMerchant,
   potter: generic,
   baker: generic, // TODO

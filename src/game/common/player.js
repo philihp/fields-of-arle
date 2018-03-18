@@ -3,13 +3,16 @@ Uncomposed utility functions, which you probably want to call with just
 the single param {G, ctx}.
 */
 
-export const setAction = ({ G, ctx, ...args }) => ({
-  G: {
-    ...G,
-    action: args[0],
-  },
-  ctx,
-})
+export const setAction = ({ G, ctx, ...args }) => {
+  console.log(args)
+  return {
+    G: {
+      ...G,
+      action: args[0],
+    },
+    ctx,
+  }
+}
 
 export const addToken = ({ G, ctx, ...args }, newToken) => ({
   G: {
