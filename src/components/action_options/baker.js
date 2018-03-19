@@ -45,7 +45,7 @@ class Baker extends React.Component {
     'consumes ' + this.goodConsumption(i) + ' and ' + this.fuelConsumption(i)
 
   handleClick = times => e => {
-    console.log('click', times)
+    this.props.moves.option(times)
   }
 
   render() {
@@ -54,14 +54,9 @@ class Baker extends React.Component {
         Convert grain + peat to 6 food. You can replace grain with flax and peat
         with wood, if you have none.<br />
         <br />
-        Max peat: {this.state.peatCount}
-        <br />
-        Max grain: {this.state.grainCount}
-        <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => (
-          <div>
+          <div key={i}>
             <button
-              key={i}
               type="radio"
               name="bakerConvert"
               id={'bakerConvert' + i}

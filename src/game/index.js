@@ -93,7 +93,7 @@ const initialState = {
     spades: [0, 0],
     shovelPairs: [0, 0],
     potteryWheels: [0, 0],
-    ovens: [3, 3], // TODO make zero zero
+    ovens: [0, 0],
     axes: [0, 0],
     workbenches: [0, 0],
   },
