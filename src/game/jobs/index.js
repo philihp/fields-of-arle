@@ -1,5 +1,6 @@
 import fisherman from './fisherman'
 import summerGrocer from './summerGrocer'
+import winterGrocer from './winterGrocer'
 import generic from './generic'
 import colonist from './colonist'
 import buildersMerchant from './buildersMerchant'
@@ -10,7 +11,7 @@ import cattleTrader from './cattleTrader'
 export default {
   fisherman,
   summerGrocer,
-  // winterGrocer: grocer,
+  winterGrocer,
   woolWeaver: generic,
   colonist,
   peatCutter: generic,

@@ -1,4 +1,5 @@
 import summerGrocer from './summerGrocer'
+import winterGrocer from './winterGrocer'
 import woolWeaver from './wool_weaver'
 import colonist from './colonist'
 import tanner from './tanner'
@@ -11,7 +12,7 @@ import cattleTrader from './cattleTrader'
 
 export default {
   summerGrocer,
-  // winterGrocer: grocer,
+  winterGrocer,
   woolWeaver,
   colonist,
   tanner,

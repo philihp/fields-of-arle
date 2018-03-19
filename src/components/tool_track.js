@@ -6,7 +6,7 @@ const ToolTrack = ({ values, secondaryValues, track, name, cost }) => {
   return (
     <div>
       {/* TODO this is a quick "cost", do something better later */}
-      <div style={{ position: 'absolute' }}>
+      <div style={{ position: 'absolute', zIndex: -1 }}>
         {cost.map((v, i) => <span key={i}>{v[0]}</span>)}
       </div>
       <table className="ToolTrack">

@@ -12,7 +12,7 @@ const cellMinusPeat = cell => {
   }
 }
 
-const removePeatFromCoord = (land, coord) => {
+export const removePeatFromCoord = (land, coord) => {
   const { row, col } = coord
   return [
     ...land.slice(0, row),
@@ -25,7 +25,7 @@ const removePeatFromCoord = (land, coord) => {
   ]
 }
 
-const flipEmptyMoors = (land, coord) => {
+export const flipEmptyMoors = (land, coord) => {
   const [row, col] = coord
   // next if the tile still has a peat on it
   if (land[row][col].contents.indexOf('peat') !== -1) return land
