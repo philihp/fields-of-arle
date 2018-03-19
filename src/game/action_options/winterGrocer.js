@@ -3,8 +3,6 @@ import { possiblePeatLocations } from '../constants'
 
 export default ({ G, ctx, args }) => {
   const [toDrain, item] = args
-  console.log('toDrain: ', toDrain)
-  console.log('item: ', item)
   return {
     ...G,
     players: {

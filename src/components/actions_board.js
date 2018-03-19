@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WorkerSpot from './worker_spot'
 import ToolTrack from './tool_track'
-import { ToolIncrements } from '../game/constants'
 import './actions_board.css'
 
 export default class ActionsBoard extends React.Component {
@@ -88,9 +87,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Fish Traps"
-            values={ToolIncrements.fishTraps}
+            toolKey="fishTraps"
             track={this.props.toolSpaces.fishTraps}
-            cost={['wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -114,9 +112,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Fleshing Beams"
-            values={ToolIncrements.fleshingBeams}
+            toolKey="fleshingBeams"
             track={this.props.toolSpaces.fleshingBeams}
-            cost={['wood']}
           />
         </section>
         <section className="action-winter">
@@ -139,9 +136,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-both">
           <ToolTrack
             name="Weaving Looms"
-            values={ToolIncrements.weavingLooms}
+            toolKey="weavingLooms"
             track={this.props.toolSpaces.weavingLooms}
-            cost={['wood', 'wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -164,9 +160,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Slaughtering Tables"
-            values={ToolIncrements.slaughteringTables}
+            toolKey="slaughteringTables"
             track={this.props.toolSpaces.slaughteringTables}
-            cost={['clay']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -189,9 +184,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Spades"
-            values={ToolIncrements.spades}
+            toolKey="spades"
             track={this.props.toolSpaces.spades}
-            cost={['wood']}
           />
         </section>
         <section className="action-winter">
@@ -215,10 +209,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer double-row">
           <ToolTrack
             name="Shovels (Pairs)"
-            values={ToolIncrements.shovelPairs}
-            secondaryValues={ToolIncrements.shovels}
+            toolKey="shovels"
             track={this.props.toolSpaces.shovelPairs}
-            cost={['wood']}
           />
         </section>
         <section className="action-winter">
@@ -259,9 +251,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Pottery Wheels"
-            values={ToolIncrements.potteryWheels}
+            toolKey="potteryWheels"
             track={this.props.toolSpaces.potteryWheels}
-            cost={['clay']}
           />
         </section>
         <section className="action-winter">
@@ -283,9 +274,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-winter">
           <ToolTrack
             name="Ovens"
-            values={ToolIncrements.ovens}
+            toolKey="ovens"
             track={this.props.toolSpaces.ovens}
-            cost={['brick']}
           />
         </section>
         <section className="action-winter">
@@ -307,9 +297,8 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack
             name="Axes"
-            values={ToolIncrements.axes}
+            toolKey="axes"
             track={this.props.toolSpaces.axes}
-            cost={['wood']}
           />
         </section>
         <section className="action-winter not-implemented">
@@ -321,7 +310,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={this.props.workerSpaces}
           />
         </section>
-        <section className="action-summer not-implemented">
+        <section className="action-summer">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
@@ -332,12 +321,11 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="tool-both">
           <ToolTrack
-            values={ToolIncrements.workbenches}
+            toolKey="workbenches"
             track={this.props.toolSpaces.workbenches}
-            cost={['clay', 'clay']}
           />
         </section>
-        <section className="action-winter not-implemented">
+        <section className="action-winter">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}

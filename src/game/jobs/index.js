@@ -20,8 +20,8 @@ export default {
   farmer: generic, // TODO
   forester: generic, // TODO
   woodcutter,
-  summerMaster: generic, // TODO
-  winterMaster: generic, // TODO
+  summerMaster: generic,
+  winterMaster: generic,
   summerCarpenter: generic, // TODO
   winterCarpenter: generic, // TODO
   builder: generic, // TODO

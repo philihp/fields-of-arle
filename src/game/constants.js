@@ -26,6 +26,19 @@ export const ToolPoints = {
   workbenches: [0, 1, 4],
 }
 
+export const ToolUpgradeCosts = {
+  fishTraps: ['wood'],
+  fleshingBeams: ['wood'],
+  weavingLooms: ['wood', 'wood'],
+  slaughteringTables: ['clay'],
+  spades: ['wood'],
+  shovels: ['wood'],
+  potteryWheels: ['clay'],
+  ovens: ['brick'],
+  axes: ['wood'],
+  workbenches: ['clay', 'clay'],
+}
+
 export const toolValue = (name, index) => ToolIncrements[name][index]
 
 export const possiblePeatLocations = [[4, 1], [5, 0], [5, 1], [5, 2]]

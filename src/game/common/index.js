@@ -1,3 +1,17 @@
+export const afford = (inventory, cost) =>
+  inventory.reduce((accum, inventoryItem) => {
+    const index = accum.indexOf(inventoryItem)
+    if (index === -1) return accum
+    return [...accum.slice(0, index), ...accum.slice(index + 1)]
+  }, cost).length === 0
+
+export const spend = (inventory, cost) =>
+  cost.reduce((accum, costItem) => {
+    const index = accum.indexOf(costItem)
+    if (index === -1) return accum
+    return [...accum.slice(0, index), ...accum.slice(index + 1)]
+  }, inventory)
+
 export const season = state => (state.month <= 3 ? 'summer' : 'winter')
 
 export const moveWorker = (G, args) => {

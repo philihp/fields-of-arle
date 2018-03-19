@@ -4,7 +4,6 @@ the single param {G, ctx}.
 */
 
 export const setAction = ({ G, ctx, ...args }) => {
-  console.log(args)
   return {
     G: {
       ...G,

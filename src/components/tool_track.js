@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ToolUpgradeCosts, ToolIncrements } from '../game/constants'
 import './tool_track.css'
 
-const ToolTrack = ({ values, secondaryValues, track, name, cost }) => {
+const ToolTrack = ({ toolKey, track, name }) => {
+  const values = ToolIncrements[toolKey]
+  const cost = ToolUpgradeCosts[toolKey]
   return (
     <div>
       {/* TODO this is a quick "cost", do something better later */}
@@ -14,7 +17,6 @@ const ToolTrack = ({ values, secondaryValues, track, name, cost }) => {
           <tr>
             {values.map((v, i) => (
               <td key={i}>
-                {secondaryValues && secondaryValues[i] + '/'}
                 {v}
                 <svg
                   width="25"
@@ -71,11 +73,9 @@ const ToolTrack = ({ values, secondaryValues, track, name, cost }) => {
 }
 
 ToolTrack.propTypes = {
-  values: PropTypes.array.isRequired,
-  secondaryValues: PropTypes.array,
+  toolKey: PropTypes.string.isRequired,
   track: PropTypes.any,
   name: PropTypes.string,
-  cost: PropTypes.array.isRequired,
 }
 
 export default ToolTrack

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { toolValue, possiblePeatLocations } from '../../game/constants'
+import { possiblePeatLocations } from '../../game/constants'
 
 class WinterGrocer extends React.Component {
   constructor(props) {
