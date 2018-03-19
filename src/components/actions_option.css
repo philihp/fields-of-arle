@@ -3,9 +3,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: pink;
+  background-color: #e0ecf4;
   padding: 100px;
   display: none;
+  z-index: 999;
+  border: 1px solid #9ebcda;
+  border-radius: 10px;
 }
 
 .visible {

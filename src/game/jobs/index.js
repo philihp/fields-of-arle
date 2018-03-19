@@ -35,7 +35,7 @@ export default {
   cattleTrader,
   buildersMerchant,
   potter: generic,
-  baker: generic, // TODO
+  baker: generic,
   woodTrader: generic, // TODO
   dikeWarden: generic, // TODO
 }
