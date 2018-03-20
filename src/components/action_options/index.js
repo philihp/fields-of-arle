@@ -9,6 +9,7 @@ import peatCutter from './peatCutter'
 import cattleTrader from './cattleTrader'
 import baker from './baker'
 import master from './master'
+import linenWeaver from './linenWeaver'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -25,4 +26,5 @@ export default {
   baker,
   winterMaster: master,
   summerMaster: master,
+  linenWeaver,
 }

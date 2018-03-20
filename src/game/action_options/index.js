@@ -9,6 +9,7 @@ import peatCutter from './peatCutter'
 import cattleTrader from './cattleTrader'
 import baker from './baker'
 import master from './master'
+import linenWeaver from './linenWeaver'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -28,4 +29,5 @@ export default {
   baker,
   summerMaster: master,
   winterMaster: master,
+  linenWeaver,
 }

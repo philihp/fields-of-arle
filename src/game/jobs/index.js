@@ -30,7 +30,7 @@ export default {
   winterLaborer: generic, // TODO
   peatBoatman: generic, // TODO
   tanner: generic,
-  linenWeaver: generic, // TODO
+  linenWeaver: generic,
   butcher: generic, // TODO
   cattleTrader,
   buildersMerchant,
