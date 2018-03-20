@@ -8,7 +8,7 @@ const MoveSelect = ({ moves, events, disabled }) => {
     events.endTurn()
   }
   return (
-    <button disabled={disabled} onClick={onClick}>
+    <button disabled={disabled} onClick={onClick} className="MoveSelect">
       Next Month
     </button>
   )
