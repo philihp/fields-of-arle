@@ -34,7 +34,7 @@ class WinterGrocer extends React.Component {
   }
 
   sendMoveOptions = e => {
-    this.props.moves.option(this.state.tools)
+    this.props.moves.option(...this.state.tools)
   }
 
   render() {

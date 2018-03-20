@@ -8,6 +8,7 @@ import buildersMerchant from './buildersMerchant'
 import peatCutter from './peatCutter'
 import cattleTrader from './cattleTrader'
 import baker from './baker'
+import master from './master'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -25,4 +26,6 @@ export default {
   peatCutter,
   cattleTrader,
   baker,
+  summerMaster: master,
+  winterMaster: master,
 }
