@@ -5,11 +5,7 @@
 This is an implementation of Fields of Arle to play online. It takes the following approaches:
 
 * State schema should be similar to the physical board.
-
-## Player Color Enumerations
-
-    Red = 0
-    Yellow = 1
+* Derived data (such as which land tiles are drained) should be handled by React views
 
 ## Phase Progression
 
