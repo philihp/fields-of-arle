@@ -29,6 +29,10 @@ const hasPlacedWorker = props => {
   return nextWorkerToPlace !== currentPlayer
 }
 
+const goodsFloating = ({ G, ctx: { currentPlayer } }) => {
+  return G.players[currentPlayer].tokens.length > 0
+}
+
 const Board = props => (
   <div
     className={classNames('Board', color(props.ctx.currentPlayer))}
@@ -67,7 +71,11 @@ const Board = props => (
       <MoveSelect
         events={props.events}
         moves={props.moves}
-        disabled={!hasPlacedWorker(props) || props.G.action != null}
+        disabled={
+          !hasPlacedWorker(props) ||
+          props.G.action != null ||
+          goodsFloating(props)
+        }
       />
     </div>
 
