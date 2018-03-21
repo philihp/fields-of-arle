@@ -6,6 +6,7 @@ import { summerActionsReset } from './worker_spaces'
 // const store = createStore(reducer)
 
 export const emptyLandCell = { type: 'empty', contents: [] }
+export const emptyDikeCell = { type: 'empty', contents: [] }
 
 const homeBoard = {
   tokens: [], // Floating tokens
@@ -51,20 +52,20 @@ const homeBoard = {
       { type: 'moor_south', contents: [] },
     ],
   ],
-  //   dikes: [
-  //     [ null, null, null ],
-  //     [ null, null, null ],
-  //     [
-  //       { type: 'dike', with: [] },
-  //       { type: 'dike', with: [] },
-  //       null
-  //     ],
-  //     [
-  //       { type: 'dike', with: [] },
-  //       { type: 'dike', with: [] },
-  //       { type: 'dike', with: [] },
-  //     ],
-  //   ]
+  dikes: [
+    [emptyDikeCell, emptyDikeCell, emptyDikeCell],
+    [emptyDikeCell, emptyDikeCell, emptyDikeCell],
+    [
+      { type: 'dike', contents: [] },
+      { type: 'dike', contents: [] },
+      emptyDikeCell,
+    ],
+    [
+      { type: 'dike', contents: [] },
+      { type: 'dike', contents: [] },
+      { type: 'dike', contents: [] },
+    ],
+  ],
 }
 
 const defaultLighthouseOwner = 0
@@ -91,7 +92,7 @@ const initialState = {
     weavingLooms: [0, 0],
     slaughteringTables: [0, 0],
     spades: [0, 0],
-    shovelPairs: [0, 0],
+    shovels: [0, 0],
     potteryWheels: [0, 0],
     ovens: [0, 0],
     axes: [0, 0],

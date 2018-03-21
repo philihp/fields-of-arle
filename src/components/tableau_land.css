@@ -1,10 +1,49 @@
 .TableauLand {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid #b2cfe2;
+  grid-template-rows: 30px 50px 30px 50px 30px 50px 30px 50px 50px 50px 50px;
+  grid-template-areas:
+    'd00 d01 d02'
+    'l00 l01 l02'
+    'd10 d11 d12'
+    'l10 l11 l12'
+    'd20 d21 d22'
+    'l20 l21 l22'
+    'd30 d31 d32'
+    'l30 l31 l32'
+    'l40 l41 l42'
+    'l50 l51 l52'
+    'l60 l61 l62';
 }
 
-.TableauLand > div {
+.TableauLand > .land-cell {
+  min-height: 50px;
+  border: 1px solid #b2df8a;
+  background-color: #e9f8dc;
+}
+
+.TableauLand > .dike-cell {
   min-height: 30px;
-  border: 1px solid #b2cfe2;
+  border: 1px solid #a6cee3;
+  background-color: #dfecf3;
+}
+
+.TableauLand > .moor_north,
+.TableauLand > .moor_south {
+  border-color: #615324;
+  background-color: #c4b78e;
+}
+.TableauLand > .dmoor_north,
+.TableauLand > .dmoor_south {
+  border-color: #837443;
+  background-color: #d6cdad;
+}
+
+.TableauLand > .moor_north,
+.TableauLand > .dmoor_north {
+  border-bottom-width: 0;
+}
+.TableauLand > .moor_south,
+.TableauLand > .dmoor_south {
+  border-top-width: 0;
 }

@@ -9,7 +9,7 @@ export default (G, { currentPlayer }) => ({
       inventory: [
         ...G.players[currentPlayer].inventory,
         ...Array(
-          toolValue('shovels', G.toolSpaces.shovelPairs[currentPlayer])
+          toolValue('shovels', G.toolSpaces.shovels[currentPlayer])
         ).fill('clay'),
       ],
     },

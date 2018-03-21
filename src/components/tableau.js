@@ -15,7 +15,7 @@ const Tableau = ({ player }) => (
       <div>Inventory: {player.inventory.join(', ')}</div>
     </div>
     <div className="FloatingInventory" />
-    <TableauLand land={player.land} />
+    <TableauLand land={player.land} dikes={player.dikes} />
     <div className="Goods">
       <div> Food: {player.goods.food}</div>
       <div>Wool: {player.goods.wool}</div>

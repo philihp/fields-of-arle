@@ -210,7 +210,7 @@ export default class ActionsBoard extends React.Component {
           <ToolTrack
             name="Shovels (Pairs)"
             toolKey="shovels"
-            track={this.props.toolSpaces.shovelPairs}
+            track={this.props.toolSpaces.shovels}
           />
         </section>
         <section className="action-winter">
