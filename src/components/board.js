@@ -30,7 +30,6 @@ const hasPlacedWorker = props => {
 }
 
 const goodsFloating = ({ G, ctx: { currentPlayer } }) => {
-  return false
   return G.players[currentPlayer].tokens.length > 0
 }
 
