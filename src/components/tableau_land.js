@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { dikeLevel } from '../game/common/land'
 import './tableau_land.css'
 
 const TableauLand = ({ land, dikes }) => {
+  const seaLevel = dikeLevel(dikes)
+
   return (
     <div className="TableauLand">
+      DikeLevel: {seaLevel}
       {land.map((row, y) =>
         row.map((cell, x) => (
           <div
@@ -13,7 +17,7 @@ const TableauLand = ({ land, dikes }) => {
             className={classNames('land-cell', cell.type)}
             style={{ gridArea: `l${y}${x}` }}
           >
-            <b>{cell.type}</b>
+            <b>{cell.type !== 'empty' ? cell.type : ''}</b>
             <div>
               {cell.contents.map((item, i) => <span key={i}>{item}</span>)}
             </div>
@@ -28,6 +32,7 @@ const TableauLand = ({ land, dikes }) => {
             style={{ gridArea: `d${y}${x}` }}
           >
             <div>
+              <b>{cell.type !== 'empty' ? cell.type : ''}</b>
               {cell.contents.map((item, i) => <span key={i}>{item}</span>)}
             </div>
           </div>
