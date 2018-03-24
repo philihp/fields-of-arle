@@ -13,7 +13,14 @@ const color = worker => {
 }
 
 const LighthouseStatus = props => (
-  <div style={{ display: 'inline-block' }}>
+  <div
+    style={{
+      display: 'inline-block',
+      float: 'right',
+      marginTop: '4px',
+      marginLeft: '4px',
+    }}
+  >
     Lighthouse:{' '}
     <span
       style={{

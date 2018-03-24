@@ -6,7 +6,7 @@ import RoundBoard from './round_board'
 import ActionsBoard from './actions_board'
 import ActionsOption from './actions_option'
 import Tableau from './tableau'
-import GlobalStatus from './global_status'
+import LighthouseStatus from './lighthouse_status'
 import PreparationsBoard from './preparations_board'
 import './board.css'
 
@@ -50,10 +50,7 @@ const Board = props => (
     </div>
 
     <div className="col col2">
-      <GlobalStatus
-        currentPlayer={parseInt(props.ctx.currentPlayer, 10)}
-        lighthouse={props.G.lighthouse}
-      />
+      <LighthouseStatus lighthouse={props.G.lighthouse} />
       <RoundBoard round={props.G.halfYear} />
       <PreparationsBoard
         workerSpaces={props.G.workerSpaces}
