@@ -15,7 +15,7 @@ export default {
   woolWeaver: generic,
   colonist,
   peatCutter: generic,
-  dikeBuilder: generic, // TODO
+  dikeBuilder: generic,
   clayWorker,
   farmer: generic, // TODO
   forester: generic, // TODO

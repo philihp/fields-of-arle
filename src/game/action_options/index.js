@@ -10,6 +10,7 @@ import cattleTrader from './cattleTrader'
 import baker from './baker'
 import master from './master'
 import linenWeaver from './linenWeaver'
+import dikeBuilder from './dikeBuilder'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -30,4 +31,5 @@ export default {
   summerMaster: master,
   winterMaster: master,
   linenWeaver,
+  dikeBuilder,
 }

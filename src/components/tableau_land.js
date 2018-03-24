@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { dikeLevel } from '../game/common/land'
+import { findSeaLevel } from '../game/common/land'
 import './tableau_land.css'
 
 const TableauLand = ({ land, dikes }) => {
-  const seaLevel = dikeLevel(dikes)
+  const seaLevel = findSeaLevel(dikes)
 
   return (
     <div className="TableauLand">
-      DikeLevel: {seaLevel}
       {land.map((row, y) =>
         row.map((cell, x) => (
           <div
