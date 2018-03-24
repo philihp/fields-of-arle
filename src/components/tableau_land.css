@@ -24,15 +24,15 @@
 
 .TableauLand .dike-cell {
   min-height: 15px;
-  border: 1px solid #a6cee3;
-  background-color: #dfecf3;
+  border: 1px solid #b2df8a;
+  background-color: #e9f8dc;
 }
 
 .TableauLand .dike-cell.dike {
   background-color: #c3e6b2;
 }
 
-.TableauLand .land-cell.flooded {
+.TableauLand .flooded {
   border: 1px solid #a6cee3;
   background-color: #dfecf3;
 }

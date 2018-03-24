@@ -30,7 +30,9 @@ const TableauLand = ({ land, dikes }) => {
         row.map((cell, x) => (
           <div
             key={[x, y].join('+')}
-            className={classNames('dike-cell', cell.type)}
+            className={classNames('dike-cell', cell.type, {
+              flooded: y < seaLevel,
+            })}
             style={{ gridArea: `d${y}${x}` }}
           >
             <div>
