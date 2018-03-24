@@ -32,6 +32,11 @@
   background-color: #c3e6b2;
 }
 
+.TableauLand .land-cell.flooded {
+  border: 1px solid #a6cee3;
+  background-color: #dfecf3;
+}
+
 .TableauLand .moor_north,
 .TableauLand .moor_south {
   border-color: #615324;

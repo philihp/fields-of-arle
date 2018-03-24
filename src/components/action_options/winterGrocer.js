@@ -89,7 +89,12 @@ class WinterGrocer extends React.Component {
         <label htmlFor="winterGrocerCattle">Cattle</label>
         <br />
         <br />
-        <button onClick={this.sendMoveOptions}>Engage</button>
+        <button
+          disabled={this.state.animal === null}
+          onClick={this.sendMoveOptions}
+        >
+          Engage
+        </button>
       </div>
     )
   }

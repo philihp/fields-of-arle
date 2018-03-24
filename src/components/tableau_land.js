@@ -14,7 +14,9 @@ const TableauLand = ({ land, dikes }) => {
         row.map((cell, x) => (
           <div
             key={[x, y].join('+')}
-            className={classNames('land-cell', cell.type)}
+            className={classNames('land-cell', cell.type, {
+              flooded: y < seaLevel,
+            })}
             style={{ gridArea: `l${y}${x}` }}
           >
             <b>{cell.type !== 'empty' ? cell.type : ''}</b>
