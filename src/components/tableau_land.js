@@ -9,7 +9,7 @@ const TableauLand = ({ land, dikes, focus, handleSetFocus }) => {
   const seaLevel = findSeaLevel(dikes)
   const shouldHandleSetFocus = (item, type, row, col, i) =>
     handleSetFocus && focus === null
-      ? handleSetFocus(item, 'land', row, col, i)
+      ? handleSetFocus(item, type, row, col, i)
       : null
   const shouldDisplay = (type, row, col, i) =>
     !(
@@ -65,8 +65,14 @@ const TableauLand = ({ land, dikes, focus, handleSetFocus }) => {
                   <TableauItem
                     key={i}
                     i={i}
-                    display={shouldDisplay('dike', y, x, i)}
-                    handleSetFocus={shouldHandleSetFocus(item, 'dike', y, x, i)}
+                    display={shouldDisplay('dikes', y, x, i)}
+                    handleSetFocus={shouldHandleSetFocus(
+                      item,
+                      'dikes',
+                      y,
+                      x,
+                      i
+                    )}
                   >
                     {item}
                   </TableauItem>
