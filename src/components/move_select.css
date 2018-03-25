@@ -1,7 +1,8 @@
-.MoveSelect {
+.MoveSelect button {
   width: auto;
-  width: 100%;
-  padding: 20px;
+  /* width: 100%; */
+  padding: 10px;
+  margin: 5px;
   border-radius: 5px;
-  font-size: 20pt;
+  font-size: 14pt;
 }

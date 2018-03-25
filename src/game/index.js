@@ -37,7 +37,14 @@ const homeBoard = {
     [emptyLandCell, emptyLandCell, emptyLandCell],
     [emptyLandCell, emptyLandCell, { type: 'wheat', contents: [] }],
     [
-      { type: 'stall', contents: ['horse'] },
+      {
+        type: 'stall',
+        contents: [
+          'horse',
+          /* TODO REMOVE */ 'cattle',
+          /* TODO REMOVE */ 'horse',
+        ],
+      },
       { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat'] },
       { type: 'flax', contents: [] },
     ],
@@ -56,7 +63,7 @@ const homeBoard = {
     [emptyDikeCell, emptyDikeCell, emptyDikeCell],
     [emptyDikeCell, emptyDikeCell, emptyDikeCell],
     [
-      { type: 'dike', contents: [] },
+      { type: 'dike', contents: ['horse' /* TODO REMOVE */] },
       { type: 'dike', contents: [] },
       emptyDikeCell,
     ],
