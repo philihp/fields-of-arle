@@ -49,7 +49,9 @@ const TableauFarm = ({
               focus.col === x &&
               focus.i
             }
-            handleReleaseFocus={handleReleaseFocus}
+            handleReleaseFocus={
+              handleReleaseFocus && handleReleaseFocus('dikes', y, x)
+            }
             handleSetFocus={handleSetFocus && handleSetFocus('dikes', y, x)}
           >
             {cell}

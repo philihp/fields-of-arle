@@ -24,8 +24,8 @@ class Arrange extends React.Component {
     })
   }
 
-  handleReleaseFocus = (type, row, col, i) => e => {
-    console.log(type, row, col, i)
+  handleReleaseFocus = (type, row, col) => e => {
+    console.log(type, row, col)
   }
 
   render() {
