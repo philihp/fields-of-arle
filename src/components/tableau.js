@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauLand from './tableau_land'
+import TableauFarm from './tableau_farm'
 import './tableau.css'
 
 const Tableau = ({ player }) => (
@@ -15,7 +15,7 @@ const Tableau = ({ player }) => (
       <div>Inventory: {player.inventory.join(', ')}</div>
     </div>
     <div className="FloatingInventory" />
-    <TableauLand land={player.land} dikes={player.dikes} />
+    <TableauFarm land={player.land} dikes={player.dikes} />
     <div className="Goods">
       <div> Food: {player.goods.food}</div>
       <div>Wool: {player.goods.wool}</div>

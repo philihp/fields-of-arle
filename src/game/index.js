@@ -63,8 +63,8 @@ const homeBoard = {
     [emptyDikeCell, emptyDikeCell, emptyDikeCell],
     [emptyDikeCell, emptyDikeCell, emptyDikeCell],
     [
-      { type: 'dike', contents: ['horse' /* TODO REMOVE */] },
       { type: 'dike', contents: [] },
+      { type: 'dike', contents: ['horse' /* TODO REMOVE */] },
       emptyDikeCell,
     ],
     [

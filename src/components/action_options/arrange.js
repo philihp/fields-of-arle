@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauLand from '../tableau_land'
-import { toolValue } from '../../game/constants'
+import TableauFarm from '../tableau_farm'
 
 class Arrange extends React.Component {
   constructor(props) {
@@ -11,8 +10,18 @@ class Arrange extends React.Component {
     }
   }
 
-  handleSetFocus = (item, type, row, col, i) => e => {
-    this.setState({ focus: { item, type, row, col, i } })
+  handleSetFocus = (type, row, col) => i => e => {
+    const { G, ctx } = this.props
+    const player = G.players[ctx.currentPlayer]
+    this.setState({
+      focus: {
+        type,
+        row,
+        col,
+        i,
+        item: player[type][row][col].contents[i],
+      },
+    })
   }
 
   handleReleaseFocus = (type, row, col, i) => e => {
@@ -26,17 +35,13 @@ class Arrange extends React.Component {
     return (
       <div>
         Rearrange<br />
-        focus:{' '}
-        {this.state.focus &&
-          player[this.state.focus.type][this.state.focus.row][
-            this.state.focus.col
-          ].contents[this.state.focus.i]}
-        <TableauLand
+        focus: {JSON.stringify(this.state.focus)}
+        <TableauFarm
           land={player.land}
           dikes={player.dikes}
           focus={this.state.focus}
-          handleSetFocus={this.handleSetFocus}
-          handleReleaseFocus={this.state.focus && this.handleReleaseFocus}
+          handleSetFocus={this.state.focus ? null : this.handleSetFocus}
+          handleReleaseFocus={this.state.focus ? this.handleReleaseFocus : null}
         />
       </div>
     )

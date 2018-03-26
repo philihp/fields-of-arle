@@ -1,0 +1,15 @@
+.TableauDike {
+  min-height: 15px;
+  border: 1px solid #b2df8a;
+  background-color: #e9f8dc;
+}
+
+.TableauDike.flooded {
+  border: 1px solid #a6cee3;
+  background-color: #dfecf3;
+}
+
+.TableauDike.dike {
+  border: 1px solid #81bd4d;
+  background-color: #c3e6b2;
+}

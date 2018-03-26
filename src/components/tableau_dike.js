@@ -2,24 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import TableauItem from './tableau_item'
-import './tableau_land.css'
+import './tableau_dike.css'
 
-const TableauLand = ({
+const TableauDike = ({
   children,
   flooded,
   style,
   focusedItemIndex,
   handleSetFocus,
+  handleReleaseFocus,
 }) => (
   <div
     style={style}
-    className={classNames('TableauLand', children.type, {
+    className={classNames('TableauDike', children.type, {
       flooded: flooded,
     })}
   >
     <div>
-      <b>{children.type !== 'empty' && children.type}</b>
-      <br />
       {children.contents.map((item, i) => {
         return (
           <TableauItem
@@ -32,11 +31,15 @@ const TableauLand = ({
           </TableauItem>
         )
       })}
+      {children.type === 'dike' &&
+        handleReleaseFocus && (
+          <button onClick={handleReleaseFocus}>drop</button>
+        )}
     </div>
   </div>
 )
 
-TableauLand.propTypes = {
+TableauDike.propTypes = {
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
 
@@ -45,4 +48,4 @@ TableauLand.propTypes = {
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
 }
 
-export default TableauLand
+export default TableauDike
