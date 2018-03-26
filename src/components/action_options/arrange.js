@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TableauFarm from '../tableau_farm'
+import TableauItem from '../tableau_item'
 
 class Arrange extends React.Component {
   constructor(props) {
@@ -19,24 +20,49 @@ class Arrange extends React.Component {
         row,
         col,
         i,
-        item: player[type][row][col].contents[i],
+        item:
+          type === 'tokens'
+            ? player[type][i]
+            : player[type][row][col].contents[i],
       },
     })
   }
 
   handleReleaseFocus = (type, row, col) => e => {
-    this.props.moves.arrange({ src: this.state.focus, dst: { type, row, col } })
     this.setState({ focus: null })
+    this.props.moves.arrange({ src: this.state.focus, dst: { type, row, col } })
+  }
+
+  handleFinished = e => {
+    this.setState({ focus: null })
+    this.props.moves.arrange()
   }
 
   render() {
     const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
+    const tokenHidden = i =>
+      this.props.focus &&
+      this.props.focus.type === 'tokens' &&
+      this.props.focus.i === i
 
     return (
       <div>
         Rearrange<br />
         focus: {JSON.stringify(this.state.focus)}
+        <br />
+        {player.tokens.map((item, i) => (
+          <TableauItem
+            key={i}
+            i={i}
+            display={tokenHidden(i)}
+            handleSetFocus={
+              this.state.focus ? null : this.handleSetFocus('tokens')(i)
+            }
+          >
+            {item}
+          </TableauItem>
+        ))}
         <TableauFarm
           land={player.land}
           dikes={player.dikes}
@@ -44,6 +70,7 @@ class Arrange extends React.Component {
           handleSetFocus={this.state.focus ? null : this.handleSetFocus}
           handleReleaseFocus={this.state.focus ? this.handleReleaseFocus : null}
         />
+        <button onClick={this.handleFinished}>Close</button>
       </div>
     )
   }
