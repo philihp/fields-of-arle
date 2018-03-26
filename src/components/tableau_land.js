@@ -9,36 +9,60 @@ const TableauLand = ({
   flooded,
   style,
   focusedItemIndex,
+  focusedItem,
   handleSetFocus,
-}) => (
-  <div
-    style={style}
-    className={classNames('TableauLand', children.type, {
-      flooded: flooded,
-    })}
-  >
-    <div>
-      <b>{children.type !== 'empty' && children.type}</b>
-      <br />
-      {children.contents.map((item, i) => {
-        return (
-          <TableauItem
-            key={i}
-            i={i}
-            display={focusedItemIndex !== i}
-            handleSetFocus={handleSetFocus && handleSetFocus(i)}
-          >
-            {item}
-          </TableauItem>
-        )
+  handleReleaseFocus,
+}) => {
+  const canReceive =
+    (children.type === 'empty' &&
+      flooded === false &&
+      (children.contents.length === 0 ||
+        children.contents[0] === focusedItem)) ||
+    (children.type === 'stall' &&
+      (children.contents.length === 0 ||
+        (children.contents.length < 3 &&
+          children.contents[0] === focusedItem))) ||
+    (children.type === 'stable' &&
+      (children.contents.length === 0 ||
+        (children.contents.length < 6 &&
+          children.contents[0] === focusedItem))) ||
+    (children.type === 'park' && children.contents.length < 2)
+
+  return (
+    <div
+      style={style}
+      className={classNames('TableauLand', children.type, {
+        flooded: flooded,
       })}
+    >
+      <div>
+        <b>{children.type !== 'empty' && children.type}</b>
+        <br />
+        {children.contents.map((item, i) => {
+          return (
+            <TableauItem
+              key={i}
+              i={i}
+              display={focusedItemIndex !== i}
+              handleSetFocus={handleSetFocus && handleSetFocus(i)}
+            >
+              {item}
+            </TableauItem>
+          )
+        })}
+        {canReceive &&
+          handleReleaseFocus && (
+            <button onClick={handleReleaseFocus}>drop</button>
+          )}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 TableauLand.propTypes = {
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
+  focusedItem: PropTypes.string,
 
   focus: PropTypes.object,
   handleSetFocus: PropTypes.func, //if provided, animals will be clickable, which sends them to "floating"

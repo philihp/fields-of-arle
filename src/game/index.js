@@ -39,11 +39,7 @@ const homeBoard = {
     [
       {
         type: 'stall',
-        contents: [
-          'horse',
-          /* TODO REMOVE */ 'cattle',
-          /* TODO REMOVE */ 'horse',
-        ],
+        contents: ['horse'],
       },
       { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat'] },
       { type: 'flax', contents: [] },
@@ -64,7 +60,7 @@ const homeBoard = {
     [emptyDikeCell, emptyDikeCell, emptyDikeCell],
     [
       { type: 'dike', contents: [] },
-      { type: 'dike', contents: ['horse' /* TODO REMOVE */] },
+      { type: 'dike', contents: [] },
       emptyDikeCell,
     ],
     [

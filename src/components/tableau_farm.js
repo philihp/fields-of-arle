@@ -13,7 +13,6 @@ const TableauFarm = ({
   handleReleaseFocus,
 }) => {
   const seaLevel = findSeaLevel(dikes)
-
   return (
     <div className="TableauFarm">
       {land.map((row, y) =>
@@ -22,6 +21,7 @@ const TableauFarm = ({
             key={[x, y].join('+')}
             style={{ gridArea: `l${y}${x}` }}
             flooded={y < seaLevel}
+            focusedItem={focus && focus.item}
             focusedItemIndex={
               focus &&
               focus.type === 'land' &&
@@ -29,7 +29,9 @@ const TableauFarm = ({
               focus.col === x &&
               focus.i
             }
-            // handleReleaseFocus={handleReleaseFocus}
+            handleReleaseFocus={
+              handleReleaseFocus && handleReleaseFocus('land', y, x)
+            }
             handleSetFocus={handleSetFocus && handleSetFocus('land', y, x)}
           >
             {cell}
