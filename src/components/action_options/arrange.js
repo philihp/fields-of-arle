@@ -25,7 +25,8 @@ class Arrange extends React.Component {
   }
 
   handleReleaseFocus = (type, row, col) => e => {
-    console.log(type, row, col)
+    this.props.moves.arrange({ src: this.state.focus, dst: { type, row, col } })
+    this.setState({ focus: null })
   }
 
   render() {

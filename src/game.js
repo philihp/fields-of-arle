@@ -5,6 +5,7 @@ import actionOptions from './game/action_options'
 // import { pickWorker } from './game/common/'
 import initialState from './game/'
 import { winterActionsReset, summerActionsReset } from './game/worker_spaces'
+import { arrangeItem } from './game/common/land'
 
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
@@ -90,11 +91,15 @@ const game = Game({
         }
       }
     },
-    arrange(G, ctx) {
-      return {
-        ...G,
-        action: 'arrange',
+    arrange(G, ctx, args) {
+      if (args === undefined) {
+        // if nothing, toggle showing the option pane
+        return {
+          ...G,
+          action: G.action === 'arrange' ? null : 'arrange',
+        }
       }
+      return arrangeItem({ G, ctx }, args)
     },
   },
 
