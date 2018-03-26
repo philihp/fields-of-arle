@@ -17,7 +17,8 @@ const TableauLand = ({
     (children.type === 'empty' &&
       flooded === false &&
       (children.contents.length === 0 ||
-        children.contents[0] === focusedItem)) ||
+        (children.contents.length < 2 &&
+          children.contents[0] === focusedItem))) ||
     (children.type === 'stall' &&
       (children.contents.length === 0 ||
         (children.contents.length < 3 &&
