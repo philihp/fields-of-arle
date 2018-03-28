@@ -11,6 +11,8 @@ const TableauFarm = ({
   focus,
   handleSetFocus,
   handleReleaseFocus,
+  handleBuildStall,
+  handleBuildStable,
 }) => {
   const seaLevel = findSeaLevel(dikes)
   return (
@@ -33,6 +35,8 @@ const TableauFarm = ({
               handleReleaseFocus && handleReleaseFocus('land', y, x)
             }
             handleSetFocus={handleSetFocus && handleSetFocus('land', y, x)}
+            handleBuildStall={handleBuildStall && handleBuildStall(y, x)}
+            handleBuildStable={handleBuildStable && handleBuildStable(y, x)}
           >
             {cell}
           </TableauLand>
@@ -70,6 +74,8 @@ TableauFarm.propTypes = {
   focus: PropTypes.object,
   handleSetFocus: PropTypes.func, //if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
+  handleBuildStall: PropTypes.func, // if provided, a button will be put on empty spaces that can take a stall
+  handleBuildStable: PropTypes.func, // if provided, stalls have a button that upgrades them to a stable
 }
 
 export default TableauFarm
