@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { toolValue } from '../../game/constants'
 import { countAnimals } from '../../game/common/player'
 
-// TODO this
-
 class Butcher extends React.Component {
   constructor(props) {
     super(props)

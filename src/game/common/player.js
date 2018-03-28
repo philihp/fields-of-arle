@@ -1,3 +1,5 @@
+import { flatten } from './index'
+
 /*
 Uncomposed utility functions, which you probably want to call with just
 the single param {G, ctx}.
@@ -127,8 +129,6 @@ export const arrangeItem = ({ G, ctx, ...args }, { src, dst }) => {
     },
   }
 }
-
-const flatten = (accum, row) => [...accum, ...row]
 
 export const countAnimals = player => {
   return [...player.land, ...player.dikes]

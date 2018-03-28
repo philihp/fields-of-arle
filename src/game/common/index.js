@@ -1,3 +1,5 @@
+export const flatten = (accum, row) => [...accum, ...row]
+
 export const afford = (inventory, cost) =>
   inventory.reduce((accum, inventoryItem) => {
     const index = accum.indexOf(inventoryItem)
