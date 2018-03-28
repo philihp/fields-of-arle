@@ -80,10 +80,6 @@ export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
 })
 
 export const arrangeItem = ({ G, ctx, ...args }, { src, dst }) => {
-  console.log('G: ', G)
-  console.log('ctx: ', ctx)
-  console.log('src: ', src)
-  console.log('dst: ', dst)
   const player = G.players[ctx.currentPlayer]
   const removedItem = player[src.type][src.row][src.col].contents[src.i]
   const player2 = {
@@ -130,4 +126,41 @@ export const arrangeItem = ({ G, ctx, ...args }, { src, dst }) => {
       [ctx.currentPlayer]: player3,
     },
   }
+}
+
+const flatten = (accum, row) => [...accum, ...row]
+
+export const countAnimals = player => {
+  return [...player.land, ...player.dikes]
+    .reduce(flatten, [])
+    .map(cell => cell.contents)
+    .reduce(flatten, [])
+    .reduce(
+      (accum, item) => {
+        switch (item) {
+          case 'cattle':
+            return {
+              ...accum,
+              cattle: accum.cattle + 1,
+            }
+          case 'sheep':
+            return {
+              ...accum,
+              sheep: accum.sheep + 1,
+            }
+          case 'horse':
+            return {
+              ...accum,
+              horses: accum.horses + 1,
+            }
+          default:
+            return accum
+        }
+      },
+      {
+        sheep: 0,
+        cattle: 0,
+        horses: 0,
+      }
+    )
 }

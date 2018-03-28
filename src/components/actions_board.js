@@ -164,7 +164,7 @@ export default class ActionsBoard extends React.Component {
             track={this.props.toolSpaces.slaughteringTables}
           />
         </section>
-        <section className="action-winter not-implemented">
+        <section className="action-winter">
           <WorkerSpot
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}

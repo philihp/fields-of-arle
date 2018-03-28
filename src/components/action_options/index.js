@@ -11,6 +11,7 @@ import baker from './baker'
 import master from './master'
 import linenWeaver from './linenWeaver'
 import dikeBuilder from './dikeBuilder'
+import butcher from './butcher'
 import arrange from './arrange'
 
 // Exhaustive list of all of the actions with options to prompt after selected
@@ -30,6 +31,6 @@ export default {
   summerMaster: master,
   linenWeaver,
   dikeBuilder,
-
+  butcher,
   arrange,
 }
