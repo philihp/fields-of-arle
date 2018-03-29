@@ -1,13 +1,6 @@
 /* $lightblue: #a6cee3;
 $darkblue: #1f78b4; */
 
-.ActionsBoard > tbody > tr > td,
-.ActionsBoard > thead > tr > th {
-  border: 1px solid #b2cfe2;
-  margin: 0px;
-  padding: 0px;
-}
-
 .ActionsBoard {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -35,12 +28,18 @@ $darkblue: #1f78b4; */
 
 .ActionsBoard section.tool-winter {
   grid-column: 3/5;
+  border: 1px solid #decfe5;
+  background-color: #f0e8f5;
 }
 .ActionsBoard section.tool-both {
   grid-column: 2/5;
+  border: 1px solid #decfe5;
+  background-color: #f0e8f5;
 }
 .ActionsBoard section.tool-summer {
   grid-column: 2/4;
+  border: 1px solid #decfe5;
+  background-color: #f0e8f5;
 }
 .ActionsBoard section.double-row {
   grid-row-end: span 2;
