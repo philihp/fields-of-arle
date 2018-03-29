@@ -16,8 +16,14 @@ const Carpenter = ({ G, ctx, moves }) => {
     <TableauFarm
       land={player.land}
       dikes={player.dikes}
-      handleBuildStall={affordStall(player) ? handleBuild : null}
-      handleBuildStable={affordStable(player) ? handleBuild : null}
+      handleBuildStall={
+        affordStall(player) && G.supplies.stallDepot > 0 ? handleBuild : null
+      }
+      handleBuildStable={
+        affordStable(player) && G.supplies.stableDoubleStall > 0
+          ? handleBuild
+          : null
+      }
     />
   )
 }

@@ -8,6 +8,7 @@ import ActionsOption from './actions_option'
 import Tableau from './tableau'
 import LighthouseStatus from './lighthouse_status'
 import PreparationsBoard from './preparations_board'
+import SupplyBoard from './supply_board'
 import './board.css'
 
 const color = worker => {
@@ -59,6 +60,7 @@ const Board = props => (
         events={props.events}
         moves={props.moves}
       />
+      <SupplyBoard supplies={props.G.supplies} />
     </div>
 
     <div className="col col3">

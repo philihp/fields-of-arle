@@ -101,6 +101,16 @@ const initialState = {
     axes: [0, 0],
     workbenches: [0, 0],
   },
+  supplies: {
+    forestPark: 5,
+    stallDepot: 5,
+    stableDoubleStall: 3,
+    grainFlaxField: 10,
+    cartHorseCart: 3,
+    carriageDroshky: 3,
+    handcartWagon: 2,
+    peatBoatPlow: 6,
+  },
 }
 
 export { initialState }

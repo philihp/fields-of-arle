@@ -19,14 +19,22 @@ const newInventory = (player, type) => {
   }
 }
 
+const newSupplies = (supplies, replacedBuilding, placedBuilding) => ({
+  ...supplies,
+  stallDepot:
+    supplies.stallDepot +
+    (replacedBuilding === 'stall' ? 1 : 0) +
+    (placedBuilding === 'stall' ? -1 : 0),
+  stableDoubleStall:
+    supplies.stableDoubleStall + (placedBuilding === 'stable' ? -1 : 0),
+})
+
 export default ({ G, ctx: { currentPlayer }, args }) => {
   const [{ row, col }] = args
   const player = G.players[currentPlayer]
 
-  const newType =
-    G.players[currentPlayer].land[row][col].type === 'empty'
-      ? 'stall'
-      : 'stable'
+  const oldType = G.players[currentPlayer].land[row][col].type
+  const newType = oldType === 'empty' ? 'stall' : 'stable'
 
   return {
     ...G,
@@ -50,5 +58,6 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
         ],
       },
     },
+    supplies: newSupplies(G.supplies, oldType, newType),
   }
 }
