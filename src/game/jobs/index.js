@@ -22,8 +22,8 @@ export default {
   woodcutter,
   summerMaster: generic,
   winterMaster: generic,
-  summerCarpenter: generic, // TODO
-  winterCarpenter: generic, // TODO
+  summerCarpenter: generic,
+  winterCarpenter: generic,
   builder: generic, // TODO
   warden: generic, // TODO
   summerLaborer: generic, // TODO
@@ -31,11 +31,12 @@ export default {
   peatBoatman: generic, // TODO
   tanner: generic,
   linenWeaver: generic,
-  butcher: generic, // TODO
+  butcher: generic,
   cattleTrader,
   buildersMerchant,
   potter: generic,
   baker: generic,
   woodTrader: generic, // TODO
   dikeWarden: generic, // TODO
+  wainwright: generic,
 }

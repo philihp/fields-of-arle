@@ -1,4 +1,6 @@
-import { flatten } from './index'
+import { flatten, spend, Animals } from './index'
+import { openBarnSpace, VehicleSource, EquipmentCosts } from './barn'
+import { removeFirstAnimal } from './animals'
 
 /*
 Uncomposed utility functions, which you probably want to call with just
@@ -74,6 +76,56 @@ export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
           ...G.players[ctx.currentPlayer].goods,
           [good]: G.players[ctx.currentPlayer].goods[good] + amount,
         },
+      },
+    },
+  },
+  ctx,
+  ...args,
+})
+
+export const getVehicle = ({ G, ctx, ...args }, type) => {
+  const barn = G.players[ctx.currentPlayer].barn
+  const fromStack = VehicleSource[type]
+  if (G.supplies[fromStack] <= 0 || !openBarnSpace(barn, type))
+    return { G, ctx, ...args }
+  return {
+    G: {
+      ...G,
+      players: {
+        ...G.players,
+        [ctx.currentPlayer]: {
+          ...G.players[ctx.currentPlayer],
+          barn: {
+            ...barn,
+            [openBarnSpace(barn, type)]: type,
+          },
+        },
+      },
+      supplies: {
+        ...G.supplies,
+        [fromStack]: G.supplies[fromStack] - 1,
+      },
+    },
+    ctx,
+    ...args,
+  }
+}
+
+export const payForVehicle = ({ G, ctx, ...args }, type) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: {
+        // this part expends the animals
+        ...EquipmentCosts[type]
+          .filter(a => Animals.includes(a))
+          .reduce(removeFirstAnimal, G.players[ctx.currentPlayer]),
+        // this part expends the building materials
+        inventory: spend(
+          G.players[ctx.currentPlayer].inventory,
+          EquipmentCosts[type]
+        ),
       },
     },
   },

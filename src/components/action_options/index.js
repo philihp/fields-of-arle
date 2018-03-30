@@ -14,6 +14,7 @@ import dikeBuilder from './dikeBuilder'
 import butcher from './butcher'
 import carpenter from './carpenter'
 import arrange from './arrange'
+import wainwright from './wainwright'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -35,5 +36,6 @@ export default {
   butcher,
   winterCarpenter: carpenter,
   summerCarpenter: carpenter,
+  wainwright,
   arrange,
 }

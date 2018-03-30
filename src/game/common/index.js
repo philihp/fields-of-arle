@@ -41,3 +41,5 @@ export const removeFirstItems = itemName => (accum, item) => {
     }
   }
 }
+
+export const Animals = ['sheep', 'horse', 'cattle']

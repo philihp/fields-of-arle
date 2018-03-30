@@ -13,6 +13,7 @@ import linenWeaver from './linenWeaver'
 import dikeBuilder from './dikeBuilder'
 import butcher from './butcher'
 import carpenter from './carpenter'
+import wainwright from './wainwright'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -37,4 +38,5 @@ export default {
   butcher,
   summerCarpenter: carpenter,
   winterCarpenter: carpenter,
+  wainwright,
 }
