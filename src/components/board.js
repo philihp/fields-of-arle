@@ -30,7 +30,6 @@ const Board = props => (
     <ActionsOption G={props.G} ctx={props.ctx} moves={props.moves} />
 
     <div className="col col1">
-      <h4>Red Player</h4>
       <Tableau
         player={props.G.players[0]}
         action={props.G.action}
@@ -64,7 +63,6 @@ const Board = props => (
     </div>
 
     <div className="col col3">
-      <h4>Yellow Player</h4>
       <Tableau
         player={props.G.players[1]}
         action={props.G.action}

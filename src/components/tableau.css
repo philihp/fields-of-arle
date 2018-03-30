@@ -4,7 +4,25 @@ $darkblue: #1f78b4; */
 .Tableau {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas: 'farm' 'destinations' 'inventory' 'goods';
+  /* grid-template-columns: 20px 1fr 20px;
+  grid-template-areas:
+    'destinations farm goods'
+    'inventory inventory inventory'; */
 }
 
-.Tableau div {
+.Tableau .destinations {
+  grid-area: destinations;
+}
+
+.Tableau .TableauFarm {
+  grid-area: farm;
+}
+
+.Tableau .goods {
+  grid-area: goods;
+}
+
+.Tableau .inventory {
+  grid-area: inventory;
 }

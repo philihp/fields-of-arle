@@ -1,0 +1,43 @@
+.TableauBarn {
+  height: 144px;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-areas:
+    's1 l1'
+    's2 l1'
+    's2 l2'
+    's3 l2'
+    's3 l3'
+    's4 l3';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 36px 12px 24px 24px 12px 36px;
+}
+
+/* Collapse the borders */
+.TableauBarn > div {
+  margin: 0 -1px -1px 0;
+  background-color: #f8e5cb;
+  border: 1px solid #deb887;
+}
+
+.TableauBarn .s1 {
+  grid-area: s1;
+}
+.TableauBarn .s2 {
+  grid-area: s2;
+}
+.TableauBarn .s3 {
+  grid-area: s3;
+}
+.TableauBarn .s4 {
+  grid-area: s4;
+}
+.TableauBarn .l1 {
+  grid-area: l1;
+}
+.TableauBarn .l2 {
+  grid-area: l2;
+}
+.TableauBarn .l3 {
+  grid-area: l3;
+}

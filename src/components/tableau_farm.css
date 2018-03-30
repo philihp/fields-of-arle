@@ -15,3 +15,8 @@
     'l50 l51 l52'
     'l60 l61 l62';
 }
+
+/* Collapse the borders */
+.TableauFarm > div {
+  margin: 0 -1px -1px 0;
+}

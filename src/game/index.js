@@ -69,6 +69,15 @@ const homeBoard = {
       { type: 'dike', contents: [] },
     ],
   ],
+  barn: {
+    small1: null,
+    small2: null,
+    small3: null,
+    small4: null,
+    large1: null,
+    large2: null,
+    large3: null,
+  },
 }
 
 const defaultLighthouseOwner = 0
