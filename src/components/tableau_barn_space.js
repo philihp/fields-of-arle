@@ -12,7 +12,7 @@ const TableauBarnSpace = ({ contents, className }) => {
 }
 
 TableauBarnSpace.propTypes = {
-  contents: PropTypes.any.isRequired,
+  contents: PropTypes.any,
   className: PropTypes.string.isRequired,
 }
 

@@ -101,6 +101,11 @@ const game = Game({
       }
       return arrangeItem({ G, ctx }, args)
     },
+    return(G, ctx, slot) {
+      if (slot === undefined) return G
+      console.log(slot)
+      return G
+    },
   },
 
   flow: {
@@ -112,7 +117,7 @@ const game = Game({
     phases: [
       {
         name: 'july',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -120,7 +125,7 @@ const game = Game({
       },
       {
         name: 'august',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -128,7 +133,7 @@ const game = Game({
       },
       {
         name: 'september',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -136,7 +141,7 @@ const game = Game({
       },
       {
         name: 'october',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -167,7 +172,7 @@ const game = Game({
       },
       {
         name: 'january',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -175,7 +180,7 @@ const game = Game({
       },
       {
         name: 'february',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -183,7 +188,7 @@ const game = Game({
       },
       {
         name: 'march',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
@@ -191,7 +196,7 @@ const game = Game({
       },
       {
         name: 'april',
-        allowedMoves: ['action', 'option', 'pass', 'arrange'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: (G, ctx) => G,
