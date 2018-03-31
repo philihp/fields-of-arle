@@ -18,7 +18,7 @@ class Farmer extends React.Component {
         ...Array(horses).fill('horse'),
       ],
       unusedPlows: 0,
-      buyPlow: [],
+      buyPlow: null,
       plowFields: [],
     }
   }
@@ -26,15 +26,15 @@ class Farmer extends React.Component {
   handleBuyPlow = withAnimal => e => {
     if (!afford(this.state.inventory, EquipmentCosts.plow[withAnimal])) return
     this.setState({
-      buyPlow: ['plow'],
+      buyPlow: withAnimal,
       unusedPlows: this.state.unusedPlows + 1,
     })
   }
 
-  handlePlowField = (row, col) => type => e => {
+  handlePlowField = (row, col) => crop => e => {
     if (this.disabledBuildField(row, col)) return
     this.setState({
-      plowFields: [...this.state.plowFields, { type, row, col }],
+      plowFields: [...this.state.plowFields, { crop, row, col }],
       unusedPlows: this.state.unusedPlows - 1,
     })
   }
@@ -51,10 +51,6 @@ class Farmer extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log({
-      buyPlow: this.state.buyPlow,
-      plowFields: this.state.plowFields,
-    })
     this.props.moves.option({
       buyPlow: this.state.buyPlow,
       plowFields: this.state.plowFields,
@@ -62,7 +58,6 @@ class Farmer extends React.Component {
   }
 
   render() {
-    console.log('rerender')
     const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
     return (
@@ -71,7 +66,7 @@ class Farmer extends React.Component {
         <br />
         <button
           disabled={
-            this.state.buyPlow.length > 0 ||
+            this.state.buyPlow ||
             !afford(this.state.inventory, EquipmentCosts.plow.horse) ||
             G.supplies.peatBoatPlow === 0
           }
@@ -81,7 +76,7 @@ class Farmer extends React.Component {
         </button>
         <button
           disabled={
-            this.state.buyPlow.length > 0 ||
+            this.state.buyPlow ||
             !afford(this.state.inventory, EquipmentCosts.plow.cattle) ||
             G.supplies.peatBoatPlow === 0
           }

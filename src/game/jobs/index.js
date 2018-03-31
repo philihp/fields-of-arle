@@ -18,7 +18,7 @@ export default {
   peatCutter: generic,
   dikeBuilder: generic,
   clayWorker,
-  farmer: generic, // TODO
+  farmer: generic,
   forester: generic, // TODO
   woodcutter,
   summerMaster: generic,

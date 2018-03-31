@@ -111,27 +111,29 @@ export const getVehicle = ({ G, ctx, ...args }, type) => {
   }
 }
 
-export const payForVehicle = ({ G, ctx, ...args }, type) => ({
-  G: {
-    ...G,
-    players: {
-      ...G.players,
-      [ctx.currentPlayer]: {
-        // this part expends the animals
-        ...EquipmentCosts[type]
-          .filter(a => Animals.includes(a))
-          .reduce(removeFirstAnimal, G.players[ctx.currentPlayer]),
-        // this part expends the building materials
-        inventory: spend(
-          G.players[ctx.currentPlayer].inventory,
-          EquipmentCosts[type]
-        ),
+export const payForVehicle = ({ G, ctx, ...args }, type, withAnimal) => {
+  const cost = withAnimal
+    ? EquipmentCosts[type][withAnimal]
+    : EquipmentCosts[type]
+  return {
+    G: {
+      ...G,
+      players: {
+        ...G.players,
+        [ctx.currentPlayer]: {
+          // this part expends the animals
+          ...cost
+            .filter(a => Animals.includes(a))
+            .reduce(removeFirstAnimal, G.players[ctx.currentPlayer]),
+          // this part expends the building materials
+          inventory: spend(G.players[ctx.currentPlayer].inventory, cost),
+        },
       },
     },
-  },
-  ctx,
-  ...args,
-})
+    ctx,
+    ...args,
+  }
+}
 
 export const arrangeItem = ({ G, ctx, ...args }, { src, dst }) => {
   const player = G.players[ctx.currentPlayer]
