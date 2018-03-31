@@ -49,8 +49,6 @@ class Wainwright extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        INV: {this.state.inventory.join(',')}
-        <br />
         Buy:<br />
         <button
           disabled={

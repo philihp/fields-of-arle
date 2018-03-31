@@ -13,6 +13,8 @@ const TableauFarm = ({
   handleReleaseFocus,
   handleBuildStall,
   handleBuildStable,
+  handleBuildField,
+  disabledBuildField,
 }) => {
   const seaLevel = findSeaLevel(dikes)
   return (
@@ -37,6 +39,8 @@ const TableauFarm = ({
             handleSetFocus={handleSetFocus && handleSetFocus('land', y, x)}
             handleBuildStall={handleBuildStall && handleBuildStall(y, x)}
             handleBuildStable={handleBuildStable && handleBuildStable(y, x)}
+            handleBuildField={handleBuildField && handleBuildField(y, x)}
+            disabledBuildField={disabledBuildField && disabledBuildField(y, x)}
           >
             {cell}
           </TableauLand>
@@ -76,6 +80,8 @@ TableauFarm.propTypes = {
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
   handleBuildStall: PropTypes.func, // if provided, a button will be put on empty spaces that can take a stall
   handleBuildStable: PropTypes.func, // if provided, stalls have a button that upgrades them to a stable
+  handleBuildField: PropTypes.func, // if provided, empty fields have a button that builds a grain and a button for flax field
+  disabledBuildField: PropTypes.func, // must be true, given row and col, for the button to be enabled
 }
 
 export default TableauFarm

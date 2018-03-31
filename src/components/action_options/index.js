@@ -15,6 +15,7 @@ import butcher from './butcher'
 import carpenter from './carpenter'
 import arrange from './arrange'
 import wainwright from './wainwright'
+import farmer from './farmer'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -37,5 +38,6 @@ export default {
   winterCarpenter: carpenter,
   summerCarpenter: carpenter,
   wainwright,
+  farmer,
   arrange,
 }

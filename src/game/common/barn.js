@@ -29,8 +29,10 @@ const LargeVehicles = ['cart', 'horseCart', 'carriage', 'droshky']
 
 export const EquipmentCosts = {
   peatBoat: ['wood'],
-  plow1: ['wood', 'horse'], // UHHHHHHH
-  plow2: ['wood', 'cattle'], // UHHHHHHH
+  plow: {
+    horse: ['wood', 'horse'], // UNGHHHHHHH
+    cattle: ['wood', 'cattle'], // UNGHHHHHHH
+  },
   handcart: ['wood', 'wood'],
   wagon: ['wood', 'wood', 'wood', 'wood'],
   cart: ['wood', 'wood', 'wood', 'wood', 'wood', 'wood', 'wood', 'horse'],
