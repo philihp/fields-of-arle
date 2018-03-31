@@ -1,3 +1,13 @@
+const barnVehicles = barn => [
+  barn.small1,
+  barn.small2,
+  barn.small3,
+  barn.small4,
+  barn.large1,
+  barn.large2,
+  barn.large3,
+]
+
 export const firstOpenSmallSpace = barn => {
   if (!barn.small1) return 'small1'
   else if (!barn.small2) return 'small2'
@@ -53,3 +63,6 @@ export const openBarnSpace = (barn, type) => {
   else if (LargeVehicles.includes(type)) return firstOpenLargeSpace(barn)
   else return null
 }
+
+export const countVehicle = (barn, type) =>
+  barnVehicles(barn).filter(vehicle => vehicle === type).length

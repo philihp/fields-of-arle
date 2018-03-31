@@ -104,6 +104,7 @@ const game = Game({
     },
     return(G, ctx, slot) {
       if (slot === undefined) return G
+      // TODO return vehicle to supply
       console.log(slot)
       return G
     },
