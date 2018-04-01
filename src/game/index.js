@@ -74,8 +74,8 @@ const homeBoard = {
     ],
   ],
   barn: {
-    small1: null,
-    small2: null,
+    small1: 'plow',
+    small2: 'plow',
     small3: null,
     small4: null,
     large1: null,

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { afford } from '../../game/common'
-import { EquipmentCosts } from '../../game/common/barn'
+import { EquipmentCosts, countVehicle } from '../../game/common/barn'
 import { countAnimals } from '../../game/common/player'
 import TableauFarm from '../tableau_farm'
 
@@ -17,7 +17,7 @@ class Farmer extends React.Component {
         ...Array(cattle).fill('cattle'),
         ...Array(horses).fill('horse'),
       ],
-      unusedPlows: 0,
+      unusedPlows: countVehicle(G.players[ctx.currentPlayer].barn, 'plow'),
       buyPlow: null,
       plowFields: [],
     }
