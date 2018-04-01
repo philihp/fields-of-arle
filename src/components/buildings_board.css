@@ -1,0 +1,106 @@
+.BuildingsBoard {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-gap: 0px;
+  grid-template-rows: 20px 50px 50px 20px 50px 50px 20px 50px 50px 20px 50px 50px 50px;
+  grid-template-areas:
+    'smallHouseHeading smallHouseHeading'
+    'smallHouse1 smallHouse2'
+    'smallHouse3 smallHouse4'
+    'minorCraftBuildingHeading minorCraftBuildingHeading'
+    'minorCraftBuilding1 minorCraftBuilding2'
+    'minorCraftBuilding3 minorCraftBuilding4'
+    'majorCraftBuildingHeading majorCraftBuildingHeading'
+    'majorCraftBuilding1 majorCraftBuilding2'
+    'majorCraftBuilding3 majorCraftBuilding4'
+    'innTileHeading largeBuildingHeading'
+    'innTile1 largeBuilding1'
+    'innTile2 largeBuilding2'
+    'innTile3 largeBuilding3';
+}
+
+.BuildingsBoard .Building {
+  background-color: #ffddb0;
+  border: 1px solid #e4b87e;
+  height: 44px;
+  width: 88px;
+}
+
+.BuildingsBoard heading {
+  font-weight: bold;
+  text-align: center;
+}
+
+.BuildingsBoard .smallHouseHeading {
+  grid-area: smallHouseHeading;
+}
+.BuildingsBoard .smallHouse1 {
+  grid-area: smallHouse1;
+}
+.BuildingsBoard .smallHouse2 {
+  grid-area: smallHouse2;
+}
+.BuildingsBoard .smallHouse3 {
+  grid-area: smallHouse3;
+}
+.BuildingsBoard .smallHouse4 {
+  grid-area: smallHouse4;
+}
+
+.BuildingsBoard .minorCraftBuildingHeading {
+  grid-area: minorCraftBuildingHeading;
+}
+.BuildingsBoard .minorCraftBuilding1 {
+  grid-area: minorCraftBuilding1;
+}
+.BuildingsBoard .minorCraftBuilding2 {
+  grid-area: minorCraftBuilding2;
+}
+.BuildingsBoard .minorCraftBuilding3 {
+  grid-area: minorCraftBuilding3;
+}
+.BuildingsBoard .minorCraftBuilding4 {
+  grid-area: minorCraftBuilding4;
+}
+
+.BuildingsBoard .majorCraftBuildingHeading {
+  grid-area: majorCraftBuildingHeading;
+}
+.BuildingsBoard .majorCraftBuilding1 {
+  grid-area: majorCraftBuilding1;
+}
+.BuildingsBoard .majorCraftBuilding2 {
+  grid-area: majorCraftBuilding2;
+}
+.BuildingsBoard .majorCraftBuilding3 {
+  grid-area: majorCraftBuilding3;
+}
+.BuildingsBoard .majorCraftBuilding4 {
+  grid-area: majorCraftBuilding4;
+}
+
+.BuildingsBoard .innTileHeading {
+  grid-area: innTileHeading;
+}
+.BuildingsBoard .innTile1 {
+  grid-area: innTile1;
+}
+.BuildingsBoard .innTile2 {
+  grid-area: innTile2;
+}
+.BuildingsBoard .innTile3 {
+  grid-area: innTile3;
+}
+
+.BuildingsBoard .largeBuildingHeading {
+  grid-area: largeBuildingHeading;
+}
+.BuildingsBoard .largeBuilding1 {
+  grid-area: largeBuilding1;
+}
+.BuildingsBoard .largeBuilding2 {
+  grid-area: largeBuilding2;
+}
+.BuildingsBoard .largeBuilding3 {
+  grid-area: largeBuilding3;
+}

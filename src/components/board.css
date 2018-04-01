@@ -1,5 +1,6 @@
 .Board {
   display: grid;
+  grid-template-columns: 1fr 200px 2fr 1fr;
   font-size: small;
   grid-gap: 20px;
   padding: 20px;
@@ -27,4 +28,9 @@
   display: grid-item;
   grid-column-start: 3;
   grid-column-end: 4;
+}
+.Board .col4 {
+  display: grid-item;
+  grid-column-start: 4;
+  grid-column-end: 5;
 }

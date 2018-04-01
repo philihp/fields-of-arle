@@ -9,6 +9,7 @@ import Tableau from './tableau'
 import LighthouseStatus from './lighthouse_status'
 import PreparationsBoard from './preparations_board'
 import SupplyBoard from './supply_board'
+import BuildingsBoard from './buildings_board'
 import './board.css'
 
 const color = worker => {
@@ -38,11 +39,21 @@ const Board = props => (
     </div>
 
     <div className="col col2">
+      <BuildingsBoard buildings={props.G.buildings} />
+    </div>
+    <div className="col col3">
       <LighthouseStatus lighthouse={props.G.lighthouse} />
       <RoundBoard round={props.G.halfYear} />
+
       <PreparationsBoard
         workerSpaces={props.G.workerSpaces}
         phase={props.ctx.phase}
+      />
+      <MoveSelect
+        G={props.G}
+        ctx={props.ctx}
+        events={props.events}
+        moves={props.moves}
       />
       <ActionsBoard
         workerSpaces={props.G.workerSpaces}
@@ -53,16 +64,10 @@ const Board = props => (
         phase={props.ctx.phase}
         lighthouseUsed={props.G.lighthouse.used}
       />
-      <MoveSelect
-        G={props.G}
-        ctx={props.ctx}
-        events={props.events}
-        moves={props.moves}
-      />
       <SupplyBoard supplies={props.G.supplies} />
     </div>
 
-    <div className="col col3">
+    <div className="col col4">
       <Tableau
         player={props.G.players[1]}
         action={props.G.action}

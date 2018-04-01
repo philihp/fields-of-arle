@@ -3,7 +3,14 @@ import jobs from './game/jobs'
 import actionOptions from './game/action_options'
 
 // import { pickWorker } from './game/common/'
-import initialState from './game/'
+import {
+  initialState,
+  smallHouses,
+  minorCraftBuildings,
+  majorCraftBuildings,
+  innTiles,
+  largeBuildings,
+} from './game/'
 import { winterActionsReset, summerActionsReset } from './game/worker_spaces'
 import { arrangeItem } from './game/common/land'
 
@@ -50,7 +57,16 @@ const lighthouseReset = lighthouse => ({
 })
 
 const game = Game({
-  setup: () => initialState,
+  setup: ctx => ({
+    ...initialState,
+    buildings: [
+      ...ctx.random.Shuffle(smallHouses).slice(0, 4),
+      ...ctx.random.Shuffle(minorCraftBuildings).slice(0, 2),
+      ...majorCraftBuildings,
+      ...ctx.random.Shuffle(innTiles).slice(0, 3),
+      ...largeBuildings,
+    ],
+  }),
 
   moves: {
     action(G, ctx, job, offSeason) {
