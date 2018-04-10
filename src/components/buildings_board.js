@@ -17,10 +17,10 @@ const BuildingClass = [
   'majorCraftBuilding5',
   'majorCraftBuilding6',
   'innTile1',
-  'innTile2',
-  'innTile3',
   'largeBuilding1',
+  'innTile2',
   'largeBuilding2',
+  'innTile3',
   'largeBuilding3',
 ]
 
@@ -73,15 +73,42 @@ const Tooltip = {
 
 const BuildingsBoard = ({ buildings }) => (
   <div className="BuildingsBoard">
-    <div className="smallHouseHeading">Small Houses</div>
-    <div className="minorCraftBuildingHeading">Minor Craft Buildings</div>
-    <div className="majorCraftBuildingHeading">Major Craft Buildings</div>
-    <div className="innTileHeading">Inn Tiles</div>
-    <div className="largeBuildingHeading">Large Buildings</div>
+    <div className="smallHouseHeading Heading">
+      Small Houses
+      {/* <div className="toolTip toolTipLeft">1 building material, 1 grain</div> */}
+    </div>
+    <div className="minorCraftBuildingHeading Heading">
+      Minor Craft Buildings
+      {/* <div className="toolTip toolTipLeft">1 timber, 1 brick</div> */}
+    </div>
+    <div className="majorCraftBuildingHeading Heading">
+      Major Craft Buildings
+    </div>
+    <div className="innTileHeading Heading">
+      Inn Tiles
+      {/* <div className="toolTip toolTipLeft">
+        2 different building materials, 9 food
+      </div> */}
+    </div>
+    <div className="largeBuildingHeading Heading">
+      Large Buildings
+      {/* <div className="toolTip toolTipRight">3 timber, 3 bricks, 15 food</div> */}
+    </div>
     {Array.from(Array(buildings.length), (v, idx) => idx).map(i => (
-      <div key={i} className={classNames(BuildingClass[i], 'Building')}>
+      <div
+        key={i}
+        className={buildings[i] && classNames(BuildingClass[i], 'Building')}
+      >
         {buildings[i]}
-        <div className="toolTip">{Tooltip[buildings[i]]}</div>
+        <div
+          className={classNames({
+            toolTip: true,
+            toolTipLeft: i % 2 === 0,
+            toolTipRight: i % 2 === 1,
+          })}
+        >
+          {Tooltip[buildings[i]]}
+        </div>
       </div>
     ))}
   </div>
