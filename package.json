@@ -4,14 +4,14 @@
   "private": true,
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
-    "boardgame.io": "^0.21.5",
+    "boardgame.io": "^0.25.4",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^1.2.0",
     "materialize-css": "^0.100.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
+    "react-scripts": "^1.1.4",
     "semantic-ui-css": "^2.2.14",
     "semantic-ui-react": "^0.78.2"
   },
@@ -22,11 +22,9 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "precommit": "lint-staged",
-    "firedeploy": "firebase deploy",
     "deploy": "gh-pages --dist build --message \"Automatic Updates [ci skip]\""
   },
   "devDependencies": {
-    "firebase-tools": "^3.16.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "prettier": "1.10.2"
