@@ -33,13 +33,17 @@ const Board = props => (
     <div className="col col1">
       <Tableau
         player={props.G.players[0]}
-        action={props.G.action}
-        moves={props.moves}
+        // action={props.G.action}
+        // moves={props.moves}
       />
     </div>
 
     <div className="col col2">
-      <BuildingsBoard buildings={props.G.buildings} />
+      <BuildingsBoard
+        buildings={props.G.buildings}
+        action={props.G.action}
+        moves={props.moves}
+      />
     </div>
     <div className="col col3">
       <LighthouseStatus lighthouse={props.G.lighthouse} />
@@ -70,8 +74,8 @@ const Board = props => (
     <div className="col col4">
       <Tableau
         player={props.G.players[1]}
-        action={props.G.action}
-        moves={props.moves}
+        // action={props.G.action}
+        // moves={props.moves}
       />
     </div>
   </div>
