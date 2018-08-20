@@ -34,7 +34,7 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
   if (action === 'build') {
     return {
       ...G,
-      action: 'building',
+      action: 'builder',
     }
   } else {
     const player = G.players[currentPlayer]

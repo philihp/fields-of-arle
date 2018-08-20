@@ -33,16 +33,23 @@ const Board = props => (
     <div className="col col1">
       <Tableau
         player={props.G.players[0]}
-        // action={props.G.action}
-        // moves={props.moves}
+        action={props.G.action}
+        moves={props.moves}
+        shouldShowPlace={
+          props.ctx.currentPlayer === '0' &&
+          props.G.selected !== undefined &&
+          props.G.selected.col === undefined
+        }
       />
     </div>
 
     <div className="col col2">
       <BuildingsBoard
         buildings={props.G.buildings}
-        action={props.G.action}
         moves={props.moves}
+        shouldShowBuy={
+          props.G.action === 'builder' && props.G.selected === undefined
+        }
       />
     </div>
     <div className="col col3">
@@ -74,8 +81,13 @@ const Board = props => (
     <div className="col col4">
       <Tableau
         player={props.G.players[1]}
-        // action={props.G.action}
-        // moves={props.moves}
+        action={props.G.action}
+        moves={props.moves}
+        shouldShowPlace={
+          props.ctx.currentPlayer === '1' &&
+          props.G.selected !== undefined &&
+          props.G.selected.col === undefined
+        }
       />
     </div>
   </div>

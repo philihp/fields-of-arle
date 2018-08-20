@@ -1,7 +1,11 @@
 export default ({ G, ctx: { currentPlayer }, args }) => {
-  const [building] = args
+  console.log(args)
+  const [selected] = args
   return {
     ...G,
-    action: null,
+    selected: {
+      ...G.selected,
+      ...selected,
+    },
   }
 }

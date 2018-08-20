@@ -10,6 +10,7 @@ const TableauLand = ({
   style,
   focusedItemIndex,
   focusedItem,
+  handlePlaceBuilding,
   handleSetFocus,
   handleReleaseFocus,
   handleBuildStall,
@@ -72,6 +73,11 @@ const TableauLand = ({
               grain
             </button>
           )}
+        {!flooded &&
+          children.type === 'empty' &&
+          handlePlaceBuilding && (
+            <button onClick={handlePlaceBuilding}>Build</button>
+          )}
 
         <br />
         {children.contents.map((item, i) => {
@@ -99,7 +105,7 @@ TableauLand.propTypes = {
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
   focusedItem: PropTypes.string,
-
+  handlePlaceBuilding: PropTypes.func, //if provided, theres a button here that lets you place a building there
   handleSetFocus: PropTypes.func, //if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
   handleBuildStall: PropTypes.func, // if provided, a button will be put on empty spaces that can take a stall

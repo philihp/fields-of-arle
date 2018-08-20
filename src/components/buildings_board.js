@@ -71,9 +71,9 @@ const Tooltip = {
     "15vp, advance ovens and weaving looms for free, then upgrade a tile as if you're the warden.",
 }
 
-const BuildingsBoard = ({ buildings, action, moves }) => {
-  const buyBuilding = name => () => {
-    moves.option('foo')
+const BuildingsBoard = ({ buildings, moves, shouldShowBuy }) => {
+  const selectBuilding = building => () => {
+    moves.option({ building })
   }
   return (
     <div className="BuildingsBoard">
@@ -113,9 +113,9 @@ const BuildingsBoard = ({ buildings, action, moves }) => {
           >
             {Tooltip[buildings[i]]}
           </div>
-          {action === 'builder' && (
+          {shouldShowBuy && (
             <div>
-              <button onClick={buyBuilding(buildings[i])}>Buy</button>
+              <button onClick={selectBuilding(buildings[i])}>Buy</button>
             </div>
           )}
         </div>
@@ -126,7 +126,7 @@ const BuildingsBoard = ({ buildings, action, moves }) => {
 
 BuildingsBoard.propTypes = {
   buildings: PropTypes.array.isRequired,
-  action: PropTypes.string,
+  shouldShowBuy: PropTypes.bool.isRequired,
   moves: PropTypes.any.isRequired,
 }
 
