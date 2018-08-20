@@ -10,8 +10,7 @@ const affordStable = player => afford(player.inventory, ['brick', 'brick'])
 class Carpenter extends React.Component {
   constructor(props) {
     super()
-    const { G, ctx, moves } = props
-
+    // const { G, ctx, moves } = props
     this.state = {
       mode: null,
     }
@@ -25,8 +24,12 @@ class Carpenter extends React.Component {
     this.props.moves.option({ row, col })
   }
 
+  handleSelectBuild = () => e => {
+    this.props.moves.option({ action: 'build' })
+  }
+
   render() {
-    const { G, ctx, moves } = this.props
+    const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
     switch (this.state.mode) {
       case 'stall':
@@ -69,9 +72,6 @@ class Carpenter extends React.Component {
             />
           </div>
         )
-      case 'building':
-        return <div>building</div>
-        break
       default:
         return (
           <div>
@@ -87,9 +87,7 @@ class Carpenter extends React.Component {
             >
               Build Stable
             </button>
-            <button onClick={this.handleButton('building')}>
-              Build Building
-            </button>
+            <button onClick={this.handleSelectBuild()}>Build Building</button>
           </div>
         )
     }
