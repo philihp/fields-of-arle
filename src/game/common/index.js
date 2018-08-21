@@ -7,6 +7,9 @@ export const afford = (inventory, cost) =>
     return [...accum.slice(0, index), ...accum.slice(index + 1)]
   }, cost).length === 0
 
+export const distinct = (inventory, kinds) =>
+  kinds.reduce((accum, kind) => accum + (inventory.includes(kind) ? 1 : 0), 0)
+
 export const spend = (inventory, cost) =>
   cost.reduce((accum, costItem) => {
     const index = accum.indexOf(costItem)

@@ -50,6 +50,8 @@ const Board = props => (
         shouldShowBuy={
           props.G.action === 'builder' && props.G.selected === undefined
         }
+        G={props.G}
+        ctx={props.ctx}
       />
     </div>
     <div className="col col3">

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './buildings_board.css'
+import buildingCosts from '../game/building_costs'
 
 const BuildingClass = [
   'smallHouse1',
@@ -71,7 +72,7 @@ const Tooltip = {
     "15vp, advance ovens and weaving looms for free, then upgrade a tile as if you're the warden.",
 }
 
-const BuildingsBoard = ({ buildings, moves, shouldShowBuy }) => {
+const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => {
   const selectBuilding = building => () => {
     moves.option({ building })
   }
@@ -98,33 +99,38 @@ const BuildingsBoard = ({ buildings, moves, shouldShowBuy }) => {
         Large Buildings
         {/* <div className="toolTip toolTipRight">3 timber, 3 bricks, 15 food</div> */}
       </div>
-      {Array.from(Array(buildings.length), (v, idx) => idx).map(i => (
-        <div
-          key={i}
-          className={buildings[i] && classNames(BuildingClass[i], 'Building')}
-        >
-          {buildings[i]}
+      {Array.from(Array(buildings.length), (v, idx) => idx).map(i => {
+        return (
           <div
-            className={classNames({
-              toolTip: true,
-              toolTipLeft: i % 2 === 0,
-              toolTipRight: i % 2 === 1,
-            })}
+            key={i}
+            className={buildings[i] && classNames(BuildingClass[i], 'Building')}
           >
-            {Tooltip[buildings[i]]}
-          </div>
-          {shouldShowBuy && (
-            <div>
-              <button onClick={selectBuilding(buildings[i])}>Buy</button>
+            {buildings[i]}
+            <div
+              className={classNames({
+                toolTip: true,
+                toolTipLeft: i % 2 === 0,
+                toolTipRight: i % 2 === 1,
+              })}
+            >
+              {Tooltip[buildings[i]]}
             </div>
-          )}
-        </div>
-      ))}
+            {shouldShowBuy &&
+              buildingCosts[buildings[i]](G, ctx) && (
+                <div>
+                  <button onClick={selectBuilding(buildings[i])}>Buy</button>
+                </div>
+              )}
+          </div>
+        )
+      })}
     </div>
   )
 }
 
 BuildingsBoard.propTypes = {
+  G: PropTypes.any,
+  ctx: PropTypes.any,
   buildings: PropTypes.array.isRequired,
   shouldShowBuy: PropTypes.bool.isRequired,
   moves: PropTypes.any.isRequired,

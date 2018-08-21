@@ -1,5 +1,4 @@
 export default ({ G, ctx: { currentPlayer }, args }) => {
-  console.log(args)
   const [selected] = args
   return {
     ...G,
