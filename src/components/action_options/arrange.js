@@ -82,4 +82,7 @@ Arrange.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Arrange
+export default {
+  visible: () => true,
+  component: Arrange,
+}

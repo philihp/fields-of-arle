@@ -80,4 +80,7 @@ Baker.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Baker
+export default {
+  visible: () => true,
+  component: Baker,
+}

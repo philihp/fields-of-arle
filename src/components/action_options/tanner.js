@@ -60,4 +60,7 @@ Tanner.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Tanner
+export default {
+  visible: () => true,
+  component: Tanner,
+}

@@ -88,4 +88,7 @@ Wainwright.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Wainwright
+export default {
+  visible: () => true,
+  component: Wainwright,
+}

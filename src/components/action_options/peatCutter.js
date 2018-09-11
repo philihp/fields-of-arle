@@ -83,4 +83,7 @@ PeatCutter.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default PeatCutter
+export default {
+  visible: () => true,
+  component: PeatCutter,
+}

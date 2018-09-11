@@ -100,4 +100,7 @@ Carpenter.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Carpenter
+export default {
+  visible: () => true,
+  component: Carpenter,
+}

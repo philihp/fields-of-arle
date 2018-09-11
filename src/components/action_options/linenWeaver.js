@@ -60,4 +60,7 @@ LinenWeaver.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default LinenWeaver
+export default {
+  visible: () => true,
+  component: LinenWeaver,
+}

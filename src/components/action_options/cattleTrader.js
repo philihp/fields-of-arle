@@ -17,4 +17,7 @@ CattleTrader.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default CattleTrader
+export default {
+  visible: () => true,
+  component: CattleTrader,
+}

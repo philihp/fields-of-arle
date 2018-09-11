@@ -78,4 +78,7 @@ WinterGrocer.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default WinterGrocer
+export default {
+  visible: () => true,
+  component: WinterGrocer,
+}

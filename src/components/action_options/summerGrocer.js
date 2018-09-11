@@ -25,4 +25,7 @@ Grocer.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Grocer
+export default {
+  visible: () => true,
+  component: Grocer,
+}

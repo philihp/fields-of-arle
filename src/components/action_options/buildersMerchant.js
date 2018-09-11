@@ -85,4 +85,7 @@ BuildersMerchant.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default BuildersMerchant
+export default {
+  visible: () => true,
+  component: BuildersMerchant,
+}

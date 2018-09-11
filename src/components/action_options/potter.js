@@ -62,4 +62,7 @@ Potter.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Potter
+export default {
+  visible: () => true,
+  component: Potter,
+}

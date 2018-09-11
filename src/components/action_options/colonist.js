@@ -23,4 +23,7 @@ Colonist.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Colonist
+export default {
+  visible: () => true,
+  component: Colonist,
+}

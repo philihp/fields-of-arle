@@ -16,8 +16,15 @@ import carpenter from './carpenter'
 import arrange from './arrange'
 import wainwright from './wainwright'
 import farmer from './farmer'
+import builder from './builder'
 
 // Exhaustive list of all of the actions with options to prompt after selected
+
+// Each of these should be an object in the form
+// {
+//   visible: (G) => boolean
+//   component: ReactComponent
+// }
 
 export default {
   summerGrocer,
@@ -26,6 +33,7 @@ export default {
   colonist,
   tanner,
   potter,
+  builder,
   buildersMerchant,
   peatCutter,
   cattleTrader,

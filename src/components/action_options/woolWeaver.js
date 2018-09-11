@@ -60,4 +60,7 @@ WoolWeaver.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default WoolWeaver
+export default {
+  visible: () => true,
+  component: WoolWeaver,
+}

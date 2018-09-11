@@ -20,4 +20,7 @@ DikeBuilder.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default DikeBuilder
+export default {
+  visible: () => true,
+  component: DikeBuilder,
+}

@@ -111,4 +111,7 @@ Butcher.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Butcher
+export default {
+  visible: () => true,
+  component: Butcher,
+}

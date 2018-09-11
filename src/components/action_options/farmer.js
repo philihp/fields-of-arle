@@ -106,4 +106,7 @@ Farmer.propTypes = {
   moves: PropTypes.any.isRequired,
 }
 
-export default Farmer
+export default {
+  visible: () => true,
+  component: Farmer,
+}
