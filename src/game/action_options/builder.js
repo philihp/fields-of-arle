@@ -1,11 +1,28 @@
 export default ({ G, ctx: { currentPlayer }, args }) => {
-  const [selected] = args
-  console.log(args)
-  return {
-    ...G,
-    selected: {
-      ...G.selected,
-      ...selected,
-    },
+  const [options] = args
+
+  const selected = {
+    ...G.selected,
+    ...options,
+  }
+  console.log(selected)
+
+  if (
+    selected.hasOwnProperty('building') &&
+    selected.hasOwnProperty('col') &&
+    selected.hasOwnProperty('row') &&
+    selected.hasOwnProperty('cost')
+  ) {
+    return {
+      ...G,
+      // TODO: place the building
+      action: null,
+      selected: undefined,
+    }
+  } else {
+    return {
+      ...G,
+      selected,
+    }
   }
 }
