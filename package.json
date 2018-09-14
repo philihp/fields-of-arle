@@ -12,7 +12,7 @@
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.5",
     "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.78.2"
+    "semantic-ui-react": "^0.78.3"
   },
   "scripts": {
     "start": "react-scripts start",
