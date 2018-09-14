@@ -8,7 +8,7 @@
     "classnames": "^2.2.6",
     "gh-pages": "^1.2.0",
     "materialize-css": "^0.100.2",
-    "react": "^16.2.0",
+    "react": "^16.5.1",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.5",
     "semantic-ui-css": "^2.2.14",
