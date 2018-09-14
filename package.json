@@ -5,7 +5,6 @@
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
     "boardgame.io": "^0.25.5",
-    "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "gh-pages": "^1.2.0",
     "materialize-css": "^0.100.2",
@@ -30,7 +29,10 @@
     "prettier": "^1.10.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prettier": {
     "singleQuote": true,
