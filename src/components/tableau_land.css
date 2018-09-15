@@ -9,22 +9,22 @@
   background-color: #dfecf3;
 }
 
-.TableauLand.moor_north,
-.TableauLand.moor_south {
+.TableauLand.moorNorth,
+.TableauLand.moorSouth {
   border-color: #615324;
   background-color: #c4b78e;
 }
-.TableauLand.dmoor_north,
-.TableauLand.dmoor_south {
+.TableauLand.dmoorNorth,
+.TableauLand.dmoorSouth {
   border-color: #837443;
   background-color: #d6cdad;
 }
 
-.TableauLand.moor_north,
-.TableauLand.dmoor_north {
+.TableauLand.moorNorth,
+.TableauLand.dmoorNorth {
   border-bottom-width: 0;
 }
-.TableauLand.moor_south,
-.TableauLand.dmoor_south {
+.TableauLand.moorSouth,
+.TableauLand.dmoorSouth {
   border-top-width: 0;
 }

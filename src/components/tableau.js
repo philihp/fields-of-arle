@@ -5,7 +5,7 @@ import TableauBarn from './tableau_barn'
 import './tableau.css'
 
 const Tableau = ({ player, moves, shouldShowPlace }) => {
-  const handlePlaceBuilding = (col, row) => () => {
+  const handlePlaceBuilding = (row, col) => () => {
     moves.option({ col, row })
   }
   return (

@@ -4,13 +4,13 @@ import actionOptions from './game/action_options'
 
 // import { pickWorker } from './game/common/'
 import {
-  initialState,
   smallHouses,
   minorCraftBuildings,
   majorCraftBuildings,
   innTiles,
   largeBuildings,
-} from './game/'
+} from './game/building/type'
+import { initialState } from './game/'
 import { winterActionsReset, summerActionsReset } from './game/worker_spaces'
 import { arrangeItem } from './game/common/land'
 

@@ -41,18 +41,18 @@ export const flipEmptyMoors = (land, coord) => {
       ],
       ...land.slice(row + 1),
     ]
-  } else if (land[row][col].type === 'dmoor_north') {
+  } else if (land[row][col].type === 'dmoorNorth') {
     return [
       ...land.slice(0, row),
       [
         ...land[row].slice(0, col),
-        // This should be the dmoor_north tile
+        // This should be the dmoorNorth tile
         { ...emptyLandCell, contents: land[row][col].contents },
         ...land[row].slice(col + 1),
       ],
       [
         ...land[row + 1].slice(0, col),
-        // This should be the dmoor_north tile
+        // This should be the dmoorNorth tile
         { ...emptyLandCell, contents: land[row + 1][col].contents },
         ...land[row + 1].slice(col + 1),
       ],

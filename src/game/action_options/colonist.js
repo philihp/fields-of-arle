@@ -4,10 +4,10 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
   const newRow5 = land[5].slice()
   const newRow6 = land[6].slice()
   newRow5[col] = {
-    type: 'dmoor_north',
+    type: 'dmoorNorth',
     contents: ['peat', 'peat', 'peat', 'peat'],
   }
-  newRow6[col] = { type: 'dmoor_south', contents: [] }
+  newRow6[col] = { type: 'dmoorSouth', contents: [] }
   return {
     ...G,
     action: null,

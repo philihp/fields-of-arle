@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './buildings_board.css'
-import buildingCosts from '../game/building_costs'
+import buildingCosts from '../game/building/cost'
 
 const BuildingClass = [
   'smallHouse1',

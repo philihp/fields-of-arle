@@ -1,7 +1,7 @@
 import { spend } from '../../game/common'
 
-const newInventory = (player, type) => {
-  switch (type) {
+const newInventory = (player, building) => {
+  switch (building) {
     case 'stall':
       return {
         inventory: spend(player.inventory, ['clay', 'clay']),
