@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { afford } from '../../game/common'
 
 const visible = ({ selected }) =>
   selected !== undefined &&
@@ -29,6 +30,8 @@ class Builder extends React.Component {
   }
 
   render() {
+    const inventory = this.props.G.players[this.props.ctx.currentPlayer]
+      .inventory
     return (
       <div>
         How to pay for this?
@@ -40,6 +43,7 @@ class Builder extends React.Component {
           name="cost1"
           value="wood"
           onClick={this.handleCost1('wood')}
+          disabled={!afford(inventory, ['wood'])}
           defaultChecked={this.state.cost1 === 'wood'}
         />
         <label htmlFor="wood">Wood</label>
@@ -49,6 +53,7 @@ class Builder extends React.Component {
           name="cost1"
           value="clay"
           onClick={this.handleCost1('clay')}
+          disabled={!afford(inventory, ['clay'])}
           defaultChecked={this.state.cost1 === 'clay'}
         />
         <label htmlFor="clay">Clay</label>
@@ -58,6 +63,7 @@ class Builder extends React.Component {
           name="cost1"
           value="timber"
           onClick={this.handleCost1('timber')}
+          disabled={!afford(inventory, ['timber'])}
           defaultChecked={this.state.cost1 === 'timber'}
         />
         <label htmlFor="timber">Timber</label>
@@ -67,6 +73,7 @@ class Builder extends React.Component {
           name="cost1"
           value="brick"
           onClick={this.handleCost1('brick')}
+          disabled={!afford(inventory, ['brick'])}
           defaultChecked={this.state.cost1 === 'brick'}
         />
         <label htmlFor="brick">Brick</label>

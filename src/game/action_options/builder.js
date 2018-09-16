@@ -2,13 +2,10 @@ import { spendInventory, spendGoods } from '../../game/common'
 
 export default ({ G, ctx: { currentPlayer }, args }) => {
   const [options] = args
-
   const selected = {
     ...G.selected,
     ...options,
   }
-  console.log(selected)
-
   if (
     selected.hasOwnProperty('building') &&
     selected.hasOwnProperty('col') &&
