@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { toolValue, ToolUpgradeCosts } from '../../game/constants'
-import { afford, spend } from '../../game/common'
+import { afford, spendInventory } from '../../game/common'
 
 const workbenches = 'workbenches'
 
@@ -27,7 +27,7 @@ class WinterGrocer extends React.Component {
     if (this.state.upgrades <= 0) return
     this.setState({
       tools: [...this.state.tools, tool],
-      inventory: spend(this.state.inventory, ToolUpgradeCosts[tool]),
+      inventory: spendInventory(this.state.inventory, ToolUpgradeCosts[tool]),
       upgrades: this.state.upgrades - (tool !== 'workbenches' ? 1 : 0),
       maxUpgrades: this.state.maxUpgrades + (tool === 'workbenches' ? 1 : 0),
     })

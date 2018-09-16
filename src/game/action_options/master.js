@@ -1,4 +1,4 @@
-import { spend } from '../../game/common'
+import { spendInventory } from '../../game/common'
 import { ToolUpgradeCosts } from '../../game/constants'
 
 export default ({ G, ctx: { currentPlayer }, args }) => {
@@ -19,7 +19,8 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
       [currentPlayer]: {
         ...G.players[currentPlayer],
         inventory: args.reduce(
-          (inventory, tool) => spend(inventory, ToolUpgradeCosts[tool]),
+          (inventory, tool) =>
+            spendInventory(inventory, ToolUpgradeCosts[tool]),
           G.players[currentPlayer].inventory
         ),
       },

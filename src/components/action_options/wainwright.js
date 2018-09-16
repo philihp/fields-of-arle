@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { afford, spend } from '../../game/common'
+import { afford, spendInventory } from '../../game/common'
 import { Vehicles, EquipmentCosts } from '../../game/common/barn'
 import { countAnimals } from '../../game/common/player'
 
@@ -25,7 +25,7 @@ class Wainwright extends React.Component {
     if (!afford(this.state.inventory, EquipmentCosts.peatBoat)) return
     this.setState({
       buyPeatBoat: ['peatBoat'],
-      inventory: spend(this.state.inventory, EquipmentCosts.peatBoat),
+      inventory: spendInventory(this.state.inventory, EquipmentCosts.peatBoat),
     })
   }
 
@@ -34,7 +34,7 @@ class Wainwright extends React.Component {
     this.setState({
       buyVehicle: [type],
       // TODO remove the cattle
-      inventory: spend(this.state.inventory, EquipmentCosts[type]),
+      inventory: spendInventory(this.state.inventory, EquipmentCosts[type]),
     })
   }
 

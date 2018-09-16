@@ -10,12 +10,21 @@ export const afford = (inventory, cost) =>
 export const distinct = (inventory, kinds) =>
   kinds.reduce((accum, kind) => accum + (inventory.includes(kind) ? 1 : 0), 0)
 
-export const spend = (inventory, cost) =>
+export const spendInventory = (inventory, cost) =>
   cost.reduce((accum, costItem) => {
     const index = accum.indexOf(costItem)
     if (index === -1) return accum
     return [...accum.slice(0, index), ...accum.slice(index + 1)]
   }, inventory)
+
+export const spendGoods = (goods, cost) =>
+  cost.reduce(
+    (accum, costItem) => ({
+      ...accum,
+      [costItem]: accum[costItem] - 1,
+    }),
+    goods
+  )
 
 export const season = state => (state.month <= 3 ? 'summer' : 'winter')
 

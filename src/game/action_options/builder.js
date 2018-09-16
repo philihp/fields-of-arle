@@ -1,16 +1,4 @@
-import { spend } from '../../game/common'
-
-const newInventory = (player, building) => {
-  switch (building) {
-    default:
-      return {
-        inventory: spend(player.inventory, []),
-        goods: {
-          ...player.goods,
-        },
-      }
-  }
-}
+import { spendInventory, spendGoods } from '../../game/common'
 
 export default ({ G, ctx: { currentPlayer }, args }) => {
   const [options] = args
@@ -29,7 +17,6 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
   ) {
     const player = G.players[currentPlayer]
     const { row, col, building, cost } = selected
-    debugger
     return {
       ...G,
       action: null,
@@ -38,7 +25,8 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
         ...G.players,
         [currentPlayer]: {
           ...player,
-          ...newInventory(player, building),
+          inventory: spendInventory(player.inventory, cost),
+          goods: spendGoods(player.goods, cost),
           land: [
             ...player.land.slice(0, row),
             [

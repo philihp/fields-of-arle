@@ -1,4 +1,4 @@
-import { flatten, spend, Animals } from './index'
+import { flatten, spendInventory, Animals } from './index'
 import { openBarnSpace, VehicleSource, EquipmentCosts } from './barn'
 import { removeFirstAnimal } from './animals'
 
@@ -126,7 +126,10 @@ export const payForVehicle = ({ G, ctx, ...args }, type, withAnimal) => {
             .filter(a => Animals.includes(a))
             .reduce(removeFirstAnimal, G.players[ctx.currentPlayer]),
           // this part expends the building materials
-          inventory: spend(G.players[ctx.currentPlayer].inventory, cost),
+          inventory: spendInventory(
+            G.players[ctx.currentPlayer].inventory,
+            cost
+          ),
         },
       },
     },

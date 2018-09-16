@@ -1,10 +1,10 @@
-import { spend } from '../../game/common'
+import { spendInventory } from '../../game/common'
 
 const newInventory = (player, building) => {
   switch (building) {
     case 'stall':
       return {
-        inventory: spend(player.inventory, ['clay', 'clay']),
+        inventory: spendInventory(player.inventory, ['clay', 'clay']),
         goods: {
           ...player.goods,
           grain: player.goods.grain - 1,
@@ -12,7 +12,7 @@ const newInventory = (player, building) => {
       }
     case 'stable':
       return {
-        inventory: spend(player.inventory, ['brick', 'brick']),
+        inventory: spendInventory(player.inventory, ['brick', 'brick']),
       }
     default:
       return {}
