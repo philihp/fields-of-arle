@@ -20,11 +20,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "precommit": "lint-staged",
     "deploy": "gh-pages --dist build --message \"Automatic Updates [ci skip]\""
   },
   "devDependencies": {
-    "husky": "^0.14.3",
+    "husky": "^1.0.0-rc.14",
     "lint-staged": "^6.1.1",
     "prettier": "^1.14.2"
   },
@@ -38,5 +37,10 @@
     "singleQuote": true,
     "semi": false,
     "trailing-comma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
