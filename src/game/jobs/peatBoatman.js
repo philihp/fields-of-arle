@@ -13,4 +13,8 @@ const addPeatPerBoat = ({ G, ctx }) =>
     )
   )
 
-export default (G, ctx) => compose(addBasePeat, addPeatPerBoat)({ G, ctx }).G
+export default (G, ctx) =>
+  compose(
+    addBasePeat,
+    addPeatPerBoat
+  )({ G, ctx }).G

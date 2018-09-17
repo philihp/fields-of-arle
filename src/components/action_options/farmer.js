@@ -86,7 +86,8 @@ class Farmer extends React.Component {
         </button>
         <br />
         <br />
-        and/or Plow {this.state.unusedPlows} fields:<br />
+        and/or Plow {this.state.unusedPlows} fields:
+        <br />
         <TableauFarm
           land={player.land}
           dikes={player.dikes}

@@ -6,7 +6,8 @@ const DikeBuilder = ({ moves }) => {
   const moveSheep = () => moves.option('sheep')
   return (
     <div>
-      Take 1 sheep or 1 cattle:<br />
+      Take 1 sheep or 1 cattle:
+      <br />
       <button onClick={moveCattle}>Cattle</button>
       <button onClick={moveSheep}>Sheep</button>
       <br />

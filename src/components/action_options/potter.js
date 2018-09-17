@@ -33,7 +33,8 @@ class Potter extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        Convert clay to 3 food and 1 peat, per pottery wheel<br />
+        Convert clay to 3 food and 1 peat, per pottery wheel
+        <br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => {
           return (

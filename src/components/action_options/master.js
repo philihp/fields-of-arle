@@ -8,7 +8,10 @@ const workbenches = 'workbenches'
 class WinterGrocer extends React.Component {
   constructor(props) {
     super(props)
-    const { G, ctx: { currentPlayer } } = this.props
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = this.props
     this.state = {
       tools: [],
       inventory: G.players[currentPlayer].inventory,
@@ -40,14 +43,12 @@ class WinterGrocer extends React.Component {
   render() {
     return (
       <div>
-        Tool Upgrades<br /> Remaining: {this.state.upgrades} of{' '}
-        {this.state.maxUpgrades}
+        Tool Upgrades
+        <br /> Remaining: {this.state.upgrades} of {this.state.maxUpgrades}
         <br />
         <br />
-        Upgrades: [{this.state.tools.join(', ')}]
-        <br />
-        Inventory: [{this.state.inventory.join(', ')}]
-        <br />
+        Upgrades: [{this.state.tools.join(', ')}]<br />
+        Inventory: [{this.state.inventory.join(', ')}]<br />
         {Object.keys(ToolUpgradeCosts).map(tool => (
           <div key={tool}>
             <button

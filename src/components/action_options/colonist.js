@@ -9,7 +9,8 @@ const Colonist = ({ G, ctx: { currentPlayer }, moves }) => {
   const cols = land[5].map(cell => cell.type === 'moorNorth')
   return (
     <div>
-      Get a horse, also flip moor and add 4 peat...<br />
+      Get a horse, also flip moor and add 4 peat...
+      <br />
       {cols.map((available, i) => (
         <button key={i} onClick={() => moves.option(i)}>
           Column {Name[i]}

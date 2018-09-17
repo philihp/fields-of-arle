@@ -8,7 +8,10 @@ const countFuel = (accum, item) =>
 class Baker extends React.Component {
   constructor(props) {
     super(props)
-    const { G, ctx: { currentPlayer } } = props
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = props
     const oven = 'ovens'
     const goods = G.players[currentPlayer].goods
     const fuelCount = G.players[currentPlayer].inventory.reduce(countFuel, 0)
@@ -52,7 +55,8 @@ class Baker extends React.Component {
     return (
       <div>
         Convert grain + peat to 6 food. You can replace grain with flax and peat
-        with wood, if you have none.<br />
+        with wood, if you have none.
+        <br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => (
           <div key={i}>

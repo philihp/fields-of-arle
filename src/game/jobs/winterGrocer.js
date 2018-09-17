@@ -8,7 +8,11 @@ const addInventoryClay = ({ G, ctx, ...args }) =>
   addInventory({ G, ctx, ...args }, ['clay'])
 
 export default (G, ctx, ...args) =>
-  compose(setAction, addInventoryWood, addInventoryClay)({
+  compose(
+    setAction,
+    addInventoryWood,
+    addInventoryClay
+  )({
     G,
     ctx,
     0: 'winterGrocer',

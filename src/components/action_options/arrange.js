@@ -48,7 +48,8 @@ class Arrange extends React.Component {
 
     return (
       <div>
-        Rearrange<br />
+        Rearrange
+        <br />
         focus: {JSON.stringify(this.state.focus)}
         <br />
         {player.tokens.map((item, i) => (

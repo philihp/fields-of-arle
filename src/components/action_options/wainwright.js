@@ -49,7 +49,8 @@ class Wainwright extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        Buy:<br />
+        Buy:
+        <br />
         <button
           disabled={
             this.state.buyPeatBoat.length > 0 ||
@@ -61,7 +62,8 @@ class Wainwright extends React.Component {
         </button>
         <br />
         <br />
-        and/or Buy:<br />
+        and/or Buy:
+        <br />
         {Vehicles.map(vehicle => (
           <button
             key={vehicle}

@@ -27,7 +27,10 @@ class WinterGrocer extends React.Component {
   }
 
   render() {
-    const { G, ctx: { currentPlayer } } = this.props
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = this.props
     const land = G.players[currentPlayer].land
 
     const locations = possiblePeatLocations.reduce((accum, coord) => {
@@ -56,8 +59,7 @@ class WinterGrocer extends React.Component {
                   disabled={this.state.toDrain !== null}
                   onClick={this.drainBog(loc.row, loc.col)}
                 >
-                  {loc.row}, {loc.col}:
-                  {loc.contents}
+                  {loc.row}, {loc.col}:{loc.contents}
                 </button>
               </li>
             )

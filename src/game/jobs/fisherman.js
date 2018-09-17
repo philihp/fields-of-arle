@@ -14,4 +14,8 @@ const addFoodPerFishTraps = ({ G, ctx }) =>
   )
 
 export default (G, ctx) =>
-  compose(addFoodPerFishTraps, bumpToolFishTraps, addTokenSheep)({ G, ctx }).G
+  compose(
+    addFoodPerFishTraps,
+    bumpToolFishTraps,
+    addTokenSheep
+  )({ G, ctx }).G

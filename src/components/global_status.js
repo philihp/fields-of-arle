@@ -1,4 +1,4 @@
-import LighthouseStatus from './lighthouse_status'
+// import LighthouseStatus from './lighthouse_status'
 import React from 'react'
 import PropTypes from 'prop-types'
 

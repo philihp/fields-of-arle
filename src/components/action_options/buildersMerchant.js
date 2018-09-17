@@ -30,7 +30,8 @@ class BuildersMerchant extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        Choose:<br />
+        Choose:
+        <br />
         <input
           type="radio"
           name="woodClay"
@@ -38,8 +39,7 @@ class BuildersMerchant extends React.Component {
           value="wood"
           onClick={this.handleWoodClay}
         />
-        <label htmlFor="woodClayWood">Wood</label>
-        /
+        <label htmlFor="woodClayWood">Wood</label>/
         <input
           type="radio"
           name="woodClay"
@@ -49,7 +49,8 @@ class BuildersMerchant extends React.Component {
         />
         <label htmlFor="woodClayClay">Clay</label>
         <br />
-        Choose:<br />
+        Choose:
+        <br />
         <input
           type="radio"
           name="timberBrick"
@@ -57,8 +58,7 @@ class BuildersMerchant extends React.Component {
           value="timber"
           onClick={this.handleTimberBrick}
         />
-        <label htmlFor="timberBrickTimber">Timber</label>
-        /
+        <label htmlFor="timberBrickTimber">Timber</label>/
         <input
           type="radio"
           name="timberBrick"

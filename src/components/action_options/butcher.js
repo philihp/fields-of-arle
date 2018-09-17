@@ -65,10 +65,13 @@ class Butcher extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        Sheep and Horses -> 3 food, 2 hides each<br />
-        Cattle -> 4 food, 2 hides each<br />
+        Sheep and Horses -> 3 food, 2 hides each
         <br />
-        Select up to {this.state.maxTimes} animals to convert.<br />
+        Cattle -> 4 food, 2 hides each
+        <br />
+        <br />
+        Select up to {this.state.maxTimes} animals to convert.
+        <br />
         <br />
         {Array.from(Array(this.state.sheepMax), (v, idx) => idx).map(i => (
           <button

@@ -31,7 +31,8 @@ class WoolWeaver extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        Convert a wool to woolen, per loom<br />
+        Convert a wool to woolen, per loom
+        <br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => {
           return (

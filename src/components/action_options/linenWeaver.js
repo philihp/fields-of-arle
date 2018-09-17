@@ -31,7 +31,8 @@ class LinenWeaver extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        Convert a flax to linen, per loom<br />
+        Convert a flax to linen, per loom
+        <br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => {
           return (

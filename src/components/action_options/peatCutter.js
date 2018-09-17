@@ -5,7 +5,10 @@ import { toolValue, possiblePeatLocations } from '../../game/constants'
 class PeatCutter extends React.Component {
   constructor(props) {
     super(props)
-    const { G, ctx: { currentPlayer } } = props
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = props
     const spades = toolValue('spades', G.toolSpaces['spades'][currentPlayer])
     const land = G.players[currentPlayer].land
 
@@ -64,8 +67,7 @@ class PeatCutter extends React.Component {
             return (
               <li key={[loc.row, loc.col].join(',')}>
                 <button onClick={this.drainBog(i)}>
-                  {loc.row}, {loc.col}:
-                  {loc.contents}
+                  {loc.row}, {loc.col}:{loc.contents}
                 </button>
               </li>
             )

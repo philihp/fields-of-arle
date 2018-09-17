@@ -6,7 +6,8 @@ const CattleTrader = ({ moves }) => {
   const moveHorse = () => moves.option('horse')
   return (
     <div>
-      You get 2 food, a sheep, and:<br />
+      You get 2 food, a sheep, and:
+      <br />
       <button onClick={moveCattle}>Cattle</button>
       <button onClick={moveHorse}>Horse</button>
     </div>

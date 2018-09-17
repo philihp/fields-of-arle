@@ -5,7 +5,10 @@ import { toolValue } from '../../game/constants'
 class Tanner extends React.Component {
   constructor(props) {
     super(props)
-    const { G, ctx: { currentPlayer } } = props
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = props
     const fleshingBeams = 'fleshingBeams'
     const wool = G.players[currentPlayer].goods.wool
     const fleshBeams = toolValue(
@@ -31,7 +34,8 @@ class Tanner extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        Convert hide to leather, per fleshing beam<br />
+        Convert hide to leather, per fleshing beam
+        <br />
         <br />
         {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => {
           return (
