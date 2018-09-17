@@ -50,20 +50,21 @@ export const addInventory = ({ G, ctx, ...args }, newInventoryList) => ({
   ...args,
 })
 
-export const bumpTool = ({ G, ctx, ...args }, tool) => ({
-  G: {
-    ...G,
-    toolSpaces: {
-      ...G.toolSpaces,
-      [tool]: {
-        ...G.toolSpaces[tool],
-        [ctx.currentPlayer]: G.toolSpaces[tool][ctx.currentPlayer] + 1,
+export const bumpTool = ({ G, ctx, ...args }, tool) => {
+  let newToolSpace = G.toolSpaces[tool]
+  newToolSpace[ctx.currentPlayer] += 1
+  return {
+    G: {
+      ...G,
+      toolSpaces: {
+        ...G.toolSpaces,
+        [tool]: newToolSpace,
       },
     },
-  },
-  ctx,
-  ...args,
-})
+    ctx,
+    ...args,
+  }
+}
 
 export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
   G: {
