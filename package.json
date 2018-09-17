@@ -36,7 +36,7 @@
   "prettier": {
     "singleQuote": true,
     "semi": false,
-    "trailing-comma": "es5"
+    "trailingComma": "es5"
   },
   "husky": {
     "hooks": {
