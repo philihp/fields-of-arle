@@ -23,13 +23,15 @@
     "deploy": "gh-pages --dist build --message \"Automatic Updates [ci skip]\""
   },
   "devDependencies": {
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
     "husky": "^1.0.0-rc.14",
     "lint-staged": "^6.1.1",
     "prettier": "^1.14.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
-      "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   },
