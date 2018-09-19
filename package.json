@@ -9,7 +9,7 @@
     "gh-pages": "^1.2.0",
     "materialize-css": "^0.100.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.1",
+    "react-dom": "^16.5.2",
     "react-scripts": "^1.1.5"
   },
   "scripts": {
