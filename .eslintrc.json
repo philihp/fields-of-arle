@@ -1,3 +1,46 @@
 {
-  "extends": ["react-app", "plugin:prettier/recommended"]
+  "extends": ["react-app", "airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "import/no-useless-path-segments": false,
+    "import/order": false,
+    "jsx-a11y/click-events-have-key-events": false,
+    "jsx-a11y/href-no-hash": false,
+    "jsx-a11y/label-has-associated-control": false,
+    "jsx-a11y/label-has-for": false,
+    "jsx-a11y/no-static-element-interactions": false,
+    "react/button-has-type": false,
+    "react/destructuring-assignment": false,
+    "react/forbid-prop-types": false,
+    "react/jsx-curly-brace-presence": false,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": false,
+    "react/no-access-state-in-setstate": false,
+    "react/no-array-index-key": false,
+    "react/no-unescaped-entities": false,
+    "react/no-unused-prop-types": false,
+    "react/prop-types": false,
+    "react/require-default-props": false,
+    "arrow-body-style": 0,
+    "consistent-return": 0,
+    "dot-notation": 0,
+    "lines-between-class-members": 0,
+    "no-console": 0,
+    "no-else-return": 0,
+    "no-param-reassign": 0,
+    "no-plusplus": 0,
+    "no-prototype-builtins": 0,
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }
+    ],
+    "no-unused-vars": 0,
+    "no-use-before-define": 0,
+    "no-var": 0,
+    "object-shorthand": 0,
+    "one-var": 0,
+    "prefer-const": 0,
+    "prefer-destructuring": 0,
+    "prefer-template": 0,
+    "spaced-comment": 0
+  }
 }
