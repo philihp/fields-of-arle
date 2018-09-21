@@ -7,7 +7,6 @@
   "plugins": ["import", "jsx-a11y", "react"],
   "rules": {
     "import/no-useless-path-segments": 0,
-    "import/order": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/href-no-hash": 0,
     "jsx-a11y/label-has-associated-control": 0,

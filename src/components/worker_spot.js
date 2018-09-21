@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import WorkerToken from './worker_token'
 import classNames from 'classnames'
+import WorkerToken from './worker_token'
 import './worker_spot.css'
 
 const fillColor = worker => {
