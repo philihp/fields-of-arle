@@ -5,7 +5,7 @@ export default ({ G, ctx: { currentPlayer }, args }) => ({
   ...G,
   toolSpaces: args.reduce((toolSpaces, tool) => {
     const newTools = toolSpaces[tool].slice()
-    newTools[currentPlayer]++
+    newTools[currentPlayer] += 1
     return {
       ...toolSpaces,
       [tool]: newTools,
