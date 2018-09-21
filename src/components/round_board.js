@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './round_board.css'
 
 const RoundBoard = ({ round }) => {
-  let rounds = Array.from({ length: 9 }, (v, k) => k + 1) // 1..9
+  const rounds = Array.from({ length: 9 }, (v, k) => k + 1) // 1..9
   return (
     <table className="RoundBoard">
       <tbody>

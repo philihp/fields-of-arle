@@ -32,7 +32,7 @@ export default class PreparationsBoard extends React.Component {
   }
 
   render() {
-    let months = Object.keys(this.monthHash)
+    const months = Object.keys(this.monthHash)
     return (
       <table className="PreparationsBoard">
         <thead>

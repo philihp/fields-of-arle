@@ -22,9 +22,9 @@ export default class ActionsBoard extends React.Component {
 
   hasPlacedWorker() {
     // need to || [], because the November/December/May/June spots are undefined
-    let workersPrepSpot = this.props.workerSpaces[this.props.phase] || []
-    let nextWorkerToPlace = workersPrepSpot[0]
-    let currentPlayer = parseInt(this.props.currentPlayer, 10)
+    const workersPrepSpot = this.props.workerSpaces[this.props.phase] || []
+    const nextWorkerToPlace = workersPrepSpot[0]
+    const currentPlayer = parseInt(this.props.currentPlayer, 10)
     return nextWorkerToPlace !== currentPlayer
   }
 

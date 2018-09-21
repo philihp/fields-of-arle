@@ -7,9 +7,9 @@ const goodsFloating = ({ G, ctx: { currentPlayer } }) =>
 
 const hasPlacedWorker = ({ G, ctx }) => {
   // need to || [], because the November/December/May/June spots are undefined
-  let workersPrepSpot = G.workerSpaces[ctx.phase] || []
-  let nextWorkerToPlace = workersPrepSpot[0]
-  let currentPlayer = parseInt(ctx.currentPlayer, 10)
+  const workersPrepSpot = G.workerSpaces[ctx.phase] || []
+  const nextWorkerToPlace = workersPrepSpot[0]
+  const currentPlayer = parseInt(ctx.currentPlayer, 10)
   return nextWorkerToPlace !== currentPlayer
 }
 

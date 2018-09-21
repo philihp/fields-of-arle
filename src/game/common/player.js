@@ -49,7 +49,7 @@ export const addInventory = ({ G, ctx, ...args }, newInventoryList) => ({
 })
 
 export const bumpTool = ({ G, ctx, ...args }, tool) => {
-  let newToolSpace = G.toolSpaces[tool]
+  const newToolSpace = G.toolSpaces[tool]
   newToolSpace[ctx.currentPlayer] += 1
   return {
     G: {
