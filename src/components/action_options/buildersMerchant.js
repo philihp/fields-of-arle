@@ -23,6 +23,7 @@ class BuildersMerchant extends React.Component {
   handleWoodClay(e) {
     this.setState({ woodClay: e.target.value })
   }
+
   handleTimberBrick(e) {
     this.setState({ timberBrick: e.target.value })
   }
