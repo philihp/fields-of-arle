@@ -6,7 +6,7 @@ export default ({ G, ctx, args }) => {
   const [item] = args
   const times = toolValue(
     'shovelPairs',
-    G.toolSpaces['shovels'][ctx.currentPlayer]
+    G.toolSpaces.shovels[ctx.currentPlayer]
   )
   return {
     ...buildDikes(times)(addToken({ G, ctx }, item)).G,

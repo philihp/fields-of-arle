@@ -9,7 +9,7 @@ class PeatCutter extends React.Component {
       G,
       ctx: { currentPlayer },
     } = props
-    const spades = toolValue('spades', G.toolSpaces['spades'][currentPlayer])
+    const spades = toolValue('spades', G.toolSpaces.spades[currentPlayer])
     const land = G.players[currentPlayer].land
 
     this.state = {
