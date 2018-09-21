@@ -43,7 +43,7 @@ TableauDike.propTypes = {
   focusedItemIndex: PropTypes.any,
 
   focus: PropTypes.object,
-  handleSetFocus: PropTypes.func, //if provided, animals will be clickable, which sends them to "floating"
+  handleSetFocus: PropTypes.func, // if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
 }
 

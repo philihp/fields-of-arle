@@ -41,7 +41,7 @@ const homeBoard = {
         type: 'stall',
         contents: [
           'horse',
-          //TODO remove
+          // TODO remove
           'horse',
         ],
       },
