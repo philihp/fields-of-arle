@@ -25,7 +25,6 @@
     "react/no-unused-prop-types": 0,
     "react/prop-types": 0,
     "react/require-default-props": 0,
-    "arrow-body-style": 0,
     "consistent-return": 0,
     "lines-between-class-members": 0,
     "no-console": 0,

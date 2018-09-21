@@ -80,18 +80,16 @@ const TableauLand = ({
           )}
 
         <br />
-        {children.contents.map((item, i) => {
-          return (
-            <TableauItem
-              key={i}
-              i={i}
-              display={focusedItemIndex !== i}
-              handleSetFocus={handleSetFocus && handleSetFocus(i)}
-            >
-              {item}
-            </TableauItem>
-          )
-        })}
+        {children.contents.map((item, i) => (
+          <TableauItem
+            key={i}
+            i={i}
+            display={focusedItemIndex !== i}
+            handleSetFocus={handleSetFocus && handleSetFocus(i)}
+          >
+            {item}
+          </TableauItem>
+        ))}
         {canReceive &&
           handleReleaseFocus && (
             <button onClick={handleReleaseFocus}>drop</button>

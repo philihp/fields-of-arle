@@ -7,15 +7,13 @@ Uncomposed utility functions, which you probably want to call with just
 the single param {G, ctx}.
 */
 
-export const setAction = ({ G, ctx, ...args }) => {
-  return {
-    G: {
-      ...G,
-      action: args[0],
-    },
-    ctx,
-  }
-}
+export const setAction = ({ G, ctx, ...args }) => ({
+  G: {
+    ...G,
+    action: args[0],
+  },
+  ctx,
+})
 
 export const addToken = ({ G, ctx, ...args }, newToken) => ({
   G: {
@@ -188,8 +186,8 @@ export const arrangeItem = ({ G, ctx, ...args }, { src, dst }) => {
   }
 }
 
-export const countAnimals = player => {
-  return [...player.land, ...player.dikes]
+export const countAnimals = player =>
+  [...player.land, ...player.dikes]
     .reduce(flatten, [])
     .map(cell => cell.contents)
     .reduce(flatten, [])
@@ -221,4 +219,3 @@ export const countAnimals = player => {
         horses: 0,
       }
     )
-}

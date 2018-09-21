@@ -99,31 +99,29 @@ const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => {
         Large Buildings
         {/* <div className="toolTip toolTipRight">3 timber, 3 bricks, 15 food</div> */}
       </div>
-      {Array.from(Array(buildings.length), (v, idx) => idx).map(i => {
-        return (
+      {Array.from(Array(buildings.length), (v, idx) => idx).map(i => (
+        <div
+          key={i}
+          className={buildings[i] && classNames(BuildingClass[i], 'Building')}
+        >
+          {buildings[i]}
           <div
-            key={i}
-            className={buildings[i] && classNames(BuildingClass[i], 'Building')}
+            className={classNames({
+              toolTip: true,
+              toolTipLeft: i % 2 === 0,
+              toolTipRight: i % 2 === 1,
+            })}
           >
-            {buildings[i]}
-            <div
-              className={classNames({
-                toolTip: true,
-                toolTipLeft: i % 2 === 0,
-                toolTipRight: i % 2 === 1,
-              })}
-            >
-              {Tooltip[buildings[i]]}
-            </div>
-            {shouldShowBuy &&
-              buildingCosts[buildings[i]](G, ctx) && (
-                <div>
-                  <button onClick={selectBuilding(buildings[i])}>Buy</button>
-                </div>
-              )}
+            {Tooltip[buildings[i]]}
           </div>
-        )
-      })}
+          {shouldShowBuy &&
+            buildingCosts[buildings[i]](G, ctx) && (
+              <div>
+                <button onClick={selectBuilding(buildings[i])}>Buy</button>
+              </div>
+            )}
+        </div>
+      ))}
     </div>
   )
 }

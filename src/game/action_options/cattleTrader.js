@@ -5,9 +5,7 @@ const addItemFromArgument = ({ G, ctx, args }) => {
   return addToken({ G, ctx, args }, item)
 }
 
-export default ({ G, ctx, args }) => {
-  return {
-    ...addItemFromArgument({ G, ctx, args }).G,
-    action: null,
-  }
-}
+export default ({ G, ctx, args }) => ({
+  ...addItemFromArgument({ G, ctx, args }).G,
+  action: null,
+})

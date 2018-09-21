@@ -39,15 +39,12 @@ class Farmer extends React.Component {
     })
   }
 
-  disabledBuildField = (row, col) => {
-    return (
-      this.state.unusedPlows === 0 ||
-      this.props.G.supplies.grainFlaxField === 0 ||
-      this.state.plowFields.find(
-        field => field.row === row && field.col === col
-      ) !== undefined
-    )
-  }
+  disabledBuildField = (row, col) =>
+    this.state.unusedPlows === 0 ||
+    this.props.G.supplies.grainFlaxField === 0 ||
+    this.state.plowFields.find(
+      field => field.row === row && field.col === col
+    ) !== undefined
 
   handleSubmit = e => {
     e.preventDefault()

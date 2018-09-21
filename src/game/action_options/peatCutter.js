@@ -61,23 +61,21 @@ export const flipEmptyMoors = (land, coord) => {
   } else return land
 }
 
-export default ({ G, ctx: { currentPlayer }, args }) => {
-  return {
-    ...G,
-    action: null,
-    players: {
-      ...G.players,
-      [currentPlayer]: {
-        ...G.players[currentPlayer],
-        inventory: [
-          ...G.players[currentPlayer].inventory,
-          ...Array(args.length).fill('peat'),
-        ],
-        land: possiblePeatLocations.reduce(
-          flipEmptyMoors,
-          args.reduce(removePeatFromCoord, G.players[currentPlayer].land)
-        ),
-      },
+export default ({ G, ctx: { currentPlayer }, args }) => ({
+  ...G,
+  action: null,
+  players: {
+    ...G.players,
+    [currentPlayer]: {
+      ...G.players[currentPlayer],
+      inventory: [
+        ...G.players[currentPlayer].inventory,
+        ...Array(args.length).fill('peat'),
+      ],
+      land: possiblePeatLocations.reduce(
+        flipEmptyMoors,
+        args.reduce(removePeatFromCoord, G.players[currentPlayer].land)
+      ),
     },
-  }
-}
+  },
+})

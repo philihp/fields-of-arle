@@ -63,15 +63,13 @@ class PeatCutter extends React.Component {
       <div>
         <p>Peat Cutter Options:</p>
         <ul>
-          {this.state.locations.map((loc, i) => {
-            return (
-              <li key={[loc.row, loc.col].join(',')}>
-                <button onClick={this.drainBog(i)}>
-                  {loc.row}, {loc.col}:{loc.contents}
-                </button>
-              </li>
-            )
-          })}
+          {this.state.locations.map((loc, i) => (
+            <li key={[loc.row, loc.col].join(',')}>
+              <button onClick={this.drainBog(i)}>
+                {loc.row}, {loc.col}:{loc.contents}
+              </button>
+            </li>
+          ))}
         </ul>
         <button onClick={this.sendMoveOptions}>Cut Peat</button>
       </div>

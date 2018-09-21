@@ -22,12 +22,9 @@ class Butcher extends React.Component {
     }
   }
 
-  canSlaughterMore = () => {
-    return (
-      this.state.sheep + this.state.cattle + this.state.horses <
-      this.state.maxTimes
-    )
-  }
+  canSlaughterMore = () =>
+    this.state.sheep + this.state.cattle + this.state.horses <
+    this.state.maxTimes
 
   handleHorsesClick = e => {
     if (!this.canSlaughterMore()) {

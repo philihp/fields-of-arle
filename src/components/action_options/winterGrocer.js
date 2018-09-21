@@ -52,18 +52,16 @@ class WinterGrocer extends React.Component {
       <div>
         <p>Cut Peat at:</p>
         <ul>
-          {locations.map((loc, i) => {
-            return (
-              <li key={[loc.row, loc.col].join(',')}>
-                <button
-                  disabled={this.state.toDrain !== null}
-                  onClick={this.drainBog(loc.row, loc.col)}
-                >
-                  {loc.row}, {loc.col}:{loc.contents}
-                </button>
-              </li>
-            )
-          })}
+          {locations.map((loc, i) => (
+            <li key={[loc.row, loc.col].join(',')}>
+              <button
+                disabled={this.state.toDrain !== null}
+                onClick={this.drainBog(loc.row, loc.col)}
+              >
+                {loc.row}, {loc.col}:{loc.contents}
+              </button>
+            </li>
+          ))}
         </ul>
         <p>Get Animal:</p>
         <input

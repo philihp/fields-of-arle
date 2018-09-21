@@ -36,9 +36,8 @@ export const moveWorker = (G, args) => {
   // return preparations
 }
 
-export const bumpMonth = state => {
-  return state.month + (state.preparations[state.month].length === 0 ? 1 : 0)
-}
+export const bumpMonth = state =>
+  state.month + (state.preparations[state.month].length === 0 ? 1 : 0)
 
 export const removeFirstItems = itemName => (accum, item) => {
   if (accum.count === 0 || item !== itemName) {

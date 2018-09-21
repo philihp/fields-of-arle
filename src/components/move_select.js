@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './move_select.css'
 
-const goodsFloating = ({ G, ctx: { currentPlayer } }) => {
-  return G.players[currentPlayer].tokens.length > 0
-}
+const goodsFloating = ({ G, ctx: { currentPlayer } }) =>
+  G.players[currentPlayer].tokens.length > 0
 
 const hasPlacedWorker = ({ G, ctx }) => {
   // need to || [], because the November/December/May/June spots are undefined
