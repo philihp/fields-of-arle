@@ -23,22 +23,14 @@ const strokeColor = worker => {
   }
 }
 
+const workerHi = workers => (workers.length === 2 ? workers[0] : null)
+
+const workerLo = workers =>
+  workers.length > 0 ? workers[workers.length - 1] : null
+
 const StackedWorkerSpot = ({ workers }) => {
-  var hi, lo
-  switch (workers.length) {
-    case 2:
-      hi = workers[0]
-      lo = workers[1]
-      break
-    case 1:
-      hi = null
-      lo = workers[0]
-      break
-    default:
-      hi = null
-      lo = null
-      break
-  }
+  const hi = workerHi(workers)
+  const lo = workerLo(workers)
   return (
     <svg
       width="40"
