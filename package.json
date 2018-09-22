@@ -9,13 +9,10 @@
     "boardgame.io": "^0.25.5",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "classnames": "^2.2.6",
-    "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.29.0",
     "object-assign": "^4.1.1",
     "postcss-flexbugs-fixes": "^3.2.0",
-    "postcss-loader": "^2.0.8",
     "promise": "^8.0.2",
     "prop-types": "^15.6.2",
     "raf": "^3.4.0",
@@ -24,9 +21,7 @@
     "react-dom": "^16.5.2",
     "redux": "^4.0.0",
     "resolve": "^1.8.1",
-    "style-loader": "^0.23.0",
     "sw-precache-webpack-plugin": "^0.11.4",
-    "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.11.3",
     "webpack-manifest-plugin": "^1.3.2",
@@ -37,7 +32,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "lint": "eslint --fix src/**/*.js"
+    "lint": "eslint --fix src/**/*.js && stylelint src/**/*.css"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -49,6 +44,7 @@
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
     "chalk": "^2.4.1",
+    "css-loader": "^0.28.7",
     "dotenv": "^6.0.0",
     "dotenv-expand": "^4.2.0",
     "eslint": "^5.6.0",
@@ -60,15 +56,26 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^1.1.5",
     "fs-extra": "^7.0.0",
     "husky": "^1.0.0-rc.14",
     "jest": "^20.0.4",
     "lint-staged": "^7.2.2",
-    "prettier": "^1.14.3"
+    "postcss-loader": "^2.0.8",
+    "prettier": "^1.14.3",
+    "style-loader": "^0.23.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-standard": "^18.2.0",
+    "url-loader": "^0.6.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
+    "src/**/*.{js,jsx,json}": [
       "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.css": [
+      "prettier --write",
+      "stylelint",
       "git add"
     ]
   },

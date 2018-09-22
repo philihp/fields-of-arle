@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "length-zero-no-unit": null,
+    "max-empty-lines": null,
+    "comment-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "declaration-block-no-shorthand-property-overrides": null,
+    "block-no-empty": null,
+    "selector-pseudo-element-colon-notation": null,
+    "declaration-empty-line-before": null
+  }
+}
