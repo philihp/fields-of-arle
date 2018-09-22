@@ -1,0 +1,8 @@
+.Building {
+  position: relative;
+  background-color: #eccda3;
+  border: 1px solid #b99667;
+  height: 44px;
+  width: 88px;
+  font-size: x-small;
+}
