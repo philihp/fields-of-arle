@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { findSeaLevel } from '../game/common/land'
-import TableauDike from './tableau_dike'
-import TableauLand from './tableau_land'
-import './tableau_farm.css'
+import TableauDike from './tableauDike'
+import TableauLand from './tableauLand'
+import './tableauFarm.css'
 
 const TableauFarm = ({
   land,

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import './tableau_barn_space.css'
+import './tableauBarnSpace.css'
 
 const TableauBarnSpace = ({ contents, className }) => (
   <div className={classNames('TableauBarnSpace', className)}>

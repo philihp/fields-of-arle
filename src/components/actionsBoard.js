@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import WorkerSpot from './worker_spot'
-import ToolTrack from './tool_track'
-import './actions_board.css'
+import WorkerSpot from './workerSpot'
+import ToolTrack from './toolTrack'
+import './actionsBoard.css'
 
 export default class ActionsBoard extends React.Component {
   static propTypes = {

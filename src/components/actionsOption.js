@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import './actions_option.css'
-import actionOptions from './action_options'
+import './actionsOption.css'
+import actionOptions from './actionOptions'
 
 const isVisible = G =>
   Object.keys(actionOptions).includes(G.action) &&

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Building from './building'
 
-import './buildings_board.css'
+import './buildingsBoard.css'
 
 const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => (
   <div className="BuildingsBoard">

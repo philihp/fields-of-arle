@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import StackedWorkerSpot from './stacked_worker_spot'
+import StackedWorkerSpot from './stackedWorkerSpot'
 
 const PreparationMonth = ({ month, workers }) => (
   <div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { afford } from '../../game/common'
 import { EquipmentCosts, countVehicle } from '../../game/common/barn'
 import { countAnimals } from '../../game/common/player'
-import TableauFarm from '../tableau_farm'
+import TableauFarm from '../tableauFarm'
 
 class Farmer extends React.Component {
   constructor(props) {

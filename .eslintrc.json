@@ -42,7 +42,7 @@
     "object-shorthand": 0,
     "prefer-destructuring": 0,
     "prefer-template": 0,
-    "unicorn/filename-case": 0,
+    "unicorn/filename-case": ["error", { "case": "camelCase" }],
     "unicorn/no-abusive-eslint-disable": 0,
     "unicorn/new-for-builtins": 0,
     "unicorn/import-index": 0

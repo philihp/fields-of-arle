@@ -1,6 +1,6 @@
 import { Game } from 'boardgame.io/core'
 import jobs from './game/jobs'
-import actionOptions from './game/action_options'
+import actionOptions from './game/actionOptions'
 
 // import { pickWorker } from './game/common/'
 import {
@@ -11,7 +11,7 @@ import {
   largeBuildings,
 } from './game/building/type'
 import { initialState } from './game/'
-import { winterActionsReset, summerActionsReset } from './game/worker_spaces'
+import { winterActionsReset, summerActionsReset } from './game/workerSpaces'
 import { arrangeItem } from './game/common/land'
 
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']

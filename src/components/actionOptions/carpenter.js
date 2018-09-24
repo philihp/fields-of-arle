@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { afford } from '../../game/common'
-import TableauFarm from '../tableau_farm'
+import TableauFarm from '../tableauFarm'
 
 const affordStall = player =>
   player.goods.grain >= 1 && afford(player.inventory, ['clay', 'clay'])

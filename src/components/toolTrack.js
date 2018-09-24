@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ToolUpgradeCosts, ToolIncrements } from '../game/constants'
-import './tool_track.css'
+import './toolTrack.css'
 
 const ToolTrack = ({ toolKey, track, name }) => {
   const values = ToolIncrements[toolKey]

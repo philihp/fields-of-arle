@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauFarm from '../tableau_farm'
-import TableauItem from '../tableau_item'
+import TableauFarm from '../tableauFarm'
+import TableauItem from '../tableauItem'
 
 class Arrange extends React.Component {
   constructor(props) {

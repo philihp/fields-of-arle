@@ -1,11 +1,11 @@
-import './App.css'
+import './application.css'
 
 import { Client } from 'boardgame.io/react'
 
 import Game from './game'
 import Board from './components/board'
 
-const App = Client({
+const Application = Client({
   game: Game,
   board: Board,
   debug: false, // process.env.NODE_ENV === 'development',
@@ -14,4 +14,4 @@ const App = Client({
     window.__REDUX_DEVTOOLS_EXTENSION__(),
 })
 
-export default App
+export default Application
