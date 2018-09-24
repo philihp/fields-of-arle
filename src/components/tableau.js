@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauFarm from './tableau_farm'
-import TableauBarn from './tableau_barn'
+import TableauFarm from './tableauFarm'
+import TableauBarn from './tableauBarn'
 import './tableau.css'
 
 const Tableau = ({ player, moves, shouldShowPlace }) => {

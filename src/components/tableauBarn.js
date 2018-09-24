@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauBarnSpace from './tableau_barn_space'
-import './tableau_barn.css'
+import TableauBarnSpace from './tableauBarnSpace'
+import './tableauBarn.css'
 
 const TableauBarn = ({ barn }) => (
   <div>

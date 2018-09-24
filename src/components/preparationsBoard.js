@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PreparationMonth from './preparation_month'
-import './preparations_board.css'
+import PreparationMonth from './preparationMonth'
+import './preparationsBoard.css'
 
 export default class PreparationsBoard extends React.Component {
   static propTypes = {

@@ -1,10 +1,14 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:unicorn/recommended",
+    "plugin:prettier/recommended"
+  ],
   "env": {
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["import", "jsx-a11y", "react"],
+  "plugins": ["unicorn", "import", "jsx-a11y", "react"],
   "rules": {
     "import/no-useless-path-segments": 0,
     "jsx-a11y/click-events-have-key-events": 0,
@@ -37,6 +41,10 @@
     "no-use-before-define": 0,
     "object-shorthand": 0,
     "prefer-destructuring": 0,
-    "prefer-template": 0
+    "prefer-template": 0,
+    "unicorn/filename-case": ["error", { "case": "camelCase" }],
+    "unicorn/no-abusive-eslint-disable": 0,
+    "unicorn/new-for-builtins": 0,
+    "unicorn/import-index": 0
   }
 }

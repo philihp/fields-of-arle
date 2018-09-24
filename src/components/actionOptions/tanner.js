@@ -2,17 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { toolValue } from '../../game/constants'
 
-class WoolWeaver extends React.Component {
+class Tanner extends React.Component {
   constructor(props) {
     super(props)
-    const { G, ctx } = props
-    const weavingLooms = 'weavingLooms'
-    const wool = G.players[ctx.currentPlayer].goods.wool
-    const looms = toolValue(
-      weavingLooms,
-      G.toolSpaces[weavingLooms][ctx.currentPlayer]
+    const {
+      G,
+      ctx: { currentPlayer },
+    } = props
+    const fleshingBeams = 'fleshingBeams'
+    const wool = G.players[currentPlayer].goods.wool
+    const fleshBeams = toolValue(
+      fleshingBeams,
+      G.toolSpaces[fleshingBeams][currentPlayer]
     )
-    const maxTimes = Math.min(wool, looms)
+    const maxTimes = Math.min(wool, fleshBeams)
     this.state = {
       maxTimes,
       checked: maxTimes,
@@ -31,20 +34,20 @@ class WoolWeaver extends React.Component {
 
     return (
       <form onSubmit={handleSubmit}>
-        Convert a wool to woolen, per loom
+        Convert hide to leather, per fleshing beam
         <br />
         <br />
-        {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => (
+        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
           <div key={i}>
             <input
               type="radio"
-              name="woolWeaverConvert"
+              name="tannerConvert"
               id={i}
               value={i}
               onClick={handleClick}
               defaultChecked={this.state.checked}
             />
-            <label htmlFor={i}>Convert {i} wool</label>
+            <label htmlFor={i}>Convert {i} hide</label>
           </div>
         ))}
         <input type="submit" value="Convert" />
@@ -53,7 +56,7 @@ class WoolWeaver extends React.Component {
   }
 }
 
-WoolWeaver.propTypes = {
+Tanner.propTypes = {
   G: PropTypes.any.isRequired,
   ctx: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
@@ -61,5 +64,5 @@ WoolWeaver.propTypes = {
 
 export default {
   visible: () => true,
-  component: WoolWeaver,
+  component: Tanner,
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './move_select.css'
+import './moveSelect.css'
 
 const goodsFloating = ({ G, ctx: { currentPlayer } }) =>
   G.players[currentPlayer].tokens.length > 0

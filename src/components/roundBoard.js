@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './round_board.css'
+import './roundBoard.css'
 
 const RoundBoard = ({ round }) => {
   const rounds = Array.from({ length: 9 }, (v, k) => k + 1) // 1..9

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import WorkerToken from './worker_token'
-import './worker_spot.css'
+import WorkerToken from './workerToken'
+import './workerSpot.css'
 
 const fillColor = worker => {
   switch (worker) {

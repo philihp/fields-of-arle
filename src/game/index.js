@@ -1,4 +1,4 @@
-import { summerActionsReset } from './worker_spaces'
+import { summerActionsReset } from './workerSpaces'
 
 // import { createStore } from 'redux'
 // import reducer from './reducers'

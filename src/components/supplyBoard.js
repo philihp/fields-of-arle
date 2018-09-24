@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './supply_board.css'
+import './supplyBoard.css'
 
 const SupplyBoard = ({ supplies }) => (
   <div className="SupplyBoard">

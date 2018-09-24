@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import TableauItem from './tableau_item'
-import './tableau_dike.css'
+import TableauItem from './tableauItem'
+import './tableauDike.css'
 
 const TableauDike = ({
   children,

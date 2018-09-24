@@ -36,7 +36,7 @@ class Potter extends React.Component {
         Convert clay to 3 food and 1 peat, per pottery wheel
         <br />
         <br />
-        {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => (
+        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
           <div key={i}>
             <input
               type="radio"
