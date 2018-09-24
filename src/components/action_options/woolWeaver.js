@@ -34,7 +34,7 @@ class WoolWeaver extends React.Component {
         Convert a wool to woolen, per loom
         <br />
         <br />
-        {Array.from(Array(this.state.maxTimes + 1), (v, idx) => idx).map(i => (
+        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
           <div key={i}>
             <input
               type="radio"

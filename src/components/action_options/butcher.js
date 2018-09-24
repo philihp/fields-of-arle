@@ -70,7 +70,7 @@ class Butcher extends React.Component {
         Select up to {this.state.maxTimes} animals to convert.
         <br />
         <br />
-        {Array.from(Array(this.state.sheepMax), (v, idx) => idx).map(i => (
+        {[...Array(this.state.sheepMax)].map((_, i) => i).map(i => (
           <button
             key={i}
             disabled={!this.canSlaughterMore()}
@@ -79,7 +79,7 @@ class Butcher extends React.Component {
             Sheep
           </button>
         ))}
-        {Array.from(Array(this.state.horsesMax), (v, idx) => idx).map(i => (
+        {[...Array(this.state.horsesMax)].map((_, i) => i).map(i => (
           <button
             key={i}
             disabled={!this.canSlaughterMore()}
@@ -88,7 +88,7 @@ class Butcher extends React.Component {
             Horse
           </button>
         ))}
-        {Array.from(Array(this.state.cattleMax), (v, idx) => idx).map(i => (
+        {[...Array(this.state.cattleMax)].map((v, idx) => idx).map(i => (
           <button
             key={i}
             disabled={!this.canSlaughterMore()}
