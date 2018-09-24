@@ -41,53 +41,58 @@ class Builder extends React.Component {
         <input
           type="radio"
           name="cost1"
+          id="cost1-wood"
           value="wood"
           onClick={this.handleCost1('wood')}
           disabled={!afford(inventory, ['wood'])}
           defaultChecked={this.state.cost1 === 'wood'}
         />
-        <label htmlFor="wood">Wood</label>
+        <label htmlFor="cost1-wood">Wood</label>
         <br />
         <input
           type="radio"
           name="cost1"
+          id="cost1-clay"
           value="clay"
           onClick={this.handleCost1('clay')}
           disabled={!afford(inventory, ['clay'])}
           defaultChecked={this.state.cost1 === 'clay'}
         />
-        <label htmlFor="clay">Clay</label>
+        <label htmlFor="cost1-clay">Clay</label>
         <br />
         <input
           type="radio"
           name="cost1"
+          id="cost1-timber"
           value="timber"
           onClick={this.handleCost1('timber')}
           disabled={!afford(inventory, ['timber'])}
           defaultChecked={this.state.cost1 === 'timber'}
         />
-        <label htmlFor="timber">Timber</label>
+        <label htmlFor="cost1-timber">Timber</label>
         <br />
         <input
           type="radio"
           name="cost1"
+          id="cost1-brick"
           value="brick"
           onClick={this.handleCost1('brick')}
           disabled={!afford(inventory, ['brick'])}
           defaultChecked={this.state.cost1 === 'brick'}
         />
-        <label htmlFor="brick">Brick</label>
+        <label htmlFor="cost1-brick">Brick</label>
         <hr />
         <b>Cost 2</b>
         <br />
         <input
           type="radio"
           name="cost2"
+          id="cost2-grain"
           value="grain"
           onClick={this.handleCost2('grain')}
           defaultChecked={this.state.cost2 === 'grain'}
         />
-        <label htmlFor="grain">Grain</label>
+        <label htmlFor="cost2-grain">Grain</label>
         <hr />
         <button
           disabled={this.state.cost1 === null || this.state.cost2 === null}
