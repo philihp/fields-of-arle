@@ -177,7 +177,6 @@ Building.propTypes = {
   building: PropTypes.string.isRequired,
   G: PropTypes.any,
   ctx: PropTypes.any,
-  buildings: PropTypes.array.isRequired,
   shouldShowBuy: PropTypes.bool,
   shouldShowTooltip: PropTypes.bool,
   moves: PropTypes.any.isRequired,
