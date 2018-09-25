@@ -47,6 +47,8 @@ const WorkerSpot = ({ workerSpaces, job, disabled, onClick, label }) => {
   } else {
     return (
       <div
+        role="button"
+        tabIndex={0}
         onClick={handleClick}
         className={classNames({
           WorkerSpot: true,
