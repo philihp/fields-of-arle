@@ -10,6 +10,7 @@ const TableauItem = ({ children, handleSetFocus, display }) => {
   if (animals.includes(children) && handleSetFocus) {
     return (
       <button
+        type="button"
         className="TableauItem animal"
         onClick={handleSetFocus}
         style={style}

@@ -27,8 +27,10 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
   }
   return (
     <div className="MoveSelect">
-      <button onClick={onArrangeAnimals}>Arrange Animals</button>
-      <button disabled={nextMonthDisabled} onClick={onNextMonth}>
+      <button type="button" onClick={onArrangeAnimals}>
+        Arrange Animals
+      </button>
+      <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
         Next Month
       </button>
     </div>

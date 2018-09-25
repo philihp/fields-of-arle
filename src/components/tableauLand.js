@@ -46,10 +46,16 @@ const TableauLand = ({
 
         {children.type === 'empty' &&
           !flooded &&
-          handleBuildStall && <button onClick={handleBuildStall}>stall</button>}
+          handleBuildStall && (
+            <button type="submit" onClick={handleBuildStall}>
+              stall
+            </button>
+          )}
         {children.type === 'stall' &&
           handleBuildStable && (
-            <button onClick={handleBuildStable}>upgrade</button>
+            <button type="submit" onClick={handleBuildStable}>
+              upgrade
+            </button>
           )}
 
         {/* farmer */}
@@ -57,6 +63,7 @@ const TableauLand = ({
           !flooded &&
           handleBuildField && (
             <button
+              type="submit"
               disabled={disabledBuildField}
               onClick={handleBuildField('flax')}
             >
@@ -67,6 +74,7 @@ const TableauLand = ({
           !flooded &&
           handleBuildField && (
             <button
+              type="submit"
               disabled={disabledBuildField}
               onClick={handleBuildField('grain')}
             >
@@ -76,7 +84,9 @@ const TableauLand = ({
         {!flooded &&
           children.type === 'empty' &&
           handlePlaceBuilding && (
-            <button onClick={handlePlaceBuilding}>Build</button>
+            <button type="submit" onClick={handlePlaceBuilding}>
+              Build
+            </button>
           )}
 
         <br />
@@ -92,7 +102,9 @@ const TableauLand = ({
         ))}
         {canReceive &&
           handleReleaseFocus && (
-            <button onClick={handleReleaseFocus}>drop</button>
+            <button type="submit" onClick={handleReleaseFocus}>
+              drop
+            </button>
           )}
       </div>
     </div>

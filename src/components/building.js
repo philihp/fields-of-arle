@@ -166,7 +166,9 @@ const Building = ({ G, ctx, building, shouldShowBuy, moves }) => {
       {shouldShowBuy &&
         buildingCosts[building](G, ctx) && (
           <div>
-            <button onClick={selectBuilding}>Buy</button>
+            <button type="submit" onClick={selectBuilding}>
+              Buy
+            </button>
           </div>
         )}
     </div>

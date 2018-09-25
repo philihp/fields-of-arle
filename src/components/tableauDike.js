@@ -32,7 +32,9 @@ const TableauDike = ({
       {children.type === 'dike' &&
         children.contents.length === 0 &&
         handleReleaseFocus && (
-          <button onClick={handleReleaseFocus}>drop</button>
+          <button type="submit" onClick={handleReleaseFocus}>
+            drop
+          </button>
         )}
     </div>
   </div>
