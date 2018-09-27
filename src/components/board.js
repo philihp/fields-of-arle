@@ -24,13 +24,16 @@ const color = worker => {
 }
 
 const Board = ({
+  ctx,
   ctx: { currentPlayer },
   G,
   G: { selected, players, action },
+  events,
+  game,
   moves,
 }) => (
   <div
-    className={classNames('Board', color(ctx.currentPlayer))}
+    className={classNames('Board', color(currentPlayer))}
     style={{ marginTop: '0px' }}
   >
     <ActionsOption G={G} ctx={ctx} moves={moves} />
@@ -41,7 +44,7 @@ const Board = ({
         action={action}
         moves={moves}
         shouldShowPlace={
-          ctx.currentPlayer === '0' &&
+          currentPlayer === '0' &&
           selected !== undefined &&
           selected.col === undefined
         }
@@ -93,7 +96,9 @@ const Board = ({
 Board.propTypes = {
   G: PropTypes.any.isRequired,
   ctx: PropTypes.any.isRequired,
-  moves: PropTypes.any,
+  moves: PropTypes.any.isRequired,
+  events: PropTypes.object.isRequired,
+  game: PropTypes.object.isRequired,
 }
 
 export default Board
