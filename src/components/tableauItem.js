@@ -18,19 +18,19 @@ const TableauItem = ({ children, handleSetFocus, display }) => {
         {children}
       </button>
     )
-  } else {
-    // what else could this be, except peat? a building?
-    return (
-      <span className="TableauItem" style={style}>
-        {children}
-      </span>
-    )
   }
+  // what else could this be, except peat? a building?
+  return (
+    <span className="TableauItem" style={style}>
+      {children}
+    </span>
+  )
 }
 
 TableauItem.propTypes = {
   display: PropTypes.bool,
   handleSetFocus: PropTypes.func,
+  children: PropTypes.any,
 }
 
 TableauItem.defaultProps = {

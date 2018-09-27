@@ -44,22 +44,21 @@ const WorkerSpot = ({ workerSpaces, job, disabled, onClick, label }) => {
         {displayedLabel}
       </div>
     )
-  } else {
-    return (
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={handleClick}
-        className={classNames({
-          WorkerSpot: true,
-          disabled: disabled,
-          clickable: !disabled,
-        })}
-      >
-        {displayedLabel}
-      </div>
-    )
   }
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={handleClick}
+      className={classNames({
+        WorkerSpot: true,
+        disabled: disabled,
+        clickable: !disabled,
+      })}
+    >
+      {displayedLabel}
+    </div>
+  )
 }
 
 WorkerSpot.propTypes = {
