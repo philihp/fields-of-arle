@@ -180,7 +180,6 @@ Building.propTypes = {
   G: PropTypes.any,
   ctx: PropTypes.any,
   shouldShowBuy: PropTypes.bool,
-  shouldShowTooltip: PropTypes.bool,
   moves: PropTypes.any.isRequired,
 }
 

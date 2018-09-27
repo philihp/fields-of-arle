@@ -100,8 +100,7 @@ Board.propTypes = {
   ctx: PropTypes.any.isRequired,
   events: PropTypes.any,
   moves: PropTypes.any,
-  playerID: PropTypes.string,
-  isActive: PropTypes.bool,
+  game: PropTypes.any,
 }
 
 export default Board

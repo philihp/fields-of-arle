@@ -25,4 +25,9 @@ const WorkerToken = ({ stroke, fill }) => (
   </svg>
 )
 
+WorkerToken.propTypes = {
+  stroke: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+}
+
 export default WorkerToken

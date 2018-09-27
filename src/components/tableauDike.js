@@ -43,10 +43,10 @@ const TableauDike = ({
 TableauDike.propTypes = {
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
-
-  focus: PropTypes.object,
   handleSetFocus: PropTypes.func, // if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
+  children: PropTypes.any,
+  flooded: PropTypes.bool.isRequired,
 }
 
 export default TableauDike

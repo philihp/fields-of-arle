@@ -112,6 +112,8 @@ const TableauLand = ({
 }
 
 TableauLand.propTypes = {
+  children: PropTypes.any,
+  flooded: PropTypes.bool,
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
   focusedItem: PropTypes.string,
