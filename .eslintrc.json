@@ -32,7 +32,6 @@
     "no-unused-vars": 0,
     "no-use-before-define": 0,
     "object-shorthand": 0,
-    "prefer-destructuring": 0,
     "prefer-template": 0,
     "unicorn/filename-case": ["error", { "case": "camelCase" }],
     "unicorn/no-abusive-eslint-disable": 0,
