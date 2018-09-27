@@ -12,7 +12,7 @@ const color = worker => {
   }
 }
 
-const LighthouseStatus = props => (
+const LighthouseStatus = ({ lighthouse }) => (
   <div
     style={{
       display: 'inline-block',
@@ -25,12 +25,12 @@ const LighthouseStatus = props => (
     <span
       style={{
         fontWeight: 'bold',
-        color: color(props.lighthouse.owner),
+        color: color(lighthouse.owner),
       }}
     >
-      {props.lighthouse.owner}
+      {lighthouse.owner}
     </span>
-    {!props.lighthouse.used && ' unused'}
+    {!lighthouse.used && ' unused'}
   </div>
 )
 
