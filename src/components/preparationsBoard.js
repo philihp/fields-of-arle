@@ -48,7 +48,7 @@ export default class PreparationsBoard extends React.Component {
         <tbody>
           <tr>
             {months.map((v, i) => (
-              <td key={i} className={this.monthStyle(v)}>
+              <td key={months[i]} className={this.monthStyle(v)}>
                 <PreparationMonth
                   month={this.monthAbbrev(v)}
                   workers={this.props.workerSpaces[v]}
