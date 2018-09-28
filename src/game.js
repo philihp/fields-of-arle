@@ -44,16 +44,16 @@ const resetPassed = (G, ctx) => ({
   },
 })
 
-const endHalfYear = (G, ctx) => ({
-  ...G,
-  halfYear: G.halfYear + 1,
-  lighthouse: lighthouseReset(G.lighthouse),
-})
-
 const lighthouseReset = lighthouse => ({
   used: false,
   // if lighthouse was not used, swap the owner
   owner: lighthouse.used ? lighthouse.owner : -(lighthouse.owner - 1),
+})
+
+const endHalfYear = (G, ctx) => ({
+  ...G,
+  halfYear: G.halfYear + 1,
+  lighthouse: lighthouseReset(G.lighthouse),
 })
 
 const game = Game({
