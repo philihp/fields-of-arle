@@ -54,7 +54,7 @@ class Arrange extends React.Component {
         <br />
         {player.tokens.map((item, i) => (
           <TableauItem
-            key={i}
+            key={item}
             i={i}
             display={tokenHidden(i)}
             handleSetFocus={
@@ -71,7 +71,9 @@ class Arrange extends React.Component {
           handleSetFocus={this.state.focus ? null : this.handleSetFocus}
           handleReleaseFocus={this.state.focus ? this.handleReleaseFocus : null}
         />
-        <button onClick={this.handleFinished}>Close</button>
+        <button type="submit" onClick={this.handleFinished}>
+          Close
+        </button>
       </div>
     )
   }

@@ -62,6 +62,7 @@ class Farmer extends React.Component {
         INV: {this.state.inventory.join(',')}
         <br />
         <button
+          type="button"
           disabled={
             this.state.buyPlow ||
             !afford(this.state.inventory, EquipmentCosts.plow.horse) ||
@@ -72,6 +73,7 @@ class Farmer extends React.Component {
           Buy Plow with horse
         </button>
         <button
+          type="button"
           disabled={
             this.state.buyPlow ||
             !afford(this.state.inventory, EquipmentCosts.plow.cattle) ||

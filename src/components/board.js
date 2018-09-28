@@ -23,72 +23,70 @@ const color = worker => {
   }
 }
 
-const Board = props => (
+const Board = ({
+  ctx,
+  ctx: { currentPlayer },
+  G,
+  G: { selected, players, action },
+  events,
+  game,
+  moves,
+}) => (
   <div
-    className={classNames('Board', color(props.ctx.currentPlayer))}
+    className={classNames('Board', color(currentPlayer))}
     style={{ marginTop: '0px' }}
   >
-    <ActionsOption G={props.G} ctx={props.ctx} moves={props.moves} />
+    <ActionsOption G={G} ctx={ctx} moves={moves} />
 
     <div className="col col1">
       <Tableau
-        player={props.G.players[0]}
-        action={props.G.action}
-        moves={props.moves}
+        player={players[0]}
+        action={action}
+        moves={moves}
         shouldShowPlace={
-          props.ctx.currentPlayer === '0' &&
-          props.G.selected !== undefined &&
-          props.G.selected.col === undefined
+          currentPlayer === '0' &&
+          selected !== undefined &&
+          selected.col === undefined
         }
       />
     </div>
 
     <div className="col col2">
       <BuildingsBoard
-        buildings={props.G.buildings}
-        moves={props.moves}
-        shouldShowBuy={
-          props.G.action === 'builder' && props.G.selected === undefined
-        }
-        G={props.G}
-        ctx={props.ctx}
+        buildings={G.buildings}
+        moves={moves}
+        shouldShowBuy={action === 'builder' && selected === undefined}
+        G={G}
+        ctx={ctx}
       />
     </div>
     <div className="col col3">
-      <LighthouseStatus lighthouse={props.G.lighthouse} />
-      <RoundBoard round={props.G.halfYear} />
+      <LighthouseStatus lighthouse={G.lighthouse} />
+      <RoundBoard round={G.halfYear} />
 
-      <PreparationsBoard
-        workerSpaces={props.G.workerSpaces}
-        phase={props.ctx.phase}
-      />
-      <MoveSelect
-        G={props.G}
-        ctx={props.ctx}
-        events={props.events}
-        moves={props.moves}
-      />
+      <PreparationsBoard workerSpaces={G.workerSpaces} phase={ctx.phase} />
+      <MoveSelect G={G} ctx={ctx} events={events} moves={moves} />
       <ActionsBoard
-        workerSpaces={props.G.workerSpaces}
-        toolSpaces={props.G.toolSpaces}
-        moves={props.moves}
-        game={props.game}
-        currentPlayer={props.ctx.currentPlayer}
-        phase={props.ctx.phase}
-        lighthouseUsed={props.G.lighthouse.used}
+        workerSpaces={G.workerSpaces}
+        toolSpaces={G.toolSpaces}
+        moves={moves}
+        game={game}
+        currentPlayer={ctx.currentPlayer}
+        phase={ctx.phase}
+        lighthouseUsed={G.lighthouse.used}
       />
-      <SupplyBoard supplies={props.G.supplies} />
+      <SupplyBoard supplies={G.supplies} />
     </div>
 
     <div className="col col4">
       <Tableau
-        player={props.G.players[1]}
-        action={props.G.action}
-        moves={props.moves}
+        player={players[1]}
+        action={action}
+        moves={moves}
         shouldShowPlace={
-          props.ctx.currentPlayer === '1' &&
-          props.G.selected !== undefined &&
-          props.G.selected.col === undefined
+          ctx.currentPlayer === '1' &&
+          selected !== undefined &&
+          selected.col === undefined
         }
       />
     </div>
@@ -98,10 +96,9 @@ const Board = props => (
 Board.propTypes = {
   G: PropTypes.any.isRequired,
   ctx: PropTypes.any.isRequired,
-  events: PropTypes.any,
-  moves: PropTypes.any,
-  playerID: PropTypes.string,
-  isActive: PropTypes.bool,
+  moves: PropTypes.any.isRequired,
+  events: PropTypes.object.isRequired,
+  game: PropTypes.object.isRequired,
 }
 
 export default Board

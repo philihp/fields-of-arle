@@ -95,6 +95,7 @@ class Builder extends React.Component {
         <label htmlFor="cost2-grain">Grain</label>
         <hr />
         <button
+          type="submit"
           disabled={this.state.cost1 === null || this.state.cost2 === null}
           onClick={this.handlePay}
         >

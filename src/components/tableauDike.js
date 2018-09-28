@@ -21,7 +21,7 @@ const TableauDike = ({
     <div>
       {children.contents.map((item, i) => (
         <TableauItem
-          key={i}
+          key={item}
           i={i}
           display={focusedItemIndex !== i}
           handleSetFocus={handleSetFocus && handleSetFocus(i)}
@@ -32,7 +32,9 @@ const TableauDike = ({
       {children.type === 'dike' &&
         children.contents.length === 0 &&
         handleReleaseFocus && (
-          <button onClick={handleReleaseFocus}>drop</button>
+          <button type="submit" onClick={handleReleaseFocus}>
+            drop
+          </button>
         )}
     </div>
   </div>
@@ -41,10 +43,10 @@ const TableauDike = ({
 TableauDike.propTypes = {
   style: PropTypes.object,
   focusedItemIndex: PropTypes.any,
-
-  focus: PropTypes.object,
   handleSetFocus: PropTypes.func, // if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
+  children: PropTypes.any,
+  flooded: PropTypes.bool.isRequired,
 }
 
 export default TableauDike

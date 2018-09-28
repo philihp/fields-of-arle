@@ -8,8 +8,12 @@ const CattleTrader = ({ moves }) => {
     <div>
       You get 2 food, a sheep, and:
       <br />
-      <button onClick={moveCattle}>Cattle</button>
-      <button onClick={moveHorse}>Horse</button>
+      <button type="button" onClick={moveCattle}>
+        Cattle
+      </button>
+      <button type="button" onClick={moveHorse}>
+        Horse
+      </button>
     </div>
   )
 }

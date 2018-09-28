@@ -11,14 +11,14 @@ const ToolTrack = ({ toolKey, track, name }) => {
       {/* TODO this is a quick "cost", do something better later */}
       <div style={{ position: 'absolute', zIndex: -1 }}>
         {cost.map((v, i) => (
-          <span key={i}>{v[0]}</span>
+          <span key={v[0]}>{v[0]}</span>
         ))}
       </div>
       <table className="ToolTrack">
         <tbody>
           <tr>
             {values.map((v, i) => (
-              <td key={i}>
+              <td key={v}>
                 {v}
                 <svg
                   width="25"

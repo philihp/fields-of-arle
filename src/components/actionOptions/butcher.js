@@ -72,6 +72,7 @@ class Butcher extends React.Component {
         <br />
         {[...Array(this.state.sheepMax)].map((_, i) => i).map(i => (
           <button
+            type="button"
             key={i}
             disabled={!this.canSlaughterMore()}
             onClick={this.handleSheepClick}
@@ -81,6 +82,7 @@ class Butcher extends React.Component {
         ))}
         {[...Array(this.state.horsesMax)].map((_, i) => i).map(i => (
           <button
+            type="button"
             key={i}
             disabled={!this.canSlaughterMore()}
             onClick={this.handleHorsesClick}
@@ -90,6 +92,7 @@ class Butcher extends React.Component {
         ))}
         {[...Array(this.state.cattleMax)].map((v, idx) => idx).map(i => (
           <button
+            type="button"
             key={i}
             disabled={!this.canSlaughterMore()}
             onClick={this.handleCattleClick}

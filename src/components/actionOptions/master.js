@@ -57,6 +57,7 @@ class WinterGrocer extends React.Component {
                 this.state.upgrades <= 0 ||
                 this.state.tools.includes(tool)
               }
+              type="button"
               onClick={this.handleUpgradeTool(tool)}
             >
               {tool} - {ToolUpgradeCosts[tool]}
@@ -65,7 +66,7 @@ class WinterGrocer extends React.Component {
           </div>
         ))}
         <br />
-        <button onClick={this.sendMoveOptions}>
+        <button type="submit" onClick={this.sendMoveOptions}>
           <b>Engage</b>
         </button>
       </div>

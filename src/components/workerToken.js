@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const WorkerToken = ({ stroke, fill }) => (
   <svg
@@ -24,5 +25,10 @@ const WorkerToken = ({ stroke, fill }) => (
     />
   </svg>
 )
+
+WorkerToken.propTypes = {
+  stroke: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+}
 
 export default WorkerToken

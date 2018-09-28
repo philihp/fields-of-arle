@@ -24,7 +24,8 @@ export default class PreparationsBoard extends React.Component {
   }
 
   monthStyle(month) {
-    return this.props.phase === month ? 'glow' : ''
+    const { phase } = this.props
+    return phase === month ? 'glow' : ''
   }
 
   monthAbbrev(month) {
@@ -47,14 +48,17 @@ export default class PreparationsBoard extends React.Component {
         </thead>
         <tbody>
           <tr>
-            {months.map((v, i) => (
-              <td key={i} className={this.monthStyle(v)}>
-                <PreparationMonth
-                  month={this.monthAbbrev(v)}
-                  workers={this.props.workerSpaces[v]}
-                />
-              </td>
-            ))}
+            {months.map((v, i) => {
+              const { workerSpaces } = this.props
+              return (
+                <td key={months[i]} className={this.monthStyle(v)}>
+                  <PreparationMonth
+                    month={this.monthAbbrev(v)}
+                    workers={workerSpaces[v]}
+                  />
+                </td>
+              )
+            })}
           </tr>
         </tbody>
         <tfoot>

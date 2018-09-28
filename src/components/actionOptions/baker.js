@@ -61,7 +61,7 @@ class Baker extends React.Component {
         {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
           <div key={i}>
             <button
-              type="radio"
+              type="button"
               name="bakerConvert"
               id={'bakerConvert' + i}
               value={i}

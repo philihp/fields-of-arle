@@ -166,7 +166,9 @@ const Building = ({ G, ctx, building, shouldShowBuy, moves }) => {
       {shouldShowBuy &&
         buildingCosts[building](G, ctx) && (
           <div>
-            <button onClick={selectBuilding}>Buy</button>
+            <button type="submit" onClick={selectBuilding}>
+              Buy
+            </button>
           </div>
         )}
     </div>
@@ -178,7 +180,6 @@ Building.propTypes = {
   G: PropTypes.any,
   ctx: PropTypes.any,
   shouldShowBuy: PropTypes.bool,
-  shouldShowTooltip: PropTypes.bool,
   moves: PropTypes.any.isRequired,
 }
 

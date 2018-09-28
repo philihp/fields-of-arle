@@ -35,7 +35,9 @@ class Carpenter extends React.Component {
       case 'stall':
         return (
           <div>
-            <button onClick={this.handleButton(null)}>Back</button>
+            <button type="button" onClick={this.handleButton(null)}>
+              Back
+            </button>
             <TableauFarm
               land={player.land}
               dikes={player.dikes}
@@ -55,7 +57,9 @@ class Carpenter extends React.Component {
       case 'stable':
         return (
           <div>
-            <button onClick={this.handleButton(null)}>Back</button>
+            <button type="button" onClick={this.handleButton(null)}>
+              Back
+            </button>
             <TableauFarm
               land={player.land}
               dikes={player.dikes}
@@ -77,17 +81,21 @@ class Carpenter extends React.Component {
           <div>
             <button
               disabled={!affordStall(player)}
+              type="button"
               onClick={this.handleButton('stall')}
             >
               Build Stall
             </button>
             <button
               disabled={!affordStable(player)}
+              type="button"
               onClick={this.handleButton('stable')}
             >
               Build Stable
             </button>
-            <button onClick={this.handleSelectBuild()}>Build Building</button>
+            <button type="submit" onClick={this.handleSelectBuild()}>
+              Build Building
+            </button>
           </div>
         )
     }
