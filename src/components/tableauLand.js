@@ -92,7 +92,7 @@ const TableauLand = ({
         <br />
         {children.contents.map((item, i) => (
           <TableauItem
-            key={item}
+            key={i}
             i={i}
             display={focusedItemIndex !== i}
             handleSetFocus={handleSetFocus && handleSetFocus(i)}

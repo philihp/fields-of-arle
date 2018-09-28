@@ -29,7 +29,6 @@ const Board = ({
   G,
   G: { selected, players, action },
   events,
-  game,
   moves,
 }) => (
   <div
@@ -70,7 +69,6 @@ const Board = ({
         workerSpaces={G.workerSpaces}
         toolSpaces={G.toolSpaces}
         moves={moves}
-        game={game}
         currentPlayer={ctx.currentPlayer}
         phase={ctx.phase}
         lighthouseUsed={G.lighthouse.used}
@@ -98,7 +96,6 @@ Board.propTypes = {
   ctx: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
   events: PropTypes.object.isRequired,
-  game: PropTypes.object.isRequired,
 }
 
 export default Board
