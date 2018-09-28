@@ -8,8 +8,12 @@ const DikeBuilder = ({ moves }) => {
     <div>
       Take 1 sheep or 1 cattle:
       <br />
-      <button onClick={moveCattle}>Cattle</button>
-      <button onClick={moveSheep}>Sheep</button>
+      <button type="button" onClick={moveCattle}>
+        Cattle
+      </button>
+      <button type="button" onClick={moveSheep}>
+        Sheep
+      </button>
       <br />
       <br />
       In addition, your dikes will be pushed up per each pair of shovels.

@@ -56,6 +56,7 @@ class WinterGrocer extends React.Component {
             <li key={[loc.row, loc.col].join(',')}>
               <button
                 disabled={this.state.toDrain !== null}
+                type="button"
                 onClick={this.drainBog(loc.row, loc.col)}
               >
                 {loc.row}, {loc.col}:{loc.contents}
@@ -91,6 +92,7 @@ class WinterGrocer extends React.Component {
         <br />
         <button
           disabled={this.state.animal === null}
+          type="button"
           onClick={this.sendMoveOptions}
         >
           Engage

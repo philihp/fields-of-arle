@@ -71,7 +71,9 @@ class Arrange extends React.Component {
           handleSetFocus={this.state.focus ? null : this.handleSetFocus}
           handleReleaseFocus={this.state.focus ? this.handleReleaseFocus : null}
         />
-        <button onClick={this.handleFinished}>Close</button>
+        <button type="submit" onClick={this.handleFinished}>
+          Close
+        </button>
       </div>
     )
   }

@@ -56,6 +56,7 @@ class Wainwright extends React.Component {
             this.state.buyPeatBoat.length > 0 ||
             !afford(this.state.inventory, EquipmentCosts.peatBoat)
           }
+          type="button"
           onClick={this.buyPeatBoat}
         >
           Peat Boat
@@ -71,6 +72,7 @@ class Wainwright extends React.Component {
               this.state.buyVehicle.length > 0 ||
               !afford(this.state.inventory, EquipmentCosts[vehicle])
             }
+            type="button"
             onClick={this.buy(vehicle)}
           >
             {vehicle}
