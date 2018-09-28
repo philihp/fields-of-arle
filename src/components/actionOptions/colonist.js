@@ -12,7 +12,7 @@ const Colonist = ({ G, ctx: { currentPlayer }, moves }) => {
       Get a horse, also flip moor and add 4 peat...
       <br />
       {cols.map((available, i) => (
-        <button key={i} onClick={() => moves.option(i)}>
+        <button key={Name[i]} onClick={() => moves.option(i)}>
           Column {Name[i]}
         </button>
       ))}

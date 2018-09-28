@@ -54,7 +54,7 @@ class Arrange extends React.Component {
         <br />
         {player.tokens.map((item, i) => (
           <TableauItem
-            key={i}
+            key={item}
             i={i}
             display={tokenHidden(i)}
             handleSetFocus={
