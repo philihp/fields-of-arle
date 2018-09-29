@@ -4,7 +4,7 @@ import TableauFarm from './tableauFarm'
 import TableauBarn from './tableauBarn'
 import './tableau.css'
 
-const Tableau = ({ player, moves, shouldShowPlace }) => {
+const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
   const handlePlaceBuilding = (row, col) => () => {
     moves.option({ col, row })
   }
@@ -12,6 +12,8 @@ const Tableau = ({ player, moves, shouldShowPlace }) => {
     <div className="Tableau">
       <div className="destinations">[destinations]</div>
       <TableauFarm
+        G={G}
+        ctx={ctx}
         land={player.land}
         dikes={player.dikes}
         handlePlaceBuilding={shouldShowPlace ? handlePlaceBuilding : null}

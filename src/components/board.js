@@ -39,6 +39,8 @@ const Board = ({
 
     <div className="col col1">
       <Tableau
+        G={G}
+        ctx={ctx}
         player={players[0]}
         action={action}
         moves={moves}
@@ -78,6 +80,8 @@ const Board = ({
 
     <div className="col col4">
       <Tableau
+        G={G}
+        ctx={ctx}
         player={players[1]}
         action={action}
         moves={moves}

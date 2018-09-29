@@ -5,6 +5,8 @@ import TableauItem from './tableauItem'
 import './tableauLand.css'
 
 const TableauLand = ({
+  G,
+  ctx,
   children,
   flooded,
   style,
@@ -43,6 +45,10 @@ const TableauLand = ({
     >
       <div>
         <b>{children.type !== 'empty' && children.type}</b>
+
+        {/* TODO if children.type is a building, include a building of that type...
+should it see G and ctx so it knows when to present buttons to use?
+ugh that means prop drilling them down */}
 
         {children.type === 'empty' &&
           !flooded &&
@@ -112,6 +118,8 @@ const TableauLand = ({
 }
 
 TableauLand.propTypes = {
+  G: PropTypes.object.isRequired,
+  ctx: PropTypes.object.isRequired,
   children: PropTypes.any,
   flooded: PropTypes.bool,
   style: PropTypes.object,
