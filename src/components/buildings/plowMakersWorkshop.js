@@ -14,12 +14,14 @@ class PlowMakersWorkshop extends GenericBuilding {
   }
 
   render() {
-    const isItNovember = this.props.ctx.phase === 'november'
+    const unused = this.props.G.unusedWorkshops[
+      this.props.ctx.currentPlayer
+    ].includes('plowMakersWorkshop')
     const disabled = this.props.G.workshop !== null
     return (
       <div>
         Plow Maker's Workshop
-        {isItNovember && (
+        {unused && (
           <div>
             <button
               onClick={this.useWorkshop}

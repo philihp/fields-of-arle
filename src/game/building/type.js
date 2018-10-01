@@ -1,8 +1,12 @@
-export const smallHouses = [
+export const workshops = [
   'farmersHouse',
   'plowMakersWorkshop',
   'novicesHut',
   'workshop',
+]
+
+export const smallHouses = [
+  ...workshops,
   // 'weavingParlor',
   // 'colonistsHouse',
   // 'carpentersWorkshop',

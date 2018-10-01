@@ -5,6 +5,7 @@ import option from './game/moves/option'
 import pass from './game/moves/pass'
 import returnAction from './game/moves/return'
 import workshop from './game/moves/workshop'
+import { resetPassedIfWorkshops } from './game/building/workshop'
 
 // import { pickWorker } from './game/common/'
 import {
@@ -87,30 +88,30 @@ const game = Game({
       }
     },
     phases: [
-      // {
-      //   name: 'july',
-      //   allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
-      //   endPhaseIf: allPlayersPassed,
-      //   onPhaseBegin: resetPassed,
-      //   onPhaseEnd: (G, ctx) => G,
-      //   turnOrder: actionTurnOrder,
-      // },
-      // {
-      //   name: 'august',
-      //   allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
-      //   endPhaseIf: allPlayersPassed,
-      //   onPhaseBegin: resetPassed,
-      //   onPhaseEnd: (G, ctx) => G,
-      //   turnOrder: actionTurnOrder,
-      // },
-      // {
-      //   name: 'september',
-      //   allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
-      //   endPhaseIf: allPlayersPassed,
-      //   onPhaseBegin: resetPassed,
-      //   onPhaseEnd: (G, ctx) => G,
-      //   turnOrder: actionTurnOrder,
-      // },
+      {
+        name: 'july',
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
+        onPhaseEnd: (G, ctx) => G,
+        turnOrder: actionTurnOrder,
+      },
+      {
+        name: 'august',
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
+        onPhaseEnd: (G, ctx) => G,
+        turnOrder: actionTurnOrder,
+      },
+      {
+        name: 'september',
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassed,
+        onPhaseEnd: (G, ctx) => G,
+        turnOrder: actionTurnOrder,
+      },
       {
         name: 'october',
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
@@ -120,8 +121,16 @@ const game = Game({
         turnOrder: actionTurnOrder,
       },
       {
-        name: 'november',
+        name: 'preNovember',
         allowedMoves: ['pass', 'workshop'],
+        endPhaseIf: allPlayersPassed,
+        onPhaseBegin: resetPassedIfWorkshops,
+        onPhaseEnd: endHalfYear,
+        turnOrder: inventoryingTurnOrder,
+      },
+      {
+        name: 'november',
+        allowedMoves: ['pass'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: endHalfYear,

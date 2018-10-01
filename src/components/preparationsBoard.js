@@ -63,11 +63,14 @@ export default class PreparationsBoard extends React.Component {
         </tbody>
         <tfoot>
           <tr>
-            <th colSpan="4" className={this.monthStyle('november')}>
-              November Inventorying
+            <th colSpan="1" className={this.monthStyle('preNovember')}>
+              Pre
+            </th>
+            <th colSpan="3" className={this.monthStyle('november')}>
+              November
             </th>
             <th colSpan="4" className={this.monthStyle('may')}>
-              May Inventorying
+              May
             </th>
           </tr>
         </tfoot>

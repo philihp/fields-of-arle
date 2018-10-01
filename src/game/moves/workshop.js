@@ -1,8 +1,15 @@
+import { remove } from '../common'
+
 export default (G, ctx, workshop) => {
-  if (G.workshopsUsed.includes(workshop)) return G
+  const unusedWorkshops = G.unusedWorkshops[ctx.currentPlayer]
+  if (!unusedWorkshops.includes(workshop)) return G
+
   return {
     ...G,
     workshop: workshop,
-    workshopsUsed: [workshop, ...G.workshopsUsed],
+    unusedWorkshops: {
+      ...G.unusedWorkshops,
+      [ctx.currentPlayer]: remove(unusedWorkshops, workshop),
+    },
   }
 }
