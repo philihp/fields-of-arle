@@ -97,6 +97,8 @@ export const initialState = {
   },
   halfYear: 1,
   action: null,
+  workshop: null,
+  usedWorkshops: [],
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
     owner: defaultLighthouseOwner,

@@ -15,7 +15,7 @@ class PlowMakersWorkshop extends GenericBuilding {
 
   render() {
     const isItNovember = this.props.ctx.phase === 'november'
-    const disabled = this.props.G.workshop !== undefined
+    const disabled = this.props.G.workshop !== null
     return (
       <div>
         Plow Maker's Workshop
