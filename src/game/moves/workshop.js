@@ -6,7 +6,7 @@ export default (G, ctx, workshop) => {
 
   return {
     ...G,
-    workshop: workshop,
+    action: workshop,
     unusedWorkshops: {
       ...G.unusedWorkshops,
       [ctx.currentPlayer]: remove(unusedWorkshops, workshop),

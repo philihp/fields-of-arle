@@ -122,7 +122,7 @@ const game = Game({
       },
       {
         name: 'preNovember',
-        allowedMoves: ['pass', 'workshop'],
+        allowedMoves: ['pass', 'workshop', 'option'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassedIfWorkshops,
         onPhaseEnd: endHalfYear,
