@@ -1,6 +1,10 @@
 import { Game } from 'boardgame.io/core'
-import jobs from './game/jobs'
-import actionOptions from './game/actionOptions'
+import action from './game/moves/action'
+import arrange from './game/moves/arrange'
+import option from './game/moves/option'
+import pass from './game/moves/pass'
+import returnAction from './game/moves/return'
+import workshop from './game/moves/workshop'
 
 // import { pickWorker } from './game/common/'
 import {
@@ -12,7 +16,6 @@ import {
 } from './game/building/type'
 import { initialState } from './game/'
 import { winterActionsReset, summerActionsReset } from './game/workerSpaces'
-import { arrangeItem } from './game/common/land'
 
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
@@ -69,60 +72,12 @@ const game = Game({
   }),
 
   moves: {
-    action(G, ctx, job, offSeason) {
-      if (G.workerSpaces[job] == null) {
-        const G2 = {
-          ...G,
-          lighthouse: {
-            owner: offSeason ? -(+ctx.currentPlayer - 1) : G.lighthouse.owner,
-            used: G.lighthouse.used || offSeason,
-          },
-          workerSpaces: {
-            ...G.workerSpaces,
-            [ctx.phase]: G.workerSpaces[ctx.phase].slice(1),
-            [job]: G.workerSpaces[ctx.phase][0],
-          },
-        }
-        const G3 = jobs[job](G2, ctx, job, offSeason)
-        return G3
-      }
-    },
-    option(G, ctx, ...args) {
-      if (Object.keys(actionOptions).includes(G.action)) {
-        return actionOptions[G.action]({ G, ctx, args })
-      } else {
-        return G
-      }
-    },
-    pass(G, ctx) {
-      const monthSpace = G.workerSpaces[ctx.phase]
-      if (monthSpace === undefined || monthSpace[0] !== +ctx.currentPlayer) {
-        return {
-          ...G,
-          action: null,
-          passed: {
-            ...G.passed,
-            [ctx.currentPlayer]: true,
-          },
-        }
-      }
-    },
-    arrange(G, ctx, args) {
-      // TODO: if in the middle of another action, don't allow?? because when this ends, then it doesn't go back to action.
-      if (args === undefined) {
-        // if nothing, toggle showing the option pane
-        return {
-          ...G,
-          action: G.action === 'arrange' ? null : 'arrange',
-        }
-      }
-      return arrangeItem({ G, ctx }, args)
-    },
-    return(G, ctx, slot) {
-      if (slot === undefined) return G
-      // TODO return vehicle to supply
-      return G
-    },
+    action,
+    option,
+    pass,
+    arrange,
+    return: returnAction,
+    workshop,
   },
 
   flow: {
@@ -166,7 +121,7 @@ const game = Game({
       },
       {
         name: 'november',
-        allowedMoves: ['pass'],
+        allowedMoves: ['pass', 'workshop'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         onPhaseEnd: endHalfYear,

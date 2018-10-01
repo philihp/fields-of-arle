@@ -8,14 +8,26 @@ class PlowMakersWorkshop extends GenericBuilding {
     this.state = {}
   }
 
+  useWorkshop = () => {
+    const { moves } = this.props
+    moves.workshop('plowMakersWorkshop')
+  }
+
   render() {
     const isItNovember = this.props.ctx.phase === 'november'
+    const disabled = this.props.G.workshop !== undefined
     return (
       <div>
         Plow Maker's Workshop
         {isItNovember && (
           <div>
-            <button type="button">Place Field</button>
+            <button
+              onClick={this.useWorkshop}
+              disabled={disabled}
+              type="button"
+            >
+              Place Field
+            </button>
           </div>
         )}
       </div>

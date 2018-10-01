@@ -14,6 +14,7 @@ const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
       <TableauFarm
         G={G}
         ctx={ctx}
+        moves={moves}
         land={player.land}
         dikes={player.dikes}
         handlePlaceBuilding={shouldShowPlace ? handlePlaceBuilding : null}

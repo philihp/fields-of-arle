@@ -13,6 +13,7 @@ const buildingFromType = type => {
 const TableauLand = ({
   G,
   ctx,
+  moves,
   children,
   flooded,
   style,
@@ -57,7 +58,7 @@ const TableauLand = ({
       )}
     >
       <div>
-        {(Building && <Building G={G} ctx={ctx} />) || (
+        {(Building && <Building G={G} ctx={ctx} moves={moves} />) || (
           <UnknownBuilding type={children.type} />
         )}
 
