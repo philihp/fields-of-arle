@@ -18,6 +18,7 @@ export default ({ G, ctx: { currentPlayer }, args }) => {
       ...G,
       action: null,
       selected: undefined,
+      buildings: G.buildings.map(b => (b === building ? null : b)),
       players: {
         ...G.players,
         [currentPlayer]: {

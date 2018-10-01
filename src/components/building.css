@@ -1,8 +1,14 @@
-.Building {
+.BuildingsBoard .Building {
   position: relative;
+  margin: 1px;
   background-color: #eccda3;
   border: 1px solid #b99667;
-  height: 44px;
-  width: 88px;
+  font-size: x-small;
+}
+
+.TableauFarm .Building {
+  position: static;
+  background-color: #eccda3;
+  border: 1px solid #b99667;
   font-size: x-small;
 }

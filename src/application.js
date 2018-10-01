@@ -8,7 +8,7 @@ import Board from './components/board'
 const Application = Client({
   game: Game,
   board: Board,
-  debug: false, // process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === 'development',
   enhancer:
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__(),

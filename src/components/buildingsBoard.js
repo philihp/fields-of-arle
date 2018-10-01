@@ -31,7 +31,6 @@ const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => (
       <Building
         building={b}
         shouldShowTooltip
-        shouldShowBuy={shouldShowBuy}
         moves={moves}
         G={G}
         ctx={ctx}
@@ -45,7 +44,6 @@ BuildingsBoard.propTypes = {
   G: PropTypes.any,
   ctx: PropTypes.any,
   buildings: PropTypes.array.isRequired,
-  shouldShowBuy: PropTypes.bool.isRequired,
   moves: PropTypes.any.isRequired,
 }
 

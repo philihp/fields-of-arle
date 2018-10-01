@@ -31,10 +31,7 @@ const Board = ({
   events,
   moves,
 }) => (
-  <div
-    className={classNames('Board', color(currentPlayer))}
-    style={{ marginTop: '0px' }}
-  >
+  <div className={classNames('Board', color(currentPlayer))}>
     <ActionsOption G={G} ctx={ctx} moves={moves} />
 
     <div className="col col1">
@@ -53,13 +50,7 @@ const Board = ({
     </div>
 
     <div className="col col2">
-      <BuildingsBoard
-        buildings={G.buildings}
-        moves={moves}
-        shouldShowBuy={action === 'builder' && selected === undefined}
-        G={G}
-        ctx={ctx}
-      />
+      <BuildingsBoard buildings={G.buildings} moves={moves} G={G} ctx={ctx} />
     </div>
     <div className="col col3">
       <LighthouseStatus lighthouse={G.lighthouse} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import buildingCosts from '../game/building/cost'
+import affordable from '../game/building/affordable'
 import './building.css'
 
 const details = {
@@ -145,10 +145,21 @@ const details = {
   },
 }
 
-const Building = ({ G, ctx, building, shouldShowBuy, moves }) => {
+const tooltipFor = building =>
+  (details[building] && details[building].tooltip) || null
+
+const computeCanBuy = ({ G, G: { action }, ctx, building }) => {
+  if (action !== 'builder') return false
+  if (G.selected !== undefined) return false
+  if (affordable[building] === undefined) return false
+  return affordable[building](G, ctx)
+}
+
+const Building = ({ G, ctx, building, moves }) => {
   const selectBuilding = () => {
     moves.option({ building })
   }
+  const canBuy = computeCanBuy({ G, ctx, building })
   return (
     <div
       className={building && classNames(details[building].class, 'Building')}
@@ -161,25 +172,23 @@ const Building = ({ G, ctx, building, shouldShowBuy, moves }) => {
           toolTipRight: false, // i % 2 === 1,
         })}
       >
-        {details[building].tooltip}
+        {tooltipFor(building)}
       </div>
-      {shouldShowBuy &&
-        buildingCosts[building](G, ctx) && (
-          <div>
-            <button type="submit" onClick={selectBuilding}>
-              Buy
-            </button>
-          </div>
-        )}
+      {canBuy && (
+        <div>
+          <button type="submit" onClick={selectBuilding}>
+            Buy
+          </button>
+        </div>
+      )}
     </div>
   )
 }
 
 Building.propTypes = {
-  building: PropTypes.string.isRequired,
+  building: PropTypes.string,
   G: PropTypes.any,
   ctx: PropTypes.any,
-  shouldShowBuy: PropTypes.bool,
   moves: PropTypes.any.isRequired,
 }
 
