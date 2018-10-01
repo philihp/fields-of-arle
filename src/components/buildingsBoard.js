@@ -4,7 +4,7 @@ import Building from './building'
 
 import './buildingsBoard.css'
 
-const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => (
+const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
   <div className="BuildingsBoard">
     <div className="smallHouseHeading Heading">
       Small Houses
