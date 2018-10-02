@@ -15,6 +15,9 @@ const emptyDikeIndex = player => {
 }
 
 const reduceTokenOntoPlayer = (player, token) => {
+  // 1, try to stick the animal in a stall if it has a lonely friend
+
+  // 2, try to stick the animal on a dike, if there's one empty
   const dikeSpot = emptyDikeIndex(player)
   if (dikeSpot) {
     const { row, col } = dikeSpot
@@ -34,6 +37,14 @@ const reduceTokenOntoPlayer = (player, token) => {
       ],
     }
   }
+
+  // 3, try to stick the animal in an empty stall or stable
+
+  // 4, try to stick the animal on an field if it has a lonely friend
+
+  // 5, try to stick the animal on any open field
+
+  // 6, there wasn't an available place, so stick the animal back to floating.
   return {
     ...player,
     tokens: [token, ...player.tokens],
