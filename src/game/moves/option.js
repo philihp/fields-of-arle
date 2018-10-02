@@ -1,12 +1,11 @@
 import actionOptions from '../actionOptions'
-
-// TODO: workshop option...
-// needs to turn G.workshop = null
+import { autoArrange } from './arrange'
 
 export default (G, ctx, ...args) => {
   if (Object.keys(actionOptions).includes(G.action)) {
-    return actionOptions[G.action]({ G, ctx, args })
+    return autoArrange(actionOptions[G.action]({ G, ctx, args }))
   } else {
+    // console.warn(`Action ${G.action} has no options`)
     return G
   }
 }

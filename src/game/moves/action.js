@@ -1,4 +1,5 @@
 import jobs from '../jobs'
+import { autoArrange } from './arrange'
 
 export default (G, ctx, job, offSeason) => {
   if (G.workerSpaces[job] == null) {
@@ -15,6 +16,6 @@ export default (G, ctx, job, offSeason) => {
       },
     }
     const G3 = jobs[job](G2, ctx, job, offSeason)
-    return G3
+    return autoArrange(G3)
   }
 }
