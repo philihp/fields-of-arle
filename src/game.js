@@ -96,7 +96,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -104,7 +103,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -112,7 +110,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -120,7 +117,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -141,17 +137,11 @@ const game = Game({
       },
       {
         name: 'december',
-        allowedMoves: ['pass'],
-        endPhaseIf: allPlayersPassed,
+        endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
           workerSpaces: winterActionsReset(+G.lighthouse.owner),
-          passed: {
-            0: false,
-            1: false,
-          },
         }),
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: preparationsTurnOrder,
       },
       {
@@ -159,7 +149,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -167,7 +156,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -175,7 +163,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -183,7 +170,6 @@ const game = Game({
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: actionTurnOrder,
       },
       {
@@ -196,17 +182,11 @@ const game = Game({
       },
       {
         name: 'june',
-        allowedMoves: ['pass'],
-        endPhaseIf: allPlayersPassed,
+        endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
           workerSpaces: summerActionsReset(+G.lighthouse.owner),
-          passed: {
-            0: false,
-            1: false,
-          },
         }),
-        onPhaseEnd: (G, ctx) => G,
         turnOrder: preparationsTurnOrder,
       },
     ],
