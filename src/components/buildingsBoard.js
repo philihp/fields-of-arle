@@ -4,6 +4,12 @@ import Building from './building'
 
 import './buildingsBoard.css'
 
+let i = 0
+const monotonic = () => {
+  i += 1
+  return i
+}
+
 const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
   <div className="BuildingsBoard">
     <div className="smallHouseHeading Heading">
@@ -34,7 +40,7 @@ const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
         moves={moves}
         G={G}
         ctx={ctx}
-        key={b}
+        key={b || monotonic()}
       />
     ))}
   </div>
