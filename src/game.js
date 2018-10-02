@@ -5,7 +5,10 @@ import option from './game/moves/option'
 import pass from './game/moves/pass'
 import returnAction from './game/moves/return'
 import workshop from './game/moves/workshop'
-import { resetPassedIfWorkshops } from './game/building/workshop'
+import {
+  resetPassedIfWorkshops,
+  workshopTurnOrder,
+} from './game/building/workshop'
 
 // import { pickWorker } from './game/common/'
 import {
@@ -126,7 +129,7 @@ const game = Game({
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassedIfWorkshops,
         onPhaseEnd: endHalfYear,
-        turnOrder: inventoryingTurnOrder,
+        turnOrder: workshopTurnOrder,
       },
       {
         name: 'november',
