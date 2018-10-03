@@ -6,6 +6,9 @@ import TableauLand from './tableauLand'
 import './tableauFarm.css'
 
 const TableauFarm = ({
+  G,
+  ctx,
+  moves,
   land,
   dikes,
   focus,
@@ -23,6 +26,9 @@ const TableauFarm = ({
       {land.map((row, y) =>
         row.map((cell, x) => (
           <TableauLand
+            G={G}
+            ctx={ctx}
+            moves={moves}
             key={[x, y].join('+')}
             style={{ gridArea: `l${y}${x}` }}
             flooded={y < seaLevel}

@@ -1,15 +1,19 @@
-export const smallHouses = [
+export const workshops = [
   'farmersHouse',
   'plowMakersWorkshop',
   'novicesHut',
   'workshop',
-  'weavingParlor',
-  'colonistsHouse',
-  'carpentersWorkshop',
-  'schnappsDistillery',
-  'loadingStation',
-  'litterStorage',
-  'woodTrader',
+]
+
+export const smallHouses = [
+  ...workshops,
+  // 'weavingParlor',
+  // 'colonistsHouse',
+  // 'carpentersWorkshop',
+  // 'schnappsDistillery',
+  // 'loadingStation',
+  // 'litterStorage',
+  // 'woodTrader',
 ]
 export const minorCraftBuildings = [
   'turnery',

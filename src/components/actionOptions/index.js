@@ -17,6 +17,7 @@ import arrange from './arrange'
 import wainwright from './wainwright'
 import farmer from './farmer'
 import builder from './builder'
+import plowMakersWorkshop from './plowMakersWorkshop'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -48,4 +49,6 @@ export default {
   wainwright,
   farmer,
   arrange,
+
+  plowMakersWorkshop,
 }

@@ -14,9 +14,10 @@
     'l40 l41 l42'
     'l50 l51 l52'
     'l60 l61 l62';
+  grid-row-gap: 2px;
 }
 
 /* Collapse the borders */
-.TableauFarm > div {
+/* .TableauFarm > div {
   margin: 0 -1px -1px 0;
-}
+} */

@@ -4,7 +4,13 @@ import Building from './building'
 
 import './buildingsBoard.css'
 
-const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => (
+let i = 0
+const monotonic = () => {
+  i += 1
+  return i
+}
+
+const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
   <div className="BuildingsBoard">
     <div className="smallHouseHeading Heading">
       Small Houses
@@ -31,11 +37,10 @@ const BuildingsBoard = ({ buildings, moves, shouldShowBuy, G, ctx }) => (
       <Building
         building={b}
         shouldShowTooltip
-        shouldShowBuy={shouldShowBuy}
         moves={moves}
         G={G}
         ctx={ctx}
-        key={b}
+        key={b || monotonic()}
       />
     ))}
   </div>
@@ -45,7 +50,6 @@ BuildingsBoard.propTypes = {
   G: PropTypes.any,
   ctx: PropTypes.any,
   buildings: PropTypes.array.isRequired,
-  shouldShowBuy: PropTypes.bool.isRequired,
   moves: PropTypes.any.isRequired,
 }
 

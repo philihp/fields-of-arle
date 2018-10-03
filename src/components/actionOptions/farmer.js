@@ -55,7 +55,7 @@ class Farmer extends React.Component {
   }
 
   render() {
-    const { G, ctx } = this.props
+    const { G, ctx, moves } = this.props
     const player = G.players[ctx.currentPlayer]
     return (
       <form onSubmit={this.handleSubmit}>
@@ -88,6 +88,9 @@ class Farmer extends React.Component {
         and/or Plow {this.state.unusedPlows} fields:
         <br />
         <TableauFarm
+          G={G}
+          ctx={ctx}
+          moves={moves}
           land={player.land}
           dikes={player.dikes}
           handleBuildField={this.handlePlowField}

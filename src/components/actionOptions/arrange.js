@@ -65,6 +65,8 @@ class Arrange extends React.Component {
           </TableauItem>
         ))}
         <TableauFarm
+          G={G}
+          ctx={ctx}
           land={player.land}
           dikes={player.dikes}
           focus={this.state.focus}

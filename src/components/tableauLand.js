@@ -2,9 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import TableauItem from './tableauItem'
+import buildings, { UnknownBuilding } from './buildings/'
 import './tableauLand.css'
 
+const buildingFromType = type => {
+  if (buildings[type]) return buildings[type]
+  else return null
+}
+
 const TableauLand = ({
+  G,
+  ctx,
+  moves,
   children,
   flooded,
   style,
@@ -34,15 +43,24 @@ const TableauLand = ({
           children.contents[0] === focusedItem))) ||
     (children.type === 'park' && children.contents.length < 2)
 
+  const Building = buildingFromType(children.type)
+
   return (
     <div
       style={style}
-      className={classNames('TableauLand', children.type, {
-        flooded: flooded,
-      })}
+      className={classNames(
+        'TableauLand',
+        {
+          Building: Building !== null,
+          flooded: flooded,
+        },
+        children.type
+      )}
     >
       <div>
-        <b>{children.type !== 'empty' && children.type}</b>
+        {(Building && <Building G={G} ctx={ctx} moves={moves} />) || (
+          <UnknownBuilding type={children.type} />
+        )}
 
         {children.type === 'empty' &&
           !flooded &&
@@ -112,6 +130,8 @@ const TableauLand = ({
 }
 
 TableauLand.propTypes = {
+  G: PropTypes.object.isRequired,
+  ctx: PropTypes.object.isRequired,
   children: PropTypes.any,
   flooded: PropTypes.bool,
   style: PropTypes.object,

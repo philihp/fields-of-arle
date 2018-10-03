@@ -19,12 +19,3 @@
   border-color: #837443;
   background-color: #d6cdad;
 }
-
-.TableauLand.moorNorth,
-.TableauLand.dmoorNorth {
-  border-bottom-width: 0;
-}
-.TableauLand.moorSouth,
-.TableauLand.dmoorSouth {
-  border-top-width: 0;
-}

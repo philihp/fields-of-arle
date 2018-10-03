@@ -9,7 +9,7 @@ export default ({ G, ctx, args }) => {
       ...G.players,
       [ctx.currentPlayer]: {
         ...G.players[ctx.currentPlayer],
-        tokens: [...G.players[ctx.currentPlayer], item],
+        tokens: [...G.players[ctx.currentPlayer].tokens, item],
         land: possiblePeatLocations.reduce(
           flipEmptyMoors,
           removePeatFromCoord(G.players[ctx.currentPlayer].land, toDrain)
