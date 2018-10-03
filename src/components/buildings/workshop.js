@@ -20,7 +20,7 @@ class Workshop extends GenericWorkshop {
               disabled={disabled}
               type="button"
             >
-              Place Field
+              1 Wood &amp; 1 Master
             </button>
           </div>
         )}

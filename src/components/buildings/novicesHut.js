@@ -20,7 +20,7 @@ class NovicesHut extends GenericWorkshop {
               disabled={disabled}
               type="button"
             >
-              Place Field
+              1 Grain &amp; 1 Dike
             </button>
           </div>
         )}

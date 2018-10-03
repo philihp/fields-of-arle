@@ -20,7 +20,7 @@ class FarmersHouse extends GenericWorkshop {
               disabled={disabled}
               type="button"
             >
-              Place Field
+              1 Clay &amp; Cut Peat
             </button>
           </div>
         )}
