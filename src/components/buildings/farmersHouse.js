@@ -1,15 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GenericBuilding from './genericBuilding'
+import GenericWorkshop from './genericWorkshop'
 
-class FarmersHouse extends GenericBuilding {
+class FarmersHouse extends GenericWorkshop {
   constructor(props) {
     super(props)
     this.state = {}
   }
 
   render() {
-    return <div>Farmers House</div>
+    const disabled = this.props.G.action !== null
+    return (
+      <div>
+        Farmer's House
+        {this.unused() && (
+          <div>
+            <button
+              onClick={this.useWorkshop}
+              disabled={disabled}
+              type="button"
+            >
+              Place Field
+            </button>
+          </div>
+        )}
+      </div>
+    )
   }
 }
 

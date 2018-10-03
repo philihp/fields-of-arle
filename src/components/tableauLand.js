@@ -58,9 +58,9 @@ const TableauLand = ({
       )}
     >
       <div>
-        {(Building && <Building G={G} ctx={ctx} moves={moves} />) || (
-          <UnknownBuilding type={children.type} />
-        )}
+        {(Building && (
+          <Building type={children.type} G={G} ctx={ctx} moves={moves} />
+        )) || <UnknownBuilding type={children.type} />}
 
         {children.type === 'empty' &&
           !flooded &&

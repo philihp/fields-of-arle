@@ -1,27 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GenericBuilding from './genericBuilding'
+import GenericWorkshop from './genericWorkshop'
 
-class PlowMakersWorkshop extends GenericBuilding {
+class PlowMakersWorkshop extends GenericWorkshop {
   constructor(props) {
     super(props)
     this.state = {}
   }
 
-  useWorkshop = () => {
-    const { moves } = this.props
-    moves.workshop('plowMakersWorkshop')
-  }
-
   render() {
-    const unused = this.props.G.unusedWorkshops[
-      this.props.ctx.currentPlayer
-    ].includes('plowMakersWorkshop')
-    const disabled = this.props.G.workshop !== null
+    const disabled = this.props.G.action !== null
     return (
       <div>
         Plow Maker's Workshop
-        {unused && (
+        {this.unused() && (
           <div>
             <button
               onClick={this.useWorkshop}
