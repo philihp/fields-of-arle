@@ -5,7 +5,7 @@
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^9.1.5",
     "boardgame.io": "^0.25.5",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "classnames": "^2.2.6",
