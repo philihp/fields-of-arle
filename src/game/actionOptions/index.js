@@ -16,7 +16,9 @@ import carpenter from './carpenter'
 import wainwright from './wainwright'
 import farmer from './farmer'
 import builder from './builder'
+
 import plowMakersWorkshop from './plowMakersWorkshop'
+import workshop from './workshop'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -46,4 +48,5 @@ export default {
   builder,
 
   plowMakersWorkshop,
+  workshop,
 }

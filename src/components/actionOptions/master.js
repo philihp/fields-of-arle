@@ -5,7 +5,7 @@ import { afford, spendInventory } from '../../game/common'
 
 const workbenches = 'workbenches'
 
-class WinterGrocer extends React.Component {
+class Master extends React.Component {
   constructor(props) {
     super(props)
     const {
@@ -74,7 +74,7 @@ class WinterGrocer extends React.Component {
   }
 }
 
-WinterGrocer.propTypes = {
+Master.propTypes = {
   G: PropTypes.any.isRequired,
   ctx: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
@@ -82,5 +82,5 @@ WinterGrocer.propTypes = {
 
 export default {
   visible: () => true,
-  component: WinterGrocer,
+  component: Master,
 }
