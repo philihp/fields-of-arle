@@ -20,6 +20,7 @@ import builder from './builder'
 
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
+import farmersHouse from './farmersHouse'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -54,4 +55,5 @@ export default {
 
   plowMakersWorkshop,
   workshop,
+  farmersHouse,
 }

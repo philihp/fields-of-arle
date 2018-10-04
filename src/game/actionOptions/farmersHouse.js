@@ -1,21 +1,20 @@
 import { compose } from 'redux'
-import { addToken, addGoods, bumpTool } from '../common/player'
-import { spendInventory } from '../common'
-import { ToolUpgradeCosts } from '../constants'
+import peatCutter from './peatCutter'
 
-const cutPeat = ({ G, ctx }) => ({
-  G,
+const cutPeat = ({ G, ctx, ...args }) => ({
+  G: peatCutter({ G, ctx, args: args.args }),
   ctx,
+  ...args,
 })
 
-const clearAction = ({ G, ctx }) => ({
+const clearAction = ({ G, ctx, ...args }) => ({
   G: { ...G, action: null },
   ctx,
+  ...args,
 })
 
-export default ({ G, ctx }) =>
+export default ({ G, ctx, ...args }) =>
   compose(
-    acquireClay,
     cutPeat,
     clearAction
-  )({ G, ctx, args }).G
+  )({ G, ctx, ...args }).G
