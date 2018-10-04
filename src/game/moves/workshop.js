@@ -1,6 +1,7 @@
 import { compose } from 'redux'
 import { remove } from '../common'
 import { addInventory, addGoods } from '../common/player'
+import { buildDikes } from '../common/land'
 
 const setAction = ({ G, ctx, workshop }) => ({
   G: {
@@ -41,10 +42,7 @@ const actionsForWorkshop = workshop => {
     case 'workshop':
       return [addInventoryFromWorkshop('wood'), setAction]
     case 'novicesHut':
-      return [
-        addGoodFromWorkshop('grain'),
-        // advance a dike
-      ]
+      return [addGoodFromWorkshop('grain'), buildDikes(1)]
     case 'farmersHouse':
       return [addInventoryFromWorkshop('clay'), setAction]
     case 'plowMakersWorkshop':
