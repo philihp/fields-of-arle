@@ -1,36 +1,38 @@
-import { addInventory } from '../common/player'
+import { compose } from 'redux'
+import { addToken, addGoods, bumpTool } from '../common/player'
 import { spendInventory } from '../common'
 import { ToolUpgradeCosts } from '../constants'
 
-export default ({ G, ctx, args }) => {
-  const [arg] = args
-  if (arg === undefined) {
-    return { ...G, action: null }
-  }
-  const { tool } = arg
-  // TODO do that stuff below -- advance the toolspace and pay the cost
-  return G
-}
+const payForTool = ({ G, ctx, args: [{ tool }] }) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: {
+        ...G.players[ctx.currentPlayer],
+        inventory: spendInventory(
+          G.players[ctx.currentPlayer].inventory,
+          ToolUpgradeCosts[tool]
+        ),
+      },
+    },
+  },
+  ctx,
+  args: [{ tool }],
+})
 
-// ({
-//   ...G,
-//   toolSpaces: args.reduce((toolSpaces, tool) => {
-//     const newTools = toolSpaces[tool].slice()
-//     newTools[currentPlayer] += 1
-//     return {
-//       ...toolSpaces,
-//       [tool]: newTools,
-//     }
-//   }, G.toolSpaces),
-//   players: {
-//     ...G.players,
-//     [currentPlayer]: {
-//       ...G.players[currentPlayer],
-//       inventory: args.reduce(
-//         (inventory, tool) => spendInventory(inventory, ToolUpgradeCosts[tool]),
-//         G.players[currentPlayer].inventory
-//       ),
-//     },
-//   },
-//   action: null,
-// })
+const bumpToolComposable = ({ G, ctx, args: [{ tool }] }) =>
+  bumpTool({ G, ctx }, tool)
+
+const clearAction = ({ G, ctx, args }) => ({
+  G: { ...G, action: null },
+  ctx,
+  args,
+})
+
+export default ({ G, ctx, args }) =>
+  compose(
+    bumpToolComposable,
+    payForTool,
+    clearAction
+  )({ G, ctx, args }).G
