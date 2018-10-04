@@ -32,7 +32,7 @@ const weavingMill = (G, ctx) => {
 const textileHouse = (G, ctx) => {
   const player = playerFromG(G, ctx)
   return (
-    afford(player.inventory, 'brick') &&
+    afford(player.inventory, ['brick']) &&
     distinct(player.inventory, ['summerWare', 'winterWare', 'leatherWare']) >= 2
   )
 }
