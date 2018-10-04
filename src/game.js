@@ -9,6 +9,7 @@ import {
   resetPassedIfWorkshops,
   workshopTurnOrder,
 } from './game/building/workshop'
+import { onNovemberBegin, onMayBegin, onRoundEnd } from './game/endOfRound'
 
 // import { pickWorker } from './game/common/'
 import {
@@ -49,18 +50,6 @@ const resetPassed = (G, ctx) => ({
     0: false,
     1: false,
   },
-})
-
-const lighthouseReset = lighthouse => ({
-  used: false,
-  // if lighthouse was not used, swap the owner
-  owner: lighthouse.used ? lighthouse.owner : -(lighthouse.owner - 1),
-})
-
-const endHalfYear = (G, ctx) => ({
-  ...G,
-  halfYear: G.halfYear + 1,
-  lighthouse: lighthouseReset(G.lighthouse),
 })
 
 const game = Game({
@@ -125,15 +114,14 @@ const game = Game({
         allowedMoves: ['pass', 'workshop', 'option'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassedIfWorkshops,
-        onPhaseEnd: endHalfYear,
         turnOrder: workshopTurnOrder,
       },
       {
         name: 'november',
-        allowedMoves: ['pass'],
+        allowedMoves: [],
         endPhaseIf: allPlayersPassed,
-        onPhaseBegin: resetPassed,
-        onPhaseEnd: endHalfYear,
+        onPhaseBegin: onNovemberBegin,
+        onPhaseEnd: onRoundEnd,
         turnOrder: inventoryingTurnOrder,
       },
       {
@@ -175,10 +163,10 @@ const game = Game({
       },
       {
         name: 'may',
-        allowedMoves: ['pass'],
+        allowedMoves: [],
         endPhaseIf: allPlayersPassed,
-        onPhaseBegin: resetPassed,
-        onPhaseEnd: endHalfYear,
+        onPhaseBegin: onMayBegin,
+        onPhaseEnd: onRoundEnd,
         turnOrder: inventoryingTurnOrder,
       },
       {
