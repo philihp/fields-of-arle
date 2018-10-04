@@ -31,7 +31,7 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
         Arrange Animals
       </button>
       <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
-        Next Month
+        Pass
       </button>
     </div>
   )
