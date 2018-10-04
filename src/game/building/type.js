@@ -7,13 +7,13 @@ export const workshops = [
 
 export const smallHouses = [
   ...workshops,
-  // 'weavingParlor',
-  // 'colonistsHouse',
-  // 'carpentersWorkshop',
-  // 'schnappsDistillery',
-  // 'loadingStation',
-  // 'litterStorage',
-  // 'woodTrader',
+  'weavingParlor',
+  'colonistsHouse',
+  'carpentersWorkshop',
+  'schnappsDistillery',
+  'loadingStation',
+  'litterStorage',
+  'woodTrader',
 ]
 export const minorCraftBuildings = [
   'turnery',
