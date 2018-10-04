@@ -35,7 +35,7 @@ const homeBoard = {
     [emptyLandCell, emptyLandCell, emptyLandCell],
     [emptyLandCell, emptyLandCell, emptyLandCell],
     [emptyLandCell, emptyLandCell, emptyLandCell],
-    [emptyLandCell, emptyLandCell, { type: 'wheat', contents: [] }],
+    [emptyLandCell, emptyLandCell, { type: 'grain', contents: [] }],
     [
       {
         type: 'stall',
