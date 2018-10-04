@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { toolValue, possiblePeatLocations } from '../../game/constants'
 
+// TODO: don't show moors that are already cut
+// TODO: have an option to skip cutting
+
 class PeatCutter extends React.Component {
   constructor(props) {
     super(props)
