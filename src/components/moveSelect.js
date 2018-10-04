@@ -20,7 +20,6 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
     goodsFloating({ G, ctx })
   const onNextMonth = () => {
     moves.pass()
-    events.endTurn()
   }
   const onArrangeAnimals = () => {
     moves.arrange()

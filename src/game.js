@@ -90,6 +90,7 @@ const game = Game({
         return 'ended due to rounds'
       }
     },
+    endTurnIf: (G, ctx) => G.passed[ctx.currentPlayer],
     phases: [
       {
         name: 'july',

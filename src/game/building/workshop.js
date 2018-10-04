@@ -30,6 +30,7 @@ export const workshopTurnOrder = {
     if (unusedWorkshops['0'].length !== 0 && unusedWorkshops['1'].length === 0)
       return 1 // gonna immediately call next and this will be 0's turn
     return +ctx.currentPlayer
+    // maybe...?   return -(+ctx.currentPlayer - 1)
   },
   next: (G, ctx) => -(+ctx.currentPlayer - 1),
 }
