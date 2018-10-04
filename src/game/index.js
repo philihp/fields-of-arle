@@ -39,11 +39,7 @@ const homeBoard = {
     [
       {
         type: 'stall',
-        contents: [
-          'horse',
-          // TODO remove
-          'horse',
-        ],
+        contents: ['horse'],
       },
       { type: 'boardwalk', contents: ['peat', 'peat', 'peat', 'peat'] },
       { type: 'flax', contents: [] },
