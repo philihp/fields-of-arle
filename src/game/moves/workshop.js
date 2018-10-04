@@ -13,23 +13,20 @@ const setAction = ({ G, ctx, workshop }) => ({
   workshop,
 })
 
-const removeUnusedWorkshop = ({ G, ctx, workshop }) => {
-  console.log('removing...', G.unusedWorkshops[ctx.currentPlayer])
-  return {
-    G: {
-      ...G,
-      unusedWorkshops: {
-        ...G.unusedWorkshops,
-        [ctx.currentPlayer]: remove(
-          G.unusedWorkshops[ctx.currentPlayer],
-          workshop
-        ),
-      },
+const removeUnusedWorkshop = ({ G, ctx, workshop }) => ({
+  G: {
+    ...G,
+    unusedWorkshops: {
+      ...G.unusedWorkshops,
+      [ctx.currentPlayer]: remove(
+        G.unusedWorkshops[ctx.currentPlayer],
+        workshop
+      ),
     },
-    ctx,
-    workshop,
-  }
-}
+  },
+  ctx,
+  workshop,
+})
 
 const addInventoryFromWorkshop = item => ({ G, ctx, workshop }) => ({
   ...addInventory({ G, ctx }, [item]),

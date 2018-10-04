@@ -30,20 +30,17 @@ const clearAction = ({ G, ctx, args }) => ({
   args,
 })
 
-export const passIfNoOtherWorkshops = ({ G, ctx, ...args }) => {
-  console.log('passing if none other', G.unusedWorkshops[ctx.currentPlayer])
-  return {
-    G: {
-      ...G,
-      passed: {
-        ...G.passed,
-        [ctx.currentPlayer]: G.unusedWorkshops[ctx.currentPlayer].length === 0,
-      },
+export const passIfNoOtherWorkshops = ({ G, ctx, ...args }) => ({
+  G: {
+    ...G,
+    passed: {
+      ...G.passed,
+      [ctx.currentPlayer]: G.unusedWorkshops[ctx.currentPlayer].length === 0,
     },
-    ctx,
-    ...args,
-  }
-}
+  },
+  ctx,
+  ...args,
+})
 
 export default ({ G, ctx, args }) =>
   compose(
