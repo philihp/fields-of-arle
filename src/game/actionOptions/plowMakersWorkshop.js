@@ -1,10 +1,10 @@
-// getVehicle({ G, ctx, ...args }, 'peatBoat')
-import { getVehicle, payForVehicle } from '../common/player'
+import { compose } from 'redux'
 import { findSeaLevel } from '../common/land'
+import { passIfNoOtherWorkshops } from './workshop'
 
 const placePlowedFields = (accum, field) => {
   const { crop, row, col } = field
-  const { G, ctx } = accum
+  const { G, ctx, ...args } = accum
   const oldLand = G.players[ctx.currentPlayer].land[row][col]
   const seaLevel = findSeaLevel(G.players[ctx.currentPlayer].dikes)
   if (oldLand.type !== 'empty' && row < seaLevel) {
@@ -38,20 +38,24 @@ const placePlowedFields = (accum, field) => {
       },
     },
     ctx,
+    ...args,
   }
 }
 
-export default ({ G, ctx, args }) => {
-  const [field] = args
-  if (field !== undefined) {
-    return {
-      ...[field].reduce(placePlowedFields, { G: G, ctx }).G,
-      action: null,
-    }
-  } else {
-    return {
-      ...G,
-      action: null,
-    }
-  }
+const placeField = ({ G, ctx, ...args }) => {
+  const { args: fields } = args
+  return fields.reduce(placePlowedFields, { G, ctx, ...args })
 }
+
+const clearAction = ({ G, ctx, ...args }) => ({
+  G: { ...G, action: null },
+  ctx,
+  ...args,
+})
+
+export default ({ G, ctx, ...args }) =>
+  compose(
+    passIfNoOtherWorkshops,
+    placeField,
+    clearAction
+  )({ G, ctx, ...args }).G

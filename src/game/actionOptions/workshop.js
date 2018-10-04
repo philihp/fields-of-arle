@@ -30,8 +30,21 @@ const clearAction = ({ G, ctx, args }) => ({
   args,
 })
 
+export const passIfNoOtherWorkshops = ({ G, ctx, ...args }) => ({
+  G: {
+    ...G,
+    passed: {
+      ...G.passed,
+      [ctx.currentPlayer]: G.unusedWorkshops[ctx.currentPlayer].length === 0,
+    },
+  },
+  ctx,
+  ...args,
+})
+
 export default ({ G, ctx, args }) =>
   compose(
+    passIfNoOtherWorkshops,
     bumpToolComposable,
     payForTool,
     clearAction
