@@ -1,11 +1,56 @@
 export const flatten = (accum, row) => [...accum, ...row]
 
-export const afford = (inventory, cost) =>
-  inventory.reduce((accum, inventoryItem) => {
-    const index = accum.indexOf(inventoryItem)
-    if (index === -1) return accum
-    return [...accum.slice(0, index), ...accum.slice(index + 1)]
-  }, cost).length === 0
+export const afford = (inventory, cost) => {
+  let state = {
+    i: [...inventory],
+    unfound: [],
+  }
+  // remove all cost from inventory
+  state = cost.reduce((s, costItem) => {
+    const index = s.i.indexOf(costItem)
+    if (index === -1)
+      return {
+        ...s,
+        unfound: [...s.unfound, costItem],
+      }
+    else
+      return {
+        ...s,
+        i: [...s.i.slice(0, index), ...s.i.slice(index + 1)],
+      }
+  }, state)
+
+  // not strictly necessary, but normally we dont need to worry about
+  // spending advanced inventory goods as basic inventory goods
+  if (state.unfound.length === 0) return true
+
+  // translate unfound items from basic to advanced goods
+  const unfoundCost = state.unfound.map(unfoundItem => {
+    if (unfoundItem === 'clay') return 'brick'
+    else if (unfoundItem === 'wood') return 'timber'
+    else return unfoundItem
+  })
+
+  // remove all cost from inventory again
+  state = unfoundCost.reduce(
+    (s, costItem) => {
+      const index = s.i.indexOf(costItem)
+      if (index === -1)
+        return {
+          ...s,
+          unfound: [...s.unfound, costItem],
+        }
+      else
+        return {
+          ...s,
+          i: [...s.i.slice(0, index), ...s.i.slice(index + 1)],
+        }
+    },
+    { ...state, unfound: [] }
+  )
+
+  return state.unfound.length === 0
+}
 
 export const distinct = (inventory, kinds) =>
   kinds.reduce((accum, kind) => accum + (inventory.includes(kind) ? 1 : 0), 0)
@@ -16,8 +61,57 @@ export const remove = (array, element) => {
   return [...array.slice(0, index), ...array.slice(index + 1)]
 }
 
-export const spendInventory = (inventory, cost) =>
-  cost.reduce(remove, inventory)
+export const spendInventory = (inventory, cost) => {
+  let state = {
+    i: [...inventory],
+    unfound: [],
+  }
+  // remove all cost from inventory
+  state = cost.reduce((s, costItem) => {
+    const index = s.i.indexOf(costItem)
+    if (index === -1)
+      return {
+        ...s,
+        unfound: [...s.unfound, costItem],
+      }
+    else
+      return {
+        ...s,
+        i: [...s.i.slice(0, index), ...s.i.slice(index + 1)],
+      }
+  }, state)
+
+  // not strictly necessary, but normally we dont need to worry about
+  // spending advanced inventory goods as basic inventory goods
+  if (state.unfound.length === 0) return state.i
+
+  // translate unfound items from basic to advanced goods
+  const unfoundCost = state.unfound.map(unfoundItem => {
+    if (unfoundItem === 'clay') return 'brick'
+    else if (unfoundItem === 'wood') return 'timber'
+    else return unfoundItem
+  })
+
+  // remove all cost from inventory again
+  state = unfoundCost.reduce(
+    (s, costItem) => {
+      const index = s.i.indexOf(costItem)
+      if (index === -1)
+        return {
+          ...s,
+          unfound: [...s.unfound, costItem],
+        }
+      else
+        return {
+          ...s,
+          i: [...s.i.slice(0, index), ...s.i.slice(index + 1)],
+        }
+    },
+    { ...state, unfound: [] }
+  )
+
+  return state.i
+}
 
 export const spendGoods = (goods, cost) =>
   cost.reduce(
