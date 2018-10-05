@@ -64,18 +64,24 @@ export const bumpTool = ({ G, ctx, ...args }, tool) => {
   }
 }
 
+export const addGoodsToPlayer = ({ player, good, amount }) => ({
+  ...player,
+  goods: {
+    ...player.goods,
+    [good]: player.goods[good] + amount,
+  },
+})
+
 export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
   G: {
     ...G,
     players: {
       ...G.players,
-      [ctx.currentPlayer]: {
-        ...G.players[ctx.currentPlayer],
-        goods: {
-          ...G.players[ctx.currentPlayer].goods,
-          [good]: G.players[ctx.currentPlayer].goods[good] + amount,
-        },
-      },
+      [ctx.currentPlayer]: addGoodsToPlayer({
+        player: G.players[ctx.currentPlayer],
+        good,
+        amount,
+      }),
     },
   },
   ctx,
