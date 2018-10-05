@@ -2,14 +2,14 @@ import { compose } from 'redux'
 import { addGoodsToPlayer, countAnimals } from './common/player'
 
 // 1: One
-const emptyVehicles = ({ G, ctx }) => {
+const emptyVehicles = player => {
   console.log('emptyVehicles')
-  return { G, ctx }
+  return player
 }
 
 // 2: Two
 
-const milkingPlayer = player => {
+const milking = player => {
   // 1/2/3 Food for 2/5/8 Sheep, 1/2/3 Food for 1/3/5 Cattle
   const { sheep, cattle } = countAnimals(player)
   const addedFood = [
@@ -26,43 +26,33 @@ const milkingPlayer = player => {
   ].reduce((total, meetsThreshold) => total + (meetsThreshold ? 1 : 0), 0)
   return addGoodsToPlayer({ player, good: 'food', amount: addedFood })
 }
-const milking = ({ G, ctx }) => ({
-  G: {
-    ...G,
-    players: {
-      0: milkingPlayer(G.players['0']),
-      1: milkingPlayer(G.players['1']),
-    },
-  },
-  ctx,
-})
 
-const babyAnimals = ({ G, ctx }) => {
+const babyAnimals = player => {
   console.log('babyAnimals')
-  return { G, ctx }
+  return player
 }
 
 // 3: Three
-const harvest = ({ G, ctx }) => {
+const harvest = player => {
   console.log('harvest')
-  return { G, ctx }
+  return player
 }
-const sheering = ({ G, ctx }) => {
+const sheering = player => {
   console.log('sheering')
-  return { G, ctx }
+  return player
 }
 
 // 4: Four
-const sustenanceFood = ({ G, ctx }) => {
+const sustenanceFood = player => {
   console.log('sustenanceFood')
-  return { G, ctx }
+  return player
 }
-const sustenanceFuel = ({ G, ctx }) => {
+const sustenanceFuel = player => {
   console.log('sustenanceFuel')
-  return { G, ctx }
+  return player
 }
 
-export const onNovemberBegin = (G, ctx) =>
+const onNovemberBeginForPlayer = player =>
   compose(
     // these are evaluated right to left
     sustenanceFood,
@@ -70,16 +60,28 @@ export const onNovemberBegin = (G, ctx) =>
     harvest,
     milking,
     emptyVehicles
-  )({ G, ctx }).G
+  )(player)
 
-export const onMayBegin = (G, ctx) =>
+const onMayBeginForPlayer = player =>
   compose(
     // these are evaluated right to left
     sustenanceFood,
     sheering,
     babyAnimals,
     emptyVehicles
-  )({ G, ctx }).G
+  )(player)
+
+const forAllPlayersDo = (G, f) => ({
+  ...G,
+  players: {
+    0: f(G.players['0']),
+    1: f(G.players['1']),
+  },
+})
+
+export const onNovemberBegin = G => forAllPlayersDo(G, onNovemberBeginForPlayer)
+
+export const onMayBegin = G => forAllPlayersDo(G, onMayBeginForPlayer)
 
 const lighthouseReset = lighthouse => ({
   used: false,
