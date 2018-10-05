@@ -72,6 +72,9 @@ export const addGoodsToPlayer = ({ player, good, amount }) => ({
   },
 })
 
+export const curriedAddGoodsToPlayer = (good, amount) => player =>
+  addGoodsToPlayer({ player, good, amount })
+
 export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
   G: {
     ...G,

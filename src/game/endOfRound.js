@@ -1,9 +1,15 @@
 import { compose } from 'redux'
-import { addGoodsToPlayer, countAnimals } from './common/player'
+import {
+  addGoodsToPlayer,
+  countAnimals,
+  curriedAddGoodsToPlayer,
+} from './common/player'
+import { spendInventory, remove } from './common/index'
 
 // 1: One
 const emptyVehicles = player => {
-  console.log('emptyVehicles')
+  // TODO
+  if (!player) return null
   return player
 }
 
@@ -28,50 +34,133 @@ const milking = player => {
 }
 
 const babyAnimals = player => {
-  console.log('babyAnimals')
+  // TODO
+  if (!player) return null
   return player
 }
 
 // 3: Three
+const curriedAddInventoryToPlayer = (type, amount) => player => ({
+  ...player,
+  inventory: [...player.inventory, ...new Array(amount).fill(type)],
+})
+
 const harvest = player => {
-  console.log('harvest')
-  return player
+  const types = player.land.flat().map(cell => cell.type)
+  return compose(
+    curriedAddGoodsToPlayer(
+      'grain',
+      types.filter(type => type === 'grain').length
+    ),
+    curriedAddGoodsToPlayer(
+      'flax',
+      types.filter(type => type === 'flax').length
+    ),
+    curriedAddInventoryToPlayer(
+      'wood',
+      types.filter(type => type === 'forest').length
+    )
+  )(player)
 }
 const sheering = player => {
-  console.log('sheering')
+  // TODO
+  if (!player) return null
   return player
 }
 
 // 4: Four
+
 const sustenanceFood = player => {
-  console.log('sustenanceFood')
-  return player
+  if (player.goods.food >= 3) {
+    return addGoodsToPlayer({ player, good: 'food', amount: -3 })
+  } else if (player.goods.food + player.goods.grain >= 3)
+    return {
+      ...player,
+      goods: {
+        ...player.goods,
+        food: 0,
+        grain: 3 - player.goods.food,
+      },
+    }
+  else
+    return {
+      ...player,
+      goods: {
+        ...player.goods,
+        food: 0,
+        grain: 0,
+        // TODO: this could trigger asking the player which animals they want to eat.
+        // If the player ends up having to eat an animal, they need to do the "slaughter"
+        // action. Most of the time this will never be necesary, so it can be punted.
+        foodDeficit: 3 - player.goods.food - player.goods.grain,
+      },
+    }
 }
+
+const consumeInventory = (state, consumed) => {
+  if (state.inventory.includes(consumed)) {
+    return {
+      inventory: remove(state.inventory, consumed),
+      demand: state.demand,
+    }
+  } else {
+    return {
+      inventory: state.inventory,
+      demand: [...state.demand, consumed],
+    }
+  }
+}
+
 const sustenanceFuel = player => {
-  console.log('sustenanceFuel')
-  return player
+  const state0 = {
+    inventory: player.inventory,
+    demand: new Array(2).fill('peat'),
+  }
+
+  // for each element in demand, consume it in inventory (or stick it back in demand)
+  const state1 = state0.demand.reduce(consumeInventory, {
+    inventory: state0.inventory,
+    demand: [],
+  })
+
+  // for each element in demand, turn it into a wood and do the same
+  const state2 = state1.demand.fill('wood').reduce(consumeInventory, {
+    inventory: state1.inventory,
+    demand: [],
+  })
+
+  // for each element in demand, turn it into a timber and do the same again
+  const state3 = state2.demand.fill('timber').reduce(consumeInventory, {
+    inventory: state2.inventory,
+    demand: [],
+  })
+
+  // finally, replace inventory with inventory, and increase supply bottlenecks by size of demand
+  return {
+    ...player,
+    inventory: state3.inventory,
+    supplyBottlenecks: player.supplyBottlenecks + state3.demand.length,
+  }
 }
 
-const onNovemberBeginForPlayer = player =>
-  compose(
-    // these are evaluated right to left
-    sustenanceFood,
-    sustenanceFuel,
-    harvest,
-    milking,
-    emptyVehicles
-  )(player)
+const onNovemberBeginForPlayer = compose(
+  // these are evaluated right to left, order is important for sustenance
+  sustenanceFood,
+  sustenanceFuel,
+  harvest,
+  milking,
+  emptyVehicles
+)
 
-const onMayBeginForPlayer = player =>
-  compose(
-    // these are evaluated right to left
-    sustenanceFood,
-    sheering,
-    babyAnimals,
-    emptyVehicles
-  )(player)
+const onMayBeginForPlayer = compose(
+  // these are evaluated right to left, order is important for sustenance
+  sustenanceFood,
+  sheering,
+  babyAnimals,
+  emptyVehicles
+)
 
-const forAllPlayersDo = (G, f) => ({
+const forAllPlayersDo = f => G => ({
   ...G,
   players: {
     0: f(G.players['0']),
@@ -79,9 +168,9 @@ const forAllPlayersDo = (G, f) => ({
   },
 })
 
-export const onNovemberBegin = G => forAllPlayersDo(G, onNovemberBeginForPlayer)
+export const onNovemberBegin = forAllPlayersDo(onNovemberBeginForPlayer)
 
-export const onMayBegin = G => forAllPlayersDo(G, onMayBeginForPlayer)
+export const onMayBegin = forAllPlayersDo(onMayBeginForPlayer)
 
 const lighthouseReset = lighthouse => ({
   used: false,

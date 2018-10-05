@@ -118,7 +118,7 @@ const game = Game({
       },
       {
         name: 'november',
-        allowedMoves: [],
+        allowedMoves: ['slaughter'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: onNovemberBegin,
         onPhaseEnd: onRoundEnd,

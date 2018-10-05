@@ -78,6 +78,7 @@ const homeBoard = {
     large2: null,
     large3: null,
   },
+  supplyBottlenecks: 0,
 }
 
 const defaultLighthouseOwner = 0
