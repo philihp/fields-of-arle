@@ -15,6 +15,7 @@ const TableauFarm = ({
   handleSetFocus,
   handleReleaseFocus,
   handlePlaceBuilding,
+  handlePlaceForest,
   handleBuildStall,
   handleBuildStable,
   handleBuildField,
@@ -47,6 +48,7 @@ const TableauFarm = ({
             handlePlaceBuilding={
               handlePlaceBuilding && handlePlaceBuilding(y, x)
             }
+            handlePlaceForest={handlePlaceForest && handlePlaceForest(y, x)}
             handleBuildStall={handleBuildStall && handleBuildStall(y, x)}
             handleBuildStable={handleBuildStable && handleBuildStable(y, x)}
             handleBuildField={handleBuildField && handleBuildField(y, x)}
@@ -87,6 +89,7 @@ TableauFarm.propTypes = {
   dikes: PropTypes.array.isRequired,
   focus: PropTypes.object,
   handlePlaceBuilding: PropTypes.func,
+  handlePlaceForest: PropTypes.func,
   handleSetFocus: PropTypes.func, // if provided, animals will be clickable, which sends them to "floating"
   handleReleaseFocus: PropTypes.func, // if provided, spaces with available space will have buttons to drop whatever the parent has floating
   handleBuildStall: PropTypes.func, // if provided, a button will be put on empty spaces that can take a stall

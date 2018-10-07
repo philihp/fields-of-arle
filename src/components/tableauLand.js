@@ -20,6 +20,7 @@ const TableauLand = ({
   focusedItemIndex,
   focusedItem,
   handlePlaceBuilding,
+  handlePlaceForest,
   handleSetFocus,
   handleReleaseFocus,
   handleBuildStall,
@@ -99,11 +100,22 @@ const TableauLand = ({
               grain
             </button>
           )}
+
+        {/* builder */}
         {!flooded &&
           children.type === 'empty' &&
           handlePlaceBuilding && (
             <button type="submit" onClick={handlePlaceBuilding}>
               Build
+            </button>
+          )}
+
+        {/* forester */}
+        {!flooded &&
+          children.type === 'empty' &&
+          handlePlaceForest && (
+            <button type="submit" onClick={handlePlaceForest}>
+              forest
             </button>
           )}
 

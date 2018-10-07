@@ -25,8 +25,6 @@ const consume1FoodOr1Grain = ({ G, ctx }) => ({
   ctx,
 })
 
-// TODO: doesn't actually set action
-
 export default (G, ctx, ...args) =>
   compose(
     consume1FoodOr1Grain,

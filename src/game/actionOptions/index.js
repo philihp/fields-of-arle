@@ -17,6 +17,8 @@ import wainwright from './wainwright'
 import farmer from './farmer'
 import builder from './builder'
 import woodTrader from './woodTrader'
+import forester from './forester'
+import foresterPlace from './foresterPlace'
 
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
@@ -49,6 +51,8 @@ export default {
   farmer,
   builder,
   woodTrader,
+  forester,
+  foresterPlace,
 
   plowMakersWorkshop,
   workshop,

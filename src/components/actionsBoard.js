@@ -262,8 +262,9 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={workerSpaces}
           />
         </section>
-        <section className="action-summer not-implemented">
+        <section className="action-summer">
           <WorkerSpot
+            // TODO this should be disabled if the player has zero food
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="forester"
