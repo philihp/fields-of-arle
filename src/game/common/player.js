@@ -15,6 +15,14 @@ export const setAction = ({ G, ctx, ...args }) => ({
   ctx,
 })
 
+export const actionOption = action => ({ G, ...args }) => ({
+  G: {
+    ...G,
+    action,
+  },
+  ...args,
+})
+
 export const addToken = ({ G, ctx, ...args }, newToken) => ({
   G: {
     ...G,
@@ -30,7 +38,7 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
   ...args,
 })
 
-export const addInventory = ({ G, ctx, ...args }, newInventoryList) => ({
+export const inventoryAdd = (...newInventoryList) => ({ G, ctx, ...args }) => ({
   G: {
     ...G,
     players: {
@@ -47,6 +55,10 @@ export const addInventory = ({ G, ctx, ...args }, newInventoryList) => ({
   ctx,
   ...args,
 })
+
+// deprecated, better order is list first. use inventoryAdd
+export const addInventory = ({ G, ctx, ...args }, newInventoryList) =>
+  inventoryAdd(...newInventoryList)({ G, ctx, ...args })
 
 export const bumpTool = ({ G, ctx, ...args }, tool) => {
   const newToolSpace = G.toolSpaces[tool]

@@ -13,11 +13,19 @@ class WoodTrader extends React.Component {
   render() {
     return (
       <div>
-        <input type="submit" value="Take 4 wood" />
+        <input
+          type="submit"
+          value="Take 4 wood"
+          onClick={this.handleFourWood}
+        />
         <br />
         or
         <br />
-        <input type="submit" value="Build 1 building" />
+        <input
+          type="submit"
+          value="Build 1 building"
+          onClick={this.handleBuilding}
+        />
       </div>
     )
   }
