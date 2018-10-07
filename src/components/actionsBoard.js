@@ -292,8 +292,9 @@ export default class ActionsBoard extends React.Component {
         <section className="tool-summer">
           <ToolTrack name="Axes" toolKey="axes" track={toolSpaces.axes} />
         </section>
-        <section className="action-winter not-implemented">
+        <section className="action-winter">
           <WorkerSpot
+            // TODO this should be disabled if the player has zero food and zero grain
             disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="woodTrader"
