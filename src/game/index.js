@@ -85,7 +85,7 @@ const homeBoard = {
     small2: null,
     small3: null,
     small4: null,
-    large1: null,
+    large1: { type: 'droshky', contents: [null, null, null] },
     large2: null,
     large3: null,
   },

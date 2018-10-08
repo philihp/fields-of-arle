@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Vehicle from '../vehicle'
 
 const visible = ({ loading }) =>
   loading !== undefined &&
@@ -17,9 +18,19 @@ class Load extends React.Component {
   }
 
   render() {
+    const {
+      loading: { destination, inventory, barnSpace },
+      players,
+    } = this.props.G
+    const { currentPlayer } = this.props.ctx
+    const vehicle = players[currentPlayer].barn[barnSpace]
     return (
       <div>
-        load
+        Loading:
+        {destination && <div>Destination: {destination}</div>}
+        {inventory && <div>Item: {inventory}</div>}
+        Into:
+        <Vehicle vehicle={vehicle} />
         <button type="button" onClick={this.handleCancel}>
           Cancel
         </button>
@@ -29,7 +40,7 @@ class Load extends React.Component {
 }
 
 Load.propTypes = {
-  // G: PropTypes.any,
+  G: PropTypes.any,
   // ctx: PropTypes.any,
   moves: PropTypes.any.isRequired,
 }

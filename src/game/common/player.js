@@ -1,5 +1,10 @@
 import { flatten, spendInventory, Animals } from './index'
-import { openBarnSpace, VehicleSource, EquipmentCosts } from './barn'
+import {
+  openBarnSpace,
+  VehicleSource,
+  VehicleSlots,
+  EquipmentCosts,
+} from './barn'
 import { removeFirstAnimal } from './animals'
 
 /*
@@ -118,7 +123,7 @@ export const getVehicle = ({ G, ctx, ...args }, type) => {
           ...G.players[ctx.currentPlayer],
           barn: {
             ...barn,
-            [openBarnSpace(barn, type)]: { type, contents: [] },
+            [openBarnSpace(barn, type)]: { type, contents: VehicleSlots[type] },
           },
         },
       },

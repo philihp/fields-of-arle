@@ -1,22 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import Vehicle from './vehicle'
 import './tableauBarnSpace.css'
 
 const TableauBarnSpace = ({ space, className, handleLoad }) => (
   <div className={classNames('TableauBarnSpace', className)}>
-    {space && (
-      <div>
-        <b>{space.type}</b>
-        {handleLoad && (
-          <button type="button" onClick={handleLoad}>
-            Load
-          </button>
-        )}
-        <br />
-        {space.contents}
-      </div>
-    )}
+    {space && <Vehicle vehicle={space} handleLoad={handleLoad} />}
   </div>
 )
 
