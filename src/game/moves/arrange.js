@@ -82,7 +82,7 @@ export const autoArrange = G => {
 }
 
 export default (G, ctx, args) => {
-  // TODO: if in the middle of another action, don't allow?? because when this ends, then it doesn't go back to action.
+  if (![null, 'arrange'].includes(G.action)) return G
   if (args === undefined) {
     // if nothing, toggle showing the option pane
     return {

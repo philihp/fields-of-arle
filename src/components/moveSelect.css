@@ -6,3 +6,7 @@
   border-radius: 5px;
   font-size: 14pt;
 }
+
+.MoveSelect button.selected {
+  border: inset 1px;
+}

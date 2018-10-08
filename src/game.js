@@ -4,6 +4,7 @@ import arrange from './game/moves/arrange'
 import option from './game/moves/option'
 import pass from './game/moves/pass'
 import returnAction from './game/moves/return'
+import load from './game/moves/load'
 import workshop from './game/moves/workshop'
 import {
   resetPassedIfWorkshops,
@@ -71,6 +72,7 @@ const game = Game({
     arrange,
     return: returnAction,
     workshop,
+    load,
   },
 
   flow: {
@@ -83,35 +85,35 @@ const game = Game({
     phases: [
       {
         name: 'july',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'august',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'september',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'october',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'preNovember',
-        allowedMoves: ['pass', 'workshop', 'option'],
+        allowedMoves: ['pass', 'workshop', 'option', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassedIfWorkshops,
         turnOrder: workshopTurnOrder,
@@ -135,28 +137,28 @@ const game = Game({
       },
       {
         name: 'january',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'february',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'march',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
       },
       {
         name: 'april',
-        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return'],
+        allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,

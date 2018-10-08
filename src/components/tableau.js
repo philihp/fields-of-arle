@@ -10,7 +10,6 @@ const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
   }
   return (
     <div className="Tableau">
-      <div className="destinations">[destinations]</div>
       <TableauFarm
         G={G}
         ctx={ctx}
@@ -19,6 +18,9 @@ const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
         dikes={player.dikes}
         handlePlaceBuilding={shouldShowPlace ? handlePlaceBuilding : null}
       />
+      <div className="destinations">
+        [destinations: {JSON.stringify(player.destinations)}]
+      </div>
       <div className="goods">
         <div>[goods: {JSON.stringify(player.goods)}]</div>
       </div>

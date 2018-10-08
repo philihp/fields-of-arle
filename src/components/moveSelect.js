@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './moveSelect.css'
+import classNames from 'classnames'
 
 const goodsFloating = ({ G, ctx: { currentPlayer } }) =>
   G.players[currentPlayer].tokens.length > 0
@@ -21,13 +22,29 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
   const onNextMonth = () => {
     moves.pass()
   }
-  const onArrangeAnimals = () => {
+  const handleArrange = () => {
     moves.arrange()
+  }
+  const handleLoad = () => {
+    moves.load()
   }
   return (
     <div className="MoveSelect">
-      <button type="button" onClick={onArrangeAnimals}>
-        Arrange Animals
+      <button
+        type="button"
+        onClick={handleArrange}
+        disabled={![null, 'arrange'].includes(G.action)}
+        className={classNames({ selected: G.action === 'arrange' })}
+      >
+        Arrange
+      </button>
+      <button
+        type="button"
+        onClick={handleLoad}
+        disabled={![null, 'load'].includes(G.action)}
+        className={classNames({ selected: G.action === 'load' })}
+      >
+        Load
       </button>
       <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
         Pass
