@@ -104,3 +104,39 @@ export const arrangeItem = ({ G, ctx }, { src, dst }) => {
     },
   }
 }
+
+export const place = type => state => {
+  const { G, ctx, ...args } = state
+  const {
+    args: [{ row, col }],
+  } = args
+  const seaLevel = findSeaLevel(G.players[ctx.currentPlayer].dikes)
+  const oldLand = G.players[ctx.currentPlayer].land[row][col]
+  if (oldLand.type !== 'empty' || row < seaLevel) return state
+  return {
+    G: {
+      ...G,
+      players: {
+        ...G.players,
+        [ctx.currentPlayer]: {
+          ...G.players[ctx.currentPlayer],
+          tokens: [...G.players[ctx.currentPlayer].tokens, ...oldLand.contents],
+          land: [
+            ...G.players[ctx.currentPlayer].land.slice(0, row),
+            [
+              ...G.players[ctx.currentPlayer].land[row].slice(0, col),
+              {
+                type,
+                contents: [],
+              },
+              ...G.players[ctx.currentPlayer].land[row].slice(col + 1),
+            ],
+            ...G.players[ctx.currentPlayer].land.slice(row + 1),
+          ],
+        },
+      },
+    },
+    ctx,
+    ...args,
+  }
+}

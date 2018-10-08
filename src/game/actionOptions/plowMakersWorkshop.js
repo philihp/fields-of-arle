@@ -2,6 +2,7 @@ import { compose } from 'redux'
 import { findSeaLevel } from '../common/land'
 import { passIfNoOtherWorkshops } from './workshop'
 
+// TODO replace this with place(type)(args) from ../common/land
 const placePlowedFields = (accum, field) => {
   const { crop, row, col } = field
   const { G, ctx, ...args } = accum

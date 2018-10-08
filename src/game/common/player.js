@@ -118,7 +118,7 @@ export const getVehicle = ({ G, ctx, ...args }, type) => {
           ...G.players[ctx.currentPlayer],
           barn: {
             ...barn,
-            [openBarnSpace(barn, type)]: type,
+            [openBarnSpace(barn, type)]: { type, contents: [] },
           },
         },
       },

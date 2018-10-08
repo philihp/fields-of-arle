@@ -67,4 +67,4 @@ export const openBarnSpace = (barn, type) => {
 }
 
 export const countVehicle = (barn, type) =>
-  barnVehicles(barn).filter(vehicle => vehicle === type).length
+  barnVehicles(barn).filter(vehicle => vehicle && vehicle.type === type).length
