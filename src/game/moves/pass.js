@@ -13,6 +13,7 @@ export default (G, ctx) => {
         ...G.passed,
         [ctx.currentPlayer]: true,
       },
+      loading: undefined,
     }
   }
 }

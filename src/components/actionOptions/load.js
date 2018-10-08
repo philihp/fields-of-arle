@@ -12,12 +12,19 @@ class Load extends React.Component {
     this.state = {}
   }
 
-  handleSelectSlot = e => {
-    this.props.moves.option()
+  handleCancel = e => {
+    this.props.moves.load('cancel')
   }
 
   render() {
-    return <div>load</div>
+    return (
+      <div>
+        load
+        <button type="button" onClick={this.handleCancel}>
+          Cancel
+        </button>
+      </div>
+    )
   }
 }
 
