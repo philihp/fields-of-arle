@@ -60,6 +60,8 @@ const Tableau = ({
 }
 
 Tableau.propTypes = {
+  G: PropTypes.any,
+  ctx: PropTypes.any,
   player: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
   shouldShowLoadTile: PropTypes.bool.isRequired,

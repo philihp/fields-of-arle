@@ -142,8 +142,8 @@ const TableauLand = ({
 }
 
 TableauLand.propTypes = {
-  G: PropTypes.object.isRequired,
-  ctx: PropTypes.object.isRequired,
+  G: PropTypes.any,
+  ctx: PropTypes.any,
   children: PropTypes.any,
   flooded: PropTypes.bool,
   style: PropTypes.object,
