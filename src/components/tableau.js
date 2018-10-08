@@ -2,11 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TableauFarm from './tableauFarm'
 import TableauBarn from './tableauBarn'
+import TableauDestinations from './tableauDestinations'
+import TableauInventory from './tableauInventory'
 import './tableau.css'
 
-const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
+const Tableau = ({
+  G,
+  ctx,
+  player,
+  moves,
+  shouldShowLoadTile,
+  shouldShowLoadBarnSpace,
+  shouldShowPlace,
+}) => {
   const handlePlaceBuilding = (row, col) => () => {
     moves.option({ col, row })
+  }
+  const handleLoadDestination = destination => () => {
+    moves.load({ destination })
+  }
+  const handleLoadBarnSpace = barnSpace => () => {
+    moves.load({ barnSpace })
+  }
+  const handleLoadInventory = inventory => () => {
+    moves.load({ inventory })
   }
   return (
     <div className="Tableau">
@@ -18,22 +37,24 @@ const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
         dikes={player.dikes}
         handlePlaceBuilding={shouldShowPlace ? handlePlaceBuilding : null}
       />
-      <div className="destinations">
-        [destinations: {JSON.stringify(player.destinations)}]
-      </div>
-      <div className="goods">
-        <div>[goods: {JSON.stringify(player.goods)}]</div>
-      </div>
+      <TableauDestinations
+        destinations={player.destinations}
+        handleLoad={shouldShowLoadTile ? handleLoadDestination : null}
+      />
+      <div className="goods">{JSON.stringify(player.goods)}</div>
       <div className="inventory">
-        <div>
-          {player.tokens.length > 0 && 'Limbo: '}
-          <span style={{ color: 'red', fontWeight: 'bold' }}>
-            {player.tokens.join(', ')}
-          </span>
-        </div>
-        <div>[inventory: {player.inventory.join(', ')}]</div>
+        <span style={{ color: 'red', fontWeight: 'bold' }}>
+          {player.tokens.join(', ')}
+        </span>
       </div>
-      <TableauBarn barn={player.barn} />
+      <TableauInventory
+        inventory={player.inventory}
+        handleLoad={shouldShowLoadTile ? handleLoadInventory : null}
+      />
+      <TableauBarn
+        barn={player.barn}
+        handleLoad={shouldShowLoadBarnSpace ? handleLoadBarnSpace : null}
+      />
     </div>
   )
 }
@@ -41,6 +62,8 @@ const Tableau = ({ G, ctx, player, moves, shouldShowPlace }) => {
 Tableau.propTypes = {
   player: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
+  shouldShowLoadTile: PropTypes.bool.isRequired,
+  shouldShowLoadBarnSpace: PropTypes.bool.isRequired,
   shouldShowPlace: PropTypes.bool.isRequired,
 }
 

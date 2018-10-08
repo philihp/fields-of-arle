@@ -69,6 +69,17 @@ const homeBoard = {
       { type: 'dike', contents: [] },
     ],
   ],
+  destinations: [
+    'norden',
+    'hage',
+    'beemoor',
+    'dornum',
+    'aurich',
+    'esens',
+    'emden',
+    'leer',
+    'bremen',
+  ],
   barn: {
     small1: null,
     small2: null,

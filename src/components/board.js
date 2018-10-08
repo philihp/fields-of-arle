@@ -27,7 +27,7 @@ const Board = ({
   ctx,
   ctx: { currentPlayer },
   G,
-  G: { selected, players, action },
+  G: { loading, selected, players, action },
   events,
   moves,
 }) => (
@@ -45,6 +45,14 @@ const Board = ({
           currentPlayer === '0' &&
           selected !== undefined &&
           selected.col === undefined
+        }
+        shouldShowLoadTile={
+          currentPlayer === '0' && G.action === 'load' && loading === undefined
+        }
+        shouldShowLoadBarnSpace={
+          currentPlayer === '0' &&
+          loading !== undefined &&
+          loading.barnSpace === undefined
         }
       />
     </div>
@@ -80,6 +88,14 @@ const Board = ({
           ctx.currentPlayer === '1' &&
           selected !== undefined &&
           selected.col === undefined
+        }
+        shouldShowLoadTile={
+          currentPlayer === '0' && G.action === 'load' && loading === undefined
+        }
+        shouldShowLoadBarnSpace={
+          currentPlayer === '1' &&
+          loading !== undefined &&
+          loading.barnSpace === undefined
         }
       />
     </div>
