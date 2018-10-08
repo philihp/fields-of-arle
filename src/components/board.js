@@ -30,6 +30,7 @@ const Board = ({
   G: { loading, selected, players, action },
   events,
   moves,
+  undo,
 }) => (
   <div className={classNames('Board', color(currentPlayer))}>
     <ActionsOption G={G} ctx={ctx} moves={moves} />
@@ -65,7 +66,7 @@ const Board = ({
       <RoundBoard round={G.halfYear} />
 
       <PreparationsBoard workerSpaces={G.workerSpaces} phase={ctx.phase} />
-      <MoveSelect G={G} ctx={ctx} events={events} moves={moves} />
+      <MoveSelect G={G} ctx={ctx} events={events} moves={moves} undo={undo} />
       <ActionsBoard
         workerSpaces={G.workerSpaces}
         toolSpaces={G.toolSpaces}

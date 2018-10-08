@@ -14,7 +14,7 @@ const hasPlacedWorker = ({ G, ctx }) => {
   return nextWorkerToPlace !== currentPlayer
 }
 
-const MoveSelect = ({ G, ctx, moves, events }) => {
+const MoveSelect = ({ G, ctx, moves, undo }) => {
   const nextMonthDisabled =
     !hasPlacedWorker({ G, ctx }) ||
     G.action != null ||
@@ -25,8 +25,8 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
   const handleArrange = () => {
     moves.arrange()
   }
-  const handleLoad = () => {
-    moves.load()
+  const handleUndo = () => {
+    undo()
   }
   return (
     <div className="MoveSelect">
@@ -38,14 +38,9 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
       >
         Arrange
       </button>
-      {/* <button
-        type="button"
-        onClick={handleLoad}
-        disabled={![null, 'load'].includes(G.action)}
-        className={classNames({ selected: G.action === 'load' })}
-      >
-        Load
-      </button> */}
+      <button type="button" onClick={handleUndo}>
+        Undo
+      </button>
       <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
         Pass
       </button>
@@ -55,7 +50,7 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
 
 MoveSelect.propTypes = {
   moves: PropTypes.any.isRequired,
-  events: PropTypes.object.isRequired,
+  undo: PropTypes.func.isRequired,
   G: PropTypes.any.isRequired,
   ctx: PropTypes.any.isRequired,
 }
