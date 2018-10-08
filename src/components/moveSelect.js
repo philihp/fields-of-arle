@@ -38,14 +38,14 @@ const MoveSelect = ({ G, ctx, moves, events }) => {
       >
         Arrange
       </button>
-      <button
+      {/* <button
         type="button"
         onClick={handleLoad}
         disabled={![null, 'load'].includes(G.action)}
         className={classNames({ selected: G.action === 'load' })}
       >
         Load
-      </button>
+      </button> */}
       <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
         Pass
       </button>

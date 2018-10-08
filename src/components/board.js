@@ -47,7 +47,7 @@ const Board = ({
           selected.col === undefined
         }
         shouldShowLoadTile={
-          currentPlayer === '0' && G.action === 'load' && loading === undefined
+          currentPlayer === '0' && G.action === null && loading === undefined
         }
         shouldShowLoadBarnSpace={
           currentPlayer === '0' &&
@@ -90,7 +90,7 @@ const Board = ({
           selected.col === undefined
         }
         shouldShowLoadTile={
-          currentPlayer === '0' && G.action === 'load' && loading === undefined
+          currentPlayer === '0' && G.action === null && loading === undefined
         }
         shouldShowLoadBarnSpace={
           currentPlayer === '1' &&

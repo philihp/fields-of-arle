@@ -14,7 +14,11 @@ const TableauInventory = ({ inventory, handleLoad }) => (
         <button
           type="button"
           key={`${item}${monotonic()}`}
-          disabled={handleLoad == null}
+          disabled={
+            handleLoad == null ||
+            (item === 'clay' && !inventory.includes('peat')) ||
+            item === 'peat'
+          }
           onClick={handleLoad && handleLoad(item)}
         >
           {item}

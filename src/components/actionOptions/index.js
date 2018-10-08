@@ -1,3 +1,6 @@
+import arrange from './arrange'
+import load from './load'
+
 import summerGrocer from './summerGrocer'
 import winterGrocer from './winterGrocer'
 import woolWeaver from './woolWeaver'
@@ -13,7 +16,6 @@ import linenWeaver from './linenWeaver'
 import dikeBuilder from './dikeBuilder'
 import butcher from './butcher'
 import carpenter from './carpenter'
-import arrange from './arrange'
 import wainwright from './wainwright'
 import farmer from './farmer'
 import builder from './builder'
@@ -34,6 +36,9 @@ import farmersHouse from './farmersHouse'
 // }
 
 export default {
+  arrange,
+  load,
+
   summerGrocer,
   winterGrocer,
   woolWeaver,
@@ -54,7 +59,6 @@ export default {
   summerCarpenter: carpenter,
   wainwright,
   farmer,
-  arrange,
   woodTrader,
   forester,
   foresterPlace,
