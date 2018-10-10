@@ -11,6 +11,7 @@ export const emptyDikeCell = { type: 'empty', contents: [] }
 const homeBoard = {
   tokens: [], // Floating tokens
   inventory: [
+    'timber', // TODO remove
     'wood',
     'wood',
     'wood',
@@ -27,7 +28,7 @@ const homeBoard = {
   goods: {
     food: 5,
     wool: 4,
-    flax: 3,
+    flax: 8, // TODO set back to 3
     hides: 2,
     grain: 1,
   },
