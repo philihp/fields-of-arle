@@ -25,17 +25,22 @@ const placeBuilding = ({ building, row, col }) => ({ G, ctx, ...args }) => ({
       ...G.players,
       [ctx.currentPlayer]: {
         ...G.players[ctx.currentPlayer],
+        tokens: [
+          ...G.players[ctx.currentPlayer].tokens,
+          ...G.players[ctx.currentPlayer].land[row][col].contents,
+        ],
         land: [
-          ...player.land.slice(0, row),
+          ...G.players[ctx.currentPlayer].land.slice(0, row),
           [
-            ...player.land[row].slice(0, col),
+            ...G.players[ctx.currentPlayer].land[row].slice(0, col),
             {
-              ...player.land[row][col],
+              ...G.players[ctx.currentPlayer].land[row][col],
               type: building,
+              contents: [],
             },
-            ...player.land[row].slice(col + 1),
+            ...G.players[ctx.currentPlayer].land[row].slice(col + 1),
           ],
-          ...player.land.slice(row + 1),
+          ...G.players[ctx.currentPlayer].land.slice(row + 1),
         ],
       },
     },
@@ -91,10 +96,10 @@ export default ({ G, ctx, ...args }) => {
     return compose(
       actionOption(null),
       clearSelected,
-      removeBuilding(building),
-      placeBuilding(selected),
-      expendInventory(cost),
-      expendGoods(cost)
+      removeBuilding(selected.building),
+      placeBuilding(selected)
+      // TODO expendInventory(selected.cost),
+      // TODO expendGoods({})
     )({ G, ctx, selected, ...args }).G
   } else {
     return {
