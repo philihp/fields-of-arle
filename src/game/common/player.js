@@ -246,3 +246,15 @@ export const countAnimals = player =>
         horses: 0,
       }
     )
+
+export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
+  G: {
+    ...G,
+    players: {
+      ...G.players,
+      [ctx.currentPlayer]: modifier(G.players[ctx.currentPlayer]),
+    },
+  },
+  ctx,
+  ...args,
+})

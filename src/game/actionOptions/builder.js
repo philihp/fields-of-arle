@@ -1,6 +1,7 @@
 import { compose } from 'redux'
 import { spendInventory, spendGoods } from '../../game/common'
 import { actionOption } from '../common/player'
+import onBuild from '../building/onBuild'
 
 const clearSelected = ({ G, ...args }) => ({
   G: {
@@ -96,8 +97,9 @@ export default ({ G, ctx, ...args }) => {
     return compose(
       actionOption(null),
       clearSelected,
-      removeBuilding(selected.building),
-      placeBuilding(selected)
+      onBuild(selected.building),
+      placeBuilding(selected),
+      removeBuilding(selected.building)
       // TODO expendInventory(selected.cost),
       // TODO expendGoods({})
     )({ G, ctx, selected, ...args }).G
