@@ -37,8 +37,8 @@ const Board = ({
 
     <div className="col col1">
       <Tableau
-        G={G}
-        ctx={ctx}
+        G={currentPlayer === '0' && (selected || loading) && G}
+        ctx={currentPlayer === '0' && (selected || loading) && ctx}
         player={players[0]}
         action={action}
         moves={moves}
@@ -80,8 +80,8 @@ const Board = ({
 
     <div className="col col4">
       <Tableau
-        G={G}
-        ctx={ctx}
+        G={currentPlayer === '1' && (selected || loading) && G}
+        ctx={currentPlayer === '1' && (selected || loading) && ctx}
         player={players[1]}
         action={action}
         moves={moves}
