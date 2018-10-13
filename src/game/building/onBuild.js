@@ -1,4 +1,8 @@
-import { curriedAddGoodsToPlayer, applyToCurrentPlayer } from '../common/player'
+import {
+  curriedAddGoodsToPlayer,
+  applyToCurrentPlayer,
+  inventoryAdd,
+} from '../common/player'
 
 const mill = state => {
   const { G, ctx, ...args } = state
@@ -17,8 +21,11 @@ const mill = state => {
   }
 }
 
+const textileHouse = inventoryAdd('linen', 'woolen', 'leather')
+
 const onBuild = {
   mill,
+  textileHouse,
 }
 
 export default building => onBuild[building] || (state => state)
