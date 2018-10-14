@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 const TableauDestinations = ({ destinations, handleLoad }) => (
   <div className="TableauDestinations">
-    {destinations &&
+    {handleLoad &&
+      destinations &&
       destinations.map(destination => (
         <button
           type="button"
@@ -14,6 +15,7 @@ const TableauDestinations = ({ destinations, handleLoad }) => (
           {destination}
         </button>
       ))}
+    {!handleLoad && destinations && destinations.join(', ')}
   </div>
 )
 

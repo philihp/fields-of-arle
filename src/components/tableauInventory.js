@@ -9,7 +9,8 @@ const monotonic = () => {
 
 const TableauInventory = ({ inventory, handleLoad }) => (
   <div className="TableauInventory">
-    {inventory &&
+    {handleLoad &&
+      inventory &&
       inventory.map(item => (
         <button
           type="button"
@@ -24,6 +25,7 @@ const TableauInventory = ({ inventory, handleLoad }) => (
           {item}
         </button>
       ))}
+    {!handleLoad && inventory && inventory.join(', ')}
   </div>
 )
 
