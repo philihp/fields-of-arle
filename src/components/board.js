@@ -37,16 +37,9 @@ const Board = ({
 
     <div className="col col1">
       <Tableau
-        G={G}
-        ctx={ctx}
         player={players[0]}
         action={action}
         moves={moves}
-        shouldShowPlace={
-          currentPlayer === '0' &&
-          selected !== undefined &&
-          selected.col === undefined
-        }
         shouldShowLoadTile={
           currentPlayer === '0' && G.action === null && loading === undefined
         }
@@ -59,7 +52,7 @@ const Board = ({
     </div>
 
     <div className="col col2">
-      <BuildingsBoard buildings={G.buildings} moves={moves} G={G} ctx={ctx} />
+      <BuildingsBoard buildings={G.buildings} moves={moves} />
     </div>
     <div className="col col3">
       <LighthouseStatus lighthouse={G.lighthouse} />
@@ -80,16 +73,9 @@ const Board = ({
 
     <div className="col col4">
       <Tableau
-        G={G}
-        ctx={ctx}
         player={players[1]}
         action={action}
         moves={moves}
-        shouldShowPlace={
-          ctx.currentPlayer === '1' &&
-          selected !== undefined &&
-          selected.col === undefined
-        }
         shouldShowLoadTile={
           currentPlayer === '0' && G.action === null && loading === undefined
         }

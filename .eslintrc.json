@@ -24,6 +24,7 @@
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
     "react/require-default-props": 0,
+    "react/prefer-stateless-function": 0,
     "no-debugger": 1,
     "no-console": 1,
     "no-unreachable": 1,

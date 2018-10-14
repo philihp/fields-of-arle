@@ -1,36 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import BuildingsBoard from '../buildingsBoard'
+import TableauFarm from '../tableauFarm'
 import costs from '../costs/'
 
-const visible = ({ selected }) =>
-  selected !== undefined &&
-  selected.building !== undefined &&
-  selected.col !== undefined &&
-  selected.row !== undefined
+const SelectPayment = () => <div>Select Payment</div>
 
 class Builder extends React.Component {
-  bar = () => {}
+  handlePlaceBuilding = (row, col) => () => {
+    const { moves } = this.props
+    moves.option({ col, row })
+  }
 
   render() {
-    const BuildingCost = costs[this.props.G.selected.building]
     const {
       G,
+      G: { buildings, selected },
+      ctx,
       ctx: { currentPlayer },
       moves,
     } = this.props
+
+    if (selected === undefined) {
+      return (
+        <BuildingsBoard G={G} ctx={ctx} buildings={buildings} moves={moves} />
+      )
+    }
+
+    const { building } = selected
+    if (
+      (building !== undefined && selected.row === undefined) ||
+      selected.col === undefined
+    ) {
+      const player = G.players[currentPlayer]
+      return (
+        <TableauFarm
+          moves={moves}
+          land={player.land}
+          dikes={player.dikes}
+          handlePlaceBuilding={this.handlePlaceBuilding}
+        />
+      )
+    }
+
+    const { row, col } = selected
     const {
       players: {
         [currentPlayer]: { inventory, goods },
       },
     } = G
+    const BuildingCost = costs[selected.building]
     return (
       <div>
-        {this.props.ctx === undefined}
-        <br />
-        {this.props.G === undefined}
-        <br />
-        {this.props.moves === undefined}
-        <br />
         <BuildingCost inventory={inventory} goods={goods} moves={moves} />
       </div>
     )
@@ -44,6 +65,6 @@ Builder.propTypes = {
 }
 
 export default {
-  visible,
+  visible: () => true,
   component: Builder,
 }

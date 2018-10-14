@@ -1,20 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-let n = 0
-const monotonic = () => {
-  n += 1
-  return n
-}
+import { listToKeyedList } from '../game/common/index'
 
 const TableauInventory = ({ inventory, handleLoad }) => (
   <div className="TableauInventory">
     {handleLoad &&
       inventory &&
-      inventory.map(item => (
+      listToKeyedList(inventory).map(({ item, key }) => (
         <button
           type="button"
-          key={`${item}${monotonic()}`}
+          key={key}
           disabled={
             handleLoad == null ||
             (item === 'clay' && !inventory.includes('peat')) ||

@@ -150,3 +150,15 @@ export const removeFirstItems = itemName => (accum, item) => {
 }
 
 export const Animals = ['sheep', 'horse', 'cattle']
+
+export const listToKeyedList = inventory =>
+  inventory.reduce(
+    (accum, item) => ({
+      counters: { ...accum.counters, [item]: accum.counters[item] + 1 },
+      list: [...accum.list, { item, key: `${item}-${accum.counters[item]}` }],
+    }),
+    {
+      counters: inventory.reduce((a, k) => ({ ...a, [k]: 0 })),
+      list: [],
+    }
+  ).list
