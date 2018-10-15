@@ -39,15 +39,10 @@ const Board = ({
       <Tableau
         player={players[0]}
         action={action}
+        usedWorkshops={G.usedWorkshops}
         moves={moves}
-        shouldShowLoadTile={
-          currentPlayer === '0' && G.action === null && loading === undefined
-        }
-        shouldShowLoadBarnSpace={
-          currentPlayer === '0' &&
-          loading !== undefined &&
-          loading.barnSpace === undefined
-        }
+        activePlayer={currentPlayer === '0'}
+        phase={ctx.phase}
       />
     </div>
 
@@ -76,14 +71,8 @@ const Board = ({
         player={players[1]}
         action={action}
         moves={moves}
-        shouldShowLoadTile={
-          currentPlayer === '0' && G.action === null && loading === undefined
-        }
-        shouldShowLoadBarnSpace={
-          currentPlayer === '1' &&
-          loading !== undefined &&
-          loading.barnSpace === undefined
-        }
+        activePlayer={currentPlayer === '1'}
+        phase={ctx.phase}
       />
     </div>
   </div>

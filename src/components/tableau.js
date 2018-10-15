@@ -13,10 +13,17 @@ class Tableau extends React.Component {
   }
 
   render() {
-    const { player, moves } = this.props
+    const { player, moves, activePlayer, phase, usedWorkshops } = this.props
     return (
       <div className="Tableau">
-        <TableauFarm moves={moves} land={player.land} dikes={player.dikes} />
+        <TableauFarm
+          moves={moves}
+          land={player.land}
+          dikes={player.dikes}
+          activePlayer={activePlayer}
+          phase={phase}
+          usedWorkshops={usedWorkshops}
+        />
         <TableauDestinations destinations={player.destinations} />
         <div className="goods">{JSON.stringify(player.goods)}</div>
         <div className="inventory">
@@ -34,6 +41,9 @@ class Tableau extends React.Component {
 Tableau.propTypes = {
   player: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
+  usedWorkshops: PropTypes.array.isRequired,
+  activePlayer: PropTypes.bool,
+  phase: PropTypes.string,
 }
 
 export default Tableau

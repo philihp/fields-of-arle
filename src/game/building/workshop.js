@@ -19,7 +19,7 @@ export const resetPassedIfWorkshops = (G, ctx) => {
     0: unusedWorkshops['0'].length === 0,
     1: unusedWorkshops['1'].length === 0,
   }
-  return { ...G, passed, unusedWorkshops }
+  return { ...G, passed, usedWorkshops: [] }
 }
 
 export const workshopTurnOrder = {

@@ -2,6 +2,7 @@ import { compose } from 'redux'
 import { bumpTool } from '../common/player'
 import { spendInventory } from '../common'
 import { ToolUpgradeCosts } from '../constants'
+import { playersWorkshops } from '../building/workshop'
 
 const payForTool = ({ G, ctx, args: [{ tool }] }) => ({
   G: {
@@ -35,7 +36,9 @@ export const passIfNoOtherWorkshops = ({ G, ctx, ...args }) => ({
     ...G,
     passed: {
       ...G.passed,
-      [ctx.currentPlayer]: G.unusedWorkshops[ctx.currentPlayer].length === 0,
+      [ctx.currentPlayer]:
+        G.usedWorkshops.length ===
+        playersWorkshops(G.players[ctx.currentPlayer]).length,
     },
   },
   ctx,

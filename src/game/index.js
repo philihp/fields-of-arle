@@ -107,10 +107,7 @@ export const initialState = {
   halfYear: 1,
   action: null,
   workshop: null,
-  unusedWorkshops: {
-    0: [],
-    1: [],
-  },
+  usedWorkshops: [],
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
     owner: defaultLighthouseOwner,

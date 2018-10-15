@@ -13,16 +13,10 @@ const setAction = ({ G, ctx, workshop }) => ({
   workshop,
 })
 
-const removeUnusedWorkshop = ({ G, ctx, workshop }) => ({
+const useWorkshop = ({ G, ctx, workshop }) => ({
   G: {
     ...G,
-    unusedWorkshops: {
-      ...G.unusedWorkshops,
-      [ctx.currentPlayer]: remove(
-        G.unusedWorkshops[ctx.currentPlayer],
-        workshop
-      ),
-    },
+    usedWorkshops: [...G.usedWorkshops, workshop],
   },
   ctx,
   workshop,
@@ -60,5 +54,5 @@ const actionsForWorkshop = workshop => {
 export default (G, ctx, workshop) =>
   compose(
     ...actionsForWorkshop(workshop),
-    removeUnusedWorkshop
+    useWorkshop
   )({ G, ctx, workshop }).G

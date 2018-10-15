@@ -9,15 +9,14 @@ class NovicesHut extends GenericWorkshop {
   }
 
   render() {
-    const disabled = this.props.G.action !== null
     return (
       <div>
         Novice's Hut
-        {this.unused() && (
+        {this.usable() && (
           <div>
             <button
               onClick={this.useWorkshop}
-              disabled={disabled}
+              disabled={this.used()}
               type="button"
             >
               1 Grain &amp; 1 Dike
