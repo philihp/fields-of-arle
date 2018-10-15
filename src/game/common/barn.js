@@ -71,17 +71,6 @@ export const VehicleSlots = {
   droshky: [null, null, null],
 }
 
-export const VehicleSlotSizes = {
-  handcart: [1],
-  wagon: [1, 1],
-  peatBoat: [],
-  plow: [],
-  cart: [1, 1, 1],
-  horseCart: [1, 1, 1, 1],
-  carriage: [1, 2],
-  droshky: [1, 2, 1],
-}
-
 export const openBarnSpace = (barn, type) => {
   if (SmallVehicles.includes(type)) return firstOpenSmallSpace(barn)
   else if (LargeVehicles.includes(type)) return firstOpenLargeSpace(barn)

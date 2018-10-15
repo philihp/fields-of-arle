@@ -85,7 +85,10 @@ class Load extends React.Component {
             vehicle={vehicle}
             key={vehicle.space}
             handleLoad={this.handleSelectBarnSpace(vehicle.space)}
-            disabled={this.state.barnSpace !== null}
+            tokenSize={tokenSizes[this.state.token]}
+            disabled={
+              this.state.token === null || this.state.barnSpace !== null
+            }
           />
         ))}
         <hr />
