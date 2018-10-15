@@ -87,8 +87,8 @@ const homeBoard = {
     small3: null,
     small4: null,
     large1: null,
-    large2: { type: 'horseCart', contents: [null, null, null, null] },
-    large3: { type: 'cart', contents: [null, null, null] },
+    large2: { type: 'droshky', contents: [null, null, null, null] },
+    large3: { type: 'carriage', contents: [null, null, null] },
   },
   supplyBottlenecks: 0,
 }

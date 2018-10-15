@@ -56,9 +56,23 @@ class Vehicle extends React.Component {
       if ((tokenSize === 1 && offset === 1) || offset === 2) return false
       if ((tokenSize === 2 && offset === 0) || offset === 2) return false
     }
+    // This part was fun...
+    // First, compute a bitmask of the vehicle, where any "1" is an open spot, and any "0" is a closed spot.
+    // This means a horsecart with something like [____][____][wood][____] would look like 00001101
     const v = vehicleOccupiedMask(vehicle)
+
+    // Then compute the bitmask of the thing we want to drop, given which offset.
+    // This means a woolen (2 wide) tile will be: 00000011
+    // but if you wanna put it in the 1st offset: 00000110
+    // and if you wanna put it in the 2nd offset: 00001100
+    // and if you wanted to put it in the 3rd:    00011000 -- which obviously will never work
     const c = contentMask(tokenSize, offset)
+
+    // Then logical AND them together. This will leave only bits "on" where that slot was open.
+    // That means all of the bits from the content mask should be on -- so that should equal the contentMask.
     return (v & c) === c
+
+    // and if that's true, then the content will fit in the vehicle's occupied mask. Hurray!
   }
 
   render() {

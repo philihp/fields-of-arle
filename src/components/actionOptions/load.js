@@ -43,6 +43,10 @@ class Load extends React.Component {
     this.props.moves.load('cancel')
   }
 
+  handleLoad = e => {
+    this.props.moves.load(this.state)
+  }
+
   render() {
     const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
@@ -93,7 +97,14 @@ class Load extends React.Component {
         ))}
         <hr />
         <button type="button" onClick={this.handleCancel}>
-          Cancel
+          Nevermind...
+        </button>
+        <button
+          type="button"
+          disabled={this.state.token === null || this.state.barnSpace === null}
+          onClick={this.handleLoad}
+        >
+          Load Vehicle!
         </button>
       </div>
     )

@@ -1,5 +1,4 @@
 import { compose } from 'redux'
-import { remove } from '../common'
 import { addInventory, addGoods } from '../common/player'
 import { buildDikes } from '../common/land'
 import { passIfNoOtherWorkshops } from '../actionOptions/workshop'
