@@ -82,13 +82,13 @@ const homeBoard = {
     'bremen',
   ],
   barn: {
-    small1: null,
+    small1: { type: 'wagon', contents: [null, null] },
     small2: null,
     small3: null,
     small4: null,
-    large1: { type: 'droshky', contents: [null, null, null] },
-    large2: null,
-    large3: null,
+    large1: null,
+    large2: { type: 'droshky', contents: [null, null, null, null] },
+    large3: { type: 'carriage', contents: [null, null, null] },
   },
   supplyBottlenecks: 0,
 }
@@ -107,10 +107,7 @@ export const initialState = {
   halfYear: 1,
   action: null,
   workshop: null,
-  unusedWorkshops: {
-    0: [],
-    1: [],
-  },
+  usedWorkshops: [],
   workerSpaces: summerActionsReset(defaultLighthouseOwner),
   lighthouse: {
     owner: defaultLighthouseOwner,

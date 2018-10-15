@@ -100,7 +100,7 @@ const sustenanceFood = player => {
 const consumeInventory = (state, consumed) => {
   if (state.inventory.includes(consumed)) {
     return {
-      inventory: remove(state.inventory, consumed),
+      inventory: remove(consumed)(state.inventory),
       demand: state.demand,
     }
   } else {

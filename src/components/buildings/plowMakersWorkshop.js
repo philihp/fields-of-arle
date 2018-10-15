@@ -9,15 +9,14 @@ class PlowMakersWorkshop extends GenericWorkshop {
   }
 
   render() {
-    const disabled = this.props.G.action !== null
     return (
       <div>
-        Plow Maker's Workshop
-        {this.unused() && (
+        Plow Maker&rsquo;s Workshop
+        {this.usable() && (
           <div>
             <button
               onClick={this.useWorkshop}
-              disabled={disabled}
+              disabled={this.used()}
               type="button"
             >
               Place Field

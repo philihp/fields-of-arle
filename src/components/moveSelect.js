@@ -14,38 +14,57 @@ const hasPlacedWorker = ({ G, ctx }) => {
   return nextWorkerToPlace !== currentPlayer
 }
 
-const MoveSelect = ({ G, ctx, moves, undo }) => {
-  const nextMonthDisabled =
-    !hasPlacedWorker({ G, ctx }) ||
-    G.action != null ||
-    goodsFloating({ G, ctx })
-  const onNextMonth = () => {
-    moves.pass()
+class MoveSelect extends React.Component {
+  onNextMonth = () => {
+    this.props.moves.pass()
   }
-  const handleArrange = () => {
-    moves.arrange()
+
+  handleArrange = () => {
+    this.props.moves.arrange()
   }
-  const handleUndo = () => {
-    undo()
+
+  handleLoad = () => {
+    this.props.moves.load()
   }
-  return (
-    <div className="MoveSelect">
-      <button
-        type="button"
-        onClick={handleArrange}
-        disabled={![null, 'arrange'].includes(G.action)}
-        className={classNames({ selected: G.action === 'arrange' })}
-      >
-        Arrange
-      </button>
-      <button type="button" onClick={handleUndo}>
-        Undo
-      </button>
-      <button type="submit" disabled={nextMonthDisabled} onClick={onNextMonth}>
-        Pass
-      </button>
-    </div>
-  )
+
+  handleUndo = () => {
+    this.props.undo()
+  }
+
+  render() {
+    const { G, ctx } = this.props
+
+    const nextMonthDisabled =
+      !hasPlacedWorker({ G, ctx }) ||
+      G.action != null ||
+      goodsFloating({ G, ctx })
+
+    return (
+      <div className="MoveSelect">
+        <button
+          type="button"
+          onClick={this.handleArrange}
+          disabled={![null, 'arrange'].includes(G.action)}
+          className={classNames({ selected: G.action === 'arrange' })}
+        >
+          Arrange
+        </button>
+        <button type="button" onClick={this.handleLoad}>
+          Load
+        </button>
+        <button type="button" onClick={this.handleUndo}>
+          Undo
+        </button>
+        <button
+          type="submit"
+          disabled={nextMonthDisabled}
+          onClick={this.onNextMonth}
+        >
+          Pass
+        </button>
+      </div>
+    )
+  }
 }
 
 MoveSelect.propTypes = {

@@ -9,18 +9,17 @@ class Workshop extends GenericWorkshop {
   }
 
   render() {
-    const disabled = this.props.G.action !== null
     return (
       <div>
         Workshop
-        {this.unused() && (
+        {this.usable() && (
           <div>
             <button
               onClick={this.useWorkshop}
-              disabled={disabled}
+              disabled={this.used()}
               type="button"
             >
-              1 Wood &amp; 1 Master
+              wood master
             </button>
           </div>
         )}

@@ -1,5 +1,4 @@
 import { compose } from 'redux'
-import { remove } from '../common'
 import { addInventory, addGoods } from '../common/player'
 import { buildDikes } from '../common/land'
 import { passIfNoOtherWorkshops } from '../actionOptions/workshop'
@@ -13,16 +12,10 @@ const setAction = ({ G, ctx, workshop }) => ({
   workshop,
 })
 
-const removeUnusedWorkshop = ({ G, ctx, workshop }) => ({
+const useWorkshop = ({ G, ctx, workshop }) => ({
   G: {
     ...G,
-    unusedWorkshops: {
-      ...G.unusedWorkshops,
-      [ctx.currentPlayer]: remove(
-        G.unusedWorkshops[ctx.currentPlayer],
-        workshop
-      ),
-    },
+    usedWorkshops: [...G.usedWorkshops, workshop],
   },
   ctx,
   workshop,
@@ -60,5 +53,5 @@ const actionsForWorkshop = workshop => {
 export default (G, ctx, workshop) =>
   compose(
     ...actionsForWorkshop(workshop),
-    removeUnusedWorkshop
+    useWorkshop
   )({ G, ctx, workshop }).G

@@ -148,7 +148,9 @@ const details = {
 const tooltipFor = building =>
   (details[building] && details[building].tooltip) || null
 
-const computeCanBuy = ({ G, G: { action }, ctx, building }) => {
+const computeCanBuy = ({ G, ctx, building }) => {
+  if (G === undefined || ctx === undefined) return false
+  const { action } = G
   if (action !== 'builder') return false
   if (G.selected !== undefined) return false
   if (affordable[building] === undefined) return false

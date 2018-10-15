@@ -9,15 +9,14 @@ class FarmersHouse extends GenericWorkshop {
   }
 
   render() {
-    const disabled = this.props.G.action !== null
     return (
       <div>
-        Farmer's House
-        {this.unused() && (
+        Farmer&rsquo;s House
+        {this.usable() && (
           <div>
             <button
               onClick={this.useWorkshop}
-              disabled={disabled}
+              disabled={this.used()}
               type="button"
             >
               1 Clay &amp; Cut Peat

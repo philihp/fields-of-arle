@@ -6,8 +6,9 @@ import TableauLand from './tableauLand'
 import './tableauFarm.css'
 
 const TableauFarm = ({
-  G,
-  ctx,
+  activePlayer,
+  phase,
+  usedWorkshops,
   moves,
   land,
   dikes,
@@ -27,8 +28,9 @@ const TableauFarm = ({
       {land.map((row, y) =>
         row.map((cell, x) => (
           <TableauLand
-            G={G}
-            ctx={ctx}
+            activePlayer={activePlayer}
+            phase={phase}
+            usedWorkshops={usedWorkshops}
             moves={moves}
             key={[x, y].join('+')}
             style={{ gridArea: `l${y}${x}` }}
@@ -96,6 +98,9 @@ TableauFarm.propTypes = {
   handleBuildStable: PropTypes.func, // if provided, stalls have a button that upgrades them to a stable
   handleBuildField: PropTypes.func, // if provided, empty fields have a button that builds a grain and a button for flax field
   disabledBuildField: PropTypes.func, // must be true, given row and col, for the button to be enabled
+  usedWorkshops: PropTypes.array,
+  activePlayer: PropTypes.bool,
+  phase: PropTypes.string,
 }
 
 export default TableauFarm

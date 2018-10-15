@@ -11,8 +11,9 @@ const buildingFromType = type => {
 }
 
 const TableauLand = ({
-  G,
-  ctx,
+  activePlayer,
+  phase,
+  usedWorkshops,
   moves,
   children,
   flooded,
@@ -60,7 +61,13 @@ const TableauLand = ({
     >
       <div>
         {(Building && (
-          <Building type={children.type} G={G} ctx={ctx} moves={moves} />
+          <Building
+            type={children.type}
+            activePlayer={activePlayer}
+            usedWorkshops={usedWorkshops}
+            phase={phase}
+            moves={moves}
+          />
         )) || <UnknownBuilding type={children.type} />}
 
         {children.type === 'empty' &&
@@ -142,8 +149,9 @@ const TableauLand = ({
 }
 
 TableauLand.propTypes = {
-  G: PropTypes.object.isRequired,
-  ctx: PropTypes.object.isRequired,
+  activePlayer: PropTypes.bool,
+  phase: PropTypes.string,
+  usedWorkshops: PropTypes.array,
   children: PropTypes.any,
   flooded: PropTypes.bool,
   style: PropTypes.object,

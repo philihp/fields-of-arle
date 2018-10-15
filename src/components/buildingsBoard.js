@@ -1,14 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Building from './building'
+import { listToKeyedList } from '../game/common/index'
 
 import './buildingsBoard.css'
-
-let i = 0
-const monotonic = () => {
-  i += 1
-  return i
-}
 
 const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
   <div className="BuildingsBoard">
@@ -33,14 +28,14 @@ const BuildingsBoard = ({ buildings, moves, G, ctx }) => (
       Large Buildings
       {/* <div className="toolTip toolTipRight">3 timber, 3 bricks, 15 food</div> */}
     </div>
-    {buildings.map(b => (
+    {listToKeyedList(buildings).map(({ item, key }) => (
       <Building
-        building={b}
+        building={item}
         shouldShowTooltip
         moves={moves}
         G={G}
         ctx={ctx}
-        key={b || monotonic()}
+        key={key}
       />
     ))}
   </div>

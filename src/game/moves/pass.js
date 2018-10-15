@@ -4,10 +4,7 @@ export default (G, ctx) => {
     return {
       ...G,
       action: null,
-      unusedWorkshops: {
-        ...G.unusedWorkshops,
-        [ctx.currentPlayer]: [],
-      },
+      usedWorkshops: [],
       workshop: null,
       passed: {
         ...G.passed,
