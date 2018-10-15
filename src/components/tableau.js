@@ -22,7 +22,7 @@ class Tableau extends React.Component {
           dikes={player.dikes}
           activePlayer={activePlayer}
           phase={phase}
-          usedWorkshops={usedWorkshops}
+          usedWorkshops={usedWorkshops || []}
         />
         <TableauDestinations destinations={player.destinations} />
         <div className="goods">{JSON.stringify(player.goods)}</div>
@@ -41,7 +41,7 @@ class Tableau extends React.Component {
 Tableau.propTypes = {
   player: PropTypes.any.isRequired,
   moves: PropTypes.any.isRequired,
-  usedWorkshops: PropTypes.array.isRequired,
+  usedWorkshops: PropTypes.array,
   activePlayer: PropTypes.bool,
   phase: PropTypes.string,
 }

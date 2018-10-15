@@ -27,7 +27,7 @@ const Board = ({
   ctx,
   ctx: { currentPlayer },
   G,
-  G: { loading, selected, players, action },
+  G: { players, action },
   events,
   moves,
   undo,

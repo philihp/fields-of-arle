@@ -6,16 +6,11 @@ export default (G, ctx, ...args) => {
       return {
         ...G,
         action: null,
-        loading: undefined,
       }
     }
     return {
       ...G,
       action: 'load',
-      loading: {
-        ...G.loading,
-        ...arg,
-      },
     }
   }
 }
