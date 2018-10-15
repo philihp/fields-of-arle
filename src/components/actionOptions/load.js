@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Vehicle from '../vehicle'
 import { listToKeyedList } from '../../game/common/index'
+import { tokenSizes } from '../../game/moves/load'
 
 const visible = () => true
 
@@ -13,7 +14,7 @@ const visible = () => true
 //   {type: "carriage", contents: [null,null,null], space: "large2",
 //   ...
 // ]
-const vehicles = player =>
+const usableVehicles = player =>
   Object.entries(player.barn)
     // remove any spaces with nothing in the parked spot
     .filter(([space, parked]) => parked !== null)
@@ -34,6 +35,10 @@ class Load extends React.Component {
     this.setState({ token })
   }
 
+  handleSelectBarnSpace = barnSpace => vehicleOffset => e => {
+    this.setState({ barnSpace, vehicleOffset })
+  }
+
   handleCancel = e => {
     this.props.moves.load('cancel')
   }
@@ -41,6 +46,7 @@ class Load extends React.Component {
   render() {
     const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
+    const vehicles = usableVehicles(player)
     return (
       <div>
         <b>Loading</b>
@@ -74,7 +80,14 @@ class Load extends React.Component {
         <br />
         into
         <br />
-        {JSON.stringify(vehicles(player))}
+        {vehicles.map(vehicle => (
+          <Vehicle
+            vehicle={vehicle}
+            key={vehicle.space}
+            handleLoad={this.handleSelectBarnSpace(vehicle.space)}
+            disabled={this.state.barnSpace !== null}
+          />
+        ))}
         <hr />
         <button type="button" onClick={this.handleCancel}>
           Cancel
