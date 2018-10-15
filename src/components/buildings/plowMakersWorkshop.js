@@ -11,7 +11,7 @@ class PlowMakersWorkshop extends GenericWorkshop {
   render() {
     return (
       <div>
-        Plow Maker's Workshop
+        Plow Maker&rsquo;s Workshop
         {this.usable() && (
           <div>
             <button

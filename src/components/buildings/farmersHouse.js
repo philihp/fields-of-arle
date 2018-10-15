@@ -11,7 +11,7 @@ class FarmersHouse extends GenericWorkshop {
   render() {
     return (
       <div>
-        Farmer's House
+        Farmer&rsquo;s House
         {this.usable() && (
           <div>
             <button

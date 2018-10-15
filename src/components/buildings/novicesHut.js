@@ -11,7 +11,7 @@ class NovicesHut extends GenericWorkshop {
   render() {
     return (
       <div>
-        Novice's Hut
+        Novice&rsquo;s Hut
         {this.usable() && (
           <div>
             <button
