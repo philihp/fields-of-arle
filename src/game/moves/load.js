@@ -12,21 +12,28 @@ export const tokenSizes = {
   esens: 2,
   leer: 3,
   bremen: 4,
-
   wood: 1,
   timber: 1,
-
   clay: 1,
   brick: 1,
-
   linen: 3,
   summerWare: 3,
-
   woolen: 2,
   winterWare: 2,
-
   leather: 3,
   leatherWare: 3,
+}
+
+export const destinationInputs = {
+  hage: [null],
+  beemoor: [null],
+  dornum: [null],
+  norden: [null, null, null],
+  aurich: [null, null, null],
+  esens: [null, null, null],
+  emden: [null, null, null, null],
+  leer: [null, null, null, null],
+  bremen: [null, null, null, null, null],
 }
 
 const addToBarnContents = ({ token, barnSpace, vehicleOffset }) => player => ({

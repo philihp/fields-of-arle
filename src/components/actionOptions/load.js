@@ -4,7 +4,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Vehicle from '../vehicle'
 import { listToKeyedList } from '../../game/common/index'
-import { tokenSizes } from '../../game/moves/load'
+import { tokenSizes, destinationInputs } from '../../game/moves/load'
+
+import Destinations from '../destinations/index'
 
 const visible = () => true
 
@@ -28,11 +30,16 @@ class Load extends React.Component {
       token: null,
       barnSpace: null,
       vehicleOffset: null,
+      conversionInputs: [],
     }
   }
 
-  handleSelectToken = token => e => {
+  handleSelectInventory = token => e => {
     this.setState({ token })
+  }
+
+  handleSelectDestination = token => e => {
+    this.setState({ token, conversionInputs: destinationInputs[token] })
   }
 
   handleSelectBarnSpace = barnSpace => vehicleOffset => e => {
@@ -47,10 +54,21 @@ class Load extends React.Component {
     this.props.moves.load(this.state)
   }
 
+  handleSellAtDestination = offset => withParameter => e => {
+    this.setState({
+      conversionInputs: [
+        ...this.state.conversionInputs.slice(0, offset),
+        [withParameters],
+        ...this.state.conversionInputs.slice(offset + 1),
+      ],
+    })
+  }
+
   render() {
     const { G, ctx } = this.props
     const player = G.players[ctx.currentPlayer]
     const vehicles = usableVehicles(player)
+    const DestinationMarket = Destinations[this.state.token]
     return (
       <div>
         <b>Loading</b>
@@ -60,7 +78,7 @@ class Load extends React.Component {
           <button
             type="button"
             key={key}
-            onClick={this.handleSelectToken(item)}
+            onClick={this.handleSelectInventory(item)}
             disabled={
               this.state.token !== null ||
               item === 'peat' ||
@@ -75,7 +93,7 @@ class Load extends React.Component {
           <button
             type="button"
             key={destination}
-            onClick={this.handleSelectToken(destination)}
+            onClick={this.handleSelectDestination(destination)}
             disabled={this.state.token !== null}
           >
             {destination}
@@ -95,13 +113,32 @@ class Load extends React.Component {
             }
           />
         ))}
+        {this.state.conversionInputs.length !== 0 &&
+          this.state.conversionInputs.every(i => i === null) && (
+            <div>
+              Sell at desination...
+              <DestinationMarket
+                inventory={
+                  [
+                    /* TODO: populate with all the tokens that the user might expend */
+                  ]
+                }
+                handleSellAtDestination={this.handleSellAtDestination}
+              />
+            </div>
+          )}
         <hr />
         <button type="button" onClick={this.handleCancel}>
           Nevermind...
         </button>
         <button
           type="button"
-          disabled={this.state.token === null || this.state.barnSpace === null}
+          disabled={
+            this.state.token === null ||
+            this.state.barnSpace === null ||
+            (this.state.conversionInputs.length !== 0 &&
+              this.state.conversionInputs.every(i => i === null))
+          }
           onClick={this.handleLoad}
         >
           Load Vehicle!
