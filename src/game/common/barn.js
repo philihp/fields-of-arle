@@ -1,4 +1,5 @@
-const barnVehicles = barn => [
+// deprecated...?
+export const barnVehicles = barn => [
   barn.small1,
   barn.small2,
   barn.small3,
@@ -7,6 +8,8 @@ const barnVehicles = barn => [
   barn.large2,
   barn.large3,
 ]
+
+export const playerBarnVehicles = player => barnVehicles(player.barn)
 
 export const firstOpenSmallSpace = barn => {
   if (!barn.small1) return 'small1'

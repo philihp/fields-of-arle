@@ -43,6 +43,12 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
   ...args,
 })
 
+export const inventoryAddToPlayer = (...newInventoryList) => player => ({
+  ...player,
+  inventory: [player.inventory, ...newInventoryList],
+})
+
+// TODO: create tests, and then rewrite using applyToCurrentPlayer and inventoryAddToPlayer
 export const inventoryAdd = (...newInventoryList) => ({ G, ctx, ...args }) => ({
   G: {
     ...G,

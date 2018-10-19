@@ -3,14 +3,45 @@ import {
   addGoodsToPlayer,
   countAnimals,
   curriedAddGoodsToPlayer,
+  inventoryAdd,
+  inventoryAddToPlayer,
 } from './common/player'
 import { spendInventory, remove } from './common/index'
+import { playerBarnVehicles } from './common/barn'
+import { flip } from './common/tokens'
 
 // 1: One
+const emptyVehicleIfExists = vehicle => {
+  if (vehicle === null) return null
+  return {
+    ...vehicle,
+    contents: vehicle.contents.fill(null),
+  }
+}
+
+const emptyBarn = player => ({
+  ...player,
+  barn: Object.keys(player.barn).reduce(
+    (accum, key) => ({
+      ...accum,
+      [key]: emptyVehicleIfExists(player.barn[key]),
+    }),
+    {}
+  ),
+})
+
 const emptyVehicles = player => {
-  // TODO
-  if (!player) return null
-  return player
+  //  if (!player) return null
+  const tokens = playerBarnVehicles(player)
+    .filter(v => v !== null)
+    .map(v => v.contents)
+    .flat()
+    .filter(i => i !== null)
+    .map(t => flip(t))
+  return compose(
+    emptyBarn,
+    inventoryAddToPlayer(tokens)
+  )(player)
 }
 
 // 2: Two
