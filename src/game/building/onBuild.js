@@ -3,6 +3,7 @@ import {
   applyToCurrentPlayer,
   inventoryAdd,
 } from '../common/player'
+import { identity } from '../common/index'
 
 const mill = state => {
   const { G, ctx, ...args } = state
@@ -28,4 +29,4 @@ const onBuild = {
   textileHouse,
 }
 
-export default building => onBuild[building] || (state => state)
+export default building => onBuild[building] || identity

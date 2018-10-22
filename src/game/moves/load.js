@@ -1,6 +1,6 @@
 import { compose } from 'redux'
 import { actionOption, applyToCurrentPlayer } from '../common/player'
-import { remove } from '../common/index'
+import { remove, identity } from '../common/index'
 import destinations from '../destinations/index'
 
 export const tokenSizes = {
@@ -74,14 +74,14 @@ const removeFromInventory = ({ token }) => {
   ) {
     return applyToCurrentPlayer(removeFromPlayerInventory(token))
   }
-  return state => state
+  return identity
 }
 
 const burnPeatForClay = ({ token }) => {
   if (token === 'clay') {
     return applyToCurrentPlayer(removeFromPlayerInventory('peat'))
   }
-  return state => state
+  return identity
 }
 
 const moveTokenToVehicle = arg => applyToCurrentPlayer(addToBarnContents(arg))
