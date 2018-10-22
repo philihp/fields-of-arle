@@ -1,11 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+export const size = 1
 
-const Dornum = ({ inventory, handleSellAtDestination }) => <div>Dornum</div>
-
-Dornum.propTypes = {
-  inventory: PropTypes.array.isRequired,
-  handleSellAtDestination: PropTypes.func.isRequired,
-}
-
-export default Dornum
+export default conversionInputs => applyToCurrentPlayer(compose())

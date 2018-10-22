@@ -8,7 +8,7 @@ import {
 } from './common/player'
 import { spendInventory, remove } from './common/index'
 import { playerBarnVehicles } from './common/barn'
-import { flip } from './common/tokens'
+import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
 
 // 1: One
 const emptyVehicleIfExists = vehicle => {
@@ -40,7 +40,8 @@ const emptyVehicles = player => {
     .map(t => flip(t))
   return compose(
     emptyBarn,
-    inventoryAddToPlayer(tokens)
+    accrueTravelExperience(destinations.filter(isDestination)),
+    inventoryAddToPlayer(tokens.filter(isInventoryItemButNotPeat))
   )(player)
 }
 

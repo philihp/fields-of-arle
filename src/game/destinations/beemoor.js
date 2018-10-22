@@ -1,11 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+export const size = 1
 
-const Beemoor = ({ inventory, handleSellAtDestination }) => <div>Beemoor</div>
-
-Beemoor.propTypes = {
-  inventory: PropTypes.array.isRequired,
-  handleSellAtDestination: PropTypes.func.isRequired,
-}
-
-export default Beemoor
+export default conversionInputs => applyToCurrentPlayer(compose())

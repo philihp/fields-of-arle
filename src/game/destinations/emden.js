@@ -1,11 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+export const size = 3
 
-const Emden = ({ inventory, handleSellAtDestination }) => <div>Emden</div>
-
-Emden.propTypes = {
-  inventory: PropTypes.array.isRequired,
-  handleSellAtDestination: PropTypes.func.isRequired,
-}
-
-export default Emden
+export default conversionInputs => applyToCurrentPlayer(compose())

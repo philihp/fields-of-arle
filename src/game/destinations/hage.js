@@ -1,11 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+export const size = 1
 
-const Hage = ({ inventory, handleSellAtDestination }) => <div>Hage</div>
-
-Hage.propTypes = {
-  inventory: PropTypes.array.isRequired,
-  handleSellAtDestination: PropTypes.func.isRequired,
-}
-
-export default Hage
+export default conversionInputs => applyToCurrentPlayer(compose())

@@ -2,7 +2,9 @@ import { compose } from 'redux'
 import { actionOption, applyToCurrentPlayer } from '../common/player'
 import { remove, identity } from '../common/index'
 import destinations from '../destinations/index'
+import { isDestination, isInventoryItemButNotPeat } from '../common/tokens'
 
+// TODO not really sure where I want this info to live... currently duplicated for destinations
 export const tokenSizes = {
   norden: 2,
   hage: 1,
@@ -57,22 +59,16 @@ const removeFromPlayerInventory = token => player => ({
   inventory: remove(token)(player.inventory),
 })
 
+const removeFromPlayerDestinations = token => player => ({
+  ...player,
+  destinations: remove(token)(player.destinations),
+})
+
 const removeFromInventory = ({ token }) => {
-  if (
-    [
-      'wood',
-      'timber',
-      'clay',
-      'brick',
-      'linen',
-      'summerWare',
-      'woolen',
-      'winterWare',
-      'leather',
-      'leatherWare',
-    ].includes(token)
-  ) {
+  if (isInventoryItemButNotPeat(token)) {
     return applyToCurrentPlayer(removeFromPlayerInventory(token))
+  } else if (isDestination(token)) {
+    return applyToCurrentPlayer(removeFromPlayerDestinations(token))
   }
   return identity
 }

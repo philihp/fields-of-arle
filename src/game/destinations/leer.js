@@ -1,11 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+export const size = 3
 
-const Leer = ({ inventory, handleSellAtDestination }) => <div>Leer</div>
-
-Leer.propTypes = {
-  inventory: PropTypes.array.isRequired,
-  handleSellAtDestination: PropTypes.func.isRequired,
-}
-
-export default Leer
+export default conversionInputs => applyToCurrentPlayer(compose())
