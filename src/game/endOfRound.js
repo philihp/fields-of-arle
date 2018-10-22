@@ -6,6 +6,7 @@ import {
   inventoryAdd,
   inventoryAddToPlayer,
 } from './common/player'
+import { size } from './destinations/index'
 import { spendInventory, remove } from './common/index'
 import { playerBarnVehicles } from './common/barn'
 import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
@@ -30,6 +31,14 @@ const emptyBarn = player => ({
   ),
 })
 
+const accrueTravelExperience = destinations => player => ({
+  ...player,
+  travelExperience: destinations.reduce(
+    (sum, destination) => sum + size[destination],
+    player.travelExperience
+  ),
+})
+
 const emptyVehicles = player => {
   //  if (!player) return null
   const tokens = playerBarnVehicles(player)
@@ -40,7 +49,7 @@ const emptyVehicles = player => {
     .map(t => flip(t))
   return compose(
     emptyBarn,
-    accrueTravelExperience(destinations.filter(isDestination)),
+    accrueTravelExperience(tokens.filter(isDestination)),
     inventoryAddToPlayer(tokens.filter(isInventoryItemButNotPeat))
   )(player)
 }

@@ -24,7 +24,7 @@ const homeBoard = {
     'peat',
     'peat',
   ], // Permanent tokens
-  //   travelExperience: 0,
+  travelExperience: 0,
   goods: {
     food: 5,
     wool: 4,

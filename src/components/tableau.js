@@ -33,6 +33,7 @@ class Tableau extends React.Component {
         </div>
         <TableauInventory inventory={player.inventory} />
         <TableauBarn barn={player.barn} />
+        Travel Experience: {player.travelExperience}
       </div>
     )
   }
