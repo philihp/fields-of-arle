@@ -264,3 +264,16 @@ export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
   ctx,
   ...args,
 })
+
+export const sellableAtDestination = player => [
+  ...player.inventory,
+  ...player.land
+    .flat()
+    .map(cell => cell.contents)
+    .flat()
+    .filter(item => item !== 'peat'),
+  ...player.dikes
+    .flat()
+    .map(cell => cell.contents)
+    .flat(),
+]

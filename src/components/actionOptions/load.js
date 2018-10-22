@@ -3,8 +3,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Vehicle from '../vehicle'
-import { listToKeyedList } from '../../game/common/index'
+import { listToKeyedList, remove } from '../../game/common/index'
 import { tokenSizes, destinationInputs } from '../../game/moves/load'
+import { sellableAtDestination } from '../../game/common/player'
 
 import Destinations from '../destinations/index'
 
@@ -30,6 +31,7 @@ class Load extends React.Component {
       token: null,
       barnSpace: null,
       vehicleOffset: null,
+      inventory: [],
       conversionInputs: [],
     }
   }
@@ -39,7 +41,12 @@ class Load extends React.Component {
   }
 
   handleSelectDestination = token => e => {
-    this.setState({ token, conversionInputs: destinationInputs[token] })
+    const { G, ctx } = this.props
+    this.setState({
+      token,
+      conversionInputs: destinationInputs[token],
+      inventory: sellableAtDestination(G.players[ctx.currentPlayer]),
+    })
   }
 
   handleSelectBarnSpace = barnSpace => vehicleOffset => e => {
@@ -54,11 +61,12 @@ class Load extends React.Component {
     this.props.moves.load(this.state)
   }
 
-  handleSellAtDestination = offset => withParameter => e => {
+  handleSellAtDestination = (offset, withParameter) => e => {
     this.setState({
+      inventory: remove(withParameter)(this.state.inventory),
       conversionInputs: [
         ...this.state.conversionInputs.slice(0, offset),
-        [withParameters],
+        [withParameter],
         ...this.state.conversionInputs.slice(offset + 1),
       ],
     })
@@ -113,20 +121,16 @@ class Load extends React.Component {
             }
           />
         ))}
-        {this.state.conversionInputs.length !== 0 &&
-          this.state.conversionInputs.every(i => i === null) && (
-            <div>
-              Sell at desination...
-              <DestinationMarket
-                inventory={
-                  [
-                    /* TODO: populate with all the tokens that the user might expend */
-                  ]
-                }
-                handleSellAtDestination={this.handleSellAtDestination}
-              />
-            </div>
-          )}
+        {this.state.conversionInputs.length !== 0 && (
+          <div>
+            Sell at desination...
+            <DestinationMarket
+              conversionInputs={this.state.conversionInputs}
+              inventory={this.state.inventory}
+              handleSellAtDestination={this.handleSellAtDestination}
+            />
+          </div>
+        )}
         <hr />
         <button type="button" onClick={this.handleCancel}>
           Nevermind...
@@ -143,6 +147,7 @@ class Load extends React.Component {
         >
           Load Vehicle!
         </button>
+        <pre>{JSON.stringify(this.state.conversionInputs)}</pre>
       </div>
     )
   }
