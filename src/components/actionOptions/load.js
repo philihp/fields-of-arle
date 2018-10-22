@@ -58,7 +58,12 @@ class Load extends React.Component {
   }
 
   handleLoad = e => {
-    this.props.moves.load(this.state)
+    this.props.moves.load({
+      token: this.state.token,
+      barnSpace: this.state.barnSpace,
+      vehicleOffset: this.state.vehicleOffset,
+      conversionInputs: this.state.conversionInputs,
+    })
   }
 
   handleSellAtDestination = (offset, withParameter) => e => {
@@ -81,7 +86,7 @@ class Load extends React.Component {
       <div>
         <b>Loading</b>
         <br />
-        Load{' '}
+        Pick 1:
         {listToKeyedList(player.inventory).map(({ item, key }) => (
           <button
             type="button"
@@ -108,7 +113,7 @@ class Load extends React.Component {
           </button>
         ))}
         <br />
-        into
+        Pick 1:
         <br />
         {vehicles.map(vehicle => (
           <Vehicle
@@ -122,14 +127,11 @@ class Load extends React.Component {
           />
         ))}
         {this.state.conversionInputs.length !== 0 && (
-          <div>
-            Sell at desination...
-            <DestinationMarket
-              conversionInputs={this.state.conversionInputs}
-              inventory={this.state.inventory}
-              handleSellAtDestination={this.handleSellAtDestination}
-            />
-          </div>
+          <DestinationMarket
+            conversionInputs={this.state.conversionInputs}
+            inventory={this.state.inventory}
+            handleSellAtDestination={this.handleSellAtDestination}
+          />
         )}
         <hr />
         <button type="button" onClick={this.handleCancel}>

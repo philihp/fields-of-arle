@@ -1,6 +1,7 @@
 import { compose } from 'redux'
 import { actionOption, applyToCurrentPlayer } from '../common/player'
 import { remove } from '../common/index'
+import destinations from '../destinations/index'
 
 export const tokenSizes = {
   norden: 2,
@@ -85,6 +86,12 @@ const burnPeatForClay = ({ token }) => {
 
 const moveTokenToVehicle = arg => applyToCurrentPlayer(addToBarnContents(arg))
 
+const sellAtDestination = arg => state => {
+  const destinationProcessor = destinations[arg.token]
+  if (destinationProcessor === undefined) return state
+  return destinationProcessor(arg.conversionInputs)(state)
+}
+
 export default (G, ctx, ...args) => {
   if (![null, 'load'].includes(G.action)) return G
   const [arg] = args
@@ -92,6 +99,7 @@ export default (G, ctx, ...args) => {
   else if (arg === 'cancel') return actionOption(null)({ G, ctx, ...args }).G
   else {
     return compose(
+      sellAtDestination(arg),
       moveTokenToVehicle(arg),
       removeFromInventory(arg),
       burnPeatForClay(arg),

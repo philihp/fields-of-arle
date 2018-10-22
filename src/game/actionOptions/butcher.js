@@ -3,7 +3,7 @@ import { findFirstAnimal } from '../common/animals'
 const animalFoodValue = animal => (animal === 'cattle' ? 4 : 3)
 
 export const slaughterAnimal = (player, animal) => {
-  const address = findFirstAnimal(player, animal)
+  const address = findFirstAnimal(animal)(player)
   if (address === null) return player
   const [grid, row, col, i] = address
   // TODO use removeFirstAnimal instead

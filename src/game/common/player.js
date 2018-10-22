@@ -1,11 +1,11 @@
-import { flatten, spendInventory, Animals } from './index'
+import { remove, flatten, spendInventory, Animals } from './index'
 import {
   openBarnSpace,
   VehicleSource,
   VehicleSlots,
   EquipmentCosts,
 } from './barn'
-import { removeFirstAnimal } from './animals'
+import { removeFirstAnimalReducer } from './animals'
 
 /*
 Uncomposed utility functions, which you probably want to call with just
@@ -46,6 +46,11 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
 export const inventoryAddToPlayer = (...newInventoryList) => player => ({
   ...player,
   inventory: [player.inventory, ...newInventoryList],
+})
+
+export const inventorySpendFromPlayer = (...tokens) => player => ({
+  ...player,
+  inventory: spendInventory(player.inventory, tokens),
 })
 
 // TODO: create tests, and then rewrite using applyToCurrentPlayer and inventoryAddToPlayer
@@ -156,7 +161,7 @@ export const payForVehicle = ({ G, ctx, ...args }, type, withAnimal) => {
           // this part expends the animals
           ...cost
             .filter(a => Animals.includes(a))
-            .reduce(removeFirstAnimal, G.players[ctx.currentPlayer]),
+            .reduce(removeFirstAnimalReducer, G.players[ctx.currentPlayer]),
           // this part expends the building materials
           inventory: spendInventory(
             G.players[ctx.currentPlayer].inventory,

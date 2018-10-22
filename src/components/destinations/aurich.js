@@ -12,7 +12,7 @@ class Aurich extends React.Component {
       <div>
         {JSON.stringify(inventory)}
         <br />
-        <b>Aurich Market:</b>
+        <b>Sellers at Aurich will buy (pick at least one):</b>
         <ul>
           <li>
             <button
@@ -24,7 +24,7 @@ class Aurich extends React.Component {
             >
               Leather
             </button>
-            -> 4 food
+            for 4 food
           </li>
 
           <li>
@@ -45,7 +45,7 @@ class Aurich extends React.Component {
               type="button"
               onClick={handleSellAtDestination(1, 'cattle')}
             >
-              Sheep
+              Cattle
             </button>
             or
             <button
@@ -57,7 +57,7 @@ class Aurich extends React.Component {
             >
               Horse
             </button>
-            -> 4 food
+            for 4 food
           </li>
 
           <li>
@@ -70,7 +70,7 @@ class Aurich extends React.Component {
             >
               Horse
             </button>
-            -> 5 food
+            for 5 food
           </li>
         </ul>
       </div>

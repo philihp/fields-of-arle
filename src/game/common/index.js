@@ -162,3 +162,5 @@ export const listToKeyedList = inventory =>
       list: [],
     }
   ).list
+
+export const identity = i => i
