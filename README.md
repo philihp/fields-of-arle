@@ -15,7 +15,7 @@ This is an implementation of [Fields of Arle](https://boardgamegeek.com/boardgam
   
 # Setting Up
 
-* Get node 8.12
+* Get node 8.13
 * Get npm 6.4.1
 * Checkout the repo and install with `npm install`
 * Run the site with `npm run start`
