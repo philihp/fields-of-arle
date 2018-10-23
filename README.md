@@ -2,7 +2,7 @@
 
 [![Depfu](https://badges.depfu.com/badges/ede82a33ca142bfe99428710696ad9b3/overview.svg)](https://depfu.com/github/philihp/fields-of-arle?project_id=5793)
 
-This is an implementation of Fields of Arle to play online. It takes the following approaches:
+This is an implementation of [Fields of Arle](https://boardgamegeek.com/boardgame/159675/fields-arle) to play online. It takes the following approaches:
 
 * State shape should be similar to the physical board. The `G` schema should be intuitive
   * e.g. we could keep a count of each animal and have the view figure out where they live on the farm, however
@@ -12,10 +12,17 @@ This is an implementation of Fields of Arle to play online. It takes the followi
     `{clay: 3}`.
 * Derived data are handled by React views.
   * Which land tiles are flooded is calculated on the client.
+  
+# Setting Up
+
+* Get node 8.12
+* Get npm 6.4.1
+* Checkout the repo and install with `npm install`
+* Run the site with `npm run start`
 
 # Warranties
 
-This is an academic passion project. As such, it has turned into an exercise for me to learn how babel works, or how
+This is mostly an academic passion project. As such, it has turned into an exercise for me to learn how babel works, or how
 eslint works, or how functional programming works. As such, I make no guarantees for code quality. Always be learning.
 
 # Timelines
