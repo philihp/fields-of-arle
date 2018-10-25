@@ -45,7 +45,7 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
 
 export const inventoryAddToPlayer = (...newInventoryList) => player => ({
   ...player,
-  inventory: [player.inventory, ...newInventoryList],
+  inventory: [...player.inventory, ...newInventoryList],
 })
 
 export const inventorySpendFromPlayer = (...tokens) => player => ({
@@ -270,7 +270,7 @@ export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
   ...args,
 })
 
-export const sellableAtDestination = destination => player => [
+export const sellableAtDestination = player => [
   // all the flax and grain fields
   ...player.land
     .flatMap((row, y) => row.map((cell, x) => [cell.type, y, x]))
