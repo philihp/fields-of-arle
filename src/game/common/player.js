@@ -270,13 +270,35 @@ export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
   ...args,
 })
 
-export const sellableAtDestination = player => [
+export const sellableAtDestination = destination => player => [
+  // all the flax and grain fields
+  ...player.land
+    .flatMap((row, y) => row.map((cell, x) => [cell.type, y, x]))
+    .filter(([type, y, x]) => ['grain', 'flax'].includes(type))
+    .map(([type, y, x]) => `${type}-${x}-${y}`),
+  // add one or two of the goods... don't add more because nothing sells more than 2
+  ...(player.goods.flax >= 1 ? ['flax'] : []),
+  ...(player.goods.hide >= 1 ? ['hide'] : []),
+  ...(player.goods.grain >= 1 ? ['grain'] : []),
+  ...(player.goods.grain >= 2 ? ['grain'] : []),
+  // boardwalk moor
+  ...[player.land[4][1]]
+    .map(cell => cell.type)
+    .filter(type => type === 'boardwalk'),
+  // moor toiles
+  ...player.land[5]
+    .map(cell => cell.type)
+    .map((item, index) => (item === 'moorNorth' ? [`moor-${index}`] : []))
+    .flat(),
+  // inventory
   ...player.inventory,
+  // things on the land tiles, minus uncut peat
   ...player.land
     .flat()
     .map(cell => cell.contents)
     .flat()
     .filter(item => item !== 'peat'),
+  // animals on dikes
   ...player.dikes
     .flat()
     .map(cell => cell.contents)
