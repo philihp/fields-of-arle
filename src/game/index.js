@@ -1,10 +1,5 @@
 import { summerActionsReset } from './workerSpaces'
 
-// import { createStore } from 'redux'
-// import reducer from './reducers'
-
-// const store = createStore(reducer)
-
 export const emptyLandCell = { type: 'empty', contents: [] }
 export const emptyDikeCell = { type: 'empty', contents: [] }
 

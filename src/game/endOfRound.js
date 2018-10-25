@@ -50,7 +50,7 @@ const emptyVehicles = player => {
   return compose(
     emptyBarn,
     accrueTravelExperience(tokens.filter(isDestination)),
-    inventoryAddToPlayer(tokens.filter(isInventoryItemButNotPeat))
+    inventoryAddToPlayer(...tokens.filter(isInventoryItemButNotPeat))
   )(player)
 }
 

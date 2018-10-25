@@ -45,7 +45,7 @@ class Load extends React.Component {
     this.setState({
       token,
       conversionInputs: destinationInputs[token],
-      inventory: sellableAtDestination(token)(G.players[ctx.currentPlayer]),
+      inventory: sellableAtDestination(G.players[ctx.currentPlayer]),
     })
   }
 
