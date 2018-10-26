@@ -10,7 +10,6 @@ class Beemoor extends React.Component {
     const { inventory, handleSellAtDestination } = this.props
     return (
       <div>
-        <br />
         <b>Sellers at Beemoor will buy:</b>
         <ul>
           <li>

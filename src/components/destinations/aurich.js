@@ -10,8 +10,6 @@ class Aurich extends React.Component {
     const { inventory, handleSellAtDestination } = this.props
     return (
       <div>
-        {JSON.stringify(inventory)}
-        <br />
         <b>Sellers at Aurich will buy (pick at least one):</b>
         <ul>
           <li>

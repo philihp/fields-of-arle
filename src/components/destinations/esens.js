@@ -12,8 +12,6 @@ class Esens extends React.Component {
     const { inventory, handleSellAtDestination } = this.props
     return (
       <div>
-        {JSON.stringify(inventory)}
-        <br />
         <b>Sellers at Esens will buy (pick at least one):</b>
         <ul>
           <li>
