@@ -98,7 +98,7 @@ export const addGoodsToPlayer = ({ player, good, amount }) => ({
   ...player,
   goods: {
     ...player.goods,
-    [good]: player.goods[good] + amount,
+    [good]: ((player.goods[good] + amount)>15)?15:player.goods[good] + amount,
   },
 })
 
