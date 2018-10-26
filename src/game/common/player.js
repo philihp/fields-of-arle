@@ -4,6 +4,7 @@ import {
   VehicleSource,
   VehicleSlots,
   EquipmentCosts,
+  playerBarnVehicles,
 } from './barn'
 import { removeFirstAnimalReducer } from './animals'
 
@@ -303,4 +304,8 @@ export const sellableAtDestination = player => [
     .flat()
     .map(cell => cell.contents)
     .flat(),
+  // vehicles
+  ...playerBarnVehicles(player)
+    .filter(v => v !== null)
+    .map(vehicle => vehicle.type),
 ]
