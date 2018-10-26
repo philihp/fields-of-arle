@@ -7,6 +7,7 @@ import {
   playerBarnVehicles,
 } from './barn'
 import { removeFirstAnimalReducer } from './animals'
+import { GoodsLimit } from '../constants'
 
 /*
 Uncomposed utility functions, which you probably want to call with just
@@ -98,7 +99,10 @@ export const addGoodsToPlayer = ({ player, good, amount }) => ({
   ...player,
   goods: {
     ...player.goods,
-    [good]: player.goods[good] + amount > 15 ? 15 : player.goods[good] + amount,
+    [good]:
+      player.goods[good] + amount > GoodsLimit[good]
+        ? GoodsLimit[good]
+        : player.goods[good] + amount,
   },
 })
 
