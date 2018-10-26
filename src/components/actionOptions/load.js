@@ -66,12 +66,12 @@ class Load extends React.Component {
     })
   }
 
-  handleSellAtDestination = (offset, withParameter) => e => {
+  handleSellAtDestination = (offset, ...withParameters) => e => {
     this.setState({
-      inventory: remove(withParameter)(this.state.inventory),
+      inventory: remove(...withParameters)(this.state.inventory),
       conversionInputs: [
         ...this.state.conversionInputs.slice(0, offset),
-        [withParameter],
+        [withParameters],
         ...this.state.conversionInputs.slice(offset + 1),
       ],
     })

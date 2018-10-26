@@ -55,11 +55,14 @@ export const afford = (inventory, cost) => {
 export const distinct = (inventory, kinds) =>
   kinds.reduce((accum, kind) => accum + (inventory.includes(kind) ? 1 : 0), 0)
 
-export const remove = element => array => {
+const removeOne = element => array => {
   const index = array.indexOf(element)
   if (index === -1) return array
   return [...array.slice(0, index), ...array.slice(index + 1)]
 }
+
+export const remove = (...elements) => array =>
+  elements.reduce((a, e) => removeOne(e)(a), array)
 
 export const spendInventory = (inventory, cost) => {
   let state = {
