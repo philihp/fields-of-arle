@@ -7,7 +7,7 @@ const G = {
     0: {
       // hypothetical 1x1 farm
       land: [[{ type: 'empty', contents: ['horse'] }]],
-      dikes: [[{ contents: ['sheep', 'horse'] }]],
+      dikes: [[{ type: 'dike', contents: ['sheep', 'horse'] }]],
       inventory: ['leather'],
       goods: {
         food: 0,
@@ -72,15 +72,21 @@ describe('aurich load', () => {
     expect(player.goods.food).toBe(9)
   })
 
-  it('fdsa', () => {
+  it('does nothing if no animals', () => {
     const G2 = {
       ...G,
       players: {
         ...G.players,
         0: {
           // hypothetical 1x1 farm
-          land: [[{ type: 'empty', contents: [] }]],
-          dikes: [[{ contents: [] }]],
+          land: [
+            [{ type: 'empty', contents: [] }],
+            [{ type: 'empty', contents: [] }],
+          ],
+          dikes: [
+            [{ type: 'dike', contents: [] }],
+            [{ type: 'dike', contents: [] }],
+          ],
           inventory: ['leather'],
           goods: {
             food: 0,
@@ -88,10 +94,11 @@ describe('aurich load', () => {
         },
       },
     }
-    // const player = aurich([null, ['horse'], null])({ G: G2, ctx }).G.players[
-    //   '0'
-    // ]
-    // expect(countAnimals(player)).toEqual({ cattle: 1, horses: 0, sheep: 0 })
+    const player = aurich([null, ['horse'], null])({ G: G2, ctx }).G.players[
+      '0'
+    ]
+    expect(countAnimals(player)).toEqual({ cattle: 0, horses: 0, sheep: 0 })
+    // currently doesn't happen... would be nice
     // expect(player.goods.food).toBe(0)
   })
 })
