@@ -1,4 +1,4 @@
-import { remove, flatten, spendInventory, Animals } from './index'
+import { remove, flatten, spendInventory, Animals, spendGoods } from './index'
 import {
   openBarnSpace,
   VehicleSource,
@@ -119,6 +119,11 @@ export const addGoods = ({ G, ctx, ...args }, good, amount) => ({
   },
   ctx,
   ...args,
+})
+
+export const spendGoodsFromPlayer = cost => player => ({
+  ...player,
+  goods: spendGoods(player.goods, cost),
 })
 
 export const getVehicle = ({ G, ctx, ...args }, type) => {

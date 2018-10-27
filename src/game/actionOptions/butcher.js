@@ -11,7 +11,7 @@ export const slaughterAnimal = (player, animal) => {
     ...player,
     goods: {
       ...player.goods,
-      hides: Math.min(player.goods.hides + 2, 15),
+      hide: Math.min(player.goods.hide + 2, 15),
       food: Math.min(player.goods.food + animalFoodValue(animal), 30),
     },
     [grid]: [

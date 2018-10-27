@@ -79,15 +79,8 @@ describe('aurich load', () => {
         ...G.players,
         0: {
           // hypothetical 1x1 farm
-          land: [
-            [{ type: 'empty', contents: [] }],
-            [{ type: 'empty', contents: [] }],
-          ],
-          dikes: [
-            [{ type: 'dike', contents: [] }],
-            [{ type: 'dike', contents: [] }],
-          ],
-          inventory: ['leather'],
+          land: [[{ type: 'empty', contents: [] }]],
+          dikes: [[{ type: 'dike', contents: [] }]],
           goods: {
             food: 0,
           },
@@ -98,7 +91,5 @@ describe('aurich load', () => {
       '0'
     ]
     expect(countAnimals(player)).toEqual({ cattle: 0, horses: 0, sheep: 0 })
-    // currently doesn't happen... would be nice
-    // expect(player.goods.food).toBe(0)
   })
 })

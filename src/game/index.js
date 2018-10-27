@@ -24,7 +24,7 @@ const homeBoard = {
     food: 5,
     wool: 4,
     flax: 8, // TODO set back to 3
-    hides: 2,
+    hide: 2,
     grain: 1,
   },
   land: [

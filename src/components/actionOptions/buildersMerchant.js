@@ -69,7 +69,7 @@ class BuildersMerchant extends React.Component {
         />
         <label htmlFor="timberBrickBrick">Brick</label>
         <br />
-        (also you get 2 hides)
+        (also you get 2 hide)
         <input
           type="submit"
           value="Collect"

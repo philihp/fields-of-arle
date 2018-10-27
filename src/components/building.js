@@ -67,7 +67,7 @@ const details = {
   },
   cooperage: {
     tooltip:
-      '4vp, for 5/10/15 sheep+cattle, 1 grain, flax, wool, hides, and 2 food',
+      '4vp, for 5/10/15 sheep+cattle, 1 grain, flax, wool, hide, and 2 food',
     class: 'minorCraftBuilding',
   },
   bakehouse: {
