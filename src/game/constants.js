@@ -31,6 +31,7 @@ export const GoodsLimit = {
   hides: 15,
   flax: 15,
   grain: 15,
+  wool: 15,
 }
 
 export const ToolUpgradeCosts = {
