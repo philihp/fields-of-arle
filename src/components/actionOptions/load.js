@@ -71,7 +71,7 @@ class Load extends React.Component {
       inventory: remove(...withParameters)(this.state.inventory),
       conversionInputs: [
         ...this.state.conversionInputs.slice(0, offset),
-        [withParameters],
+        withParameters,
         ...this.state.conversionInputs.slice(offset + 1),
       ],
     })
