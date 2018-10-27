@@ -1,0 +1,1 @@
+import { findFirstAnimal } from '../animals'
