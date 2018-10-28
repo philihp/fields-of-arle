@@ -9,19 +9,19 @@ export const isInventoryItemButNotPeat = token =>
     'clay',
     'brick',
     'linen',
-    'summerWare',
+    'summerWear',
     'woolen',
-    'winterWare',
+    'winterWear',
     'leather',
-    'leatherWare',
+    'leatherWear',
   ].includes(token)
 
 const flippedToken = {
   clay: 'brick',
   wood: 'timber',
-  linen: 'summerWare',
-  woolen: 'winterWare',
-  leather: 'leatherWare',
+  linen: 'summerWear',
+  woolen: 'winterWear',
+  leather: 'leatherWear',
 }
 
 export const flip = token =>

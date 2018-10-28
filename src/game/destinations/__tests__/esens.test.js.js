@@ -5,7 +5,6 @@ const ctx = { currentPlayer: 0 }
 const G = {
   players: {
     0: {
-      // hypothetical 1x1 farm
       inventory: ['linen'],
       goods: {
         hide: 1,

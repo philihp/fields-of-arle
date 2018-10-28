@@ -11,9 +11,9 @@ const hasFabricSet = inventory =>
   inventory.includes('leather')
 
 const hasClothesSet = inventory =>
-  inventory.includes('winterWare') &&
-  inventory.includes('summerWare') &&
-  inventory.includes('leatherWare')
+  inventory.includes('winterWear') &&
+  inventory.includes('summerWear') &&
+  inventory.includes('leatherWear')
 
 class Bremen extends React.Component {
   constructor(props) {

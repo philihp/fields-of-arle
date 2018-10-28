@@ -20,11 +20,11 @@ export const tokenSizes = {
   clay: 1,
   brick: 1,
   linen: 3,
-  summerWare: 3,
+  summerWear: 3,
   woolen: 2,
-  winterWare: 2,
+  winterWear: 2,
   leather: 3,
-  leatherWare: 3,
+  leatherWear: 3,
 }
 
 export const destinationInputs = {

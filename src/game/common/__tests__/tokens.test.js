@@ -1,12 +1,12 @@
 import { flip } from '../tokens'
 
 describe('flip', () => {
-  it('turns woolen into winterWare', () => {
-    expect(flip('woolen')).toBe('winterWare')
+  it('turns woolen into winterWear', () => {
+    expect(flip('woolen')).toBe('winterWear')
   })
 
-  it('turns winterWare into winterWare', () => {
-    expect(flip('winterWare')).toBe('winterWare')
+  it('turns winterWear into winterWear', () => {
+    expect(flip('winterWear')).toBe('winterWear')
   })
 
   it('does not mess with unknown tokens', () => {
