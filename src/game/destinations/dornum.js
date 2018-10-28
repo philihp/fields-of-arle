@@ -1,10 +1,6 @@
 import { compose } from 'redux'
 import { identity } from '../common/index'
-import {
-  applyToCurrentPlayer,
-  curriedAddGoodsToPlayer,
-  inventorySpendFromPlayer,
-} from '../common/player'
+import { applyToCurrentPlayer, curriedAddGoodsToPlayer } from '../common/player'
 import { findSmallSpaceOccupiedBy } from '../common/barn'
 
 export const size = 1
