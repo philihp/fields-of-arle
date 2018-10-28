@@ -37,4 +37,4 @@ const convertField = field => {
 }
 
 export default conversionInputs =>
-  applyToCurrentPlayer(compose(convertField(conversionInputs[0])))
+  applyToCurrentPlayer(convertField(conversionInputs[0]))

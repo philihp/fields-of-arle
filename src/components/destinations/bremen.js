@@ -28,92 +28,13 @@ class Bremen extends React.Component {
         <b>Sellers at Bremen will buy (pick at least one):</b>
         <ul>
           <li>
-            <button
-              disabled={
-                this.props.conversionInputs[0] || !inventory.includes('timber')
-              }
-              type="button"
-              onClick={handleSellAtDestination(0, 'timber')}
-            >
-              Timber
-            </button>
-            for 5 food
-          </li>
-
-          <li>
-            <button
-              disabled={
-                this.props.conversionInputs[1] ||
-                inventory.reduce(countOf('sheep'), 0) < 2
-              }
-              type="button"
-              onClick={handleSellAtDestination(1, 'sheep', 'sheep')}
-            >
-              2x Sheep
-            </button>
-            or
-            <button
-              disabled={
-                this.props.conversionInputs[1] ||
-                inventory.reduce(countOf('cattle'), 0) < 2
-              }
-              type="button"
-              onClick={handleSellAtDestination(1, 'cattle', 'cattle')}
-            >
-              2x Cattle
-            </button>
-            or
-            <button
-              disabled={
-                this.props.conversionInputs[1] ||
-                inventory.reduce(countOf('horse'), 0) < 2
-              }
-              type="button"
-              onClick={handleSellAtDestination(1, 'horse', 'horse')}
-            >
-              2x Horse
-            </button>
-            for 9 food
-          </li>
-
-          <li>
-            <button
-              disabled={
-                this.props.conversionInputs[2] || !hasFabricSet(inventory)
-              }
-              type="button"
-              onClick={handleSellAtDestination(2, 'woolen', 'linen', 'leather')}
-            >
-              Woolen + Linen + Leather
-            </button>
-            for 12 food
-          </li>
-
-          <li>
-            <button
-              disabled={
-                this.props.conversionInputs[3] || !hasClothesSet(inventory)
-              }
-              type="button"
-              onClick={handleSellAtDestination(
-                3,
-                'winterWear',
-                'summerWear',
-                'leatherWear'
-              )}
-            >
-              Winter Wear + Summer Wear + Leather Wear
-            </button>
-            for 30 food
-          </li>
-
-          <li>
             {moors.length !== 0 &&
               moors.map(field => (
                 <button
-                  disabled={this.props.conversionInputs[4]}
+                  key={field}
+                  disabled={this.props.conversionInputs[0]}
                   type="button"
-                  onClick={handleSellAtDestination(4, field)}
+                  onClick={handleSellAtDestination(0, field)}
                 >
                   {field}
                 </button>
@@ -124,6 +45,86 @@ class Bremen extends React.Component {
               </button>
             )}
             for thoughts and prayers
+          </li>
+
+          <li>
+            <button
+              disabled={
+                this.props.conversionInputs[1] || !inventory.includes('timber')
+              }
+              type="button"
+              onClick={handleSellAtDestination(1, 'timber')}
+            >
+              Timber
+            </button>
+            for 5 food
+          </li>
+
+          <li>
+            <button
+              disabled={
+                this.props.conversionInputs[2] ||
+                inventory.reduce(countOf('sheep'), 0) < 2
+              }
+              type="button"
+              onClick={handleSellAtDestination(2, 'sheep', 'sheep')}
+            >
+              2x Sheep
+            </button>
+            or
+            <button
+              disabled={
+                this.props.conversionInputs[2] ||
+                inventory.reduce(countOf('cattle'), 0) < 2
+              }
+              type="button"
+              onClick={handleSellAtDestination(2, 'cattle', 'cattle')}
+            >
+              2x Cattle
+            </button>
+            or
+            <button
+              disabled={
+                this.props.conversionInputs[2] ||
+                inventory.reduce(countOf('horse'), 0) < 2
+              }
+              type="button"
+              onClick={handleSellAtDestination(2, 'horse', 'horse')}
+            >
+              2x Horse
+            </button>
+            for 9 food
+          </li>
+
+          <li>
+            <button
+              disabled={
+                this.props.conversionInputs[3] || !hasFabricSet(inventory)
+              }
+              type="button"
+              onClick={handleSellAtDestination(3, 'woolen', 'linen', 'leather')}
+            >
+              Woolen + Linen + Leather
+            </button>
+            for 12 food
+          </li>
+
+          <li>
+            <button
+              disabled={
+                this.props.conversionInputs[4] || !hasClothesSet(inventory)
+              }
+              type="button"
+              onClick={handleSellAtDestination(
+                4,
+                'winterWear',
+                'summerWear',
+                'leatherWear'
+              )}
+            >
+              Winter Wear + Summer Wear + Leather Wear
+            </button>
+            for 30 food
           </li>
         </ul>
       </div>
