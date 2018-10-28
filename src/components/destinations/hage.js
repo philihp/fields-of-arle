@@ -19,6 +19,7 @@ class Hage extends React.Component {
             {fields.length !== 0 &&
               fields.map(field => (
                 <button
+                  key={field}
                   disabled={this.props.conversionInputs[0]}
                   type="button"
                   onClick={handleSellAtDestination(0, field)}

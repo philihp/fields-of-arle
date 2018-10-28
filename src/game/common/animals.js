@@ -33,6 +33,7 @@ export const findFirstAnimal = animal => {
 
 export const removeFirstAnimal = animal => player => {
   const address = findFirstAnimal(animal)(player)
+  if (address === null) return player
   // if (address === null) {
   //   console.warn('unable to find animal to remove')
   //   return player

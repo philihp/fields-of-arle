@@ -62,9 +62,9 @@ class Butcher extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        Sheep and Horses -> 3 food, 2 hides each
+        Sheep and Horses -> 3 food, 2 hide each
         <br />
-        Cattle -> 4 food, 2 hides each
+        Cattle -> 4 food, 2 hide each
         <br />
         <br />
         Select up to {this.state.maxTimes} animals to convert.

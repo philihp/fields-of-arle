@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hage load removes the field 1`] = `
+Array [
+  Array [
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+    Object {
+      "contents": Array [],
+      "type": "empty",
+    },
+  ],
+  Array [
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+  ],
+  Array [
+    Object {
+      "contents": Array [
+        "horse",
+        "horse",
+      ],
+      "type": "stall",
+    },
+    Object {
+      "contents": Array [],
+      "type": "empty",
+    },
+    Object {
+      "contents": Array [],
+      "type": "flax",
+    },
+  ],
+]
+`;
