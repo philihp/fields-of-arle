@@ -1,4 +1,4 @@
-import { inventoryAddToPlayer } from '../player'
+import { inventoryAddToPlayer, inventorySpendFromPlayer } from '../player'
 import { initialState } from '../../index'
 
 describe('player', () => {
@@ -22,6 +22,33 @@ describe('player', () => {
         .forEach(key => {
           expect(newPlayer[key]).toBe(player[key])
         })
+    })
+    it('adds multiple items to inventory', () => {
+      const addEggs = inventoryAddToPlayer('egg', 'egg')
+      expect(addEggs(player).inventory).toEqual([
+        ...player.inventory,
+        'egg',
+        'egg',
+      ])
+    })
+  })
+
+  describe('inventorySpendFromPlayer', () => {
+    beforeEach(() => {
+      player = {
+        ...player,
+        inventory: ['aaa', 'bbb', 'ccc', 'aaa', 'bbb', 'ddd', 'aaa', 'ccc'],
+      }
+    })
+    it('only spends one', () => {
+      player = inventorySpendFromPlayer('aaa')(player)
+      const expected = ['bbb', 'ccc', 'aaa', 'bbb', 'ddd', 'aaa', 'ccc']
+      expect(player.inventory).toEqual(expected)
+    })
+    it('can spend multiple', () => {
+      player = inventorySpendFromPlayer('aaa', 'ccc', 'ddd')(player)
+      const expected = ['bbb', 'aaa', 'bbb', 'aaa', 'ccc']
+      expect(player.inventory).toEqual(expected)
     })
   })
 })
