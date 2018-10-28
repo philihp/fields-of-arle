@@ -11,6 +11,11 @@ export const barnVehicles = barn => [
 
 export const playerBarnVehicles = player => barnVehicles(player.barn)
 
+export const findSmallSpaceOccupiedBy = type => barn =>
+  ['large3', 'small1', 'small2', 'small3', 'small4'].find(
+    space => barn[space] !== null && barn[space].type === type
+  )
+
 export const firstOpenSmallSpace = barn => {
   if (!barn.small1) return 'small1'
   else if (!barn.small2) return 'small2'

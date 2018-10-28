@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dornum load sell one plow, in large3 first, for 8 food 1`] = `
+Object {
+  "large1": null,
+  "large2": null,
+  "large3": null,
+  "small1": Object {
+    "contents": Array [],
+    "type": "plow",
+  },
+  "small2": Object {
+    "contents": Array [],
+    "type": "plow",
+  },
+  "small3": Object {
+    "contents": Array [],
+    "type": "plow",
+  },
+  "small4": Object {
+    "contents": Array [],
+    "type": "plow",
+  },
+}
+`;
