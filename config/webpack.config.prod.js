@@ -2,7 +2,7 @@ const autoprefixer = require('autoprefixer')
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtract = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
@@ -34,15 +34,6 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css'
-
-// ExtractTextPlugin expects the build output to be flat.
-// (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
-// However, our output is structured with css, js and media folders.
-// To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-  ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split('/').length).join('../') }
-  : {}
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -165,7 +156,7 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              MiniCssExtract.loader,
+              MiniCssExtractPlugin.loader,
               'css-loader',
               {
                 loader: 'postcss-loader',
@@ -181,10 +172,10 @@ module.exports = {
                         'not ie < 9', // React doesn't support IE8 anyway
                       ],
                       flexbox: 'no-2009',
-                    })
-                  ]
-                }
-              }
+                    }),
+                  ],
+                },
+              },
             ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
@@ -232,8 +223,8 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new MiniCssExtract({
-      filename: cssFilename
+    new MiniCssExtractPlugin({
+      filename: cssFilename,
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
