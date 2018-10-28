@@ -10,7 +10,6 @@
   "parser": "babel-eslint",
   "plugins": ["unicorn", "import", "jsx-a11y", "react"],
   "rules": {
-    "linebreak-style": ["error", "windows"],
     "consistent-return": 0,
     "import/no-useless-path-segments": 0,
     "jsx-a11y/click-events-have-key-events": 0,
