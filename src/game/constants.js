@@ -26,6 +26,14 @@ export const ToolPoints = {
   workbenches: [0, 1, 4],
 }
 
+export const GoodsLimit = {
+  food: 30,
+  hides: 15,
+  flax: 15,
+  grain: 15,
+  wool: 15,
+}
+
 export const ToolUpgradeCosts = {
   fishTraps: ['wood'],
   fleshingBeams: ['wood'],
