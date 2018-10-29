@@ -77,13 +77,13 @@ const homeBoard = {
     'bremen',
   ],
   barn: {
-    small1: { type: 'wagon', contents: [null, null] },
+    small1: null,
     small2: null,
     small3: null,
     small4: null,
     large1: null,
-    large2: { type: 'droshky', contents: [null, null, null, null] },
-    large3: { type: 'carriage', contents: [null, null, null] },
+    large2: null,
+    large3: null,
   },
   supplyBottlenecks: 0,
 }

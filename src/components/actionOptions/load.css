@@ -1,0 +1,19 @@
+.tile-width-1 {
+  width: 50px;
+  padding: 3px 0;
+}
+
+.tile-width-2 {
+  width: 100px;
+  padding: 3px 0;
+}
+
+.tile-width-3 {
+  width: 150px;
+  padding: 3px 0;
+}
+
+.tile-width-4 {
+  width: 200px;
+  padding: 3px 0;
+}

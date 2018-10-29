@@ -8,7 +8,7 @@ import hage, { size as hageSize } from './hage'
 import leer, { size as leerSize } from './leer'
 import norden, { size as nordenSize } from './norden'
 
-export const size = {
+const size = {
   aurich: aurichSize,
   beemoor: beemoorSize,
   bremen: bremenSize,
@@ -19,6 +19,8 @@ export const size = {
   leer: leerSize,
   norden: nordenSize,
 }
+
+export const destinationSize = destination => size[destination]
 
 export default {
   aurich,

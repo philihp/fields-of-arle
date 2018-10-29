@@ -6,7 +6,7 @@ import {
   inventoryAdd,
   inventoryAddToPlayer,
 } from './common/player'
-import { size } from './destinations/index'
+import { destinationSize } from './destinations/index'
 import { spendInventory, remove } from './common/index'
 import { playerBarnVehicles } from './common/barn'
 import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
@@ -34,7 +34,7 @@ const emptyBarn = player => ({
 const accrueTravelExperience = destinations => player => ({
   ...player,
   travelExperience: destinations.reduce(
-    (sum, destination) => sum + size[destination],
+    (sum, destination) => sum + destinationSize(destination),
     player.travelExperience
   ),
 })

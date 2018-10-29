@@ -6,8 +6,10 @@ import Vehicle from '../vehicle'
 import { listToKeyedList, remove } from '../../game/common/index'
 import { tokenSizes, destinationInputs } from '../../game/moves/load'
 import { sellableAtDestination } from '../../game/common/player'
-
+import { tokenSize } from '../../game/common/tokens'
+import { destinationSize } from '../../game/destinations/index'
 import Destinations from '../destinations/index'
+import './load.css'
 
 const visible = () => true
 
@@ -86,7 +88,8 @@ class Load extends React.Component {
       <div>
         <b>Loading</b>
         <br />
-        Pick 1:
+        Pick 1 Tile:
+        <br />
         {listToKeyedList(player.inventory).map(({ item, key }) => (
           <button
             type="button"
@@ -97,23 +100,24 @@ class Load extends React.Component {
               item === 'peat' ||
               (item === 'clay' && !player.inventory.includes('peat'))
             }
+            className={`tile-width-${tokenSize(item)}`}
           >
             {item}
           </button>
         ))}
-        <br />
         {player.destinations.map(destination => (
           <button
             type="button"
             key={destination}
             onClick={this.handleSelectDestination(destination)}
             disabled={this.state.token !== null}
+            className={`tile-width-${destinationSize(destination)}`}
           >
             {destination}
           </button>
         ))}
         <br />
-        Pick 1:
+        Pick 1 Vehicle:
         <br />
         {vehicles.map(vehicle => (
           <Vehicle
@@ -149,7 +153,6 @@ class Load extends React.Component {
         >
           Load Vehicle!
         </button>
-        <pre>{JSON.stringify(this.state.conversionInputs)}</pre>
       </div>
     )
   }
