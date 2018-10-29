@@ -10,6 +10,7 @@ import cattleTrader from './cattleTrader'
 import peatBoatman from './peatBoatman'
 import woodTrader from './woodTrader'
 import forester from './forester'
+import dikeWarden from './dikeWarden'
 
 export default {
   fisherman,
@@ -28,7 +29,7 @@ export default {
   summerCarpenter: generic,
   winterCarpenter: generic,
   builder: generic,
-  warden: generic, // TODO
+  warden: generic,
   summerLaborer: generic, // TODO
   winterLaborer: generic, // TODO
   peatBoatman,
@@ -40,6 +41,6 @@ export default {
   potter: generic,
   baker: generic,
   woodTrader,
-  dikeWarden: generic, // TODO
+  dikeWarden,
   wainwright: generic,
 }

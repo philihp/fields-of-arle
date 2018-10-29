@@ -64,6 +64,7 @@ export default {
   forester,
   foresterPlace,
   warden,
+  dikeWarden: warden,
 
   plowMakersWorkshop,
   workshop,

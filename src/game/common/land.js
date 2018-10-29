@@ -2,7 +2,7 @@ const cellNotEmpty = cell => cell.type !== 'empty'
 const rowNotEmpty = row => row.every(cellNotEmpty)
 export const findSeaLevel = dikes => dikes.findIndex(rowNotEmpty)
 
-export const buildDikes = times => ({ G, ctx, args }) => {
+export const buildDikes = times => ({ G, ctx, ...args }) => {
   const { currentPlayer } = ctx
   const dikes = G.players[currentPlayer].dikes.slice()
   const flatDikes = dikes.reduce((accum, row) => [...row, ...accum], [])
@@ -35,7 +35,7 @@ export const buildDikes = times => ({ G, ctx, args }) => {
       },
     },
     ctx,
-    args,
+    ...args,
   }
 }
 
