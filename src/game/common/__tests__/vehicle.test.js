@@ -1,12 +1,5 @@
 import { flipVehicle } from '../vehicle'
 
-const upgradedVehicle = {
-  handcart: 'wagon',
-  peatBoat: 'plow',
-  cart: 'horseCart',
-  carriage: 'droshky',
-}
-
 describe('flipVehicle', () => {
   it('flips a handcart', () => {
     const expected = { type: 'wagon', contents: ['tuna', null] }
@@ -38,11 +31,24 @@ describe('flipVehicle', () => {
   it('flips a carriage', () => {
     const expected = {
       type: 'droshky',
-      contents: ['tuna', 'bread', null],
+      contents: ['tuna', 'bread', 'chips', null],
     }
     const actual = flipVehicle({
       type: 'carriage',
-      contents: ['tuna', 'bread'],
+      contents: ['tuna', 'bread', 'chips'],
+    })
+    expect(actual.type).toEqual(expected.type)
+    expect(actual.contents).toEqual(expected.contents)
+  })
+
+  it('flips a carriage', () => {
+    const expected = {
+      type: 'droshky',
+      contents: [null, null, null, null],
+    }
+    const actual = flipVehicle({
+      type: 'carriage',
+      contents: [null, null, null],
     })
     expect(actual.type).toEqual(expected.type)
     expect(actual.contents).toEqual(expected.contents)

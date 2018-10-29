@@ -64,8 +64,8 @@ export const VehicleSlots = {
   plow: [],
   cart: [null, null, null],
   horseCart: [null, null, null, null],
-  carriage: [null, null],
-  droshky: [null, null, null],
+  carriage: [null, null, null],
+  droshky: [null, null, null, null],
 }
 
 export const openBarnSpace = (barn, type) => {

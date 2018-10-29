@@ -89,7 +89,7 @@ class Vehicle extends React.Component {
       <div className={classNames('Vehicle', vehicle.type)}>
         {handleWardenFlip &&
           vehicle !== null &&
-          vehicle === flipVehicle(vehicle) && (
+          vehicle !== flipVehicle(vehicle) && (
             <button type="button" key={vehicle} onClick={handleWardenFlip}>
               Flip
             </button>

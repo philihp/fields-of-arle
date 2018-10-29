@@ -19,6 +19,7 @@ import builder from './builder'
 import woodTrader from './woodTrader'
 import forester from './forester'
 import foresterPlace from './foresterPlace'
+import warden from './warden'
 
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
@@ -53,6 +54,8 @@ export default {
   woodTrader,
   forester,
   foresterPlace,
+  warden,
+  dikeWarden: warden,
 
   plowMakersWorkshop,
   workshop,
