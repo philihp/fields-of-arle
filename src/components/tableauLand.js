@@ -28,6 +28,7 @@ const TableauLand = ({
   handleBuildStable,
   handleBuildField,
   disabledBuildField,
+  handleWardenFlip,
 }) => {
   const canReceive =
     (children.type === 'empty' &&
@@ -126,6 +127,16 @@ const TableauLand = ({
             </button>
           )}
 
+        {/* warden */}
+        {['dmoorNorth', 'moorNorth', 'stall', 'stable', 'forest'].includes(
+          children.type
+        ) &&
+          handleWardenFlip && (
+            <button type="submit" onClick={handleWardenFlip}>
+              Flip
+            </button>
+          )}
+
         <br />
         {children.contents.map((item, i) => (
           <TableauItem
@@ -164,6 +175,7 @@ TableauLand.propTypes = {
   handleBuildStable: PropTypes.func, // if provided, stalls have a button that upgrades them to a stable
   handleBuildField: PropTypes.func, // if provided, empty fields have a button that builds a grain and a button for flax field
   disabledBuildField: PropTypes.bool, // must be true, given row and col, for the button to be enabled
+  handleWardenFlip: PropTypes.func, // if provided, shows a button for warden-flipping
 }
 
 export default TableauLand

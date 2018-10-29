@@ -21,6 +21,7 @@ const TableauFarm = ({
   handleBuildStable,
   handleBuildField,
   disabledBuildField,
+  handleWardenFlip,
 }) => {
   const seaLevel = findSeaLevel(dikes)
   return (
@@ -55,6 +56,7 @@ const TableauFarm = ({
             handleBuildStable={handleBuildStable && handleBuildStable(y, x)}
             handleBuildField={handleBuildField && handleBuildField(y, x)}
             disabledBuildField={disabledBuildField && disabledBuildField(y, x)}
+            handleWardenFlip={handleWardenFlip && handleWardenFlip(y, x)}
           >
             {cell}
           </TableauLand>

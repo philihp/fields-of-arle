@@ -57,17 +57,6 @@ export const Vehicles = [
   'droshky',
 ]
 
-export const VehicleSource = {
-  handcart: 'handcartWagon',
-  wagon: 'handcartWagon',
-  peatBoat: 'peatBoatPlow',
-  plow: 'peatBoatPlow',
-  cart: 'cartHorseCart',
-  horseCart: 'cartHorseCart',
-  carriage: 'carriageDroshky',
-  droshky: 'carriageDroshky',
-}
-
 export const VehicleSlots = {
   handcart: [null],
   wagon: [null, null],

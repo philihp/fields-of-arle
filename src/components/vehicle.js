@@ -3,9 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import './vehicle.css'
 
+import { flipVehicle } from '../game/common/vehicle'
 import { tokenSizes } from '../game/moves/load'
+import './vehicle.css'
 
 const bin = n =>
   Number(n)
@@ -76,10 +77,23 @@ class Vehicle extends React.Component {
   }
 
   render() {
-    const { vehicle, handleLoad, disabled, tokenSize } = this.props
+    const {
+      vehicle,
+      handleLoad,
+      disabled,
+      tokenSize,
+      handleWardenFlip,
+    } = this.props
     const mask = vehicleOccupiedMask(vehicle)
     return (
       <div className={classNames('Vehicle', vehicle.type)}>
+        {handleWardenFlip &&
+          vehicle !== null &&
+          vehicle === flipVehicle(vehicle) && (
+            <button type="button" key={vehicle} onClick={handleWardenFlip}>
+              Flip
+            </button>
+          )}
         <b>{vehicle.type}</b>
         <br />
         {vehicle.contents.map((slot, offset) => (
@@ -111,6 +125,7 @@ class Vehicle extends React.Component {
 Vehicle.propTypes = {
   vehicle: PropTypes.object.isRequired,
   handleLoad: PropTypes.func,
+  handleWardenFlip: PropTypes.func,
   disabled: PropTypes.bool,
   tokenSize: PropTypes.number,
 }

@@ -1,11 +1,11 @@
 import { remove, flatten, spendInventory, Animals, spendGoods } from './index'
 import {
   openBarnSpace,
-  VehicleSource,
   VehicleSlots,
   EquipmentCosts,
   playerBarnVehicles,
 } from './barn'
+import { VehicleSource } from './vehicle'
 import { removeFirstAnimalReducer } from './animals'
 import { GoodsLimit } from '../constants'
 
@@ -318,3 +318,16 @@ export const sellableAtDestination = player => [
     .filter(v => v !== null)
     .map(vehicle => vehicle.type),
 ]
+
+// returns something like...
+// [
+//   {type: "droshky", contents: [null,null,null], space: "large1",
+//   {type: "carriage", contents: [null,null,null], space: "large2",
+//   ...
+// ]
+export const usableVehicles = player =>
+  Object.entries(player.barn)
+    // remove any spaces with nothing in the parked spot
+    .filter(([space, parked]) => parked !== null)
+    // map the key/name of the space into the vehicle itself
+    .map(([space, val]) => ({ ...val, space }))

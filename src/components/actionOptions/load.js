@@ -5,26 +5,13 @@ import PropTypes from 'prop-types'
 import Vehicle from '../vehicle'
 import { listToKeyedList, remove } from '../../game/common/index'
 import { tokenSizes, destinationInputs } from '../../game/moves/load'
-import { sellableAtDestination } from '../../game/common/player'
+import { sellableAtDestination, usableVehicles } from '../../game/common/player'
 import { tokenSize } from '../../game/common/tokens'
 import { destinationSize } from '../../game/destinations/index'
 import Destinations from '../destinations/index'
 import './load.css'
 
 const visible = () => true
-
-// returns something like...
-// [
-//   {type: "droshky", contents: [null,null,null], space: "large1",
-//   {type: "carriage", contents: [null,null,null], space: "large2",
-//   ...
-// ]
-const usableVehicles = player =>
-  Object.entries(player.barn)
-    // remove any spaces with nothing in the parked spot
-    .filter(([space, parked]) => parked !== null)
-    // map the key/name of the space into the vehicle itself
-    .map(([space, val]) => ({ ...val, space }))
 
 class Load extends React.Component {
   constructor(props) {

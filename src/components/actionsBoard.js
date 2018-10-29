@@ -358,7 +358,7 @@ export default class ActionsBoard extends React.Component {
             workerSpaces={workerSpaces}
           />
         </section>
-        <section className="action-summer not-implemented">
+        <section className="action-summer">
           <WorkerSpot
             disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
