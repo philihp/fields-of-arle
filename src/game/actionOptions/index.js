@@ -22,6 +22,7 @@ import foresterPlace from './foresterPlace'
 import warden from './warden'
 import summerLaborer from './summerLaborer'
 import winterLaborer from './winterLaborer'
+import imitating from './imitating'
 
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
@@ -60,7 +61,9 @@ export default {
   dikeWarden: warden,
   summerLaborer,
   summerLaborBuild: wainwright,
+  summerImitating: imitating,
   winterLaborer,
+  winterImitating: imitating,
 
   plowMakersWorkshop,
   workshop,
