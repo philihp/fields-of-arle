@@ -11,8 +11,7 @@ import peatBoatman from './peatBoatman'
 import woodTrader from './woodTrader'
 import forester from './forester'
 import dikeWarden from './dikeWarden'
-import summerLaborer from './summerLaborer'
-import winterLaborer from './winterLaborer'
+import laborer from './laborer'
 
 export default {
   fisherman,
@@ -32,8 +31,8 @@ export default {
   winterCarpenter: generic,
   builder: generic,
   warden: generic,
-  summerLaborer,
-  winterLaborer,
+  summerLaborer: laborer,
+  winterLaborer: laborer,
   peatBoatman,
   tanner: generic,
   linenWeaver: generic,
