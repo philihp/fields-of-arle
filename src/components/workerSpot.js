@@ -26,47 +26,27 @@ const strokeColor = worker => {
   }
 }
 
-const WorkerSpot = ({ workerSpaces, job, disabled, onClick, label }) => {
-  const worker = workerSpaces[job]
-  const handleClick = e => {
-    if (disabled) {
-      return
-    }
-    e.preventDefault()
-    onClick(job)
-  }
+const WorkerSpot = ({ worker, job, disabled, onClick, label }) => {
+  const handleClick = onClick ? onClick(job) : undefined
 
   const displayedLabel = label || job
-  if (worker !== null) {
-    return (
-      <div className="WorkerSpot">
-        <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)} />
-        {displayedLabel}
-      </div>
-    )
-  }
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      onClick={handleClick}
-      className={classNames({
-        WorkerSpot: true,
-        disabled: disabled,
-        clickable: !disabled,
-      })}
-    >
-      {displayedLabel}
+    <div className="WorkerSpot">
+      <button type="button" disabled={!handleClick} onClick={handleClick}>
+        {worker !== null && (
+          <WorkerToken fill={fillColor(worker)} stroke={strokeColor(worker)} />
+        )}
+        {displayedLabel}
+      </button>
     </div>
   )
 }
 
 WorkerSpot.propTypes = {
-  workerSpaces: PropTypes.any.isRequired,
+  worker: PropTypes.any,
   label: PropTypes.string,
   job: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 export default WorkerSpot

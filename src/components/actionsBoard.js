@@ -6,6 +6,7 @@ import './actionsBoard.css'
 
 export default class ActionsBoard extends React.Component {
   static propTypes = {
+    action: PropTypes.string,
     workerSpaces: PropTypes.any.isRequired,
     toolSpaces: PropTypes.any.isRequired,
     moves: PropTypes.any.isRequired,
@@ -20,7 +21,7 @@ export default class ActionsBoard extends React.Component {
     this.winterAction = this.winterAction.bind(this)
   }
 
-  hasPlacedWorker() {
+  hasPlacedWorker = () => {
     const { workerSpaces, currentPlayer, phase } = this.props
     // need to || [], because the November/December/May/June spots are undefined
     const workersPrepSpot = workerSpaces[phase] || []
@@ -28,7 +29,7 @@ export default class ActionsBoard extends React.Component {
     return nextWorkerToPlace !== parseInt(currentPlayer, 10)
   }
 
-  isWinter() {
+  isWinter = () => {
     const { phase } = this.props
     return [
       'december',
@@ -40,7 +41,7 @@ export default class ActionsBoard extends React.Component {
     ].includes(phase)
   }
 
-  isSummer() {
+  isSummer = () => {
     const { phase } = this.props
     return [
       'june',
@@ -52,24 +53,28 @@ export default class ActionsBoard extends React.Component {
     ].includes(phase)
   }
 
-  canPlaceInSummer() {
-    const { lighthouseUsed } = this.props
-    return (!lighthouseUsed || this.isSummer()) && !this.hasPlacedWorker()
+  summerAction = job => {
+    const { moves, lighthouseUsed, action, workerSpaces } = this.props
+    if (
+      !this.hasPlacedWorker() &&
+      ((!lighthouseUsed && this.isWinter()) || workerSpaces[job] === null)
+    ) {
+      return () => moves.action(job, this.isWinter())
+    } else if (action === 'summerLaborer' && workerSpaces[job] !== null) {
+      return () => moves.option(job)
+    }
   }
 
-  canPlaceInWinter() {
-    const { lighthouseUsed } = this.props
-    return (!lighthouseUsed || this.isWinter()) && !this.hasPlacedWorker()
-  }
-
-  summerAction(job) {
-    const { moves } = this.props
-    moves.action(job, this.isWinter())
-  }
-
-  winterAction(job) {
-    const { moves } = this.props
-    moves.action(job, this.isSummer())
+  winterAction = job => {
+    const { moves, lighthouseUsed, action, workerSpaces } = this.props
+    if (
+      !this.hasPlacedWorker() &&
+      ((!lighthouseUsed && this.isSummer()) || workerSpaces[job] === null)
+    ) {
+      return () => moves.action(job, this.isSummer())
+    } else if (action === 'winterLaborer' && workerSpaces[job] !== null) {
+      return () => moves.option(job)
+    }
   }
 
   render() {
@@ -81,10 +86,9 @@ export default class ActionsBoard extends React.Component {
         <header>Winter</header>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="fisherman"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.fisherman}
           />
         </section>
         <section className="tool-summer">
@@ -96,20 +100,18 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="peatBoatman"
             label="Peat Boatman"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.peatBoatman}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="summerGrocer"
             label="Grocer"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.summerGrocer}
           />
         </section>
         <section className="tool-winter">
@@ -121,19 +123,17 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="tanner"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.tanner}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="woolWeaver"
             label="Wool Weaver"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.woolWeaver}
           />
         </section>
         <section className="tool-both">
@@ -145,19 +145,17 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="linenWeaver"
             label="Linen Weaver"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.linenWeaver}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="colonist"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.colonist}
           />
         </section>
         <section className="tool-winter">
@@ -169,19 +167,17 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="butcher"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.butcher}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="peatCutter"
             label="Peat Cutter"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.peatCutter}
           />
         </section>
         <section className="tool-summer">
@@ -189,20 +185,18 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="cattleTrader"
             label="Cattle Trader"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.cattleTrader}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="dikeBuilder"
             label="Dike Builder"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.dikeBuilder}
           />
         </section>
         <section className="tool-summer double-row">
@@ -214,37 +208,33 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="winterGrocer"
             label="Grocer"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.winterGrocer}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="clayWorker"
             label="Clay Worker"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.clayWorker}
           />
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="buildersMerchant"
-            label="Builders' Merchant"
-            workerSpaces={workerSpaces}
+            label="Build Merchant"
+            worker={workerSpaces.buildersMerchant}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="farmer"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.farmer}
           />
         </section>
         <section className="tool-winter">
@@ -256,19 +246,17 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="potter"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.potter}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
             // TODO this should be disabled if the player has zero food
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="forester"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.forester}
           />
         </section>
         <section className="tool-winter">
@@ -276,18 +264,16 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="baker"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.baker}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="woodcutter"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.woodcutter}
           />
         </section>
         <section className="tool-summer">
@@ -296,20 +282,18 @@ export default class ActionsBoard extends React.Component {
         <section className="action-winter">
           <WorkerSpot
             // TODO this should be disabled if the player has zero food and zero grain
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="woodTrader"
             label="Wood Trader"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.woodTrader}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="summerMaster"
             label="Master"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.summerMaster}
           />
         </section>
         <section className="tool-both">
@@ -317,80 +301,71 @@ export default class ActionsBoard extends React.Component {
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="winterMaster"
             label="Master"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.winterMaster}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="summerCarpenter"
             label="Carpenter"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.summerCarpenter}
           />
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="winterCarpenter"
             label="Carpenter"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.winterCarpenter}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="builder"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.builder}
           />
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="wainwright"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.wainwright}
           />
         </section>
         <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
             onClick={this.summerAction}
             job="warden"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.warden}
           />
         </section>
         <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
             onClick={this.winterAction}
             job="dikeWarden"
             label="Dike Warden"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.dikeWarden}
           />
         </section>
-        <section className="action-summer not-implemented">
+        <section className="action-summer">
           <WorkerSpot
-            disabled={!this.canPlaceInSummer()}
-            onClick={this.summerAction}
+            onClick={workerSpaces.summerLaborer ? undefined : this.summerAction}
             job="summerLaborer"
             label="Laborer"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.summerLaborer}
           />
         </section>
-        <section className="action-winter not-implemented">
+        <section className="action-winter">
           <WorkerSpot
-            disabled={!this.canPlaceInWinter()}
-            onClick={this.winterAction}
+            onClick={workerSpaces.winterLaborer ? undefined : this.winterAction}
             job="winterLaborer"
             label="Laborer"
-            workerSpaces={workerSpaces}
+            worker={workerSpaces.winterLaborer}
           />
         </section>
       </div>

@@ -1,16 +1,6 @@
-.WorkerSpot {
+.WorkerSpot button {
   width: 100%;
   height: 100%;
   text-transform: capitalize;
-}
-
-.WorkerSpot.disabled {
-  text-decoration: none;
-  color: #ddd;
-}
-
-.WorkerSpot.clickable {
-  text-decoration: underline;
-  color: blue;
-  cursor: pointer;
+  white-space: nowrap;
 }

@@ -62,6 +62,7 @@ const Board = ({
         currentPlayer={ctx.currentPlayer}
         phase={ctx.phase}
         lighthouseUsed={G.lighthouse.used}
+        action={G.action}
       />
       <SupplyBoard supplies={G.supplies} />
     </div>

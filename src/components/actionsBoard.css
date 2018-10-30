@@ -44,7 +44,7 @@ $darkblue: #1f78b4; */
 .ActionsBoard section.double-row {
   grid-row-end: span 2;
 }
-
+/*
 .ActionsBoard button {
   cursor: pointer;
   background-color: #7f7fff;
@@ -54,7 +54,7 @@ $darkblue: #1f78b4; */
 }
 .ActionsBoard button[disabled] {
   background-color: #eee;
-}
+} */
 
 .ActionsBoard section.not-implemented {
   font-style: italic;
