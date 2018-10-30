@@ -60,7 +60,7 @@ export default class ActionsBoard extends React.Component {
       ((!lighthouseUsed && this.isWinter()) || workerSpaces[job] === null)
     ) {
       return () => moves.action(job, this.isWinter())
-    } else if (action === 'summerLaborer' && workerSpaces[job] !== null) {
+    } else if (action === 'summerImitating' && workerSpaces[job] !== null) {
       return () => moves.option(job)
     }
   }
@@ -72,7 +72,7 @@ export default class ActionsBoard extends React.Component {
       ((!lighthouseUsed && this.isSummer()) || workerSpaces[job] === null)
     ) {
       return () => moves.action(job, this.isSummer())
-    } else if (action === 'winterLaborer' && workerSpaces[job] !== null) {
+    } else if (action === 'winterImitating' && workerSpaces[job] !== null) {
       return () => moves.option(job)
     }
   }

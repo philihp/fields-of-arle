@@ -30,8 +30,8 @@ export default {
   winterCarpenter: generic,
   builder: generic,
   warden: generic,
-  summerLaborer: generic, // TODO
-  winterLaborer: generic, // TODO
+  summerLaborer: generic,
+  winterLaborer: generic,
   peatBoatman,
   tanner: generic,
   linenWeaver: generic,

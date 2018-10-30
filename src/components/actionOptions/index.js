@@ -23,6 +23,9 @@ import woodTrader from './woodTrader'
 import forester from './forester'
 import foresterPlace from './foresterPlace'
 import warden from './warden'
+import summerLaborer from './summerLaborer'
+import summerLaborBuild from './summerLaborBuild'
+import winterLaborer from './winterLaborer'
 
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
@@ -65,6 +68,9 @@ export default {
   foresterPlace,
   warden,
   dikeWarden: warden,
+  summerLaborer,
+  summerLaborBuild,
+  winterLaborer,
 
   plowMakersWorkshop,
   workshop,
