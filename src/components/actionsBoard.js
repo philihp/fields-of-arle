@@ -56,8 +56,11 @@ export default class ActionsBoard extends React.Component {
   summerAction = job => {
     const { moves, lighthouseUsed, action, workerSpaces } = this.props
     if (
-      !this.hasPlacedWorker() &&
-      ((!lighthouseUsed && this.isWinter()) || workerSpaces[job] === null)
+      !(
+        this.hasPlacedWorker() ||
+        workerSpaces[job] !== null ||
+        (lighthouseUsed && this.isWinter())
+      )
     ) {
       return () => moves.action(job, this.isWinter())
     } else if (action === 'summerImitating' && workerSpaces[job] !== null) {
@@ -68,8 +71,11 @@ export default class ActionsBoard extends React.Component {
   winterAction = job => {
     const { moves, lighthouseUsed, action, workerSpaces } = this.props
     if (
-      !this.hasPlacedWorker() &&
-      ((!lighthouseUsed && this.isSummer()) || workerSpaces[job] === null)
+      !(
+        this.hasPlacedWorker() ||
+        workerSpaces[job] !== null ||
+        (lighthouseUsed && this.isSummer())
+      )
     ) {
       return () => moves.action(job, this.isSummer())
     } else if (action === 'winterImitating' && workerSpaces[job] !== null) {
