@@ -7,10 +7,13 @@ export const workshops = [
 
 export const smallHouses = [
   ...workshops,
+  // # second game buildings
   'weavingParlor',
   'colonistsHouse',
   'carpentersWorkshop',
   'schnappsDistillery',
+  //
+  // # advanced buildings...
   'loadingStation',
   'litterStorage',
   'woodTrader',

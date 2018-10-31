@@ -57,10 +57,16 @@ const game = Game({
   setup: ctx => ({
     ...initialState,
     buildings: [
-      ...ctx.random.Shuffle(smallHouses).slice(0, 4),
-      ...ctx.random.Shuffle(minorCraftBuildings).slice(0, 2),
+      // ...ctx.random.Shuffle(smallHouses).slice(0, 4),
+      ...smallHouses.slice(0, 4),
+
+      // ...ctx.random.Shuffle(minorCraftBuildings).slice(0, 2),
+      ...minorCraftBuildings.slice(0, 2),
+
       ...majorCraftBuildings,
-      ...ctx.random.Shuffle(innTiles).slice(0, 3),
+      // ...ctx.random.Shuffle(innTiles).slice(0, 3),
+      ...innTiles.slice(0, 3),
+
       ...largeBuildings,
     ],
   }),

@@ -1,5 +1,6 @@
 import workshop from './workshop'
 import mill from './mill'
+import weavingMill from './weavingMill'
 
 export default {
   farmersHouse: workshop,
@@ -8,4 +9,5 @@ export default {
   workshop,
 
   mill,
+  weavingMill,
 }
