@@ -39,7 +39,7 @@ class Builder extends React.Component {
           value="wood"
           onClick={this.handleCost1('wood')}
           disabled={!afford(inventory, ['wood'])}
-          defaultChecked={this.state.cost1 === 'wood'}
+          checked={this.state.cost1 === 'wood'}
         />
         <label htmlFor="cost1-wood">Wood</label>
         <br />
@@ -50,7 +50,7 @@ class Builder extends React.Component {
           value="clay"
           onClick={this.handleCost1('clay')}
           disabled={!afford(inventory, ['clay'])}
-          defaultChecked={this.state.cost1 === 'clay'}
+          checked={this.state.cost1 === 'clay'}
         />
         <label htmlFor="cost1-clay">Clay</label>
         <br />
@@ -61,7 +61,7 @@ class Builder extends React.Component {
           value="timber"
           onClick={this.handleCost1('timber')}
           disabled={!afford(inventory, ['timber'])}
-          defaultChecked={this.state.cost1 === 'timber'}
+          checked={this.state.cost1 === 'timber'}
         />
         <label htmlFor="cost1-timber">Timber</label>
         <br />
@@ -72,7 +72,7 @@ class Builder extends React.Component {
           value="brick"
           onClick={this.handleCost1('brick')}
           disabled={!afford(inventory, ['brick'])}
-          defaultChecked={this.state.cost1 === 'brick'}
+          checked={this.state.cost1 === 'brick'}
         />
         <label htmlFor="cost1-brick">Brick</label>
         <hr />
@@ -84,7 +84,7 @@ class Builder extends React.Component {
           id="cost2-grain"
           value="grain"
           onClick={this.handleCost2('grain')}
-          defaultChecked={this.state.cost2 === 'grain'}
+          checked={this.state.cost2 === 'grain'}
         />
         <label htmlFor="cost2-grain">Grain</label>
         <hr />

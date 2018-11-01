@@ -27,7 +27,7 @@ class Mill extends React.Component {
     const { inventory, goods } = this.props
     return (
       <div>
-        How to pay for this?
+        Building this needs 1 timber and either 8 flax or 8 grain.
         <hr />
         <b>Cost 1</b>
         <br />
@@ -38,7 +38,7 @@ class Mill extends React.Component {
           value="timber"
           onClick={this.handleCost1('timber')}
           disabled={!afford(inventory, ['timber'])}
-          defaultChecked={this.state.cost1 === 'timber'}
+          checked={this.state.cost1 === 'timber'}
         />
         <label htmlFor="cost1-timber">Timber</label>
         <hr />
@@ -51,7 +51,7 @@ class Mill extends React.Component {
           value="flax"
           onClick={this.handleCost2('flax')}
           disabled={goods.flax >= 8}
-          defaultChecked={this.state.cost2 === 'flax'}
+          checked={this.state.cost2 === 'flax'}
         />
         <label htmlFor="cost2-flax">8 Flax</label>
         <br />
@@ -62,7 +62,7 @@ class Mill extends React.Component {
           value="grain"
           onClick={this.handleCost2('grain')}
           disabled={goods.grain >= 8}
-          defaultChecked={this.state.cost2 === 'grain'}
+          checked={this.state.cost2 === 'grain'}
         />
         <label htmlFor="cost2-grain">8 Grain</label>
         <hr />
