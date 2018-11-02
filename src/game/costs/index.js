@@ -1,3 +1,5 @@
+import { identity } from '../common/index'
+
 const costs = {
   farmersHouse: () => {}, // TODO
   plowMakersWorkshop: () => {}, // TODO
@@ -19,9 +21,20 @@ const costs = {
   gulfHouseInn: () => {}, // TODO
   milkHouseInn: () => {}, // TODO
   sluiceYardInn: () => {}, // TODO
+
+  turnery: identity,
+  smokehouse: identity,
+  smithy: identity,
+  cooperage: identity,
+  bakehouse: identity,
+  saddlery: identity,
+  joinery: identity,
+  waterfrontHouse: identity,
+  villageChurch: identity,
+  lutetsbergCastle: identity,
+  berumCastle: identity,
 }
 
-export const buildingRequiresNoParams = building =>
-  costs[building] === undefined
+export const buildingRequiresNoParams = building => costs[building] === identity
 
 export default costs
