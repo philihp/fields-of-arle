@@ -1,6 +1,7 @@
 import { compose } from 'redux'
 import { spendInventory, spendGoods } from '../../game/common'
-import { actionOption } from '../common/player'
+import { actionOption, applyToCurrentPlayer } from '../common/player'
+import { buildingRequiresNoParams } from '../costs/index'
 import onBuild from '../building/onBuild'
 
 const clearSelected = ({ G, ...args }) => ({
@@ -19,35 +20,22 @@ const removeBuilding = building => ({ G, ...args }) => ({
   ...args,
 })
 
-const placeBuilding = ({ building, row, col }) => ({ G, ctx, ...args }) => ({
-  G: {
-    ...G,
-    players: {
-      ...G.players,
-      [ctx.currentPlayer]: {
-        ...G.players[ctx.currentPlayer],
-        tokens: [
-          ...G.players[ctx.currentPlayer].tokens,
-          ...G.players[ctx.currentPlayer].land[row][col].contents,
-        ],
-        land: [
-          ...G.players[ctx.currentPlayer].land.slice(0, row),
-          [
-            ...G.players[ctx.currentPlayer].land[row].slice(0, col),
-            {
-              ...G.players[ctx.currentPlayer].land[row][col],
-              type: building,
-              contents: [],
-            },
-            ...G.players[ctx.currentPlayer].land[row].slice(col + 1),
-          ],
-          ...G.players[ctx.currentPlayer].land.slice(row + 1),
-        ],
+const placeBuildingPlayer = ({ building, row, col }) => player => ({
+  ...player,
+  tokens: [...player.tokens, ...player.land[row][col].contents],
+  land: [
+    ...player.land.slice(0, row),
+    [
+      ...player.land[row].slice(0, col),
+      {
+        ...player.land[row][col],
+        type: building,
+        contents: [],
       },
-    },
-  },
-  ctx,
-  ...args,
+      ...player.land[row].slice(col + 1),
+    ],
+    ...player.land.slice(row + 1),
+  ],
 })
 
 const expendInventory = ({ cost }) => ({ G, ctx, ...args }) => ({
@@ -92,13 +80,14 @@ export default ({ G, ctx, ...args }) => {
     selected.hasOwnProperty('building') &&
     selected.hasOwnProperty('col') &&
     selected.hasOwnProperty('row') &&
-    selected.hasOwnProperty('cost')
+    (selected.hasOwnProperty('cost') ||
+      buildingRequiresNoParams(selected.building))
   ) {
     return compose(
       actionOption(null),
       clearSelected,
       onBuild(selected.building),
-      placeBuilding(selected),
+      applyToCurrentPlayer(placeBuildingPlayer(selected)),
       removeBuilding(selected.building)
       // TODO expendInventory(selected.cost),
       // TODO expendGoods({})
