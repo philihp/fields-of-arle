@@ -1,6 +1,7 @@
 import smallHouse from './smallHouse'
 import mill from './mill'
 import weavingMill from './weavingMill'
+import textileHouse from './textileHouse'
 import inn from './inn'
 
 export default {
@@ -16,13 +17,14 @@ export default {
   litterStorage: smallHouse,
   woodTrader: smallHouse,
 
+  mill,
+  weavingMill,
+  textileHouse,
+
   pottersInn: inn,
   farmersInn: inn,
   junkDealersInn: inn,
   milkHouseInn: inn,
   sluiceYardInn: inn,
   gulfHouseInn: inn,
-
-  mill,
-  weavingMill,
 }
