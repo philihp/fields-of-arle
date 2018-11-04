@@ -73,24 +73,6 @@ export const inventoryAdd = (...newInventoryList) => ({ G, ctx, ...args }) => ({
 export const addInventory = ({ G, ctx, ...args }, newInventoryList) =>
   inventoryAdd(...newInventoryList)({ G, ctx, ...args })
 
-export const bumpTool = ({ G, ctx, ...args }, tool) => {
-  const newToolSpace = G.toolSpaces[tool]
-  newToolSpace[ctx.currentPlayer] += 1
-  return {
-    G: {
-      ...G,
-      toolSpaces: {
-        ...G.toolSpaces,
-        [tool]: newToolSpace,
-      },
-    },
-    ctx,
-    ...args,
-  }
-}
-
-export const toolBump = tool => state => bumpTool(state, tool)
-
 // TODO: refactor to curried function
 export const addGoodsToPlayer = ({ player, good, amount }) => ({
   ...player,

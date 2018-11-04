@@ -1,10 +1,9 @@
 import { compose } from 'redux'
-import { addToken, addGoods, bumpTool } from '../common/player'
+import { addToken, addGoods } from '../common/player'
+import { toolBump } from '../common/state'
 import { toolValue } from '../constants'
 
 const addTokenSheep = ({ G, ctx }) => addToken({ G, ctx }, 'sheep')
-
-const bumpToolFishTraps = ({ G, ctx }) => bumpTool({ G, ctx }, 'fishTraps')
 
 const addFoodPerFishTraps = ({ G, ctx }) =>
   addGoods(
@@ -16,6 +15,6 @@ const addFoodPerFishTraps = ({ G, ctx }) =>
 export default (G, ctx) =>
   compose(
     addFoodPerFishTraps,
-    bumpToolFishTraps,
+    toolBump('fishTraps'),
     addTokenSheep
   )({ G, ctx }).G

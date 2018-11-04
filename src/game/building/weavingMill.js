@@ -1,5 +1,6 @@
 import { compose } from 'redux'
-import { inventoryAdd, toolBump } from '../common/player'
+import { toolBump } from '../common/state'
+import { inventoryAdd } from '../common/player'
 
 export default compose(
   inventoryAdd('winterWear'),

@@ -1,5 +1,5 @@
 import { compose } from 'redux'
-import { bumpTool } from '../common/player'
+import { toolBump } from '../common/state'
 import { spendInventory } from '../common'
 import { ToolUpgradeCosts } from '../constants'
 import { playersWorkshops } from '../building/workshop'
@@ -22,8 +22,10 @@ const payForTool = ({ G, ctx, args: [{ tool }] }) => ({
   args: [{ tool }],
 })
 
-const bumpToolComposable = ({ G, ctx, args: [{ tool }] }) =>
-  bumpTool({ G, ctx }, tool)
+const bumpToolComposable = ({ G, ctx, ...args }) => {
+  const [{ tool }] = args
+  toolBump(tool)({ G, ctx, args })
+}
 
 const clearAction = ({ G, ctx, args }) => ({
   G: { ...G, action: null },
