@@ -36,8 +36,8 @@ class WeavingMill extends React.Component {
           name="cost1"
           id="cost1-bricks"
           value="bricks"
-          onClick={this.handleCost1('bricks')}
-          disabled={!afford(inventory, ['bricks', 'bricks'])}
+          onChange={this.handleCost1('bricks')}
+          disabled={!(inventory, ['brick', 'brick'])}
           checked={this.state.cost1 === 'bricks'}
         />
         <label htmlFor="cost1-bricks">Bricks</label>
@@ -49,7 +49,7 @@ class WeavingMill extends React.Component {
           name="cost2"
           id="cost2-flax"
           value="flax"
-          onClick={this.handleCost2('flax')}
+          onChange={this.handleCost2('flax')}
           disabled={goods.flax >= 10}
           checked={this.state.cost2 === 'flax'}
         />
@@ -60,7 +60,7 @@ class WeavingMill extends React.Component {
           name="cost2"
           id="cost2-woolen"
           value="woolen"
-          onClick={this.handleCost2('woolen')}
+          onChange={this.handleCost2('woolen')}
           disabled={goods.woolen >= 10}
           checked={this.state.cost2 === 'woolen'}
         />

@@ -86,7 +86,13 @@ export default ({ G, ctx, ...args }) => {
     return compose(
       actionOption(null),
       clearSelected,
+
+      // would LIKE to do this, but some buildings affect tool levels
+      // applyToCurrentPlayer(onBuild(selected.building)),
+      // which currently exist in general board state, not player state,
+      // so instead we have to do this
       onBuild(selected.building),
+
       applyToCurrentPlayer(placeBuildingPlayer(selected)),
       removeBuilding(selected.building)
       // TODO expendInventory(selected.cost),

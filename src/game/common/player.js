@@ -89,6 +89,8 @@ export const bumpTool = ({ G, ctx, ...args }, tool) => {
   }
 }
 
+export const toolBump = tool => state => bumpTool(state, tool)
+
 // TODO: refactor to curried function
 export const addGoodsToPlayer = ({ player, good, amount }) => ({
   ...player,

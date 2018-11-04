@@ -6,21 +6,16 @@ class Mill extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      cost1: 'timber',
-      cost2: null,
+      cost: [],
     }
   }
 
-  handleCost1 = cost1 => e => {
-    this.setState({ cost1 })
-  }
-
-  handleCost2 = cost2 => e => {
-    this.setState({ cost2 })
+  handleCost = cost => e => {
+    this.setState({ cost })
   }
 
   handlePay = e => {
-    this.props.moves.option({ cost: [this.state.cost1, this.state.cost2] })
+    this.props.moves.option({ cost: ['timber', ...this.state.cost] })
   }
 
   render() {
@@ -29,46 +24,40 @@ class Mill extends React.Component {
       <div>
         Building this needs 1 timber and either 8 flax or 8 grain.
         <hr />
-        <b>Cost 1</b>
-        <br />
         <input
           type="radio"
-          name="cost1"
-          id="cost1-timber"
           value="timber"
-          onClick={this.handleCost1('timber')}
+          checked
+          onChange={() => {}}
           disabled={!afford(inventory, ['timber'])}
-          checked={this.state.cost1 === 'timber'}
         />
-        <label htmlFor="cost1-timber">Timber</label>
+        <label>Timber</label>
         <hr />
-        <b>Cost 2</b>
-        <br />
         <input
           type="radio"
-          name="cost2"
-          id="cost2-flax"
+          name="cost"
+          id="cost-flax"
           value="flax"
-          onClick={this.handleCost2('flax')}
+          onChange={this.handleCost('flax')}
           disabled={goods.flax >= 8}
-          checked={this.state.cost2 === 'flax'}
+          checked={this.state.cost === 'flax'}
         />
-        <label htmlFor="cost2-flax">8 Flax</label>
+        <label htmlFor="cost-flax">8 Flax</label>
         <br />
         <input
           type="radio"
-          name="cost2"
-          id="cost2-grain"
+          name="cost"
+          id="cost-grain"
           value="grain"
-          onClick={this.handleCost2('grain')}
+          onChange={this.handleCost('grain')}
           disabled={goods.grain >= 8}
-          checked={this.state.cost2 === 'grain'}
+          checked={this.state.cost === 'grain'}
         />
-        <label htmlFor="cost2-grain">8 Grain</label>
+        <label htmlFor="cost-grain">8 Grain</label>
         <hr />
         <button
           type="submit"
-          disabled={this.state.cost1 === null || this.state.cost2 === null}
+          disabled={this.state.cost.length === 0}
           onClick={this.handlePay}
         >
           Pay

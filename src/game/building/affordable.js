@@ -23,10 +23,10 @@ const mill = (G, ctx) => {
 
 const weavingMill = (G, ctx) => {
   const player = playerFromG(G, ctx)
-  return (
-    afford(player.inventory, ['brick', 'brick']) &&
-    (player.goods.flax >= 10 || player.goods.wool >= 10)
-  )
+  const hasBrick = afford(player.inventory, ['brick', 'brick'])
+  const hasFlax = player.goods.flax >= 10
+  const hasWool = player.goods.wool >= 10
+  return hasBrick && (hasFlax || hasWool)
 }
 
 const textileHouse = (G, ctx) => {

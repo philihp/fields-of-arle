@@ -27,11 +27,8 @@ class Builder extends React.Component {
       )
     }
 
-    const { building } = selected
-    if (
-      (building !== undefined && selected.row === undefined) ||
-      selected.col === undefined
-    ) {
+    const { building, row, col } = selected
+    if (building !== undefined && (row === undefined || col === undefined)) {
       const player = G.players[currentPlayer]
       return (
         <TableauFarm
@@ -43,13 +40,12 @@ class Builder extends React.Component {
       )
     }
 
-    const { row, col } = selected
     const {
       players: {
         [currentPlayer]: { inventory, goods },
       },
     } = G
-    const BuildingCost = costs[selected.building]
+    const BuildingCost = costs[building]
     return (
       <div>
         <BuildingCost inventory={inventory} goods={goods} moves={moves} />
