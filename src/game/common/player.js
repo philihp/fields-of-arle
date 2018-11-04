@@ -259,12 +259,16 @@ export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
   ...args,
 })
 
+export const landOfType = (...types) => player =>
+  player.land
+    .flatMap((row, y) => row.map((cell, x) => [cell.type, y, x]))
+    .filter(([type, y, x]) => types.includes(type))
+
 export const sellableAtDestination = player => [
   // all the flax and grain fields
-  ...player.land
-    .flatMap((row, y) => row.map((cell, x) => [cell.type, y, x]))
-    .filter(([type, y, x]) => ['grain', 'flax'].includes(type))
-    .map(([type, y, x]) => `${type}-${x}-${y}`),
+  ...landOfType('grain', 'flax')(player).map(
+    ([type, y, x]) => `${type}-${x}-${y}`
+  ),
   // add one or two of the goods... don't add more because nothing sells more than 2
   ...(player.goods.flax >= 1 ? ['flax'] : []),
   ...(player.goods.hide >= 1 ? ['hide'] : []),
