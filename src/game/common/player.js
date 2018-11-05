@@ -137,6 +137,8 @@ export const getVehicle = ({ G, ctx, ...args }, type) => {
   }
 }
 
+export const curriedGetVehicle = type => state => getVehicle(state, type)
+
 export const payForVehicle = ({ G, ctx, ...args }, type, withAnimal) => {
   const cost = withAnimal
     ? EquipmentCosts[type][withAnimal]
