@@ -3,6 +3,7 @@ import { identity } from '../common/index'
 import mill from './mill'
 import weavingMill from './weavingMill'
 import gulfHouseInn from './gulfHouseInn'
+import cooperage from './cooperage'
 
 const textileHouse = inventoryAdd('linen', 'woolen', 'leather')
 
@@ -11,6 +12,7 @@ const onBuild = {
   weavingMill,
   textileHouse,
   gulfHouseInn,
+  cooperage,
 }
 
 export default building =>
