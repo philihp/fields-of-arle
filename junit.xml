@@ -1,0 +1,248 @@
+<testsuites name="jest tests" tests="102" failures="0" time="2.412">
+  <testsuite name="state" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.589" tests="3">
+    <testcase classname="state toolBump bumps a tool" name="state toolBump bumps a tool" time="0.009">
+    </testcase>
+    <testcase classname="state toolBump repeatedly bumps" name="state toolBump repeatedly bumps" time="0.002">
+    </testcase>
+    <testcase classname="state toolBump bumps a tool" name="state toolBump bumps a tool" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="villageChurch" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.596" tests="2">
+    <testcase classname="villageChurch takes a carriage from supply" name="villageChurch takes a carriage from supply" time="0.006">
+    </testcase>
+    <testcase classname="villageChurch gives a carriage to player" name="villageChurch gives a carriage to player" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="emden load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.6" tests="7">
+    <testcase classname="emden load has a size" name="emden load has a size" time="0.006">
+    </testcase>
+    <testcase classname="emden load noop" name="emden load noop" time="0.002">
+    </testcase>
+    <testcase classname="emden load sells peat for 3 food" name="emden load sells peat for 3 food" time="0.002">
+    </testcase>
+    <testcase classname="emden load sells summerWear for 6 food" name="emden load sells summerWear for 6 food" time="0.001">
+    </testcase>
+    <testcase classname="emden load sells leatherWear for 7 food" name="emden load sells leatherWear for 7 food" time="0.001">
+    </testcase>
+    <testcase classname="emden load sells winterWear for 7 food" name="emden load sells winterWear for 7 food" time="0.001">
+    </testcase>
+    <testcase classname="emden load sells everything for 23 food" name="emden load sells everything for 23 food" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="norden load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.608" tests="5">
+    <testcase classname="norden load has a size" name="norden load has a size" time="0.006">
+    </testcase>
+    <testcase classname="norden load noop" name="norden load noop" time="0.002">
+    </testcase>
+    <testcase classname="norden load sells a sheep for 4 food" name="norden load sells a sheep for 4 food" time="0.003">
+    </testcase>
+    <testcase classname="norden load sell only one peatBoat, in large3 first, for 5 food" name="norden load sell only one peatBoat, in large3 first, for 5 food" time="0.005">
+    </testcase>
+    <testcase classname="norden load sells winterWear for 7 food" name="norden load sells winterWear for 7 food" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="bremen load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.607" tests="7">
+    <testcase classname="bremen load has a size" name="bremen load has a size" time="0.009">
+    </testcase>
+    <testcase classname="bremen load noop" name="bremen load noop" time="0.002">
+    </testcase>
+    <testcase classname="bremen load sells moor for no food" name="bremen load sells moor for no food" time="0.001">
+    </testcase>
+    <testcase classname="bremen load sells timber for 5 food" name="bremen load sells timber for 5 food" time="0.002">
+    </testcase>
+    <testcase classname="bremen load sells cattle for 5 food" name="bremen load sells cattle for 5 food" time="0.005">
+    </testcase>
+    <testcase classname="bremen load sells clothing material set for 12 food" name="bremen load sells clothing material set for 12 food" time="0.001">
+    </testcase>
+    <testcase classname="bremen load sells clothing set for 30 food" name="bremen load sells clothing set for 30 food" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="leer load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.613" tests="8">
+    <testcase classname="leer load has a size" name="leer load has a size" time="0.006">
+    </testcase>
+    <testcase classname="leer load noop" name="leer load noop" time="0.002">
+    </testcase>
+    <testcase classname="leer load sells flax for 2 food" name="leer load sells flax for 2 food" time="0.001">
+    </testcase>
+    <testcase classname="leer load sells woolen for 3 food" name="leer load sells woolen for 3 food" time="0.003">
+    </testcase>
+    <testcase classname="leer load sells cattle for 5 food" name="leer load sells cattle for 5 food" time="0.009">
+    </testcase>
+    <testcase classname="leer load sells winterWear for 6 food" name="leer load sells winterWear for 6 food" time="0.001">
+    </testcase>
+    <testcase classname="leer load sells summerWear for 6 food" name="leer load sells summerWear for 6 food" time="0.001">
+    </testcase>
+    <testcase classname="leer load sells leatherWear for 6 food" name="leer load sells leatherWear for 6 food" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="aurich load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:31" time="0.612" tests="9">
+    <testcase classname="aurich load has a size" name="aurich load has a size" time="0.007">
+    </testcase>
+    <testcase classname="aurich load noop" name="aurich load noop" time="0.007">
+    </testcase>
+    <testcase classname="aurich load sells leather for 4 food" name="aurich load sells leather for 4 food" time="0.004">
+    </testcase>
+    <testcase classname="aurich load sells only one leather for 4 food" name="aurich load sells only one leather for 4 food" time="0.001">
+    </testcase>
+    <testcase classname="aurich load sells sheep for 4 food" name="aurich load sells sheep for 4 food" time="0.003">
+    </testcase>
+    <testcase classname="aurich load sells horse in second slot for 4 food" name="aurich load sells horse in second slot for 4 food" time="0.001">
+    </testcase>
+    <testcase classname="aurich load sells horse in third slot for 5 food" name="aurich load sells horse in third slot for 5 food" time="0.001">
+    </testcase>
+    <testcase classname="aurich load sells horses in second and third slot for 9 food" name="aurich load sells horses in second and third slot for 9 food" time="0.001">
+    </testcase>
+    <testcase classname="aurich load does nothing if no animals" name="aurich load does nothing if no animals" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="sluiceYardInn" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.113" tests="4">
+    <testcase classname="sluiceYardInn advances the fish traps twice" name="sluiceYardInn advances the fish traps twice" time="0.004">
+    </testcase>
+    <testcase classname="sluiceYardInn gives wood per fishTraps" name="sluiceYardInn gives wood per fishTraps" time="0.001">
+    </testcase>
+    <testcase classname="sluiceYardInn des not advance past limit" name="sluiceYardInn des not advance past limit" time="0">
+    </testcase>
+    <testcase classname="sluiceYardInn gives wood per fishTraps" name="sluiceYardInn gives wood per fishTraps" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="hage load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.104" tests="4">
+    <testcase classname="hage load has a size" name="hage load has a size" time="0.003">
+    </testcase>
+    <testcase classname="hage load noop" name="hage load noop" time="0.001">
+    </testcase>
+    <testcase classname="hage load removes the field" name="hage load removes the field" time="0.002">
+    </testcase>
+    <testcase classname="hage load generates 1 food" name="hage load generates 1 food" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="esens load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.128" tests="6">
+    <testcase classname="esens load has a size" name="esens load has a size" time="0.002">
+    </testcase>
+    <testcase classname="esens load noop" name="esens load noop" time="0.002">
+    </testcase>
+    <testcase classname="esens load sells hide for 2 food" name="esens load sells hide for 2 food" time="0.001">
+    </testcase>
+    <testcase classname="esens load sells 2x grain for 4 food" name="esens load sells 2x grain for 4 food" time="0">
+    </testcase>
+    <testcase classname="esens load sells linen for 4 food" name="esens load sells linen for 4 food" time="0.002">
+    </testcase>
+    <testcase classname="esens load sells all three" name="esens load sells all three" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="player" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.092" tests="6">
+    <testcase classname="player inventoryAddToPlayer returns a new player" name="player inventoryAddToPlayer returns a new player" time="0.002">
+    </testcase>
+    <testcase classname="player inventoryAddToPlayer adds cake to inventory" name="player inventoryAddToPlayer adds cake to inventory" time="0.002">
+    </testcase>
+    <testcase classname="player inventoryAddToPlayer other fields are unchanged" name="player inventoryAddToPlayer other fields are unchanged" time="0.003">
+    </testcase>
+    <testcase classname="player inventoryAddToPlayer adds multiple items to inventory" name="player inventoryAddToPlayer adds multiple items to inventory" time="0.001">
+    </testcase>
+    <testcase classname="player inventorySpendFromPlayer only spends one" name="player inventorySpendFromPlayer only spends one" time="0.001">
+    </testcase>
+    <testcase classname="player inventorySpendFromPlayer can spend multiple" name="player inventorySpendFromPlayer can spend multiple" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="waterfrontHouse" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.139" tests="4">
+    <testcase classname="waterfrontHouse does not mutate state" name="waterfrontHouse does not mutate state" time="0.005">
+    </testcase>
+    <testcase classname="waterfrontHouse advances dikes twice" name="waterfrontHouse advances dikes twice" time="0.01">
+    </testcase>
+    <testcase classname="waterfrontHouse advances adds 3 fish traps" name="waterfrontHouse advances adds 3 fish traps" time="0.001">
+    </testcase>
+    <testcase classname="waterfrontHouse advances dikes twice" name="waterfrontHouse advances dikes twice" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="cooperage" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.136" tests="4">
+    <testcase classname="cooperage adds 1 to every good and 2 to the food" name="cooperage adds 1 to every good and 2 to the food" time="0.005">
+    </testcase>
+    <testcase classname="cooperage with 10+ animals it adds 2" name="cooperage with 10+ animals it adds 2" time="0.017">
+    </testcase>
+    <testcase classname="cooperage with 15+ animals it adds 2" name="cooperage with 15+ animals it adds 2" time="0.003">
+    </testcase>
+    <testcase classname="cooperage with 20+ animals it still adds 3" name="cooperage with 20+ animals it still adds 3" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="flip" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.14" tests="3">
+    <testcase classname="flip turns woolen into winterWear" name="flip turns woolen into winterWear" time="0.003">
+    </testcase>
+    <testcase classname="flip turns winterWear into winterWear" name="flip turns winterWear into winterWear" time="0">
+    </testcase>
+    <testcase classname="flip does not mess with unknown tokens" name="flip does not mess with unknown tokens" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="beemoor load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.124" tests="4">
+    <testcase classname="beemoor load has a size" name="beemoor load has a size" time="0.002">
+    </testcase>
+    <testcase classname="beemoor load noop" name="beemoor load noop" time="0.001">
+    </testcase>
+    <testcase classname="beemoor load consumes peat" name="beemoor load consumes peat" time="0.001">
+    </testcase>
+    <testcase classname="beemoor load generates 2 food" name="beemoor load generates 2 food" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="textileHouse" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.131" tests="1">
+    <testcase classname="textileHouse gives the player some materials" name="textileHouse gives the player some materials" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="dornum load" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.139" tests="3">
+    <testcase classname="dornum load has a size" name="dornum load has a size" time="0.002">
+    </testcase>
+    <testcase classname="dornum load noop" name="dornum load noop" time="0.002">
+    </testcase>
+    <testcase classname="dornum load sell only one plow, in large3 first, for 8 food" name="dornum load sell only one plow, in large3 first, for 8 food" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="findFirstAnimal" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.875" tests="2">
+    <testcase classname="findFirstAnimal searches land" name="findFirstAnimal searches land" time="0.002">
+    </testcase>
+    <testcase classname="findFirstAnimal searches dikes" name="findFirstAnimal searches dikes" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="flipVehicle" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.932" tests="6">
+    <testcase classname="flipVehicle flips a handcart" name="flipVehicle flips a handcart" time="0.002">
+    </testcase>
+    <testcase classname="flipVehicle flips a peatBoat" name="flipVehicle flips a peatBoat" time="0">
+    </testcase>
+    <testcase classname="flipVehicle flips a cart" name="flipVehicle flips a cart" time="0.001">
+    </testcase>
+    <testcase classname="flipVehicle flips a carriage" name="flipVehicle flips a carriage" time="0.002">
+    </testcase>
+    <testcase classname="flipVehicle flips a carriage" name="flipVehicle flips a carriage" time="0.001">
+    </testcase>
+    <testcase classname="flipVehicle returns itself if nothing to do" name="flipVehicle returns itself if nothing to do" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="listToKeyedList" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="0.919" tests="10">
+    <testcase classname="listToKeyedList accepts a list of items" name="listToKeyedList accepts a list of items" time="0.003">
+    </testcase>
+    <testcase classname="remove removes a single element from the beginning" name="remove removes a single element from the beginning" time="0.001">
+    </testcase>
+    <testcase classname="remove removes a single element from the middle" name="remove removes a single element from the middle" time="0">
+    </testcase>
+    <testcase classname="remove removes a single element from the end" name="remove removes a single element from the end" time="0.001">
+    </testcase>
+    <testcase classname="remove removes a single element from the beginning with another in the list" name="remove removes a single element from the beginning with another in the list" time="0">
+    </testcase>
+    <testcase classname="remove removes a single element from the middle with another in the list" name="remove removes a single element from the middle with another in the list" time="0.001">
+    </testcase>
+    <testcase classname="remove removes a single element from the end with another in the list" name="remove removes a single element from the end with another in the list" time="0.001">
+    </testcase>
+    <testcase classname="remove removes the last element" name="remove removes the last element" time="0">
+    </testcase>
+    <testcase classname="remove removes many from the list" name="remove removes many from the list" time="0">
+    </testcase>
+    <testcase classname="remove removes two of the same from the list" name="remove removes two of the same from the list" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="flipBuilding" errors="0" failures="0" skipped="0" timestamp="2018-11-05T08:23:32" time="1.156" tests="4">
+    <testcase classname="flipBuilding leaves weird building alone" name="flipBuilding leaves weird building alone" time="0.002">
+    </testcase>
+    <testcase classname="flipBuilding does not mutate contents" name="flipBuilding does not mutate contents" time="0.001">
+    </testcase>
+    <testcase classname="flipBuilding flips a forest" name="flipBuilding flips a forest" time="0.001">
+    </testcase>
+    <testcase classname="flipBuilding flips a stable" name="flipBuilding flips a stable" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
