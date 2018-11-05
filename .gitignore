@@ -18,6 +18,8 @@ dist
 /.settings
 *.class
 
+/junit.xml
+coverage/
 .target
 # Package Files #
 *.war
