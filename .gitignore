@@ -18,6 +18,7 @@ dist
 /.settings
 *.class
 
+test-reports/
 /junit.xml
 coverage/
 .target
