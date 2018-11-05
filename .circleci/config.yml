@@ -19,7 +19,10 @@ jobs:
           key: npm-install-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      - run: # run tests
+      - run:
+          name: Run linter
+          command: npm run test:lint
+      - run:
           name: Run tests
           command: npm run test:ci
           environment:
@@ -27,9 +30,6 @@ jobs:
       #   - store_artifacts: # special step to save test results as as artifact
       #       path: test-results.xml
       #       prefix: tests
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
       - store_test_results: # special step to upload test results for display in Test Summary
           path: test-results
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
