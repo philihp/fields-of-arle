@@ -7,6 +7,7 @@ import cooperage from './cooperage'
 import waterfrontHouse from './waterfrontHouse'
 import villageChurch from './villageChurch'
 import sluiceYardInn from './sluiceYardInn'
+import saddlery from './saddlery'
 
 const textileHouse = inventoryAdd('linen', 'woolen', 'leather')
 
@@ -19,6 +20,7 @@ const onBuild = {
   waterfrontHouse,
   villageChurch,
   sluiceYardInn,
+  saddlery,
 }
 
 export default building =>

@@ -84,7 +84,6 @@ export default ({ G, ctx, ...args }) => {
       buildingRequiresNoParams(selected.building))
   ) {
     return compose(
-      actionOption(null),
       clearSelected,
 
       // would LIKE to do this, but some buildings affect tool levels
@@ -94,9 +93,12 @@ export default ({ G, ctx, ...args }) => {
       onBuild(selected.building),
 
       applyToCurrentPlayer(placeBuildingPlayer(selected)),
-      removeBuilding(selected.building)
+      removeBuilding(selected.building),
       // TODO expendInventory(selected.cost),
       // TODO expendGoods({})
+
+      // this should be done before onBuild so the building can potentially overwrite it
+      actionOption(null)
     )({ G, ctx, selected, ...args }).G
   } else {
     return {

@@ -12,7 +12,8 @@ class PeatCutter extends React.Component {
       G,
       ctx: { currentPlayer },
     } = props
-    const spades = toolValue('spades', G.toolSpaces.spades[currentPlayer])
+    const spades =
+      G.times || toolValue('spades', G.toolSpaces.spades[currentPlayer])
     const land = G.players[currentPlayer].land
 
     this.state = {
@@ -64,7 +65,7 @@ class PeatCutter extends React.Component {
   render() {
     return (
       <div>
-        <p>Peat Cutter Options:</p>
+        <p>Cut Peat {this.state.spades} more times:</p>
         <ul>
           {this.state.locations.map((loc, i) => (
             <li key={[loc.row, loc.col].join(',')}>
