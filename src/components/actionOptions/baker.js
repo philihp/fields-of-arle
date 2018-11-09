@@ -58,21 +58,23 @@ class Baker extends React.Component {
         with wood, if you have none.
         <br />
         <br />
-        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
-          <div key={i}>
-            <button
-              type="button"
-              name="bakerConvert"
-              id={'bakerConvert' + i}
-              value={i}
-              onClick={this.handleClick(i)}
-              defaultChecked={this.state.checked}
-            >
-              {i} time
-            </button>
-            {this.consumption(i)}
-          </div>
-        ))}
+        {[...Array(this.state.maxTimes + 1)]
+          .map((_, i) => i)
+          .map(i => (
+            <div key={i}>
+              <button
+                type="button"
+                name="bakerConvert"
+                id={'bakerConvert' + i}
+                value={i}
+                onClick={this.handleClick(i)}
+                defaultChecked={this.state.checked}
+              >
+                {i} time
+              </button>
+              {this.consumption(i)}
+            </div>
+          ))}
       </div>
     )
   }

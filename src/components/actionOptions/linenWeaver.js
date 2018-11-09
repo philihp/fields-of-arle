@@ -34,19 +34,21 @@ class LinenWeaver extends React.Component {
         Convert a flax to linen, per loom
         <br />
         <br />
-        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
-          <div key={i}>
-            <input
-              type="radio"
-              name="LinenWeaverConvert"
-              id={i}
-              value={i}
-              onClick={handleClick}
-              defaultChecked={this.state.checked}
-            />
-            <label htmlFor={i}>Convert {i} flax</label>
-          </div>
-        ))}
+        {[...Array(this.state.maxTimes + 1)]
+          .map((_, i) => i)
+          .map(i => (
+            <div key={i}>
+              <input
+                type="radio"
+                name="LinenWeaverConvert"
+                id={i}
+                value={i}
+                onClick={handleClick}
+                defaultChecked={this.state.checked}
+              />
+              <label htmlFor={i}>Convert {i} flax</label>
+            </div>
+          ))}
         <input type="submit" value="Convert" />
       </form>
     )

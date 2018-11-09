@@ -70,36 +70,42 @@ class Butcher extends React.Component {
         Select up to {this.state.maxTimes} animals to convert.
         <br />
         <br />
-        {[...Array(this.state.sheepMax)].map((_, i) => i).map(i => (
-          <button
-            type="button"
-            key={i}
-            disabled={!this.canSlaughterMore()}
-            onClick={this.handleSheepClick}
-          >
-            Sheep
-          </button>
-        ))}
-        {[...Array(this.state.horsesMax)].map((_, i) => i).map(i => (
-          <button
-            type="button"
-            key={i}
-            disabled={!this.canSlaughterMore()}
-            onClick={this.handleHorsesClick}
-          >
-            Horse
-          </button>
-        ))}
-        {[...Array(this.state.cattleMax)].map((v, idx) => idx).map(i => (
-          <button
-            type="button"
-            key={i}
-            disabled={!this.canSlaughterMore()}
-            onClick={this.handleCattleClick}
-          >
-            Cattle
-          </button>
-        ))}
+        {[...Array(this.state.sheepMax)]
+          .map((_, i) => i)
+          .map(i => (
+            <button
+              type="button"
+              key={i}
+              disabled={!this.canSlaughterMore()}
+              onClick={this.handleSheepClick}
+            >
+              Sheep
+            </button>
+          ))}
+        {[...Array(this.state.horsesMax)]
+          .map((_, i) => i)
+          .map(i => (
+            <button
+              type="button"
+              key={i}
+              disabled={!this.canSlaughterMore()}
+              onClick={this.handleHorsesClick}
+            >
+              Horse
+            </button>
+          ))}
+        {[...Array(this.state.cattleMax)]
+          .map((v, idx) => idx)
+          .map(i => (
+            <button
+              type="button"
+              key={i}
+              disabled={!this.canSlaughterMore()}
+              onClick={this.handleCattleClick}
+            >
+              Cattle
+            </button>
+          ))}
         <br />
         <br />
         <input type="submit" value="Convert" />
