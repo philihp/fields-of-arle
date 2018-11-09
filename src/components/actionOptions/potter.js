@@ -36,19 +36,21 @@ class Potter extends React.Component {
         Convert clay to 3 food and 1 peat, per pottery wheel
         <br />
         <br />
-        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
-          <div key={i}>
-            <input
-              type="radio"
-              name="potterConvert"
-              id={i}
-              value={i}
-              onClick={handleClick}
-              defaultChecked={this.state.checked}
-            />
-            <label htmlFor={i}>Convert {i} clay</label>
-          </div>
-        ))}
+        {[...Array(this.state.maxTimes + 1)]
+          .map((_, i) => i)
+          .map(i => (
+            <div key={i}>
+              <input
+                type="radio"
+                name="potterConvert"
+                id={i}
+                value={i}
+                onClick={handleClick}
+                defaultChecked={this.state.checked}
+              />
+              <label htmlFor={i}>Convert {i} clay</label>
+            </div>
+          ))}
         <input type="submit" value="Convert" />
       </form>
     )

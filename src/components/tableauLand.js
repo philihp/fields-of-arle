@@ -71,61 +71,50 @@ const TableauLand = ({
           />
         )) || <UnknownBuilding type={children.type} />}
 
-        {children.type === 'empty' &&
-          !flooded &&
-          handleBuildStall && (
-            <button type="submit" onClick={handleBuildStall}>
-              stall
-            </button>
-          )}
-        {children.type === 'stall' &&
-          handleBuildStable && (
-            <button type="submit" onClick={handleBuildStable}>
-              upgrade
-            </button>
-          )}
+        {children.type === 'empty' && !flooded && handleBuildStall && (
+          <button type="submit" onClick={handleBuildStall}>
+            stall
+          </button>
+        )}
+        {children.type === 'stall' && handleBuildStable && (
+          <button type="submit" onClick={handleBuildStable}>
+            upgrade
+          </button>
+        )}
 
         {/* farmer */}
-        {children.type === 'empty' &&
-          !flooded &&
-          handleBuildField && (
-            <button
-              type="submit"
-              disabled={disabledBuildField}
-              onClick={handleBuildField('flax')}
-            >
-              flax
-            </button>
-          )}
-        {children.type === 'empty' &&
-          !flooded &&
-          handleBuildField && (
-            <button
-              type="submit"
-              disabled={disabledBuildField}
-              onClick={handleBuildField('grain')}
-            >
-              grain
-            </button>
-          )}
+        {children.type === 'empty' && !flooded && handleBuildField && (
+          <button
+            type="submit"
+            disabled={disabledBuildField}
+            onClick={handleBuildField('flax')}
+          >
+            flax
+          </button>
+        )}
+        {children.type === 'empty' && !flooded && handleBuildField && (
+          <button
+            type="submit"
+            disabled={disabledBuildField}
+            onClick={handleBuildField('grain')}
+          >
+            grain
+          </button>
+        )}
 
         {/* builder */}
-        {!flooded &&
-          children.type === 'empty' &&
-          handlePlaceBuilding && (
-            <button type="submit" onClick={handlePlaceBuilding}>
-              Build
-            </button>
-          )}
+        {!flooded && children.type === 'empty' && handlePlaceBuilding && (
+          <button type="submit" onClick={handlePlaceBuilding}>
+            Build
+          </button>
+        )}
 
         {/* forester */}
-        {!flooded &&
-          children.type === 'empty' &&
-          handlePlaceForest && (
-            <button type="submit" onClick={handlePlaceForest}>
-              forest
-            </button>
-          )}
+        {!flooded && children.type === 'empty' && handlePlaceForest && (
+          <button type="submit" onClick={handlePlaceForest}>
+            forest
+          </button>
+        )}
 
         {/* warden */}
         {['dmoorNorth', 'moorNorth', 'stall', 'stable', 'forest'].includes(
@@ -148,12 +137,11 @@ const TableauLand = ({
             {item}
           </TableauItem>
         ))}
-        {canReceive &&
-          handleReleaseFocus && (
-            <button type="submit" onClick={handleReleaseFocus}>
-              drop
-            </button>
-          )}
+        {canReceive && handleReleaseFocus && (
+          <button type="submit" onClick={handleReleaseFocus}>
+            drop
+          </button>
+        )}
       </div>
     </div>
   )

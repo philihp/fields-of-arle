@@ -37,19 +37,21 @@ class Tanner extends React.Component {
         Convert hide to leather, per fleshing beam
         <br />
         <br />
-        {[...Array(this.state.maxTimes + 1)].map((_, i) => i).map(i => (
-          <div key={i}>
-            <input
-              type="radio"
-              name="tannerConvert"
-              id={i}
-              value={i}
-              onClick={handleClick}
-              defaultChecked={this.state.checked}
-            />
-            <label htmlFor={i}>Convert {i} hide</label>
-          </div>
-        ))}
+        {[...Array(this.state.maxTimes + 1)]
+          .map((_, i) => i)
+          .map(i => (
+            <div key={i}>
+              <input
+                type="radio"
+                name="tannerConvert"
+                id={i}
+                value={i}
+                onClick={handleClick}
+                defaultChecked={this.state.checked}
+              />
+              <label htmlFor={i}>Convert {i} hide</label>
+            </div>
+          ))}
         <input type="submit" value="Convert" />
       </form>
     )
