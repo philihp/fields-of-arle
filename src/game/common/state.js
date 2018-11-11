@@ -1,4 +1,6 @@
 import { ToolIncrements } from '../constants'
+import { actionOption } from './player'
+
 // These functions should all take in state ({ G, ctx, ...args})
 
 export const toolBump = tool => ({ G, ctx, ...args }) => ({
@@ -20,4 +22,12 @@ export const toolBump = tool => ({ G, ctx, ...args }) => ({
   ...args,
 })
 
-export default { toolBump }
+export const cutPeatTimes = times => ({ G, ctx, ...args }) =>
+  actionOption('peatCutter')({
+    G: {
+      ...G,
+      times,
+    },
+    ctx,
+    ...args,
+  })
