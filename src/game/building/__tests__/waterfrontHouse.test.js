@@ -35,11 +35,11 @@ describe('waterfrontHouse', () => {
     const output = waterfrontHouse(input)
     expect(output.G.toolSpaces.fishTraps).toEqual([3, 0])
   })
-  it('advances dikes twice', () => {
+  it('adds food', () => {
     const input = stateWith()
     const output = waterfrontHouse(input)
     expect(output.G.players['0'].goods.food).toEqual(
-      10 + input.G.players['0'].goods.food
+      Math.min(10 + input.G.players['0'].goods.food, 30)
     )
   })
 })

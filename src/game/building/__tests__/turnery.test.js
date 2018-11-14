@@ -11,9 +11,6 @@ const stateWith = (type = 'forest') => ({
         ],
       },
     },
-    toolSpaces: {
-      fleshingBeams: [0, 0],
-    },
   },
   ctx: {
     currentPlayer: '0',

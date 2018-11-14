@@ -65,7 +65,7 @@ const game = Game({
 
       ...majorCraftBuildings,
       // ...ctx.random.Shuffle(innTiles).slice(0, 3),
-      ...innTiles.slice(0, 3),
+      ...innTiles.slice(3, 6),
 
       ...largeBuildings,
     ],

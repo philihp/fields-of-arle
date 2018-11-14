@@ -25,6 +25,7 @@ export const actionOption = action => ({ G, ...args }) => ({
 export const setAction = ({ G, ctx, ...args }) =>
   actionOption(args[0])({ G, ctx, ...args })
 
+// TODO: Refactor to use addTokenToPlayer and applyToCurrentPlayer
 export const addToken = ({ G, ctx, ...args }, newToken) => ({
   G: {
     ...G,
@@ -38,6 +39,11 @@ export const addToken = ({ G, ctx, ...args }, newToken) => ({
   },
   ctx,
   ...args,
+})
+
+export const addTokenToPlayer = (...newTokenList) => player => ({
+  ...player,
+  tokens: [...player.tokens, ...newTokenList],
 })
 
 export const inventoryAddToPlayer = (...newInventoryList) => player => ({

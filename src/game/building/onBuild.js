@@ -9,6 +9,7 @@ import villageChurch from './villageChurch'
 import sluiceYardInn from './sluiceYardInn'
 import saddlery from './saddlery'
 import turnery from './turnery'
+import milkHouseInn from './milkHouseInn'
 
 const textileHouse = inventoryAdd('linen', 'woolen', 'leather')
 
@@ -23,6 +24,7 @@ const onBuild = {
   sluiceYardInn,
   saddlery,
   turnery,
+  milkHouseInn,
 }
 
 export default building =>
