@@ -11,6 +11,7 @@ import saddlery from './saddlery'
 import turnery from './turnery'
 import milkHouseInn from './milkHouseInn'
 import smokehouse from './smokehouse'
+import berumCastle from './berumCastle'
 
 const textileHouse = inventoryAdd('linen', 'woolen', 'leather')
 
@@ -27,6 +28,7 @@ const onBuild = {
   turnery,
   milkHouseInn,
   smokehouse,
+  berumCastle,
 }
 
 export default building =>
