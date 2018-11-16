@@ -56,14 +56,11 @@ const emptyVehicles = player => {
 
 // 2: Two
 
-const milking = player => {
+export const milking = player => {
   // 1/2/3 Food for 2/5/8 Sheep, 1/2/3 Food for 1/3/5 Cattle
   const { sheep, cattle } = countAnimals(player)
   const addedFood = [
     // for each of these that's true, add 1 food
-    // TODO: make a test for this with 30 sheep, to
-    //       ensure it isn't refactored to add one an divide by 3
-    //       the rules are really explicit about a max 6.
     sheep >= 2,
     sheep >= 5,
     sheep >= 8,

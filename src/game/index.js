@@ -21,9 +21,9 @@ const homeBoard = {
   ], // Permanent tokens
   travelExperience: 0,
   goods: {
-    food: 30, // TODO set back to 5
-    wool: 10, // TODO set back to 4
-    flax: 8, // TODO set back to 3
+    food: 5,
+    wool: 4,
+    flax: 3,
     hide: 2,
     grain: 1,
   },
