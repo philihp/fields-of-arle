@@ -30,6 +30,10 @@ jobs:
       #   - store_artifacts: # special step to save test results as as artifact
       #       path: test-results.xml
       #       prefix: tests
+      #  
+      - run:
+          name: Upload Coverage
+          command: sudo npm install -g codecov && codecov
       - store_test_results: # special step to upload test results for display in Test Summary
           path: test-results
           prefix: tests
