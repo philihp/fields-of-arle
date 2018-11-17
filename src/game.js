@@ -88,105 +88,106 @@ const game = Game({
       }
     },
     endTurnIf: (G, ctx) => G.passed[ctx.currentPlayer],
-    phases: [
-      {
-        name: 'july',
+    startingPhase: 'july',
+    phases: {
+      july: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'august',
       },
-      {
-        name: 'august',
+      august: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'september',
       },
-      {
-        name: 'september',
+      september: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'october',
       },
-      {
-        name: 'october',
+      october: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'preNovember',
       },
-      {
-        name: 'preNovember',
+      preNovember: {
         allowedMoves: ['pass', 'workshop', 'option', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassedIfWorkshops,
         turnOrder: workshopTurnOrder,
+        next: 'november',
       },
-      {
-        name: 'november',
+      november: {
         allowedMoves: ['slaughter'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: onNovemberBegin,
         onPhaseEnd: onRoundEnd,
         turnOrder: inventoryingTurnOrder,
+        next: 'december',
       },
-      {
-        name: 'december',
+      december: {
         endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
           workerSpaces: winterActionsReset(+G.lighthouse.owner),
         }),
         turnOrder: preparationsTurnOrder,
+        next: 'january',
       },
-      {
-        name: 'january',
+      january: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'february',
       },
-      {
-        name: 'february',
+      february: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'march',
       },
-      {
-        name: 'march',
+      march: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'april',
       },
-      {
-        name: 'april',
+      april: {
         allowedMoves: ['action', 'option', 'pass', 'arrange', 'return', 'load'],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: resetPassed,
         turnOrder: actionTurnOrder,
+        next: 'may',
       },
-      {
-        name: 'may',
+      may: {
         allowedMoves: [],
         endPhaseIf: allPlayersPassed,
         onPhaseBegin: onMayBegin,
         onPhaseEnd: onRoundEnd,
         turnOrder: inventoryingTurnOrder,
+        next: 'june',
       },
-      {
-        name: 'june',
+      june: {
         endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
           workerSpaces: summerActionsReset(+G.lighthouse.owner),
         }),
         turnOrder: preparationsTurnOrder,
+        next: 'july',
       },
-    ],
+    },
   },
 })
 

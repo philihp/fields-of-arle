@@ -15,12 +15,6 @@ export default class ActionsBoard extends React.Component {
     lighthouseUsed: PropTypes.bool.isRequired,
   }
 
-  constructor(props) {
-    super(props)
-    this.summerAction = this.summerAction.bind(this)
-    this.winterAction = this.winterAction.bind(this)
-  }
-
   hasPlacedWorker = () => {
     const { workerSpaces, currentPlayer, phase } = this.props
     // need to || [], because the November/December/May/June spots are undefined
