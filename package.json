@@ -1,7 +1,6 @@
 {
   "name": "fields-of-arle",
   "version": "0.2.0",
-  "private": true,
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
