@@ -1,4 +1,4 @@
-import { listToKeyedList, remove } from '../index'
+import { listToKeyedList, remove, repeat } from '../index'
 
 describe('listToKeyedList', () => {
   it('accepts a list of items', () => {
@@ -42,5 +42,22 @@ describe('remove', () => {
   })
   it('removes two of the same from the list', () => {
     expect(remove('a', 'a')(['a', 'b', 'a', 'b', 'a'])).toEqual(['b', 'b', 'a'])
+  })
+})
+
+describe('repeat', () => {
+  it('repeats 1 times', () => {
+    const fa = jest.fn()
+    expect(repeat(1, fa)).toEqual([fa])
+  })
+  it('repeats 3 times', () => {
+    const fa = jest.fn()
+    expect(repeat(3, fa)).toEqual([fa, fa, fa])
+  })
+  it('repeats a sequence 3 times', () => {
+    const fa = 'a'
+    const fb = 'b'
+    const fc = 'c'
+    expect(repeat(2, fa, fb, fc)).toEqual(['a', 'b', 'c', 'a', 'b', 'c'])
   })
 })

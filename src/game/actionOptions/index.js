@@ -27,6 +27,8 @@ import imitating from './imitating'
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
 import farmersHouse from './farmersHouse'
+
+import bakehouse from './bakehouse'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -68,4 +70,6 @@ export default {
   plowMakersWorkshop,
   workshop,
   farmersHouse,
+
+  bakehouse,
 }

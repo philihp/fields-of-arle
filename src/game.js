@@ -61,11 +61,12 @@ const game = Game({
       ...smallHouses.slice(0, 4),
 
       // ...ctx.random.Shuffle(minorCraftBuildings).slice(0, 2),
-      ...minorCraftBuildings.slice(0, 2),
+      minorCraftBuildings[2],
+      minorCraftBuildings[4],
 
       ...majorCraftBuildings,
       // ...ctx.random.Shuffle(innTiles).slice(0, 3),
-      ...innTiles.slice(3, 6),
+      ...innTiles.slice(0, 3),
 
       ...largeBuildings,
     ],

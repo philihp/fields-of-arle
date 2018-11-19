@@ -31,6 +31,8 @@ import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
 import farmersHouse from './farmersHouse'
 
+import bakehouse from './bakehouse'
+
 // Exhaustive list of all of the actions with options to prompt after selected
 
 // Each of these should be an object in the form
@@ -75,4 +77,6 @@ export default {
   plowMakersWorkshop,
   workshop,
   farmersHouse,
+
+  bakehouse,
 }

@@ -167,3 +167,8 @@ export const listToKeyedList = inventory =>
   ).list
 
 export const identity = i => i
+
+export const repeat = (times, ...functions) =>
+  new Array(times * functions.length)
+    .fill()
+    .map((_, i) => functions[i % functions.length])
