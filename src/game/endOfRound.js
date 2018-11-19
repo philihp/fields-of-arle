@@ -71,10 +71,61 @@ export const milking = player => {
   return addGoodsToPlayer({ player, good: 'food', amount: addedFood })
 }
 
-const babyAnimals = player => {
-  // TODO
+const babyAnimalsInStall = cell => {
+  if (cell.contents.length !== 2) return cell
+  return {
+    ...cell,
+    contents: [...cell.contents, cell.contents[0]],
+  }
+}
+
+const babyAnimalsInDoubleStall = cell => {
+  const contents = cell.contents.sort()
+  const split = animals => {
+    if (animals[0] === animals[animals.length - 1]) {
+      // if only one kind of animal
+      return [animals.slice(2, 4), animals.slice(0, 2)]
+    } else {
+      return [
+        animals.filter(a => a === animals[0]),
+        animals.filter(a => a === animals[contents.length - 1]),
+      ]
+    }
+  }
+
+  const [animals1, animals2] = split(contents)
+  return {
+    ...cell,
+    contents: [
+      // kekeke this trick basically just clones the 2nd animal in a cell to be in the 3rd slot,
+      // forgetting whatever was in the 3rd slot before. if theres no 2nd animal, then no 3rd.
+      ...animals1.slice(0, 2),
+      ...animals1.slice(1, 2),
+      ...animals2.slice(0, 2),
+      ...animals2.slice(1, 2),
+    ],
+  }
+}
+
+export const babyAnimals = player => {
   if (!player) return null
-  return player
+  return {
+    ...player,
+    land: player.land.map(row =>
+      row.map(cell => {
+        switch (cell.type) {
+          case 'stall':
+            return babyAnimalsInStall(cell)
+          case 'stable':
+            return babyAnimalsInDoubleStall(cell)
+          case 'doubleStall':
+            return babyAnimalsInDoubleStall(cell)
+          default:
+            return cell
+        }
+      })
+    ),
+  }
 }
 
 // 3: Three
