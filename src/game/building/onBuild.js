@@ -1,4 +1,3 @@
-import { inventoryAdd } from '../common/player'
 import { identity } from '../common/index'
 import mill from './mill'
 import weavingMill from './weavingMill'
@@ -13,7 +12,7 @@ import milkHouseInn from './milkHouseInn'
 import smokehouse from './smokehouse'
 import berumCastle from './berumCastle'
 import bakehouse from './bakehouse'
-// import smithy from './smithy'
+import smithy from './smithy'
 import textileHouse from './textileHouse'
 
 const onBuild = {

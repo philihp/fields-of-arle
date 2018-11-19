@@ -32,6 +32,7 @@ import workshop from './workshop'
 import farmersHouse from './farmersHouse'
 
 import bakehouse from './bakehouse'
+import smithy from './smithy'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -79,4 +80,5 @@ export default {
   farmersHouse,
 
   bakehouse,
+  smithy,
 }

@@ -83,6 +83,7 @@ class Vehicle extends React.Component {
       disabled,
       tokenSize,
       handleWardenFlip,
+      handleSmithyConvert,
     } = this.props
     const mask = vehicleOccupiedMask(vehicle)
     return (
@@ -94,6 +95,16 @@ class Vehicle extends React.Component {
               Flip
             </button>
           )}
+        {handleSmithyConvert && vehicle !== null && (
+          <button
+            type="button"
+            key={vehicle}
+            onClick={handleSmithyConvert}
+            disabled={disabled}
+          >
+            Convert
+          </button>
+        )}
         <b>{vehicle.type}</b>
         <br />
         {vehicle.contents.map((slot, offset) => (
@@ -126,6 +137,7 @@ Vehicle.propTypes = {
   vehicle: PropTypes.object.isRequired,
   handleLoad: PropTypes.func,
   handleWardenFlip: PropTypes.func,
+  handleSmithyConvert: PropTypes.func,
   disabled: PropTypes.bool,
   tokenSize: PropTypes.number,
 }

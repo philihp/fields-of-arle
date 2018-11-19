@@ -29,6 +29,7 @@ import workshop from './workshop'
 import farmersHouse from './farmersHouse'
 
 import bakehouse from './bakehouse'
+import smithy from './smithy'
 /*
 
 These should all accept a hash containing { G, ctx, args }, and return G
@@ -72,4 +73,5 @@ export default {
   farmersHouse,
 
   bakehouse,
+  smithy,
 }
