@@ -151,10 +151,14 @@ const harvest = player => {
     )
   )(player)
 }
-const sheering = player => {
-  // TODO
-  if (!player) return null
-  return player
+
+export const sheering = player => {
+  const { sheep } = countAnimals(player)
+  const addedWool = [sheep >= 1, sheep >= 4, sheep >= 6].reduce(
+    (total, meetsThreshold) => total + (meetsThreshold ? 1 : 0),
+    0
+  )
+  return addGoodsToPlayer({ player, good: 'wool', amount: addedWool })
 }
 
 // 4: Four

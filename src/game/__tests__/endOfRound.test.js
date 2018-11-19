@@ -1,4 +1,4 @@
-import { milking, babyAnimals } from '../endOfRound'
+import { milking, babyAnimals, sheering } from '../endOfRound'
 import { countAnimals } from '../../game/common/player'
 
 describe('milking', () => {
@@ -317,5 +317,33 @@ describe('babyAnimals', () => {
       horses: 3,
       sheep: 3,
     })
+  })
+})
+
+describe('sheering', () => {
+  const playerWithAnimals = animals => ({
+    // hypothetical 1x1 farm
+    land: [[{ type: 'empty', contents: animals }]],
+    dikes: [[{ type: 'dike', contents: [] }]],
+    goods: {
+      wool: 0,
+    },
+  })
+
+  it('gives 0 wool for no sheep', () => {
+    const result = sheering(playerWithAnimals([]))
+    expect(result.goods.wool).toBe(0)
+  })
+
+  it('gives 1 wool for some sheep', () => {
+    const animals = new Array(4).fill('sheep')
+    const result = sheering(playerWithAnimals(animals))
+    expect(result.goods.wool).toBe(2)
+  })
+
+  it('gives 3 wool for some sheep', () => {
+    const animals = new Array(6).fill('sheep')
+    const result = sheering(playerWithAnimals(animals))
+    expect(result.goods.wool).toBe(3)
   })
 })
