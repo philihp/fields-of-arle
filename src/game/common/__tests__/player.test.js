@@ -9,7 +9,7 @@ import { initialState } from '../../index'
 describe('player', () => {
   let player
   beforeEach(() => {
-    player = initialState.players[0]
+    player = initialState(2).players[0]
   })
 
   describe('inventoryAddToPlayer', () => {

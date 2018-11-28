@@ -2,7 +2,7 @@ import berumCastle from '../berumCastle'
 import { initialState } from '../../index'
 
 const stateWith = () => ({
-  G: initialState,
+  G: initialState(2),
   ctx: {
     currentPlayer: '0',
   },

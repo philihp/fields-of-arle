@@ -6,7 +6,7 @@ const ctx = { currentPlayer: 0 }
 const G = {
   players: {
     0: {
-      land: initialState.players[0].land,
+      land: initialState(2).players[0].land,
       dikes: [
         [
           { type: 'dike', contents: ['cattle'] },

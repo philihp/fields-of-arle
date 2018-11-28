@@ -55,7 +55,7 @@ const resetPassed = (G, ctx) => ({
 
 const game = Game({
   setup: ctx => ({
-    ...initialState,
+    ...initialState(ctx.numPlayers),
     buildings: [
       // ...ctx.random.Shuffle(smallHouses).slice(0, 4),
       ...smallHouses.slice(0, 4),

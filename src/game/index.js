@@ -96,44 +96,42 @@ const homeBoard = {
 
 const defaultLighthouseOwner = 0
 
-export const initialState = {
-  players: {
-    0: homeBoard,
-    1: homeBoard,
-  },
-  passed: {
-    0: false,
-    1: false,
-  },
-  halfYear: 1,
-  action: null,
-  workshop: null,
-  usedWorkshops: [],
-  workerSpaces: summerActionsReset(defaultLighthouseOwner),
-  lighthouse: {
-    owner: defaultLighthouseOwner,
-    used: false,
-  },
-  toolSpaces: {
-    fishTraps: [0, 0],
-    fleshingBeams: [0, 0],
-    weavingLooms: [0, 0],
-    slaughteringTables: [0, 0],
-    spades: [0, 0],
-    shovels: [0, 0],
-    potteryWheels: [0, 0],
-    ovens: [0, 0],
-    axes: [0, 0],
-    workbenches: [0, 0],
-  },
-  supplies: {
-    forestPark: 5,
-    stallDepot: 5,
-    stableDoubleStall: 3,
-    grainFlaxField: 10,
-    cartHorseCart: 3,
-    carriageDroshky: 3,
-    handcartWagon: 2,
-    peatBoatPlow: 6,
-  },
+export const initialState = numPlayers => {
+  const players = { ...new Array(numPlayers).fill(homeBoard) }
+  const passed = { ...new Array(numPlayers).fill(false) }
+  return {
+    players,
+    passed,
+    halfYear: 1,
+    action: null,
+    workshop: null,
+    usedWorkshops: [],
+    workerSpaces: summerActionsReset(defaultLighthouseOwner),
+    lighthouse: {
+      owner: defaultLighthouseOwner,
+      used: false,
+    },
+    toolSpaces: {
+      fishTraps: [0, 0],
+      fleshingBeams: [0, 0],
+      weavingLooms: [0, 0],
+      slaughteringTables: [0, 0],
+      spades: [0, 0],
+      shovels: [0, 0],
+      potteryWheels: [0, 0],
+      ovens: [0, 0],
+      axes: [0, 0],
+      workbenches: [0, 0],
+    },
+    supplies: {
+      forestPark: 5,
+      stallDepot: 5,
+      stableDoubleStall: 3,
+      grainFlaxField: 10,
+      cartHorseCart: 3,
+      carriageDroshky: 3,
+      handcartWagon: 2,
+      peatBoatPlow: 6,
+    },
+  }
 }
