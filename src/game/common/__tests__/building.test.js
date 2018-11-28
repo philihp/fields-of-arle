@@ -27,6 +27,23 @@ describe('flipBuilding', () => {
     expect(actual.contents).toEqual(expected.contents)
   })
 
+  it('flips a moorSouth', () => {
+    const expected = {
+      type: 'dmoorSouth',
+      contents: ['peat', 'peat', 'peat', 'peat'],
+    }
+    const actual = flipBuilding({ type: 'moorSouth', contents: [] })
+    expect(actual.type).toEqual(expected.type)
+    expect(actual.contents).toEqual(expected.contents)
+  })
+
+  it('flips a moorNorth', () => {
+    const expected = { type: 'dmoorNorth', contents: [] }
+    const actual = flipBuilding({ type: 'moorNorth', contents: [] })
+    expect(actual.type).toEqual(expected.type)
+    expect(actual.contents).toEqual(expected.contents)
+  })
+
   it('flips a stable', () => {
     const expected = {
       type: 'doubleStall',
