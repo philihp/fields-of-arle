@@ -35,8 +35,8 @@ class Inn extends React.Component {
         Building this needs 2 different goods and 9 food
         <hr />
         <b>Cost 1</b>
-        {doubleMats.map(mats => (
-          <div>
+        {doubleMats.map((mats, index) => (
+          <div key={index}>
             <input
               type="radio"
               name="cost1"
@@ -57,6 +57,7 @@ class Inn extends React.Component {
           type="radio"
           name="9food"
           disabled={goods.food < 9}
+          readOnly
           checked={goods.food >= 9}
         />
         <label htmlFor="9food">9 food</label>
