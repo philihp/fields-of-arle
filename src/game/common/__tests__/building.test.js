@@ -27,19 +27,19 @@ describe('flipBuilding', () => {
     expect(actual.contents).toEqual(expected.contents)
   })
 
-  it('flips a moorSouth', () => {
+  it('flips a moorNorth', () => {
     const expected = {
-      type: 'dmoorSouth',
+      type: 'dmoorNorth',
       contents: ['peat', 'peat', 'peat', 'peat'],
     }
-    const actual = flipBuilding({ type: 'moorSouth', contents: [] })
+    const actual = flipBuilding({ type: 'moorNorth', contents: [] })
     expect(actual.type).toEqual(expected.type)
     expect(actual.contents).toEqual(expected.contents)
   })
 
-  it('flips a moorNorth', () => {
-    const expected = { type: 'dmoorNorth', contents: [] }
-    const actual = flipBuilding({ type: 'moorNorth', contents: [] })
+  it('flips a moorSouth', () => {
+    const expected = { type: 'dmoorSouth', contents: [] }
+    const actual = flipBuilding({ type: 'moorSouth', contents: [] })
     expect(actual.type).toEqual(expected.type)
     expect(actual.contents).toEqual(expected.contents)
   })

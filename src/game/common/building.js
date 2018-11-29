@@ -10,9 +10,9 @@ export const flipBuilding = building => {
   if (upgradedBuilding[building.type] === undefined) return building
 
   const upgradedBuildingType = upgradedBuilding[building.type]
-  // ignore dmoorNorth here - only 4 peats are placed in total
+  // ignore dmoorSouth here - only 4 peats are placed in total
   const contents =
-    upgradedBuildingType === 'dmoorSouth'
+    upgradedBuildingType === 'dmoorNorth'
       ? ['peat', 'peat', 'peat', 'peat']
       : building.contents
 
