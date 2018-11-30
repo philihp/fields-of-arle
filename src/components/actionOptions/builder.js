@@ -7,9 +7,43 @@ import costs from '../costs/'
 const SelectPayment = () => <div>Select Payment</div>
 
 class Builder extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      checked: [],
+    }
+  }
+
   handlePlaceBuilding = (row, col) => () => {
     const { moves } = this.props
     moves.option({ col, row })
+  }
+
+  checkUncheck = (row, col) => () => {
+    console.log(`checkUncheck [${row}, ${col}]`)
+    if (this.state.checked.some(loc => loc[0] === row && loc[1] === col)) {
+      const index = this.state.checked.findIndex(
+        loc => loc[0] === row && loc[1] === col
+      )
+      this.setState(prevState => ({
+        ...prevState,
+        checked: this.state.checked
+          .slice(0, index)
+          .concat(
+            this.state.checked.slice(index + 1, this.state.checked.length)
+          ),
+      }))
+    } else {
+      this.setState(prevState => ({
+        ...prevState,
+        checked: [...prevState.checked, [row, col]],
+      }))
+    }
+  }
+
+  checkUncheckDone = () => {
+    const { moves } = this.props
+    moves.option({ immediate_action: this.state.checked })
   }
 
   render() {
@@ -27,7 +61,7 @@ class Builder extends React.Component {
       )
     }
 
-    const { building, row, col } = selected
+    const { building, row, col, cost } = selected
     if (building !== undefined && (row === undefined || col === undefined)) {
       const player = G.players[currentPlayer]
       return (
@@ -40,16 +74,35 @@ class Builder extends React.Component {
       )
     }
 
-    const {
-      players: {
-        [currentPlayer]: { inventory, goods },
-      },
-    } = G
-    const BuildingCost = costs[building]
+    if (
+      building !== undefined &&
+      row !== undefined &&
+      col !== undefined &&
+      cost === undefined
+    ) {
+      const {
+        players: {
+          [currentPlayer]: { inventory, goods },
+        },
+      } = G
+      const BuildingCost = costs[building]
+      return (
+        <div>
+          <BuildingCost inventory={inventory} goods={goods} moves={moves} />
+        </div>
+      )
+    }
+
+    const player = G.players[currentPlayer]
     return (
-      <div>
-        <BuildingCost inventory={inventory} goods={goods} moves={moves} />
-      </div>
+      <TableauFarm
+        moves={moves}
+        land={player.land}
+        dikes={player.dikes}
+        checkUncheck={this.checkUncheck}
+        checkUncheckDone={this.checkUncheckDone}
+        checked={this.state.checked}
+      />
     )
   }
 }
