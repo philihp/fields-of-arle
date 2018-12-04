@@ -1,0 +1,2 @@
+# https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
+*.js text eol=lf
