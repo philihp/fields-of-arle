@@ -44,9 +44,11 @@ const placeBuildingPlayer = ({ building, row, col }) => player => ({
 // TODO specialized to farmers Inn => code must be moved!
 const applyImmediateAction = locs => player => {
   const land = JSON.parse(JSON.stringify(player.land))
-  locs.forEach(loc => {
-    land[loc[0]][loc[1]].type = 'wood'
-    land[loc[0]][loc[1]].contents = []
+  locs.forEach(([row, col]) => {
+    land[row][col] = {
+      ...land[row][col],
+      type: 'forest',
+    }
   })
   return {
     ...player,
