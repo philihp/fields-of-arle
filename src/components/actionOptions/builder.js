@@ -20,14 +20,10 @@ class Builder extends React.Component {
   }
 
   checkUncheck = (row, col) => () => {
-    if (
-      this.state.checked.some(
-        ([checkedRow, checkedCol]) => checkedRow === row && checkedCol === col
-      )
-    ) {
-      const index = this.state.checked.findIndex(
-        ([checkedRow, checkedCol]) => checkedRow === row && checkedCol === col
-      )
+    const index = this.state.checked.findIndex(
+      ([checkedRow, checkedCol]) => checkedRow === row && checkedCol === col
+    )
+    if (index >= 0) {
       this.setState(prevState => ({
         ...prevState,
         checked: this.state.checked
