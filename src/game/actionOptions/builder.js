@@ -4,9 +4,6 @@ import { actionOption, applyToCurrentPlayer } from '../common/player'
 import { buildingRequiresNoParams } from '../costs/index'
 import onBuild from '../building/onBuild'
 
-// TODO specialized to farmers Inn => code must be moved!
-const buildingHasImmediateAction = building => building === 'farmersInn'
-
 const clearSelected = ({ G, ...args }) => ({
   G: {
     ...G,
@@ -40,21 +37,6 @@ const placeBuildingPlayer = ({ building, row, col }) => player => ({
     ...player.land.slice(row + 1),
   ],
 })
-
-// TODO specialized to farmers Inn => code must be moved!
-const applyImmediateAction = locs => player => {
-  const land = JSON.parse(JSON.stringify(player.land))
-  locs.forEach(([row, col]) => {
-    land[row][col] = {
-      ...land[row][col],
-      type: 'forest',
-    }
-  })
-  return {
-    ...player,
-    land,
-  }
-}
 
 const expendInventory = ({ cost }) => ({ G, ctx, ...args }) => ({
   G: {
@@ -99,9 +81,7 @@ export default ({ G, ctx, ...args }) => {
     selected.hasOwnProperty('col') &&
     selected.hasOwnProperty('row') &&
     (selected.hasOwnProperty('cost') ||
-      buildingRequiresNoParams(selected.building)) &&
-    (selected.hasOwnProperty('immediate_action') ||
-      !buildingHasImmediateAction(selected.building))
+      buildingRequiresNoParams(selected.building))
   ) {
     return compose(
       clearSelected,
@@ -116,8 +96,6 @@ export default ({ G, ctx, ...args }) => {
       removeBuilding(selected.building),
       // TODO expendInventory(selected.cost),
       // TODO expendGoods({})
-
-      applyToCurrentPlayer(applyImmediateAction(selected.immediate_action)),
 
       // this should be done before onBuild so the building can potentially overwrite it
       actionOption(null)

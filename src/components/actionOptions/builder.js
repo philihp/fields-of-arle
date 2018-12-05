@@ -7,42 +7,9 @@ import costs from '../costs/'
 const SelectPayment = () => <div>Select Payment</div>
 
 class Builder extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      checked: [],
-    }
-  }
-
   handlePlaceBuilding = (row, col) => () => {
     const { moves } = this.props
     moves.option({ col, row })
-  }
-
-  checkUncheck = (row, col) => () => {
-    const index = this.state.checked.findIndex(
-      ([checkedRow, checkedCol]) => checkedRow === row && checkedCol === col
-    )
-    if (index >= 0) {
-      this.setState(prevState => ({
-        ...prevState,
-        checked: this.state.checked
-          .slice(0, index)
-          .concat(
-            this.state.checked.slice(index + 1, this.state.checked.length)
-          ),
-      }))
-    } else {
-      this.setState(prevState => ({
-        ...prevState,
-        checked: [...prevState.checked, [row, col]],
-      }))
-    }
-  }
-
-  checkUncheckDone = () => {
-    const { moves } = this.props
-    moves.option({ immediate_action: this.state.checked })
   }
 
   render() {
@@ -73,35 +40,16 @@ class Builder extends React.Component {
       )
     }
 
-    if (
-      building !== undefined &&
-      row !== undefined &&
-      col !== undefined &&
-      cost === undefined
-    ) {
-      const {
-        players: {
-          [currentPlayer]: { inventory, goods },
-        },
-      } = G
-      const BuildingCost = costs[building]
-      return (
-        <div>
-          <BuildingCost inventory={inventory} goods={goods} moves={moves} />
-        </div>
-      )
-    }
-
-    const player = G.players[currentPlayer]
+    const {
+      players: {
+        [currentPlayer]: { inventory, goods },
+      },
+    } = G
+    const BuildingCost = costs[building]
     return (
-      <TableauFarm
-        moves={moves}
-        land={player.land}
-        dikes={player.dikes}
-        checkUncheck={this.checkUncheck}
-        checkUncheckDone={this.checkUncheckDone}
-        checked={this.state.checked}
-      />
+      <div>
+        <BuildingCost inventory={inventory} goods={goods} moves={moves} />
+      </div>
     )
   }
 }

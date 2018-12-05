@@ -7,6 +7,9 @@ const homeBoard = {
   tokens: [], // Floating tokens
   inventory: [
     'timber', // TODO remove
+    'timber',
+    'timber',
+    'timber',
     'wood',
     'wood',
     'wood',
@@ -18,14 +21,17 @@ const homeBoard = {
     'peat',
     'peat',
     'peat',
+    'leather',
+    'leather',
+    'leather',
   ], // Permanent tokens
   travelExperience: 0,
   goods: {
-    food: 5,
+    food: 50,
     wool: 4,
     flax: 3,
     hide: 2,
-    grain: 1,
+    grain: 10,
   },
   land: [
     [emptyLandCell, emptyLandCell, emptyLandCell],
