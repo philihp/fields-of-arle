@@ -59,7 +59,8 @@ describe('The Farmers Inn component', () => {
   it('allows to select and deselect', () => {
     const Component = data.component
     const mountedComponent = mount(<Component {...props} />)
-      // https://github.com/airbnb/enzyme/issues/216
+    // https://github.com/airbnb/enzyme/issues/216
+    const grainField = mountedComponent
       .find('.grain')
       .at(0)
       .find('input')
