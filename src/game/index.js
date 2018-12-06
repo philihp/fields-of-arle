@@ -27,16 +27,16 @@ const homeBoard = {
   ], // Permanent tokens
   travelExperience: 0,
   goods: {
-    food: 50,
+    food: 5,
     wool: 4,
     flax: 3,
     hide: 2,
-    grain: 10,
+    grain: 1,
   },
   land: [
-    [emptyLandCell, emptyLandCell, { type: 'grain', contents: [] }],
-    [emptyLandCell, emptyLandCell, { type: 'grain', contents: [] }],
-    [emptyLandCell, emptyLandCell, { type: 'grain', contents: [] }],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
+    [emptyLandCell, emptyLandCell, emptyLandCell],
     [emptyLandCell, emptyLandCell, { type: 'grain', contents: [] }],
     [
       {
