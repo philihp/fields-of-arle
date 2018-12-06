@@ -27,7 +27,7 @@ class Builder extends React.Component {
       )
     }
 
-    const { building, row, col } = selected
+    const { building, row, col, cost } = selected
     if (building !== undefined && (row === undefined || col === undefined)) {
       const player = G.players[currentPlayer]
       return (

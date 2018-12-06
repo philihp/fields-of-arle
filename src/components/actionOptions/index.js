@@ -34,6 +34,8 @@ import farmersHouse from './farmersHouse'
 import bakehouse from './bakehouse'
 import smithy from './smithy'
 
+import farmersInn from './farmersInn'
+
 // Exhaustive list of all of the actions with options to prompt after selected
 
 // Each of these should be an object in the form
@@ -81,4 +83,6 @@ export default {
 
   bakehouse,
   smithy,
+
+  farmersInn,
 }

@@ -27,6 +27,7 @@ import imitating from './imitating'
 import plowMakersWorkshop from './plowMakersWorkshop'
 import workshop from './workshop'
 import farmersHouse from './farmersHouse'
+import farmersInn from './farmersInn'
 
 import bakehouse from './bakehouse'
 import smithy from './smithy'
@@ -74,4 +75,5 @@ export default {
 
   bakehouse,
   smithy,
+  farmersInn,
 }

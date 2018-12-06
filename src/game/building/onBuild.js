@@ -14,6 +14,7 @@ import berumCastle from './berumCastle'
 import bakehouse from './bakehouse'
 import smithy from './smithy'
 import textileHouse from './textileHouse'
+import farmersInn from './farmersInn'
 
 const onBuild = {
   mill,
@@ -31,6 +32,7 @@ const onBuild = {
   berumCastle,
   bakehouse,
   smithy,
+  farmersInn,
 }
 
 export default building =>

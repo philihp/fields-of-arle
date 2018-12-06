@@ -29,6 +29,8 @@ const TableauLand = ({
   handleBuildField,
   disabledBuildField,
   handleWardenFlip,
+  checkUncheck,
+  checked,
 }) => {
   const canReceive =
     (children.type === 'empty' &&
@@ -109,6 +111,12 @@ const TableauLand = ({
           </button>
         )}
 
+        {/* farmersInn */}
+        {(children.type === 'grain' || children.type === 'flax') &&
+          checkUncheck && (
+            <input type="checkbox" checked={checked} onChange={checkUncheck} />
+          )}
+
         {/* forester */}
         {!flooded && children.type === 'empty' && handlePlaceForest && (
           <button type="submit" onClick={handlePlaceForest}>
@@ -164,6 +172,8 @@ TableauLand.propTypes = {
   handleBuildField: PropTypes.func, // if provided, empty fields have a button that builds a grain and a button for flax field
   disabledBuildField: PropTypes.bool, // must be true, given row and col, for the button to be enabled
   handleWardenFlip: PropTypes.func, // if provided, shows a button for warden-flipping
+  checkUncheck: PropTypes.func,
+  checked: PropTypes.bool,
 }
 
 export default TableauLand

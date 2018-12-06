@@ -22,6 +22,9 @@ const TableauFarm = ({
   handleBuildField,
   disabledBuildField,
   handleWardenFlip,
+  checkUncheck,
+  checkUncheckDone,
+  checked,
 }) => {
   const seaLevel = findSeaLevel(dikes)
   return (
@@ -50,6 +53,10 @@ const TableauFarm = ({
             handleSetFocus={handleSetFocus && handleSetFocus('land', y, x)}
             handlePlaceBuilding={
               handlePlaceBuilding && handlePlaceBuilding(y, x)
+            }
+            checkUncheck={checkUncheck && checkUncheck(y, x)}
+            checked={
+              checked && checked.some(loc => loc[1] === x && loc[0] === y)
             }
             handlePlaceForest={handlePlaceForest && handlePlaceForest(y, x)}
             handleBuildStall={handleBuildStall && handleBuildStall(y, x)}
@@ -84,6 +91,11 @@ const TableauFarm = ({
           </TableauDike>
         ))
       )}
+      {checkUncheckDone && (
+        <button type="submit" onClick={checkUncheckDone}>
+          Done
+        </button>
+      )}
     </div>
   )
 }
@@ -103,6 +115,9 @@ TableauFarm.propTypes = {
   usedWorkshops: PropTypes.array,
   activePlayer: PropTypes.bool,
   phase: PropTypes.string,
+  checkUncheck: PropTypes.func,
+  checkUncheckDone: PropTypes.func,
+  checked: PropTypes.arrayOf(PropTypes.any),
 }
 
 export default TableauFarm
