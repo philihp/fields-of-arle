@@ -14,6 +14,9 @@ class FarmersInn extends React.Component {
     const index = this.state.checked.findIndex(
       ([checkedRow, checkedCol]) => checkedRow === row && checkedCol === col
     )
+
+    const availableForest = this.props.G.supplies.forestPark
+
     if (index >= 0) {
       this.setState(prevState => ({
         ...prevState,
@@ -23,7 +26,7 @@ class FarmersInn extends React.Component {
             this.state.checked.slice(index + 1, this.state.checked.length)
           ),
       }))
-    } else {
+    } else if (this.state.checked.length < availableForest) {
       this.setState(prevState => ({
         ...prevState,
         checked: [...prevState.checked, [row, col]],
