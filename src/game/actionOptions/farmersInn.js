@@ -7,23 +7,37 @@ const clearAction = ({ G, ctx, ...args }) => ({
   ...args,
 })
 
-const convertCheckedFieldsToForest = ({ args }) => player => {
+const convertCheckedFieldsToForest = ({ args }) => ({ G, ctx }) => {
   const locs = args[0].locs
-  const land = JSON.parse(JSON.stringify(player.land))
+  const returnedFields = locs.length
+
+  const player = G.players[ctx.currentPlayer]
+  const newPlayer = JSON.parse(JSON.stringify(player))
+
   locs.forEach(([row, col]) => {
-    land[row][col] = {
-      ...land[row][col],
+    newPlayer.land[row][col] = {
+      ...newPlayer.land[row][col],
       type: 'forest',
     }
   })
   return {
-    ...player,
-    land,
+    G: {
+      ...G,
+      players: {
+        ...G.players,
+        [ctx.currentPlayer]: newPlayer,
+      },
+      supplies: {
+        ...G.supplies,
+        grainFlaxField: G.supplies.grainFlaxField + returnedFields,
+      },
+    },
+    ctx,
   }
 }
 
 export default ({ G, ctx, ...args }) =>
   compose(
-    applyToCurrentPlayer(convertCheckedFieldsToForest(args)),
+    convertCheckedFieldsToForest(args),
     clearAction
   )({ G, ctx, ...args }).G

@@ -10,6 +10,9 @@ const state = args => ({
         ],
       },
     },
+    supplies: {
+      grainFlaxField: 10,
+    },
   },
   ctx: {
     currentPlayer: '0',
@@ -31,5 +34,11 @@ describe('Farmers Inn', () => {
       contents: [],
       type: 'forest',
     })
+  })
+
+  it('should return converted grain/flax to supply', () => {
+    const src = state([{ locs: [[0, 0]] }])
+    const dst = farmersInn(src)
+    expect(dst.supplies.grainFlaxField).toBe(11)
   })
 })
