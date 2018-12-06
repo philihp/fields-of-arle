@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TableauFarm from '../tableauFarm'
 
+const maxAllowedTilesToReplace = 3
+
 class FarmersInn extends React.Component {
   constructor(props) {
     super(props)
@@ -26,7 +28,10 @@ class FarmersInn extends React.Component {
             this.state.checked.slice(index + 1, this.state.checked.length)
           ),
       }))
-    } else if (this.state.checked.length < availableForest) {
+    } else if (
+      this.state.checked.length < availableForest &&
+      this.state.checked.length < maxAllowedTilesToReplace
+    ) {
       this.setState(prevState => ({
         ...prevState,
         checked: [...prevState.checked, [row, col]],
@@ -48,14 +53,18 @@ class FarmersInn extends React.Component {
 
     const player = G.players[currentPlayer]
     return (
-      <TableauFarm
-        moves={moves}
-        land={player.land}
-        dikes={player.dikes}
-        checkUncheck={this.checkUncheck}
-        checkUncheckDone={this.checkUncheckDone}
-        checked={this.state.checked}
-      />
+      <div>
+        Number of tiles to select:{' '}
+        {maxAllowedTilesToReplace - this.state.checked.length}
+        <TableauFarm
+          moves={moves}
+          land={player.land}
+          dikes={player.dikes}
+          checkUncheck={this.checkUncheck}
+          checkUncheckDone={this.checkUncheckDone}
+          checked={this.state.checked}
+        />
+      </div>
     )
   }
 }
