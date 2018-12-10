@@ -291,20 +291,20 @@ export const sellableAtDestination = player => [
   ...player.land[5]
     .map(cell => cell.type)
     .map((item, index) => (item === 'moorNorth' ? [`moor-${index}`] : []))
-    .flat(),
+    .reduce(flatten, []),
   // inventory
   ...player.inventory,
   // things on the land tiles, minus uncut peat
   ...player.land
-    .flat()
+    .reduce(flatten, [])
     .map(cell => cell.contents)
-    .flat()
+    .reduce(flatten, [])
     .filter(item => item !== 'peat'),
   // animals on dikes
   ...player.dikes
-    .flat()
+    .reduce(flatten, [])
     .map(cell => cell.contents)
-    .flat(),
+    .reduce(flatten, []),
   // vehicles
   ...playerBarnVehicles(player)
     .filter(v => v !== null)
