@@ -1,4 +1,8 @@
-import { inventoryAddToPlayer, inventorySpendFromPlayer } from '../player'
+import {
+  inventoryAddToPlayer,
+  inventorySpendFromPlayer,
+  payForVehicle,
+} from '../player'
 import { initialState } from '../../index'
 
 describe('player', () => {
@@ -49,6 +53,32 @@ describe('player', () => {
       player = inventorySpendFromPlayer('aaa', 'ccc', 'ddd')(player)
       const expected = ['bbb', 'aaa', 'bbb', 'aaa', 'ccc']
       expect(player.inventory).toEqual(expected)
+    })
+  })
+
+  describe('payForVehicle', () => {
+    const ctx = { currentPlayer: '0' }
+    const G = {
+      players: {
+        0: {
+          // hypothetical 1x1 farm
+          land: [[{ type: 'empty', contents: ['horse'] }]],
+          dikes: [[{ type: 'dike', contents: ['cattle'] }]],
+          inventory: ['wood', 'clay', 'clay'],
+          goods: {},
+        },
+      },
+    }
+    const result = payForVehicle({ G, ctx }, 'plow', 'cattle')
+    it('uses the animal expected', () => {
+      expect(
+        result.G.players[ctx.currentPlayer].dikes[0][0].contents
+      ).toHaveLength(0)
+    })
+    it('consumes the inventory resources', () => {
+      expect(result.G.players[ctx.currentPlayer].inventory).not.toContain(
+        'wood'
+      )
     })
   })
 })
