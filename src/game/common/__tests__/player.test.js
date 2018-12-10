@@ -2,6 +2,7 @@ import {
   inventoryAddToPlayer,
   inventorySpendFromPlayer,
   payForVehicle,
+  sellableAtDestination,
 } from '../player'
 import { initialState } from '../../index'
 
@@ -78,6 +79,41 @@ describe('player', () => {
     it('consumes the inventory resources', () => {
       expect(result.G.players[ctx.currentPlayer].inventory).not.toContain(
         'wood'
+      )
+    })
+  })
+
+  describe('sellableAtDestination', () => {
+    it('scans a players stuff for things that might be put on a destination', () => {
+      expect(sellableAtDestination(player)).toContain(
+        'grain-2-3',
+        'flax-2-4',
+        'flax',
+        'hide',
+        'grain',
+        'boardwalk',
+        'moor-0',
+        'moor-1',
+        'moor-2',
+        'timber',
+        'timber',
+        'timber',
+        'timber',
+        'wood',
+        'wood',
+        'wood',
+        'wood',
+        'clay',
+        'clay',
+        'clay',
+        'clay',
+        'peat',
+        'peat',
+        'peat',
+        'leather',
+        'leather',
+        'leather',
+        'horse'
       )
     })
   })

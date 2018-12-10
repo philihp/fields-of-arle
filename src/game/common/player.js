@@ -269,7 +269,8 @@ export const applyToCurrentPlayer = modifier => ({ G, ctx, ...args }) => ({
 
 export const landOfType = (...types) => player =>
   player.land
-    .flatMap((row, y) => row.map((cell, x) => [cell.type, y, x]))
+    .map((row, y) => row.map((cell, x) => [cell.type, y, x]))
+    .reduce(flatten, [])
     .filter(([type, y, x]) => types.includes(type))
 
 export const sellableAtDestination = player => [
