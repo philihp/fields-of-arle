@@ -99,6 +99,7 @@ const defaultLighthouseOwner = 0
 export const initialState = numPlayers => {
   const players = { ...new Array(numPlayers).fill(homeBoard) }
   const passed = { ...new Array(numPlayers).fill(false) }
+  const emptyTools = new Array(numPlayers).fill(0)
   return {
     players,
     passed,
@@ -106,22 +107,22 @@ export const initialState = numPlayers => {
     action: null,
     workshop: null,
     usedWorkshops: [],
-    workerSpaces: summerActionsReset(defaultLighthouseOwner),
+    workerSpaces: summerActionsReset(numPlayers, defaultLighthouseOwner),
     lighthouse: {
       owner: defaultLighthouseOwner,
       used: false,
     },
     toolSpaces: {
-      fishTraps: [0, 0],
-      fleshingBeams: [0, 0],
-      weavingLooms: [0, 0],
-      slaughteringTables: [0, 0],
-      spades: [0, 0],
-      shovels: [0, 0],
-      potteryWheels: [0, 0],
-      ovens: [0, 0],
-      axes: [0, 0],
-      workbenches: [0, 0],
+      fishTraps: emptyTools,
+      fleshingBeams: emptyTools,
+      weavingLooms: emptyTools,
+      slaughteringTables: emptyTools,
+      spades: emptyTools,
+      shovels: emptyTools,
+      potteryWheels: emptyTools,
+      ovens: emptyTools,
+      axes: emptyTools,
+      workbenches: emptyTools,
     },
     supplies: {
       forestPark: 5,
