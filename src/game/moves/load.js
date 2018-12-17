@@ -91,9 +91,11 @@ const sellAtDestination = arg => state => {
 export default (G, ctx, ...args) => {
   if (![null, 'load'].includes(G.action)) return G
   const [arg] = args
-  if (arg === undefined) return actionOption('load')({ G, ctx, ...args }).G
-  else if (arg === 'cancel') return actionOption(null)({ G, ctx, ...args }).G
-  else {
+  if (arg === undefined) {
+    return actionOption('load')({ G, ctx, ...args }).G
+  } else if (arg === 'cancel') {
+    return actionOption(null)({ G, ctx, ...args }).G
+  } else {
     return compose(
       sellAtDestination(arg),
       moveTokenToVehicle(arg),
