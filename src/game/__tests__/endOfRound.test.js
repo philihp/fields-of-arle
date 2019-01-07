@@ -347,3 +347,39 @@ describe('sheering', () => {
     expect(result.goods.wool).toBe(3)
   })
 })
+
+describe('harvest', () => {
+  const player = {
+    land: [
+      [
+        { type: 'grain', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'empty', contents: [] },
+      ],
+      [
+        { type: 'flax', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'empty', contents: [] },
+      ],
+      [
+        { type: 'forest', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'forest', contents: [] },
+      ],
+    ],
+    dikes: [[]],
+    inventory: [],
+    goods: {
+      flax: 0,
+      grain: 0,
+    },
+  }
+
+  it('harvests from grain, flax, and wood', () => {
+    const result = harvest(player)
+    expect(result.goods.flax).toBe(1)
+    expect(result.goods.grain).toBe(4)
+    expect(result.inventory).toHaveLength(2)
+    expect(result.inventory).toContain('wood')
+  })
+})
