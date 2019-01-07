@@ -1,4 +1,4 @@
-import { milking, babyAnimals, sheering } from '../endOfRound'
+import { milking, babyAnimals, sheering, harvest } from '../endOfRound'
 import { countAnimals } from '../../game/common/player'
 
 describe('milking', () => {
@@ -38,7 +38,7 @@ describe('milking', () => {
 describe('babyAnimals', () => {
   const farmWith = (type, ...contents) => ({
     // hypothetical 1x1 farm
-    land: [[{ type: 'stable', contents }]],
+    land: [[{ type, contents }]],
     dikes: [[{ type: 'dike', contents: [] }]],
   })
 
