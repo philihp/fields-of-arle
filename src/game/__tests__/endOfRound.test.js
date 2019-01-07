@@ -1,4 +1,10 @@
-import { milking, babyAnimals, sheering } from '../endOfRound'
+import {
+  milking,
+  babyAnimals,
+  sheering,
+  harvest,
+  emptyVehicles,
+} from '../endOfRound'
 import { countAnimals } from '../../game/common/player'
 
 describe('milking', () => {
@@ -38,7 +44,7 @@ describe('milking', () => {
 describe('babyAnimals', () => {
   const farmWith = (type, ...contents) => ({
     // hypothetical 1x1 farm
-    land: [[{ type: 'stable', contents }]],
+    land: [[{ type, contents }]],
     dikes: [[{ type: 'dike', contents: [] }]],
   })
 
@@ -345,5 +351,97 @@ describe('sheering', () => {
     const animals = new Array(6).fill('sheep')
     const result = sheering(playerWithAnimals(animals))
     expect(result.goods.wool).toBe(3)
+  })
+})
+
+describe('harvest', () => {
+  const player = {
+    land: [
+      [
+        { type: 'grain', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'empty', contents: [] },
+      ],
+      [
+        { type: 'flax', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'empty', contents: [] },
+      ],
+      [
+        { type: 'forest', contents: [] },
+        { type: 'grain', contents: [] },
+        { type: 'forest', contents: [] },
+      ],
+    ],
+    dikes: [[]],
+    inventory: [],
+    goods: {
+      flax: 0,
+      grain: 0,
+    },
+  }
+
+  it('harvests from grain, flax, and wood', () => {
+    const result = harvest(player)
+    expect(result.goods.flax).toBe(1)
+    expect(result.goods.grain).toBe(4)
+    expect(result.inventory).toHaveLength(2)
+    expect(result.inventory).toContain('wood')
+  })
+})
+
+describe('emptyVehicles', () => {
+  it('empties vehicles with destinations', () => {
+    const player = {
+      barn: {
+        small1: { contents: ['bremen'] },
+        small2: { contents: ['aurich'] },
+        small3: { contents: ['dornum', null, 'hage'] },
+        small4: null,
+        large1: { contents: ['emden'] },
+        large2: { contents: ['wood'] },
+        large3: { contents: [null, null] },
+      },
+      travelExperience: 10,
+      inventory: [],
+    }
+    const result = emptyVehicles(player)
+    expect(result.travelExperience).toEqual(21)
+  })
+  it('flips clay and wood', () => {
+    const player = {
+      barn: {
+        small1: { contents: ['clay'] },
+        small2: { contents: ['wood'] },
+        small3: { contents: ['brick', null, null, null] },
+        small4: null,
+        large1: { contents: ['emden'] },
+        large2: { contents: [null] },
+        large3: { contents: [null, null] },
+      },
+      travelExperience: 10,
+      inventory: [],
+    }
+    const result = emptyVehicles(player)
+    expect(result.inventory).toEqual(['brick', 'timber', 'brick'])
+  })
+  it('replaces slots with nulls', () => {
+    const player = {
+      barn: {
+        small1: null,
+        small2: null,
+        small3: { contents: ['brick', null, 'emden', null] },
+        small4: null,
+        large1: { contents: ['emden'] },
+        large2: { contents: [null] },
+        large3: { contents: [null, null] },
+      },
+      travelExperience: 10,
+      inventory: [],
+    }
+    const result = emptyVehicles(player)
+    expect(result.barn.small3.contents).toEqual([null, null, null, null])
+    expect(result.barn.large1.contents).toEqual([null])
+    expect(result.barn.large3.contents).toEqual([null, null])
   })
 })

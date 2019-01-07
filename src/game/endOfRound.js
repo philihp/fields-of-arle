@@ -7,7 +7,7 @@ import {
   inventoryAddToPlayer,
 } from './common/player'
 import { destinationSize } from './destinations/index'
-import { spendInventory, remove } from './common/index'
+import { spendInventory, remove, flatten } from './common/index'
 import { playerBarnVehicles } from './common/barn'
 import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
 
@@ -39,12 +39,12 @@ const accrueTravelExperience = destinations => player => ({
   ),
 })
 
-const emptyVehicles = player => {
+export const emptyVehicles = player => {
   //  if (!player) return null
   const tokens = playerBarnVehicles(player)
     .filter(v => v !== null)
     .map(v => v.contents)
-    .flat()
+    .reduce(flatten, [])
     .filter(i => i !== null)
     .map(t => flip(t))
   return compose(
@@ -134,8 +134,8 @@ const curriedAddInventoryToPlayer = (type, amount) => player => ({
   inventory: [...player.inventory, ...new Array(amount).fill(type)],
 })
 
-const harvest = player => {
-  const types = player.land.flat().map(cell => cell.type)
+export const harvest = player => {
+  const types = player.land.reduce(flatten, []).map(cell => cell.type)
   return compose(
     curriedAddGoodsToPlayer(
       'grain',
