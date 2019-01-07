@@ -39,12 +39,12 @@ const accrueTravelExperience = destinations => player => ({
   ),
 })
 
-const emptyVehicles = player => {
+export const emptyVehicles = player => {
   //  if (!player) return null
   const tokens = playerBarnVehicles(player)
     .filter(v => v !== null)
     .map(v => v.contents)
-    .flat()
+    .reduce(flatten, [])
     .filter(i => i !== null)
     .map(t => flip(t))
   return compose(
