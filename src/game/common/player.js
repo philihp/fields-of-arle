@@ -80,18 +80,16 @@ export const addInventory = ({ G, ctx, ...args }, newInventoryList) =>
   inventoryAdd(...newInventoryList)({ G, ctx, ...args })
 
 // TODO: refactor to curried function
-export const addGoodsToPlayer = ({ player, good, amount }) =>
-  // console.log(player)
-  ({
-    ...player,
-    goods: {
-      ...player.goods,
-      [good]:
-        player.goods[good] + amount > GoodsLimit[good]
-          ? GoodsLimit[good]
-          : player.goods[good] + amount,
-    },
-  })
+export const addGoodsToPlayer = ({ player, good, amount }) => ({
+  ...player,
+  goods: {
+    ...player.goods,
+    [good]:
+      player.goods[good] + amount > GoodsLimit[good]
+        ? GoodsLimit[good]
+        : player.goods[good] + amount,
+  },
+})
 
 export const curriedAddGoodsToPlayer = (good, amount) => player =>
   addGoodsToPlayer({ player, good, amount })
