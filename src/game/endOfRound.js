@@ -163,7 +163,7 @@ export const sheering = player => {
 
 // 4: Four
 
-const sustenanceFood = player => {
+export const sustenanceFood = player => {
   if (player.goods.food >= 3) {
     return addGoodsToPlayer({ player, good: 'food', amount: -3 })
   } else if (player.goods.food + player.goods.grain >= 3)
@@ -204,7 +204,7 @@ const consumeInventory = (state, consumed) => {
   }
 }
 
-const sustenanceFuel = player => {
+export const sustenanceFuel = player => {
   const state0 = {
     inventory: player.inventory,
     demand: new Array(2).fill('peat'),

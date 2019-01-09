@@ -4,6 +4,8 @@ import {
   sheering,
   harvest,
   emptyVehicles,
+  sustenanceFood,
+  sustenanceFuel,
 } from '../endOfRound'
 import { countAnimals } from '../../game/common/player'
 
@@ -443,5 +445,70 @@ describe('emptyVehicles', () => {
     expect(result.barn.small3.contents).toEqual([null, null, null, null])
     expect(result.barn.large1.contents).toEqual([null])
     expect(result.barn.large3.contents).toEqual([null, null])
+  })
+})
+
+describe('sustenanceFood', () => {
+  it('removes 3 food', () => {
+    const player = {
+      goods: {
+        food: 30,
+      },
+    }
+    const result = sustenanceFood(player)
+    expect(result.goods.food).toEqual(27)
+  })
+  it('removes grain if not enough food', () => {
+    const player = {
+      goods: {
+        food: 2,
+        grain: 2,
+      },
+    }
+    const result = sustenanceFood(player)
+    expect(result.goods.food).toEqual(0)
+    expect(result.goods.grain).toEqual(1)
+  })
+  it('removes animal if not enough food or grain', () => {
+    const player = {
+      goods: {
+        food: 0,
+        grain: 1,
+      },
+    }
+    const result = sustenanceFood(player)
+    expect(result.goods.food).toEqual(0)
+    expect(result.goods.grain).toEqual(0)
+    expect(result.goods.foodDeficit).toEqual(2)
+    // TODO: incomplete test, needs action to be written
+  })
+})
+
+describe('sustenanceFuel', () => {
+  it('removes 2 peat', () => {
+    const result = sustenanceFuel({
+      inventory: ['peat', 'peat', 'peat'],
+    })
+    expect(result.inventory).toEqual(['peat'])
+  })
+  it('removes peat first, then wood', () => {
+    const result = sustenanceFuel({
+      inventory: ['peat', 'clay', 'clay', 'wood', 'wood'],
+    })
+    expect(result.inventory).toEqual(['clay', 'clay', 'wood'])
+  })
+  it('removes wood first, then timber', () => {
+    const result = sustenanceFuel({
+      inventory: ['wood', 'clay', 'clay', 'timber', 'brick'],
+    })
+    expect(result.inventory).toEqual(['clay', 'clay', 'brick'])
+  })
+  it('removes wood first, then timber', () => {
+    const result = sustenanceFuel({
+      inventory: ['clay', 'clay', 'timber'],
+      supplyBottlenecks: 3,
+    })
+    expect(result.inventory).toEqual(['clay', 'clay'])
+    expect(result.supplyBottlenecks).toEqual(4)
   })
 })
