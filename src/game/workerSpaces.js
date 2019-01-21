@@ -32,7 +32,7 @@ const actionSpaces = {
 }
 
 const startSpaces = (numPlayers, startPlayer) =>
-  new Array(numPlayers).map((v, i) => (i + startPlayer) % numPlayers)
+  Array.from({ length: numPlayers }, (v, i) => (i + startPlayer) % numPlayers)
 
 const summerPrepSpaces = (numPlayers, startPlayer) => ({
   july: startSpaces(numPlayers, startPlayer),

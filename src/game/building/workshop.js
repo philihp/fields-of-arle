@@ -1,3 +1,4 @@
+import deneg from 'deneg-zero'
 import { workshops } from './type'
 
 export const playersWorkshops = player =>
@@ -32,5 +33,5 @@ export const workshopTurnOrder = {
     return +ctx.currentPlayer
     // maybe...?   return -(+ctx.currentPlayer - 1)
   },
-  next: (G, ctx) => -(+ctx.currentPlayer - 1),
+  next: (G, ctx) => deneg(-(+ctx.currentPlayer - 1)),
 }
