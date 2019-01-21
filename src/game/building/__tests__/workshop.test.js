@@ -10,7 +10,7 @@ const stateWith = (playerCount, currentPlayer) => ({
 })
 
 describe('resetPassedIfWorkshops', () => {
-  xdescribe('1 player', () => {
+  describe('1 player', () => {
     it('used workshops should be empty', () => {
       const state = stateWith(1, 0)
       const output = resetPassedIfWorkshops(state.G, state.ctx)
@@ -38,7 +38,7 @@ describe('resetPassedIfWorkshops', () => {
 })
 
 describe('workshopTurnOrder', () => {
-  xdescribe('1 player', () => {
+  describe('1 player', () => {
     it('gives first player', () => {
       const state = stateWith(1, 0)
       expect(workshopTurnOrder.first(state.G, state.ctx)).toBe(0)
@@ -71,8 +71,7 @@ describe('workshopTurnOrder', () => {
           },
         },
       }
-      // TODO: I think this is wrong... but i am drunk right now. fix later.
-      expect(workshopTurnOrder.first(state.G, state.ctx)).toBe(1)
+      expect(workshopTurnOrder.first(state.G, state.ctx)).toBe(0)
     })
     it('player one has a workshop', () => {
       const baseState = stateWith(2, 0)
