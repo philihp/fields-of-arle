@@ -323,3 +323,14 @@ export const usableVehicles = player =>
     .filter(([space, parked]) => parked !== null)
     // map the key/name of the space into the vehicle itself
     .map(([space, val]) => ({ ...val, space }))
+
+export const forAllPlayers = f => G => ({
+  ...G,
+  players: Object.keys(G.players).reduce(
+    (accum, playerNumber) => ({
+      ...accum,
+      [playerNumber]: f(G.players[playerNumber]),
+    }),
+    {}
+  ),
+})

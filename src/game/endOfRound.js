@@ -5,6 +5,7 @@ import {
   curriedAddGoodsToPlayer,
   inventoryAdd,
   inventoryAddToPlayer,
+  forAllPlayers,
 } from './common/player'
 import { destinationSize } from './destinations/index'
 import { spendInventory, remove, flatten } from './common/index'
@@ -253,17 +254,9 @@ const onMayBeginForPlayer = compose(
   emptyVehicles
 )
 
-const forAllPlayersDo = f => G => ({
-  ...G,
-  players: {
-    0: f(G.players['0']),
-    1: f(G.players['1']),
-  },
-})
+export const onNovemberBegin = forAllPlayers(onNovemberBeginForPlayer)
 
-export const onNovemberBegin = forAllPlayersDo(onNovemberBeginForPlayer)
-
-export const onMayBegin = forAllPlayersDo(onMayBeginForPlayer)
+export const onMayBegin = forAllPlayers(onMayBeginForPlayer)
 
 const lighthouseReset = lighthouse => ({
   used: false,
