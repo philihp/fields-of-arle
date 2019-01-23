@@ -155,7 +155,8 @@
     ]
   },
   "engines": {
-    "npm": "^6.4.1"
+    "npm": "^6.6.0",
+    "node": "^11.7.0"
   },
   "license": "MIT",
   "repository": "https://github.com/philihp/fields-of-arle"
