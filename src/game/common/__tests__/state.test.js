@@ -5,12 +5,12 @@ describe('state', () => {
   const ctx = { currentPlayer: '0' }
   // let G
   // beforeEach(() => {
-  //   G = initialState
+  //   G = initialState(2)
   // })
 
   describe('toolBump', () => {
     it('bumps a tool', () => {
-      const G = initialState
+      const G = initialState(2)
       expect(G.toolSpaces.fishTraps).toEqual([0, 0])
       const G2 = toolBump('fishTraps')({ G, ctx }).G
       expect(G2.toolSpaces.fishTraps).toEqual([1, 0])
@@ -19,7 +19,7 @@ describe('state', () => {
       expect(G.toolSpaces.fishTraps).not.toBe(G2.toolSpaces.fishTraps)
     })
     it('repeatedly bumps', () => {
-      const G = initialState
+      const G = initialState(2)
       expect(G.toolSpaces.fishTraps).toEqual([0, 0])
       const G2 = toolBump('fishTraps')({ G, ctx }).G
       expect(G2.toolSpaces.fishTraps).toEqual([1, 0])
@@ -27,7 +27,7 @@ describe('state', () => {
       expect(G3.toolSpaces.fishTraps).toEqual([2, 0])
     })
     it('bumps a tool', () => {
-      const G = initialState
+      const G = initialState(2)
       const G2 = toolBump('fishTraps')({ G: G, ctx }).G
       const G3 = toolBump('fishTraps')({ G: G2, ctx }).G
       const G4 = toolBump('fishTraps')({ G: G3, ctx }).G

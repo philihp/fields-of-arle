@@ -8,6 +8,7 @@
     "boardgame.io": "^0.30.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "classnames": "^2.2.6",
+    "deneg-zero": "^1.0.1",
     "html-webpack-plugin": "^4.0.0-beta.4",
     "object-assign": "^4.1.1",
     "postcss-flexbugs-fixes": "^4.1.0",
@@ -154,7 +155,8 @@
     ]
   },
   "engines": {
-    "npm": "^6.4.1"
+    "npm": "^6.6.0",
+    "node": "^11.7.0"
   },
   "license": "MIT",
   "repository": "https://github.com/philihp/fields-of-arle"

@@ -2,7 +2,7 @@ import waterfrontHouse from '../waterfrontHouse'
 import { initialState } from '../../index'
 
 const stateWith = () => ({
-  G: initialState,
+  G: initialState(2),
   ctx: {
     currentPlayer: '0',
   },

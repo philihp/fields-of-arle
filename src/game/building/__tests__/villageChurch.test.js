@@ -2,7 +2,7 @@ import villageChurch from '../villageChurch'
 import { initialState } from '../../index'
 
 const stateWith = () => ({
-  G: initialState,
+  G: initialState(2),
   ctx: {
     currentPlayer: '0',
   },

@@ -1,4 +1,5 @@
 import { arrangeItem } from '../common/land'
+import { forAllPlayers } from '../common/player'
 
 const dikeIsEmpty = c => c.type === 'dike' && c.contents.length === 0
 
@@ -72,13 +73,7 @@ export const autoArrange = G => {
   // ensure we don't recreate an identical G
   if (Object.keys(G.players).every(p => G.players[p].tokens.length === 0))
     return G
-  return {
-    ...G,
-    players: {
-      '0': autoArrangePlayer(G.players['0']),
-      '1': autoArrangePlayer(G.players['1']),
-    },
-  }
+  return forAllPlayers(autoArrangePlayer)(G)
 }
 
 export default (G, ctx, args) => {

@@ -9,6 +9,7 @@ const Application = Client({
   game: Game,
   board: Board,
   debug: process.env.NODE_ENV === 'development',
+  numPlayers: 1,
   enhancer:
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__(),

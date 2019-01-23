@@ -67,15 +67,17 @@ const Board = ({
       <SupplyBoard supplies={G.supplies} />
     </div>
 
-    <div className="col col4">
-      <Tableau
-        player={players[1]}
-        action={action}
-        moves={moves}
-        activePlayer={currentPlayer === '1'}
-        phase={ctx.phase}
-      />
-    </div>
+    {players.length > 1 && (
+      <div className="col col4">
+        <Tableau
+          player={players[1]}
+          action={action}
+          moves={moves}
+          activePlayer={currentPlayer === '1'}
+          phase={ctx.phase}
+        />
+      </div>
+    )}
   </div>
 )
 

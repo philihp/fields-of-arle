@@ -22,40 +22,20 @@ import {
 } from './game/building/type'
 import { initialState } from './game/'
 import { winterActionsReset, summerActionsReset } from './game/workerSpaces'
+import {
+  inventoryingTurnOrder,
+  preparationsTurnOrder,
+  actionTurnOrder,
+  allPlayersPassed,
+  resetPassed,
+} from './game/turnOrders'
 
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
 
-const inventoryingTurnOrder = {
-  first: (G, ctx) => +ctx.currentPlayer,
-  next: (G, ctx) => -(+ctx.currentPlayer - 1),
-}
-
-const preparationsTurnOrder = {
-  // this feels weird. it feels like it should just be the lighthouse owner...
-  // but something is calling next, which flips the turn back.
-  first: G => -(+G.lighthouse.owner - 1),
-  next: (G, ctx) => -(+ctx.currentPlayer - 1),
-}
-
-const actionTurnOrder = {
-  first: (G, ctx) => G.workerSpaces[ctx.phase][0],
-  next: (G, ctx) => G.workerSpaces[ctx.phase][0],
-}
-
-const allPlayersPassed = (G, ctx) => Object.values(G.passed).every(b => b)
-
-const resetPassed = (G, ctx) => ({
-  ...G,
-  passed: {
-    0: false,
-    1: false,
-  },
-})
-
 const game = Game({
   setup: ctx => ({
-    ...initialState,
+    ...initialState(ctx.numPlayers),
     buildings: [
       // ...ctx.random.Shuffle(smallHouses).slice(0, 4),
       ...smallHouses.slice(0, 4),

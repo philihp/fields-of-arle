@@ -3,13 +3,14 @@ import {
   inventorySpendFromPlayer,
   payForVehicle,
   sellableAtDestination,
+  forAllPlayers,
 } from '../player'
 import { initialState } from '../../index'
 
 describe('player', () => {
   let player
   beforeEach(() => {
-    player = initialState.players[0]
+    player = initialState(2).players[0]
   })
 
   describe('inventoryAddToPlayer', () => {
@@ -115,6 +116,25 @@ describe('player', () => {
         'leather',
         'horse'
       )
+    })
+  })
+
+  describe('forAllPlayers', () => {
+    it('applies the function to all the values', () => {
+      const G = {
+        players: {
+          0: '123',
+          1: '456  ',
+          2: '789a',
+        },
+      }
+      expect(forAllPlayers(Number.parseInt)(G)).toEqual({
+        players: {
+          0: 123,
+          1: 456,
+          2: 789,
+        },
+      })
     })
   })
 })

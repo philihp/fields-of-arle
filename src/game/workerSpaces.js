@@ -31,38 +31,39 @@ const actionSpaces = {
   winterLaborer: null,
 }
 
-const otherPlayer = startPlayer => -1 * (startPlayer - 1)
+const startSpaces = (numPlayers, startPlayer) =>
+  Array.from({ length: numPlayers }, (v, i) => (i + startPlayer) % numPlayers)
 
-const summerPrepSpaces = startPlayer => ({
-  july: [startPlayer, otherPlayer(startPlayer)],
-  august: [startPlayer, otherPlayer(startPlayer)],
-  september: [startPlayer, otherPlayer(startPlayer)],
-  october: [startPlayer, otherPlayer(startPlayer)],
+const summerPrepSpaces = (numPlayers, startPlayer) => ({
+  july: startSpaces(numPlayers, startPlayer),
+  august: startSpaces(numPlayers, startPlayer),
+  september: startSpaces(numPlayers, startPlayer),
+  october: startSpaces(numPlayers, startPlayer),
   january: [],
   february: [],
   march: [],
   april: [],
 })
 
-const winterPrepSpaces = startPlayer => ({
+const winterPrepSpaces = (numPlayers, startPlayer) => ({
   july: [],
   august: [],
   september: [],
   october: [],
-  january: [startPlayer, otherPlayer(startPlayer)],
-  february: [startPlayer, otherPlayer(startPlayer)],
-  march: [startPlayer, otherPlayer(startPlayer)],
-  april: [startPlayer, otherPlayer(startPlayer)],
+  january: startSpaces(numPlayers, startPlayer),
+  february: startSpaces(numPlayers, startPlayer),
+  march: startSpaces(numPlayers, startPlayer),
+  april: startSpaces(numPlayers, startPlayer),
 })
 
-const summerActionsReset = startPlayer => ({
+const summerActionsReset = (numPlayers, startPlayer) => ({
   ...actionSpaces,
-  ...summerPrepSpaces(startPlayer),
+  ...summerPrepSpaces(numPlayers, startPlayer),
 })
 
-const winterActionsReset = startPlayer => ({
+const winterActionsReset = (numPlayers, startPlayer) => ({
   ...actionSpaces,
-  ...winterPrepSpaces(startPlayer),
+  ...winterPrepSpaces(numPlayers, startPlayer),
 })
 
 export { summerActionsReset, winterActionsReset }
