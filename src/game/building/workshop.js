@@ -9,7 +9,7 @@ export const playersWorkshops = player =>
       []
     )
 
-const findUnusedWorkshops = G => {
+export const findUnusedWorkshops = G => {
   if (G.players['1'] === undefined) {
     return {
       0: playersWorkshops(G.players['0']),
