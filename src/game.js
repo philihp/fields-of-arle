@@ -116,7 +116,7 @@ const game = Game({
         endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
-          workerSpaces: winterActionsReset(+G.lighthouse.owner),
+          workerSpaces: winterActionsReset(ctx.numPlayers, ctx.currentPlayer),
         }),
         turnOrder: preparationsTurnOrder,
         next: 'january',
@@ -161,7 +161,7 @@ const game = Game({
         endPhaseIf: () => true,
         onPhaseBegin: (G, ctx) => ({
           ...G,
-          workerSpaces: summerActionsReset(+G.lighthouse.owner),
+          workerSpaces: summerActionsReset(ctx.numPlayers, ctx.currentPlayer),
         }),
         turnOrder: preparationsTurnOrder,
         next: 'july',
