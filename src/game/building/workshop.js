@@ -9,7 +9,7 @@ export const playersWorkshops = player =>
       []
     )
 
-const findUnusedWorkshops = G => {
+export const findUnusedWorkshops = G => {
   if (G.players['1'] === undefined) {
     return {
       0: playersWorkshops(G.players['0']),
@@ -35,26 +35,4 @@ export const resetPassedIfWorkshops = (G, ctx) => {
     }
   }
   return { ...G, passed, usedWorkshops: [] }
-}
-
-export const workshopTurnOrder = {
-  first: (G, ctx) => {
-    const unusedWorkshops = findUnusedWorkshops(G)
-    // This is hella unelegant
-    if (G.players.length > 1) {
-      if (
-        unusedWorkshops['0'].length === 0 &&
-        unusedWorkshops['1'].length !== 0
-      )
-        return 0 // gonna immediately call next and this will be 1's turn
-      if (
-        unusedWorkshops['0'].length !== 0 &&
-        unusedWorkshops['1'].length === 0
-      )
-        return 1 // gonna immediately call next and this will be 0's turn
-    }
-    return +ctx.currentPlayer
-    // maybe...?   return -(+ctx.currentPlayer - 1)
-  },
-  next: (G, ctx) => deneg(-(+ctx.currentPlayer - 1)),
 }

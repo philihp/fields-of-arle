@@ -56,14 +56,12 @@ const winterPrepSpaces = (numPlayers, startPlayer) => ({
   april: startSpaces(numPlayers, startPlayer),
 })
 
-const summerActionsReset = (numPlayers, startPlayer) => ({
+export const summerActionsReset = (numPlayers, startPlayer) => ({
   ...actionSpaces,
   ...summerPrepSpaces(numPlayers, startPlayer),
 })
 
-const winterActionsReset = (numPlayers, startPlayer) => ({
+export const winterActionsReset = (numPlayers, startPlayer) => ({
   ...actionSpaces,
   ...winterPrepSpaces(numPlayers, startPlayer),
 })
-
-export { summerActionsReset, winterActionsReset }
