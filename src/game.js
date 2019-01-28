@@ -6,10 +6,7 @@ import pass from './game/moves/pass'
 import returnAction from './game/moves/return'
 import load from './game/moves/load'
 import workshop from './game/moves/workshop'
-import {
-  resetPassedIfWorkshops,
-  workshopTurnOrder,
-} from './game/building/workshop'
+import { resetPassedIfWorkshops } from './game/building/workshop'
 import { onNovemberBegin, onMayBegin, onRoundEnd } from './game/endOfRound'
 
 // import { pickWorker } from './game/common/'
@@ -26,6 +23,7 @@ import {
   inventoryingTurnOrder,
   preparationsTurnOrder,
   actionTurnOrder,
+  workshopTurnOrder,
   allPlayersPassed,
   resetPassed,
 } from './game/turnOrders'
