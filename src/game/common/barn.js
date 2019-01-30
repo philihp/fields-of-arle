@@ -22,14 +22,14 @@ export const firstOpenSmallSpace = barn => {
   else if (!barn.small3) return 'small3'
   else if (!barn.small4) return 'small4'
   else if (!barn.large3) return 'large3'
-  else return null
+  else return undefined
 }
 
 export const firstOpenLargeSpace = barn => {
   if (!barn.large1) return 'large1'
   else if (!barn.large2) return 'large2'
   else if (!barn.large3) return 'large3'
-  else return null
+  else return undefined
 }
 
 const SmallVehicles = ['handcart', 'wagon', 'peatBoat', 'plow']
@@ -71,7 +71,7 @@ export const VehicleSlots = {
 export const openBarnSpace = (barn, type) => {
   if (SmallVehicles.includes(type)) return firstOpenSmallSpace(barn)
   else if (LargeVehicles.includes(type)) return firstOpenLargeSpace(barn)
-  else return null
+  else return undefined
 }
 
 export const countVehicle = (barn, type) =>
