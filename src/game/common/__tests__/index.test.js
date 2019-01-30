@@ -1,4 +1,11 @@
-import { afford, distinct, listToKeyedList, remove, repeat } from '../index'
+import {
+  afford,
+  distinct,
+  listToKeyedList,
+  remove,
+  repeat,
+  removeFirstItems,
+} from '../index'
 
 describe('index', () => {
   describe('afford', () => {
@@ -101,6 +108,36 @@ describe('index', () => {
       const fb = 'b'
       const fc = 'c'
       expect(repeat(2, fa, fb, fc)).toEqual(['a', 'b', 'c', 'a', 'b', 'c'])
+    })
+  })
+
+  describe('removeFirstItems', () => {
+    it('removes nothing from an empty list', () => {
+      const result = [].reduce(removeFirstItems('clay'), {
+        list: [],
+        count: 4,
+      })
+      expect(result.count).toBe(4)
+      expect(result.list).toEqual([])
+    })
+    it('removes all it can from a partial list', () => {
+      const result = ['clay', 'wood'].reduce(removeFirstItems('clay'), {
+        list: [],
+        count: 2,
+      })
+      expect(result.count).toBe(1)
+      expect(result.list).toEqual(['wood'])
+    })
+    it('removes no more than it needs to', () => {
+      const result = ['clay', 'wood', 'clay', 'clay', 'brick', 'clay'].reduce(
+        removeFirstItems('clay'),
+        {
+          list: [],
+          count: 3,
+        }
+      )
+      expect(result.count).toBe(0)
+      expect(result.list).toEqual(['wood', 'brick', 'clay'])
     })
   })
 })
