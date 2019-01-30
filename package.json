@@ -30,7 +30,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage --runInBand",
     "test:lint": "eslint --format junit -o test-reports/eslint/results.xml src/",
     "predeploy": "npm run build",
     "lint": "eslint --fix src/**/*.js && stylelint src/**/*.css"
