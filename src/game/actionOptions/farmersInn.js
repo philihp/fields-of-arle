@@ -1,11 +1,5 @@
 import { compose } from 'redux'
-import { applyToCurrentPlayer } from '../common/player'
-
-const clearAction = ({ G, ctx, ...args }) => ({
-  G: { ...G, action: null },
-  ctx,
-  ...args,
-})
+import { actionOption, applyToCurrentPlayer } from '../common/player'
 
 const convertCheckedFieldsToForest = ({ args }) => ({ G, ctx }) => {
   const locs = args[0].locs
@@ -39,5 +33,5 @@ const convertCheckedFieldsToForest = ({ args }) => ({ G, ctx }) => {
 export default ({ G, ctx, ...args }) =>
   compose(
     convertCheckedFieldsToForest(args),
-    clearAction
+    actionOption(null)
   )({ G, ctx, ...args }).G

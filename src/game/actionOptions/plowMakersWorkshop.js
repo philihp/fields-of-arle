@@ -1,5 +1,6 @@
 import { compose } from 'redux'
 import { findSeaLevel } from '../common/land'
+import { actionOption, applyToCurrentPlayer } from '../common/player'
 import { passIfNoOtherWorkshops } from './workshop'
 
 // TODO replace this with place(type)(args) from ../common/land
@@ -48,15 +49,9 @@ const placeField = ({ G, ctx, ...args }) => {
   return fields.reduce(placePlowedFields, { G, ctx, ...args })
 }
 
-const clearAction = ({ G, ctx, ...args }) => ({
-  G: { ...G, action: null },
-  ctx,
-  ...args,
-})
-
 export default ({ G, ctx, ...args }) =>
   compose(
     passIfNoOtherWorkshops,
     placeField,
-    clearAction
+    actionOption(null)
   )({ G, ctx, ...args }).G

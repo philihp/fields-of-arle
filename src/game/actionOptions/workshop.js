@@ -1,6 +1,7 @@
 import { compose } from 'redux'
 import { toolBump } from '../common/state'
 import { spendInventory } from '../common'
+import { actionOption } from '../common/player'
 import { ToolUpgradeCosts } from '../constants'
 import { playersWorkshops } from '../building/workshop'
 
@@ -22,16 +23,8 @@ const payForTool = ({ G, ctx, args: [{ tool }] }) => ({
   args: [{ tool }],
 })
 
-const bumpToolComposable = ({ G, ctx, ...args }) => {
-  const [{ tool }] = args
-  toolBump(tool)({ G, ctx, args })
-}
-
-const clearAction = ({ G, ctx, args }) => ({
-  G: { ...G, action: null },
-  ctx,
-  args,
-})
+const bumpToolComposable = ({ G, ctx, ...args }) =>
+  toolBump(args.args[0].tool)({ G, ctx, ...args })
 
 export const passIfNoOtherWorkshops = ({ G, ctx, ...args }) => ({
   G: {
@@ -52,5 +45,5 @@ export default ({ G, ctx, args }) =>
     passIfNoOtherWorkshops,
     bumpToolComposable,
     payForTool,
-    clearAction
+    actionOption(null)
   )({ G, ctx, args }).G
