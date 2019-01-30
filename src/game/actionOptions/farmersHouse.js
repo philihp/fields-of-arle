@@ -1,15 +1,10 @@
 import { compose } from 'redux'
 import peatCutter from './peatCutter'
 import { passIfNoOtherWorkshops } from './workshop'
+import { actionOption } from '../common/player'
 
 const cutPeat = ({ G, ctx, ...args }) => ({
   G: peatCutter({ G, ctx, args: args.args }),
-  ctx,
-  ...args,
-})
-
-const clearAction = ({ G, ctx, ...args }) => ({
-  G: { ...G, action: null },
   ctx,
   ...args,
 })
@@ -18,5 +13,5 @@ export default ({ G, ctx, ...args }) =>
   compose(
     passIfNoOtherWorkshops,
     cutPeat,
-    clearAction
+    actionOption(null)
   )({ G, ctx, ...args }).G
