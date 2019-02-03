@@ -82,6 +82,26 @@ describe('land', () => {
       expect(result.players['0'].dikes[3][0].contents[0]).toBe('horse')
       expect(result.players['0'].land[4][0].contents).toHaveLength(0)
     })
+    it('moves a horse to tokens', () => {
+      // setup...
+      const GWithHorse = arrangeItem(state, {
+        src: { type: 'land', row: 4, col: 0, i: 0 },
+        dst: { type: 'land', row: 3, col: 0, i: 0 },
+      })
+      const stateWithFloatingToken = place('castle')({
+        ...state,
+        G: GWithHorse,
+        args: [{ row: 3, col: 0 }],
+      })
+      expect(stateWithFloatingToken.G.players['0'].tokens).toEqual(['horse'])
+      // okay now do it
+      const result = arrangeItem(stateWithFloatingToken, {
+        src: { type: 'tokens', i: 0 },
+        dst: { type: 'land', row: 3, col: 1, i: 1 },
+      })
+      expect(result.players['0'].tokens).toEqual([])
+      expect(result.players['0'].land[3][1].contents).toEqual(['horse'])
+    })
   })
 
   describe('place', () => {
