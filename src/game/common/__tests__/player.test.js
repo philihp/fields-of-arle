@@ -4,6 +4,8 @@ import {
   payForVehicle,
   sellableAtDestination,
   forAllPlayers,
+  setAction,
+  usableVehicles,
 } from '../player'
 import { initialState } from '../../index'
 
@@ -135,6 +137,37 @@ describe('player', () => {
           2: 789,
         },
       })
+    })
+  })
+
+  describe('setAction', () => {
+    const state = {
+      G: {},
+      ctx: {},
+    }
+    it('sets the state', () => {
+      const result = setAction({ ...state, 0: 'engage' })
+      expect(result.G.action).toEqual('engage')
+    })
+  })
+
+  describe('usableVehicles', () => {
+    const playerWithBarn = {
+      barn: {
+        small1: { type: 'plow', contents: [] },
+        small2: null,
+        small3: null,
+        small4: null,
+        large1: null,
+        large2: null,
+        large3: null,
+      },
+    }
+    const result = usableVehicles(playerWithBarn)
+    expect(result).toContainEqual({
+      type: 'plow',
+      contents: [],
+      space: 'small1',
     })
   })
 })

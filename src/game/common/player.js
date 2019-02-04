@@ -22,8 +22,9 @@ export const actionOption = action => ({ G, ...args }) => ({
   ...args,
 })
 
-export const setAction = ({ G, ctx, ...args }) =>
-  actionOption(args[0])({ G, ctx, ...args })
+export const setAction = state => {
+  return actionOption(state[0])(state)
+}
 
 // TODO: Refactor to use addTokenToPlayer and applyToCurrentPlayer
 export const addToken = ({ G, ctx, ...args }, newToken) => ({
@@ -320,7 +321,7 @@ export const sellableAtDestination = player => [
 export const usableVehicles = player =>
   Object.entries(player.barn)
     // remove any spaces with nothing in the parked spot
-    .filter(([space, parked]) => parked !== null)
+    .filter(([_, parked]) => parked !== null)
     // map the key/name of the space into the vehicle itself
     .map(([space, val]) => ({ ...val, space }))
 
