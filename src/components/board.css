@@ -43,19 +43,8 @@ button:not([disabled]) {
 }
 
 button:hover:not([disabled]) {
-  animation: glow 1s infinite;
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 3px #1cc6ff;
-  }
-  50% {
-    box-shadow: 0 0 10px #1cc6ff;
-  }
-  to {
-    box-shadow: 0 0 3px #1cc6ff;
-  }
+  box-shadow: 0 0 10px #1cc6ff;
+  cursor: pointer;
 }
 
 button[disabled] {
