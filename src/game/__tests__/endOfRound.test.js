@@ -6,6 +6,7 @@ import {
   emptyVehicles,
   sustenanceFood,
   sustenanceFuel,
+  onRoundEnd,
 } from '../endOfRound'
 import { countAnimals } from '../../game/common/player'
 
@@ -510,5 +511,117 @@ describe('sustenanceFuel', () => {
     })
     expect(result.inventory).toEqual(['clay', 'clay'])
     expect(result.supplyBottlenecks).toEqual(4)
+  })
+})
+
+describe('onRoundEnd', () => {
+  describe('two player game', () => {
+    it('resets lighthouse', () => {
+      const state = {
+        G: {
+          lighthouse: {
+            used: true,
+            owner: 0,
+          },
+          halfYear: 3,
+        },
+        ctx: {
+          currentPlayer: 0,
+          numPlayers: 1,
+        },
+      }
+      const result = onRoundEnd(state.G, state.ctx)
+      expect(result.halfYear).toEqual(4)
+      expect(result.lighthouse).toEqual({
+        owner: 0,
+        used: true,
+      })
+    })
+  })
+  describe('one player game', () => {
+    it('resets lighthouse if used by 0', () => {
+      const state = {
+        G: {
+          lighthouse: {
+            used: true,
+            owner: 0,
+          },
+          halfYear: 3,
+        },
+        ctx: {
+          currentPlayer: 0,
+          numPlayers: 2,
+        },
+      }
+      const result = onRoundEnd(state.G, state.ctx)
+      expect(result.halfYear).toEqual(4)
+      expect(result.lighthouse).toEqual({
+        owner: 0,
+        used: false,
+      })
+    })
+    it('resets lighthouse if used by 1', () => {
+      const state = {
+        G: {
+          lighthouse: {
+            used: true,
+            owner: 1,
+          },
+          halfYear: 3,
+        },
+        ctx: {
+          currentPlayer: 0,
+          numPlayers: 2,
+        },
+      }
+      const result = onRoundEnd(state.G, state.ctx)
+      expect(result.halfYear).toEqual(4)
+      expect(result.lighthouse).toEqual({
+        owner: 1,
+        used: false,
+      })
+    })
+    it('resets lighthouse if not used by 0', () => {
+      const state = {
+        G: {
+          lighthouse: {
+            used: false,
+            owner: 0,
+          },
+          halfYear: 3,
+        },
+        ctx: {
+          currentPlayer: 0,
+          numPlayers: 2,
+        },
+      }
+      const result = onRoundEnd(state.G, state.ctx)
+      expect(result.halfYear).toEqual(4)
+      expect(result.lighthouse).toEqual({
+        owner: 1,
+        used: false,
+      })
+    })
+    it('resets lighthouse if not used by 1', () => {
+      const state = {
+        G: {
+          lighthouse: {
+            used: false,
+            owner: 1,
+          },
+          halfYear: 3,
+        },
+        ctx: {
+          currentPlayer: 0,
+          numPlayers: 2,
+        },
+      }
+      const result = onRoundEnd(state.G, state.ctx)
+      expect(result.halfYear).toEqual(4)
+      expect(result.lighthouse).toEqual({
+        owner: 0,
+        used: false,
+      })
+    })
   })
 })

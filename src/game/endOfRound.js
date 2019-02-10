@@ -1,14 +1,14 @@
 import { compose } from 'redux'
+import deneg from 'deneg-zero'
 import {
   addGoodsToPlayer,
   countAnimals,
   curriedAddGoodsToPlayer,
-  inventoryAdd,
   inventoryAddToPlayer,
   forAllPlayers,
 } from './common/player'
 import { destinationSize } from './destinations/index'
-import { spendInventory, remove, flatten } from './common/index'
+import { remove, flatten } from './common/index'
 import { playerBarnVehicles } from './common/barn'
 import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
 
@@ -258,14 +258,14 @@ export const onNovemberBegin = forAllPlayers(onNovemberBeginForPlayer)
 
 export const onMayBegin = forAllPlayers(onMayBeginForPlayer)
 
-const lighthouseReset = lighthouse => ({
-  used: false,
+const lighthouseReset = (lighthouse, numPlayers) => ({
+  used: numPlayers === 1,
   // if lighthouse was not used, swap the owner
-  owner: lighthouse.used ? lighthouse.owner : -(lighthouse.owner - 1),
+  owner: lighthouse.used ? lighthouse.owner : deneg(-(lighthouse.owner - 1)),
 })
 
 export const onRoundEnd = (G, ctx) => ({
   ...G,
   halfYear: G.halfYear + 1,
-  lighthouse: lighthouseReset(G.lighthouse),
+  lighthouse: lighthouseReset(G.lighthouse, ctx.numPlayers),
 })

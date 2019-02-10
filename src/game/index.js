@@ -110,7 +110,7 @@ export const initialState = numPlayers => {
     workerSpaces: summerActionsReset(numPlayers, defaultLighthouseOwner),
     lighthouse: {
       owner: defaultLighthouseOwner,
-      used: false,
+      used: numPlayers === 1,
     },
     toolSpaces: {
       fishTraps: emptyTools,
