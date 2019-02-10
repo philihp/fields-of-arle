@@ -34,3 +34,31 @@
   grid-column-start: 4;
   grid-column-end: 5;
 }
+
+button:not([disabled]) {
+  background-color: #1cc6ff;
+  border-color: #1cc6ff;
+  border-style: outset;
+  border-radius: 3px;
+}
+
+button:hover:not([disabled]) {
+  animation: glow 1s infinite;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 3px #1cc6ff;
+  }
+  50% {
+    box-shadow: 0 0 10px #1cc6ff;
+  }
+  to {
+    box-shadow: 0 0 3px #1cc6ff;
+  }
+}
+
+button[disabled] {
+  background-color: white;
+  cursor: not-allowed;
+}

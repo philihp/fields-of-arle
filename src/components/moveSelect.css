@@ -1,10 +1,7 @@
 .MoveSelect button {
   width: auto;
   /* width: 100%; */
-  padding: 10px;
   margin: 5px;
-  border-radius: 5px;
-  font-size: 14pt;
 }
 
 .MoveSelect button.selected {

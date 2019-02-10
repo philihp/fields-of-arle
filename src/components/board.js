@@ -93,8 +93,8 @@ const Board = ({
         .filter(entry => entry.action.type === 'MAKE_MOVE')
         .map(entry => (
           <div>
-            {entry.action.payload.type}
-            {JSON.stringify(entry.action.payload.args)}
+            {entry.action.payload.type}{' '}
+            {entry.action.payload.args.map(a => JSON.stringify(a)).join(', ')}
           </div>
         ))}
     </div>
