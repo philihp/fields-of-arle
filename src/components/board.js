@@ -31,10 +31,10 @@ const Board = ({
   events,
   moves,
   undo,
+  log,
 }) => (
   <div className={classNames('Board', color(currentPlayer))}>
     <ActionsOption G={G} ctx={ctx} moves={moves} />
-
     <div className="col col1">
       <Tableau
         player={players[0]}
@@ -45,12 +45,11 @@ const Board = ({
         phase={ctx.phase}
       />
     </div>
-
     <div className="col col2">
       <BuildingsBoard buildings={G.buildings} moves={moves} />
     </div>
     <div className="col col3">
-      <LighthouseStatus lighthouse={G.lighthouse} />
+      {ctx.numPlayers > 1 && <LighthouseStatus lighthouse={G.lighthouse} />}
       <RoundBoard round={G.halfYear} />
 
       <PreparationsBoard workerSpaces={G.workerSpaces} phase={ctx.phase} />
@@ -66,7 +65,6 @@ const Board = ({
       />
       <SupplyBoard supplies={G.supplies} />
     </div>
-
     {players.length > 1 && (
       <div className="col col4">
         <Tableau
@@ -78,6 +76,28 @@ const Board = ({
         />
       </div>
     )}
+    <div>
+      {/* [
+      {log
+        .filter(entry => entry.action.type === 'MAKE_MOVE')
+        .map(entry => (
+          <div>
+            {JSON.stringify({
+              [entry.action.payload.type]: entry.action.payload.args,
+            })}
+            ,
+          </div>
+        ))}
+      ] */}
+      {log
+        .filter(entry => entry.action.type === 'MAKE_MOVE')
+        .map(entry => (
+          <div>
+            {entry.action.payload.type}
+            {JSON.stringify(entry.action.payload.args)}
+          </div>
+        ))}
+    </div>
   </div>
 )
 

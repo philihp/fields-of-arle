@@ -25,7 +25,7 @@ const strokeColor = worker => {
   }
 }
 
-const WorkerSpot = ({ worker, job, disabled, onClick, label }) => {
+const WorkerSpot = ({ worker, job, onClick, label }) => {
   const handleClick = onClick ? onClick(job) : undefined
 
   const displayedLabel = label || job
