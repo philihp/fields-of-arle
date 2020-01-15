@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "homepage": "https://arle.philihp.com/",
   "dependencies": {
-    "@babel/polyfill": "^7.6.0",
+    "@babel/polyfill": "^7.8.3",
     "autoprefixer": "^9.6.1",
     "boardgame.io": "^0.32.1",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
@@ -37,12 +37,12 @@
     "lint": "eslint --fix src/**/*.js && stylelint src/**/*.css"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "acorn": "^6.1.1",
     "ajv": "^6.10.2",
     "babel-core": "^7.0.0-bridge.0",
