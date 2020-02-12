@@ -21,7 +21,7 @@
     "redux": "^4.0.4",
     "resolve": "^1.12.0",
     "sw-precache-webpack-plugin": "^0.11.5",
-    "webpack": "^4.29.6",
+    "webpack": "^4.41.6",
     "webpack-dev-server": "^3.8.1",
     "webpack-manifest-plugin": "^2.0.4",
     "whatwg-fetch": "^3.0.0"
