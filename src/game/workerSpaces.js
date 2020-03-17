@@ -31,37 +31,40 @@ const actionSpaces = {
   winterLaborer: null,
 }
 
-const startSpaces = (numPlayers, startPlayer) =>
-  Array.from({ length: numPlayers }, (v, i) => (i + startPlayer) % numPlayers)
+const startSpaces = (numberPlayers, startPlayer) =>
+  Array.from(
+    { length: numberPlayers },
+    (v, i) => (i + startPlayer) % numberPlayers
+  )
 
-const summerPrepSpaces = (numPlayers, startPlayer) => ({
-  july: startSpaces(numPlayers, startPlayer),
-  august: startSpaces(numPlayers, startPlayer),
-  september: startSpaces(numPlayers, startPlayer),
-  october: startSpaces(numPlayers, startPlayer),
+const summerPrepSpaces = (numberPlayers, startPlayer) => ({
+  july: startSpaces(numberPlayers, startPlayer),
+  august: startSpaces(numberPlayers, startPlayer),
+  september: startSpaces(numberPlayers, startPlayer),
+  october: startSpaces(numberPlayers, startPlayer),
   january: [],
   february: [],
   march: [],
   april: [],
 })
 
-const winterPrepSpaces = (numPlayers, startPlayer) => ({
+const winterPrepSpaces = (numberPlayers, startPlayer) => ({
   july: [],
   august: [],
   september: [],
   october: [],
-  january: startSpaces(numPlayers, startPlayer),
-  february: startSpaces(numPlayers, startPlayer),
-  march: startSpaces(numPlayers, startPlayer),
-  april: startSpaces(numPlayers, startPlayer),
+  january: startSpaces(numberPlayers, startPlayer),
+  february: startSpaces(numberPlayers, startPlayer),
+  march: startSpaces(numberPlayers, startPlayer),
+  april: startSpaces(numberPlayers, startPlayer),
 })
 
-export const summerActionsReset = (numPlayers, startPlayer) => ({
+export const summerActionsReset = (numberPlayers, startPlayer) => ({
   ...actionSpaces,
-  ...summerPrepSpaces(numPlayers, startPlayer),
+  ...summerPrepSpaces(numberPlayers, startPlayer),
 })
 
-export const winterActionsReset = (numPlayers, startPlayer) => ({
+export const winterActionsReset = (numberPlayers, startPlayer) => ({
   ...actionSpaces,
-  ...winterPrepSpaces(numPlayers, startPlayer),
+  ...winterPrepSpaces(numberPlayers, startPlayer),
 })

@@ -96,10 +96,10 @@ const homeBoard = {
 
 const defaultLighthouseOwner = 0
 
-export const initialState = numPlayers => {
-  const players = { ...new Array(numPlayers).fill(homeBoard) }
-  const passed = { ...new Array(numPlayers).fill(false) }
-  const emptyTools = new Array(numPlayers).fill(0)
+export const initialState = numberPlayers => {
+  const players = { ...new Array(numberPlayers).fill(homeBoard) }
+  const passed = { ...new Array(numberPlayers).fill(false) }
+  const emptyTools = new Array(numberPlayers).fill(0)
   return {
     players,
     passed,
@@ -107,10 +107,10 @@ export const initialState = numPlayers => {
     action: null,
     workshop: null,
     usedWorkshops: [],
-    workerSpaces: summerActionsReset(numPlayers, defaultLighthouseOwner),
+    workerSpaces: summerActionsReset(numberPlayers, defaultLighthouseOwner),
     lighthouse: {
       owner: defaultLighthouseOwner,
-      used: numPlayers === 1,
+      used: numberPlayers === 1,
     },
     toolSpaces: {
       fishTraps: emptyTools,

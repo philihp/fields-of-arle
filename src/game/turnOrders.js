@@ -2,24 +2,27 @@ import deneg from 'deneg-zero'
 import { findUnusedWorkshops } from './building/workshop'
 
 export const inventoryingTurnOrder = {
-  first: (G, ctx) => +ctx.currentPlayer,
-  next: (G, ctx) => deneg(-(+ctx.currentPlayer - (ctx.numPlayers - 1))),
+  first: (G, context) => +context.currentPlayer,
+  next: (G, context) =>
+    deneg(-(+context.currentPlayer - (context.numPlayers - 1))),
 }
 
 export const preparationsTurnOrder = {
   // this feels weird. it feels like it should just be the lighthouse owner...
   // but something is calling next, which flips the turn back.
-  first: (G, ctx) => deneg(-(+G.lighthouse.owner - (ctx.numPlayers - 1))),
-  next: (G, ctx) => deneg(-(+ctx.currentPlayer - (ctx.numPlayers - 1))),
+  first: (G, context) =>
+    deneg(-(+G.lighthouse.owner - (context.numPlayers - 1))),
+  next: (G, context) =>
+    deneg(-(+context.currentPlayer - (context.numPlayers - 1))),
 }
 
 export const actionTurnOrder = {
-  first: (G, ctx) => G.workerSpaces[ctx.phase][0],
-  next: (G, ctx) => G.workerSpaces[ctx.phase][0],
+  first: (G, context) => G.workerSpaces[context.phase][0],
+  next: (G, context) => G.workerSpaces[context.phase][0],
 }
 
 export const workshopTurnOrder = {
-  first: (G, ctx) => {
+  first: (G, context) => {
     const unusedWorkshops = findUnusedWorkshops(G)
     // This is hella unelegant
     if (G.players.length > 1) {
@@ -34,15 +37,15 @@ export const workshopTurnOrder = {
       )
         return 1 // gonna immediately call next and this will be 0's turn
     }
-    return +ctx.currentPlayer
+    return +context.currentPlayer
     // maybe...?   return -(+ctx.currentPlayer - 1)
   },
-  next: (G, ctx) => deneg(-(+ctx.currentPlayer - 1)),
+  next: (G, context) => deneg(-(+context.currentPlayer - 1)),
 }
 
 export const allPlayersPassed = G => Object.values(G.passed).every(b => b)
 
-export const resetPassed = (G, ctx) => ({
+export const resetPassed = (G, context) => ({
   ...G,
-  passed: { ...new Array(ctx.numPlayers).fill(false) },
+  passed: { ...new Array(context.numPlayers).fill(false) },
 })

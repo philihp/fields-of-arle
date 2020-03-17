@@ -258,14 +258,14 @@ export const onNovemberBegin = forAllPlayers(onNovemberBeginForPlayer)
 
 export const onMayBegin = forAllPlayers(onMayBeginForPlayer)
 
-const lighthouseReset = (lighthouse, numPlayers) => ({
-  used: numPlayers === 1,
+const lighthouseReset = (lighthouse, numberPlayers) => ({
+  used: numberPlayers === 1,
   // if lighthouse was not used, swap the owner
   owner: lighthouse.used ? lighthouse.owner : deneg(-(lighthouse.owner - 1)),
 })
 
-export const onRoundEnd = (G, ctx) => ({
+export const onRoundEnd = (G, context) => ({
   ...G,
   halfYear: G.halfYear + 1,
-  lighthouse: lighthouseReset(G.lighthouse, ctx.numPlayers),
+  lighthouse: lighthouseReset(G.lighthouse, context.numPlayers),
 })
