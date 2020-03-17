@@ -30,10 +30,7 @@ const warden = {
     },
   }),
   farm: ([row, col]) =>
-    compose(
-      flipSingleFarm([row, col]),
-      flipIfSouthMoor([row + 1, col])
-    ),
+    compose(flipSingleFarm([row, col]), flipIfSouthMoor([row + 1, col])),
 }
 
 export default ({ G, ctx, ...args }) => {

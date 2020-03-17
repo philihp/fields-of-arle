@@ -11,7 +11,10 @@ import { removeFirstAnimal } from '../common/animals'
 const findLocationOf = moor => {
   if (moor === 'boardwalk') return [[4, 1]]
   const [_, colStr] = moor.split('-')
-  return [[5, Math.trunc(colStr)], [6, Math.trunc(colStr)]]
+  return [
+    [5, Math.trunc(colStr)],
+    [6, Math.trunc(colStr)],
+  ]
 }
 
 const killMoorCell = (land, [row, col]) => [

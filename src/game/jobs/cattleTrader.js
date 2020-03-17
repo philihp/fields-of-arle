@@ -7,8 +7,4 @@ const addTwoFood = ({ G, ctx, ...args }) =>
 const addSheep = ({ G, ctx, ...args }) => addToken({ G, ctx, ...args }, 'sheep')
 
 export default (G, ctx, ...args) =>
-  compose(
-    setAction,
-    addTwoFood,
-    addSheep
-  )({ G, ctx, ...args }).G
+  compose(setAction, addTwoFood, addSheep)({ G, ctx, ...args }).G
