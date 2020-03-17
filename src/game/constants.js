@@ -49,4 +49,9 @@ export const ToolUpgradeCosts = {
 
 export const toolValue = (name, index) => ToolIncrements[name][index]
 
-export const possiblePeatLocations = [[4, 1], [5, 0], [5, 1], [5, 2]]
+export const possiblePeatLocations = [
+  [4, 1],
+  [5, 0],
+  [5, 1],
+  [5, 2],
+]
