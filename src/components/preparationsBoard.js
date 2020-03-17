@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import PreparationMonth from './preparationMonth'
 import './preparationsBoard.css'
 
-export default class PreparationsBoard extends React.Component {
-  static propTypes = {
-    workerSpaces: PropTypes.any.isRequired,
-    phase: PropTypes.string,
-  }
-
+class PreparationsBoard extends React.Component {
   constructor() {
     super()
     this.monthHash = {
@@ -78,3 +73,10 @@ export default class PreparationsBoard extends React.Component {
     )
   }
 }
+
+PreparationsBoard.propTypes = {
+  workerSpaces: PropTypes.any.isRequired,
+  phase: PropTypes.string,
+}
+
+export default PreparationsBoard
