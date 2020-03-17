@@ -4,17 +4,7 @@ import WorkerSpot from './workerSpot'
 import ToolTrack from './toolTrack'
 import './actionsBoard.css'
 
-export default class ActionsBoard extends React.Component {
-  static propTypes = {
-    action: PropTypes.string,
-    workerSpaces: PropTypes.any.isRequired,
-    toolSpaces: PropTypes.any.isRequired,
-    moves: PropTypes.any.isRequired,
-    currentPlayer: PropTypes.any.isRequired,
-    phase: PropTypes.string.isRequired,
-    lighthouseUsed: PropTypes.bool.isRequired,
-  }
-
+class ActionsBoard extends React.Component {
   hasPlacedWorker = () => {
     const { workerSpaces, currentPlayer, phase } = this.props
     // need to || [], because the November/December/May/June spots are undefined
@@ -372,3 +362,15 @@ export default class ActionsBoard extends React.Component {
     )
   }
 }
+
+ActionsBoard.propTypes = {
+  action: PropTypes.string,
+  workerSpaces: PropTypes.any.isRequired,
+  toolSpaces: PropTypes.any.isRequired,
+  moves: PropTypes.any.isRequired,
+  currentPlayer: PropTypes.any.isRequired,
+  phase: PropTypes.string.isRequired,
+  lighthouseUsed: PropTypes.bool.isRequired,
+}
+
+export default ActionsBoard

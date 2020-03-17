@@ -56,7 +56,4 @@ const convertSpacesToPlows = state => {
 }
 
 export default state =>
-  compose(
-    convertSpacesToPlows,
-    actionOption(null)
-  )(state).G
+  compose(convertSpacesToPlows, actionOption(null))(state).G

@@ -12,8 +12,4 @@ const addLeather = ({ G, ctx, ...args }) => ({
 })
 
 export default (G, ctx, ...args) =>
-  compose(
-    setAction,
-    addLeather,
-    addGrain
-  )({ G, ctx, ...args }).G
+  compose(setAction, addLeather, addGrain)({ G, ctx, ...args }).G

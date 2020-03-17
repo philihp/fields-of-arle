@@ -26,7 +26,4 @@ const consume1FoodOr1Grain = ({ G, ctx }) => ({
 })
 
 export default (G, ctx, ...args) =>
-  compose(
-    consume1FoodOr1Grain,
-    setAction
-  )({ G, ctx, ...args }).G
+  compose(consume1FoodOr1Grain, setAction)({ G, ctx, ...args }).G

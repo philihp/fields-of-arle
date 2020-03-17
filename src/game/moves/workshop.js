@@ -51,7 +51,4 @@ const actionsForWorkshop = workshop => {
 }
 
 export default (G, ctx, workshop) =>
-  compose(
-    ...actionsForWorkshop(workshop),
-    useWorkshop
-  )({ G, ctx, workshop }).G
+  compose(...actionsForWorkshop(workshop), useWorkshop)({ G, ctx, workshop }).G

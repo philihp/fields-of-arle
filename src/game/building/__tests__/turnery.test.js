@@ -6,8 +6,14 @@ const stateWith = (type = 'forest') => ({
       0: {
         inventory: [],
         land: [
-          [{ type, contents: [] }, { type, contents: [] }],
-          [{ type, contents: [] }, { type, contents: [] }],
+          [
+            { type, contents: [] },
+            { type, contents: [] },
+          ],
+          [
+            { type, contents: [] },
+            { type, contents: [] },
+          ],
         ],
       },
     },

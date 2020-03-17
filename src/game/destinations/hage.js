@@ -30,10 +30,7 @@ const sellField = field => {
 
 const convertField = field => {
   if (field === null) return identity
-  return compose(
-    sellField(field),
-    curriedAddGoodsToPlayer('food', 1)
-  )
+  return compose(sellField(field), curriedAddGoodsToPlayer('food', 1))
 }
 
 export default conversionInputs =>

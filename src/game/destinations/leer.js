@@ -33,10 +33,7 @@ const convertWoolen = input => player => {
 const convertCattle = input => {
   if (input === null) return identity
   const [animal] = input
-  return compose(
-    removeFirstAnimal(animal),
-    curriedAddGoodsToPlayer('food', 5)
-  )
+  return compose(removeFirstAnimal(animal), curriedAddGoodsToPlayer('food', 5))
 }
 
 const convertClothing = input => player => {

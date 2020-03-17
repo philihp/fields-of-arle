@@ -6,7 +6,10 @@ const state = args => ({
     players: {
       0: {
         land: [
-          [{ contents: [], type: 'grain' }, { contents: [], type: 'flax' }],
+          [
+            { contents: [], type: 'grain' },
+            { contents: [], type: 'flax' },
+          ],
         ],
       },
     },

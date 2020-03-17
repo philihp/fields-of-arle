@@ -50,6 +50,7 @@ describe('The Farmers Inn component', () => {
 
   it('shows checkboxes on grain and flax fields', () => {
     const Component = data.component
+    // eslint-disable-next-line react/jsx-props-no-spreading
     const mountedComponent = mount(<Component {...props} />)
 
     checkForCheckboxes(mountedComponent, '.grain', 4)
@@ -58,6 +59,7 @@ describe('The Farmers Inn component', () => {
 
   it('allows to select and deselect', () => {
     const Component = data.component
+    // eslint-disable-next-line react/jsx-props-no-spreading
     const mountedComponent = mount(<Component {...props} />)
     // https://github.com/airbnb/enzyme/issues/216
     const grainField = mountedComponent
@@ -75,6 +77,7 @@ describe('The Farmers Inn component', () => {
 
   it('denies selecting more than 3', () => {
     const Component = data.component
+    // eslint-disable-next-line react/jsx-props-no-spreading
     const mountedComponent = mount(<Component {...props} />)
 
     // https://github.com/airbnb/enzyme/issues/216
@@ -104,6 +107,7 @@ describe('The Farmers Inn component', () => {
         },
       },
     }
+    // eslint-disable-next-line react/jsx-props-no-spreading
     const mountedComponent = mount(<Component {...propsWithOnlyOneForest} />)
 
     // https://github.com/airbnb/enzyme/issues/216
@@ -130,6 +134,7 @@ describe('The Farmers Inn component', () => {
         option: spy(),
       },
     }
+    // eslint-disable-next-line react/jsx-props-no-spreading
     const mountedComponent = mount(<Component {...propsWithMoves} />)
 
     // select two grain fields
@@ -148,6 +153,13 @@ describe('The Farmers Inn component', () => {
 
     // assert moves.option has been called appropriately
     const fn = propsWithMoves.moves.option
-    expect(fn.getCall(0).args).toMatchObject([{ locs: [[0, 0], [0, 1]] }])
+    expect(fn.getCall(0).args).toMatchObject([
+      {
+        locs: [
+          [0, 0],
+          [0, 1],
+        ],
+      },
+    ])
   })
 })

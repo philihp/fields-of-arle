@@ -22,10 +22,7 @@ const removeFirstPlow = player => {
 
 const sellPlow = input => {
   if (input === null) return identity
-  return compose(
-    removeFirstPlow,
-    curriedAddGoodsToPlayer('food', 8)
-  )
+  return compose(removeFirstPlow, curriedAddGoodsToPlayer('food', 8))
 }
 
 export default conversionInputs =>

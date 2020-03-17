@@ -21,9 +21,5 @@ const perDoubleStallTwoTimber = player =>
   )(player)
 
 export default applyToCurrentPlayer(
-  compose(
-    perStableOneBrick,
-    perStallOneTimber,
-    perDoubleStallTwoTimber
-  )
+  compose(perStableOneBrick, perStallOneTimber, perDoubleStallTwoTimber)
 )

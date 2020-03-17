@@ -7,13 +7,28 @@ describe('findFirstAnimal', () => {
         { type: 'empty', contents: [] },
         { type: 'empty', contents: ['cattle'] },
       ],
-      [{ type: 'empty', contents: ['sheep'] }, { type: 'empty', contents: [] }],
-      [{ type: 'empty', contents: [] }, { type: 'empty', contents: [] }],
+      [
+        { type: 'empty', contents: ['sheep'] },
+        { type: 'empty', contents: [] },
+      ],
+      [
+        { type: 'empty', contents: [] },
+        { type: 'empty', contents: [] },
+      ],
     ],
     dikes: [
-      [{ type: 'empty', contents: [] }, { type: 'dike', contents: ['cattle'] }],
-      [{ type: 'dike', contents: [] }, { type: 'dike', contents: [] }],
-      [{ type: 'dike', contents: ['horse'] }, { type: 'empty', contents: [] }],
+      [
+        { type: 'empty', contents: [] },
+        { type: 'dike', contents: ['cattle'] },
+      ],
+      [
+        { type: 'dike', contents: [] },
+        { type: 'dike', contents: [] },
+      ],
+      [
+        { type: 'dike', contents: ['horse'] },
+        { type: 'empty', contents: [] },
+      ],
     ],
   }
 

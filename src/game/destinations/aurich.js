@@ -18,18 +18,12 @@ const convertLeather = input => {
 const convertAnimal = input => {
   if (input === null) return identity
   const [animal] = input
-  return compose(
-    removeFirstAnimal(animal),
-    curriedAddGoodsToPlayer('food', 4)
-  )
+  return compose(removeFirstAnimal(animal), curriedAddGoodsToPlayer('food', 4))
 }
 
 const convertHorse = input => {
   if (input === null) return identity
-  return compose(
-    removeFirstAnimal('horse'),
-    curriedAddGoodsToPlayer('food', 5)
-  )
+  return compose(removeFirstAnimal('horse'), curriedAddGoodsToPlayer('food', 5))
 }
 
 export const size = 2

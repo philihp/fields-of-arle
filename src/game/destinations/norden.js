@@ -10,10 +10,7 @@ import { removeFirstAnimal } from '../common/animals'
 
 const convertSheep = input => {
   if (input === null) return identity
-  return compose(
-    removeFirstAnimal('sheep'),
-    curriedAddGoodsToPlayer('food', 4)
-  )
+  return compose(removeFirstAnimal('sheep'), curriedAddGoodsToPlayer('food', 4))
 }
 
 const findSmallSpaceOccupiedByPlow = findSmallSpaceOccupiedBy('peatBoat')
@@ -33,10 +30,7 @@ const removeFirstPeatBoat = player => {
 
 const convertPeatBoat = input => {
   if (input === null) return identity
-  return compose(
-    removeFirstPeatBoat,
-    curriedAddGoodsToPlayer('food', 5)
-  )
+  return compose(removeFirstPeatBoat, curriedAddGoodsToPlayer('food', 5))
 }
 
 const convertWinterWear = input => {

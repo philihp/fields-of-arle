@@ -8,7 +8,4 @@ import {
 const consume2Food = applyToCurrentPlayer(curriedAddGoodsToPlayer('food', -2))
 
 export default (G, ctx, ...args) =>
-  compose(
-    consume2Food,
-    setAction
-  )({ G, ctx, ...args }).G
+  compose(consume2Food, setAction)({ G, ctx, ...args }).G

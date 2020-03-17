@@ -7,7 +7,4 @@ const addHide = ({ G, ctx, ...args }) => ({
 })
 
 export default (G, ctx, ...args) =>
-  compose(
-    setAction,
-    addHide
-  )({ G, ctx, ...args }).G
+  compose(setAction, addHide)({ G, ctx, ...args }).G
