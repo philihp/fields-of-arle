@@ -31,7 +31,7 @@ import {
 // const summerActions = ['woodcutter','summerMaster','summerCarpenter','laborer','builder','warden']
 // const winterActions = ['woodTrader','winterMaster','winterCarpenter','wainwright','dikeWarden','laborer']
 
-const game = Game({
+const game = {
   setup: ctx => ({
     ...initialState(ctx.numPlayers),
     buildings: [
@@ -168,6 +168,6 @@ const game = Game({
       },
     },
   },
-})
+}
 
 export default game
