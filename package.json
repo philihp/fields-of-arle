@@ -1,6 +1,7 @@
 {
   "name": "fields-of-arle",
-  "version": "0.1.0",
+  "version": "0.3.0",
+  "homepage": "https://arle.philihp.com/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -56,5 +57,33 @@
     "prettier": "^1.19.1",
     "sinon": "^9.0.1",
     "stylelint": "^13.2.1"
-  }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.css": [
+      "prettier --write",
+      "stylelint",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ]
+  },
+  "license": "MIT",
+  "repository": "https://github.com/philihp/fields-of-arle"
 }
