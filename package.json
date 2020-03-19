@@ -20,8 +20,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:lint": "eslint --format junit -o test-reports/eslint/results.xml src/**/*.js",
     "test:ci": "react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js",
     "predeploy": "npm run build"
   },
   "eslintConfig": {
