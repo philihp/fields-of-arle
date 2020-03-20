@@ -6,7 +6,7 @@ import {
   inventorySpendFromPlayer,
   spendGoodsFromPlayer,
 } from '../common/player'
-import { removeFirstAnimal } from '../common/animals'
+// import { removeFirstAnimal } from '../common/animals'
 
 const convertHide = input => {
   if (input === null) return identity

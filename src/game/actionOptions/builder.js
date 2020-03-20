@@ -1,5 +1,4 @@
 import { compose } from 'redux'
-import { spendInventory, spendGoods } from '../../game/common'
 import { actionOption, applyToCurrentPlayer } from '../common/player'
 import { buildingRequiresNoParams } from '../costs/index'
 import onBuild from '../building/onBuild'
@@ -36,36 +35,6 @@ const placeBuildingPlayer = ({ building, row, col }) => player => ({
     ],
     ...player.land.slice(row + 1),
   ],
-})
-
-const expendInventory = ({ cost }) => ({ G, ctx, ...args }) => ({
-  G: {
-    ...G,
-    players: {
-      ...G.players,
-      [ctx.currentPlayer]: {
-        ...G.players[ctx.currentPlayer],
-        inventory: spendInventory(G.players[ctx.currentPlayer].inventory, cost),
-      },
-    },
-  },
-  ctx,
-  ...args,
-})
-
-const expendGoods = ({ cost }) => ({ G, ctx, ...args }) => ({
-  G: {
-    ...G,
-    players: {
-      ...G.players,
-      [ctx.currentPlayer]: {
-        ...G.players[ctx.currentPlayer],
-        goods: spendGoods(G.players[ctx.currentPlayer].goods, cost),
-      },
-    },
-  },
-  ctx,
-  ...args,
 })
 
 export default ({ G, ctx, ...args }) => {

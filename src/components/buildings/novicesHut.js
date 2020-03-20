@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import GenericWorkshop from './genericWorkshop'
 
 class NovicesHut extends GenericWorkshop {

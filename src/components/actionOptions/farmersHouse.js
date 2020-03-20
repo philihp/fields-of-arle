@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableauFarm from '../tableauFarm'
-import { toolValue, possiblePeatLocations } from '../../game/constants'
+import { possiblePeatLocations } from '../../game/constants'
 
 class FarmersHouse extends React.Component {
   handleCutPeat = ({ col, row }) => e => {

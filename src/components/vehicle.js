@@ -8,11 +8,6 @@ import { flipVehicle } from '../game/common/vehicle'
 import { tokenSizes } from '../game/moves/load'
 import './vehicle.css'
 
-const bin = n =>
-  Number(n)
-    .toString(2)
-    .padStart(8, '0')
-
 // a 1 represents an available slot
 const vehicleMask = {
   handcart: /* */ 0b00000001,
@@ -85,7 +80,6 @@ class Vehicle extends React.Component {
       handleWardenFlip,
       handleSmithyConvert,
     } = this.props
-    const mask = vehicleOccupiedMask(vehicle)
     return (
       <div className={classNames('Vehicle', vehicle.type)}>
         {handleWardenFlip &&

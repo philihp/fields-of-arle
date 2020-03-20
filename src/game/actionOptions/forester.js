@@ -1,5 +1,5 @@
 import { compose } from 'redux'
-import { inventoryAdd, actionOption } from '../common/player'
+import { actionOption } from '../common/player'
 
 const actions = {
   forest: [actionOption('foresterPlace')],

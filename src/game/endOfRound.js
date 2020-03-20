@@ -11,6 +11,11 @@ import { destinationSize } from './destinations/index'
 import { remove, flatten } from './common/index'
 import { playerBarnVehicles } from './common/barn'
 import { flip, isInventoryItemButNotPeat, isDestination } from './common/tokens'
+import {
+  resetPassed
+} from './turnOrders'
+
+import { winterActionsReset, summerActionsReset } from './workerSpaces'
 
 // 1: One
 const emptyVehicleIfExists = vehicle => {
@@ -265,7 +270,17 @@ const lighthouseReset = (lighthouse, numPlayers) => ({
 })
 
 export const onRoundEnd = (G, ctx) => ({
-  ...G,
+  ...resetPassed(G, ctx),
   halfYear: G.halfYear + 1,
   lighthouse: lighthouseReset(G.lighthouse, ctx.numPlayers),
+})
+
+export const onAutumnEnd = (G, ctx) => ({
+  ...onRoundEnd(G, ctx),
+  workerSpaces: winterActionsReset(ctx.numPlayers, ctx.currentPlayer),
+})
+
+export const onSpringEnd = (G, ctx) => ({
+  ...onRoundEnd(G, ctx),
+  workerSpaces: summerActionsReset(ctx.numPlayers, ctx.currentPlayer),
 })

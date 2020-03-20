@@ -4,8 +4,6 @@ import BuildingsBoard from '../buildingsBoard'
 import TableauFarm from '../tableauFarm'
 import costs from '../costs/'
 
-const SelectPayment = () => <div>Select Payment</div>
-
 class Builder extends React.Component {
   handlePlaceBuilding = (row, col) => () => {
     const { moves } = this.props
@@ -27,7 +25,7 @@ class Builder extends React.Component {
       )
     }
 
-    const { building, row, col, cost } = selected
+    const { building, row, col } = selected
     if (building !== undefined && (row === undefined || col === undefined)) {
       const player = G.players[currentPlayer]
       return (

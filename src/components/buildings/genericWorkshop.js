@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import GenericBuilding from './genericBuilding'
 
 class GenericWorkshop extends GenericBuilding {
