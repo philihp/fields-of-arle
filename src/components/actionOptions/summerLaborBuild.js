@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { afford, spendInventory } from '../../game/common'
+import { afford } from '../../game/common'
 import { Vehicles, EquipmentCosts } from '../../game/common/barn'
 import { countAnimals } from '../../game/common/player'
 

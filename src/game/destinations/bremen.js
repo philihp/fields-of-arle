@@ -4,13 +4,14 @@ import {
   applyToCurrentPlayer,
   curriedAddGoodsToPlayer,
   inventorySpendFromPlayer,
-  spendGoodsFromPlayer,
+  // spendGoodsFromPlayer,
 } from '../common/player'
 import { removeFirstAnimal } from '../common/animals'
 
 const findLocationOf = moor => {
   if (moor === 'boardwalk') return [[4, 1]]
-  const [_, colStr] = moor.split('-')
+  const cols = moor.split('-')
+  const colStr = cols[1]
   return [
     [5, Math.trunc(colStr)],
     [6, Math.trunc(colStr)],

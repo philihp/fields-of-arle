@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { toolValue, ToolUpgradeCosts } from '../../game/constants'
-import { afford, spendInventory } from '../../game/common'
-
-const workbenches = 'workbenches'
+import { ToolUpgradeCosts } from '../../game/constants'
+import { afford } from '../../game/common'
 
 class Workshop extends React.Component {
   handleMaster = tool => e => {

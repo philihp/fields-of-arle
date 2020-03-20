@@ -1,5 +1,5 @@
 import { compose } from 'redux'
-import { actionOption, applyToCurrentPlayer } from '../common/player'
+import { actionOption } from '../common/player'
 
 const convertCheckedFieldsToForest = ({ args }) => ({ G, ctx }) => {
   const locs = args[0].locs

@@ -1,7 +1,6 @@
 import { compose } from 'redux'
 import {
   actionOption,
-  getVehicle,
   applyToCurrentPlayer,
 } from '../common/player'
 import { VehicleSource } from '../common/vehicle'

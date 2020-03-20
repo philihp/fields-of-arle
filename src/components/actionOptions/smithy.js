@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Vehicle from '../vehicle'
-import { sellableAtDestination, usableVehicles } from '../../game/common/player'
+import { usableVehicles } from '../../game/common/player'
 
 const visible = () => true
 

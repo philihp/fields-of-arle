@@ -1,4 +1,4 @@
-import { remove, flatten, spendInventory, Animals, spendGoods } from './index'
+import { flatten, spendInventory, Animals, spendGoods } from './index'
 import {
   openBarnSpace,
   VehicleSlots,

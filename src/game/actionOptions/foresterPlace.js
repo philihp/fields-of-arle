@@ -1,5 +1,5 @@
 import { compose } from 'redux'
-import { inventoryAdd, actionOption } from '../common/player'
+import { actionOption } from '../common/player'
 import { place } from '../common/land'
 
 export default ({ G, ctx, ...args }) =>

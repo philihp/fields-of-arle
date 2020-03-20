@@ -1,6 +1,6 @@
 import { compose } from 'redux'
 import { findSeaLevel } from '../common/land'
-import { actionOption, applyToCurrentPlayer } from '../common/player'
+import { actionOption } from '../common/player'
 import { passIfNoOtherWorkshops } from './workshop'
 
 // TODO replace this with place(type)(args) from ../common/land

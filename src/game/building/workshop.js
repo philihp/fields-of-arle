@@ -1,4 +1,3 @@
-import deneg from 'deneg-zero'
 import { workshops } from './type'
 
 export const playersWorkshops = player =>

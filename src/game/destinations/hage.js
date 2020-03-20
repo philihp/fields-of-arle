@@ -7,7 +7,9 @@ export const size = 1
 const sellField = field => {
   if (field === null) return identity
   return player => {
-    const [_, colStr, rowStr] = field[0].split('-')
+    const coords = field[0].split('-')
+    const colStr = coords[1]
+    const rowStr = coords[2]
     const col = Math.trunc(colStr)
     const row = Math.trunc(rowStr)
     return {

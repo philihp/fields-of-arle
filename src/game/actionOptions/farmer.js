@@ -1,6 +1,5 @@
-// getVehicle({ G, ctx, ...args }, 'peatBoat')
 import { getVehicle, payForVehicle } from '../common/player'
-import { place, findSeaLevel } from '../common/land'
+import { place } from '../common/land'
 
 const purchasePlow = (accum, withAnimal) => {
   if (!withAnimal) return accum
