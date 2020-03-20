@@ -5,7 +5,7 @@ import pass from './game/moves/pass'
 import returnAction from './game/moves/return'
 import load from './game/moves/load'
 import workshop from './game/moves/workshop'
-import { onNovemberBegin, onMayBegin, onRoundEnd } from './game/endOfRound'
+import { onNovemberBegin, onMayBegin, onSpringEnd, onAutumnEnd } from './game/endOfRound'
 
 import {
   smallHouses,
@@ -16,7 +16,6 @@ import {
 } from './game/building/type'
 import { resetPassedIfWorkshops } from './game/building/workshop'
 import { initialState } from './game/'
-import { winterActionsReset, summerActionsReset } from './game/workerSpaces'
 import {
   allPlayersPassed,
   resetPassed,
@@ -74,67 +73,57 @@ const game = {
     october: {
       moves: { action, option, pass, arrange, return: returnAction, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassed,
+      onEnd: resetPassedIfWorkshops,
       next: 'preNovember',
     },
     preNovember: {
       moves: { pass, workshop, option, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassedIfWorkshops,
+      onEnd: onNovemberBegin,
       next: 'november',
     },
     november: {
       moves: {},
       endIf: allPlayersPassed,
-      onBegin: onNovemberBegin,
-      onEnd: onRoundEnd,
+      onEnd: onAutumnEnd,
       next: 'december',
     },
     december: {
       endIf: () => true,
-      onBegin: (G, ctx) => ({
-        ...G,
-        workerSpaces: winterActionsReset(ctx.numPlayers, ctx.currentPlayer),
-      }),
       next: 'january',
     },
     january: {
       moves: { action, option, pass, arrange, return: returnAction, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassed,
+      onEnd: resetPassed,
       next: 'february',
     },
     february: {
       moves: { action, option, pass, arrange, return: returnAction, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassed,
+      onEnd: resetPassed,
       next: 'march',
     },
     march: {
       moves: { action, option, pass, arrange, return: returnAction, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassed,
+      onEnd: resetPassed,
       next: 'april',
     },
     april: {
       moves: { action, option, pass, arrange, return: returnAction, load },
       endIf: allPlayersPassed,
-      onBegin: resetPassed,
+      onEnd: onMayBegin,
       next: 'may',
     },
     may: {
       moves: {},
       endIf: allPlayersPassed,
-      onBegin: onMayBegin,
-      onEnd: onRoundEnd,
+      onEnd: onSpringEnd,
       next: 'june',
     },
     june: {
       endIf: () => true,
-      onBegin: (G, ctx) => ({
-        ...G,
-        workerSpaces: summerActionsReset(ctx.numPlayers, ctx.currentPlayer),
-      }),
       next: 'july',
     },
   },
