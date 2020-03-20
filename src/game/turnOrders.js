@@ -40,9 +40,13 @@ export const workshopTurnOrder = {
   next: (G, ctx) => deneg(-(+ctx.currentPlayer - 1)),
 }
 
-export const allPlayersPassed = G => Object.values(G.passed).every(b => b)
+export const allPlayersPassed = G => {
+  return Object.values(G.passed).every(b => b)
+}
 
-export const resetPassed = (G, ctx) => ({
-  ...G,
-  passed: { ...new Array(ctx.numPlayers).fill(false) },
-})
+export const resetPassed = (G, ctx) => {
+  return ({
+    ...G,
+    passed: { ...new Array(ctx.numPlayers).fill(false) },
+  })
+}
