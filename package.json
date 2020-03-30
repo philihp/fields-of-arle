@@ -44,7 +44,7 @@
     "boardgame.io": "^0.39.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "jest-junit": "^10.0.0",
