@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "boardgame.io": "0.39.13",
+    "boardgame.io": "0.39.14",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
     "eslint-plugin-import": "2.21.2",
