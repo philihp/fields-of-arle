@@ -34,3 +34,5 @@ I have resolved to make a commit a day on this project. We'll build something co
 
 If you find a bug, please open a Github issue or better yet a PR. My email should be in the git logs, if you'd like to
 contact me.
+
+* I will accept any PRs that increase code coverage by creating tests.
