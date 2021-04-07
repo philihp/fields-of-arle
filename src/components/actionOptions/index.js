@@ -35,6 +35,7 @@ import bakehouse from './bakehouse'
 import smithy from './smithy'
 
 import farmersInn from './farmersInn'
+import pottersInn from './pottersInn'
 
 // Exhaustive list of all of the actions with options to prompt after selected
 
@@ -85,4 +86,5 @@ export default {
   smithy,
 
   farmersInn,
+  pottersInn,
 }

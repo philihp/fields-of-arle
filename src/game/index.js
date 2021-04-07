@@ -27,7 +27,7 @@ const homeBoard = {
   ], // Permanent tokens
   travelExperience: 0,
   goods: {
-    food: 5,
+    food: 50,
     wool: 4,
     flax: 3,
     hide: 2,
