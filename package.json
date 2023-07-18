@@ -4,7 +4,7 @@
   "homepage": "https://arle.philihp.com/",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "5.11.10",
+    "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "11.2.6",
     "@testing-library/user-event": "12.8.3",
     "classnames": "2.3.1",
