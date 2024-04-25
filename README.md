@@ -1,3 +1,5 @@
+If you're interested in working on this, please reach out to me, my email is in the git logs. I'm going to archive this repository for now, though, since I've been pulled toward other projects and I doubt this will ever get any attention. Maybe someday. But for now... frozen in carbonite.
+
 # Fields of Arle on boardgame.io
 
 [![Depfu](https://badges.depfu.com/badges/ede82a33ca142bfe99428710696ad9b3/overview.svg)](https://depfu.com/github/philihp/fields-of-arle?project_id=5793)
